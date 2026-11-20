@@ -295,7 +295,7 @@ for i, k in enumerate(order):
     ax.text(jo[i] + 2, i + 0.18, f"{jo[i]}  (worst {rows[k]['max_joint']:.2f})", va="center", fontsize=6.8)
 ax.set_yticks(yy); ax.set_yticklabels([names.get(k, k) for k in order]); ax.invert_yaxis()
 ax.set_xscale("symlog", linthresh=10); ax.set_xlim(0, 2000)
-ax.set_xlabel("count over 1.0 (envelope of the design cases, factor 2.433; log scale above 10)"); ax.legend(frameon=False, fontsize=8, loc="lower right")
+ax.set_xlabel("count over 1.0 (envelope of the design cases, factor 2.433; log scale above 10)"); ax.legend(frameon=False, fontsize=8, loc="upper right")
 ax.set_title("What each measure does: the design with one measure taken away (or one assumption changed) at a time", fontsize=10, loc="left", color=INK)
 spines(ax); save(fig, "fig_ablation.png")
 
