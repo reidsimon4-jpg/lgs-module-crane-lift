@@ -1,0 +1,72 @@
+{
+ "name": "BEFORE: Framer frame as framed (2 screws per joint), no lift parts, slings straight onto the floor edge truss bottom chords at the same 8 points",
+ "rated_lift_mass_kg": 6500,
+ "steel": "G450",
+ "factors": {
+  "weight": 1.03,
+  "cog": 1.05,
+  "dynamic": 1.5,
+  "load": 1.5
+ },
+ "lift_lines_x": [
+  928.5,
+  4456.5,
+  7543.5,
+  11071.5
+ ],
+ "rim_y": {
+  "S": 44.5,
+  "N": 3255.5
+ },
+ "floor_rim_z": [
+  -279.5,
+  -20.5
+ ],
+ "roof_rim_top_z": 2979.5,
+ "head_z": 3150.0,
+ "hanger": {
+  "label": "hanger strap pair: 50 x 1.5 G450 flat strap, one on each face of the wall, 2 x M12 8.8 bolts each end",
+  "A": 150.0,
+  "kg_m": 1.18
+ },
+ "v_strap": {
+  "label": "inclined strap pair: 50 x 1.2 G450 flat strap, one on each face of the wall, 2 x M12 8.8 bolts each end",
+  "A": 120.0,
+  "kg_m": 0.94
+ },
+ "stirrup": {
+  "label": "folded 2.5 mm G450 cradle plate pair (one each face of the rim), screwed to both rim chords at 100 mm",
+  "A": 375.0,
+  "I_major": 743000.0,
+  "I_minor": 176000.0,
+  "J": 780.0,
+  "kg_m": 5.89
+ },
+ "guide": {
+  "label": "lifting head: folded 3 mm G450 box bracket over the roof rim, M20 lifting pin with sleeve",
+  "A": 0.01,
+  "I": 500000.0,
+  "kg_m": 7.0
+ },
+ "k_sling_N_per_mm": 2000.0,
+ "sling_tolerance_mm": 10.0,
+ "sideways_fraction": 0.05,
+ "slack_cases": true,
+ "joint_fasteners": {},
+ "skew": 0.1,
+ "short_in_envelope": false,
+ "roof_rim_bot_z": 2720.5,
+ "v_legs": [],
+ "joint_fasteners_panels": {},
+ "restraint_lines": {},
+ "link_screws": {},
+ "joint_rules": [],
+ "cradle_half": 300.0,
+ "foot_half": 300.0,
+ "cradle_screw_pitch": 100.0,
+ "no_lift_parts": true,
+ "pickup": "rim",
+ "tilt_deg": 2.0,
+ "skew_in_envelope": false,
+ "sideways_per_head": true
+}

@@ -1,0 +1,322 @@
+{
+ "name": "Lift-engineered classroom module (3.3 x 12.0 m)",
+ "prefix": "LIFT-MOD",
+ "settings": {
+  "corner_through": "x",
+  "bracing": true,
+  "wall_shaping": false,
+  "backings_enabled": true,
+  "backings": {
+   "stud_packs": [
+    {
+     "wall_id": "EW3A",
+     "x": 879.5,
+     "kind": "b2b"
+    },
+    {
+     "wall_id": "EW3B",
+     "x": 129.5,
+     "kind": "b2b"
+    },
+    {
+     "wall_id": "EW3C",
+     "x": 129.5,
+     "kind": "b2b"
+    },
+    {
+     "wall_id": "EW3D",
+     "x": 879.5,
+     "kind": "b2b"
+    }
+   ]
+  }
+ },
+ "walls": [
+  {
+   "id": "EW1",
+   "start": [
+    0.0,
+    44.5
+   ],
+   "end": [
+    12000.0,
+    44.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "splits": [
+    900.0,
+    4500.0,
+    7500.0,
+    11100.0
+   ],
+   "openings": [
+    {
+     "id": "WN1",
+     "kind": "window",
+     "offset": 1800.0,
+     "width": 1800.0,
+     "height": 1200.0,
+     "sill": 900.0
+    },
+    {
+     "id": "DR1",
+     "kind": "door",
+     "offset": 5490.0,
+     "width": 1020.0,
+     "height": 2100.0,
+     "sill": 0.0
+    },
+    {
+     "id": "WN2",
+     "kind": "window",
+     "offset": 8400.0,
+     "width": 1800.0,
+     "height": 1200.0,
+     "sill": 900.0
+    }
+   ]
+  },
+  {
+   "id": "EW2",
+   "start": [
+    11955.5,
+    89.0
+   ],
+   "end": [
+    11955.5,
+    3211.0
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": []
+  },
+  {
+   "id": "EW3A",
+   "start": [
+    12000.0,
+    3255.5
+   ],
+   "end": [
+    10950.0,
+    3255.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": []
+  },
+  {
+   "id": "EW3B",
+   "start": [
+    7650.0,
+    3255.5
+   ],
+   "end": [
+    7350.0,
+    3255.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": []
+  },
+  {
+   "id": "EW3C",
+   "start": [
+    4650.0,
+    3255.5
+   ],
+   "end": [
+    4350.0,
+    3255.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": []
+  },
+  {
+   "id": "EW3D",
+   "start": [
+    0.0,
+    3255.5
+   ],
+   "end": [
+    1050.0,
+    3255.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": []
+  },
+  {
+   "id": "EW4",
+   "start": [
+    44.5,
+    3211.0
+   ],
+   "end": [
+    44.5,
+    89.0
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": []
+  }
+ ],
+ "roofs": [],
+ "floors": [],
+ "rooms": [],
+ "slabs": [],
+ "levels": [],
+ "elements": [
+  {
+   "id": "RIMF_S",
+   "kind": "floor_truss",
+   "p1": [
+    0.0,
+    44.5
+   ],
+   "p2": [
+    12000.0,
+    44.5
+   ],
+   "depth": 300.0,
+   "z": 0.0
+  },
+  {
+   "id": "RIMF_N",
+   "kind": "floor_truss",
+   "p1": [
+    0.0,
+    3255.5
+   ],
+   "p2": [
+    12000.0,
+    3255.5
+   ],
+   "depth": 300.0,
+   "z": 0.0
+  },
+  {
+   "id": "FTE1",
+   "kind": "floor_truss",
+   "p1": [
+    44.5,
+    89.0
+   ],
+   "p2": [
+    44.5,
+    3211.0
+   ],
+   "depth": 300.0,
+   "z": 0.0
+  },
+  {
+   "id": "FT",
+   "kind": "floor_truss",
+   "p1": [
+    600.0,
+    89.0
+   ],
+   "p2": [
+    600.0,
+    3211.0
+   ],
+   "depth": 300.0,
+   "z": 0.0,
+   "array": {
+    "count": 19,
+    "spacing": 600.0,
+    "dir": "x"
+   }
+  },
+  {
+   "id": "FTE2",
+   "kind": "floor_truss",
+   "p1": [
+    11955.5,
+    89.0
+   ],
+   "p2": [
+    11955.5,
+    3211.0
+   ],
+   "depth": 300.0,
+   "z": 0.0
+  },
+  {
+   "id": "RIMR_S",
+   "kind": "floor_truss",
+   "p1": [
+    0.0,
+    44.5
+   ],
+   "p2": [
+    12000.0,
+    44.5
+   ],
+   "depth": 300.0,
+   "z": 3000.0
+  },
+  {
+   "id": "RIMR_N",
+   "kind": "floor_truss",
+   "p1": [
+    0.0,
+    3255.5
+   ],
+   "p2": [
+    12000.0,
+    3255.5
+   ],
+   "depth": 300.0,
+   "z": 3000.0
+  },
+  {
+   "id": "RTE1",
+   "kind": "floor_truss",
+   "p1": [
+    44.5,
+    89.0
+   ],
+   "p2": [
+    44.5,
+    3211.0
+   ],
+   "depth": 300.0,
+   "z": 3000.0
+  },
+  {
+   "id": "RT",
+   "kind": "floor_truss",
+   "p1": [
+    600.0,
+    89.0
+   ],
+   "p2": [
+    600.0,
+    3211.0
+   ],
+   "depth": 300.0,
+   "z": 3000.0,
+   "array": {
+    "count": 19,
+    "spacing": 600.0,
+    "dir": "x"
+   }
+  },
+  {
+   "id": "RTE2",
+   "kind": "floor_truss",
+   "p1": [
+    11955.5,
+    89.0
+   ],
+   "p2": [
+    11955.5,
+    3211.0
+   ],
+   "depth": 300.0,
+   "z": 3000.0
+  }
+ ]
+}

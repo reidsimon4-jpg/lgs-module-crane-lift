@@ -1,0 +1,39 @@
+{
+ "note": "Itemised mass of the FINISHED module as lifted. Unit masses are typical published values; sources are listed in research/ once the design-basis research is merged. The analysis scales the whole itemised mass up to the rated lift mass, so the distribution (and the centre of gravity) is the itemised one and the total is the rated one.",
+ "rated_lift_mass_kg": 6500,
+ "extents": {"x": [0, 12000]},
+ "area_items": {
+  "roof": [
+   {"name": "Roof sheeting, steel 0.42 BMT", "kg_m2": 4.3, "source": "manufacturer data, profiled steel 0.42 BMT"},
+   {"name": "Roof battens / top hats", "kg_m2": 1.2, "source": "estimate: 40 mm top hat 0.55 BMT at 900 centres"},
+   {"name": "Roofing blanket 60 mm with foil", "kg_m2": 1.0, "source": "manufacturer data"},
+   {"name": "Gutters, flashings, cappings (spread)", "kg_m2": 1.5, "source": "estimate: 60 kg over the roof"}
+  ],
+  "ceiling": [
+   {"name": "Ceiling insulation batts R3.5", "kg_m2": 2.0, "source": "manufacturer data, glasswool"},
+   {"name": "Ceiling lining, 13 mm plasterboard", "kg_m2": 9.0, "source": "manufacturer data (a ribbed steel liner would be about 4.5)"},
+   {"name": "Ceiling furring channels", "kg_m2": 1.0, "source": "estimate"},
+   {"name": "Lights, fans, cabling allowance", "kg_m2": 2.0, "source": "estimate"}
+  ],
+  "floor": [
+   {"name": "Flooring, 22 mm particleboard", "kg_m2": 15.4, "source": "700 kg/m3 x 22 mm"},
+   {"name": "Floor covering, carpet tiles", "kg_m2": 4.5, "source": "manufacturer data"},
+   {"name": "Underfloor insulation and lining", "kg_m2": 4.5, "source": "estimate"},
+   {"name": "Underfloor services allowance", "kg_m2": 1.0, "source": "estimate"}
+  ],
+  "wall": [
+   {"name": "Wall cladding, steel 0.42 BMT on battens, sarking", "kg_m2": 5.7, "source": "4.3 sheet + 1.2 battens + 0.2 sarking"},
+   {"name": "Wall insulation batts R2.5", "kg_m2": 1.2, "source": "manufacturer data, glasswool"},
+   {"name": "Wall lining, 13 mm impact-resistant plasterboard", "kg_m2": 10.8, "source": "manufacturer data"},
+   {"name": "Skirting, trims, paint, pinboard allowance", "kg_m2": 1.5, "source": "estimate"}
+  ]
+ },
+ "openings": {"window_kg_m2": 25.0, "door_kg_each": 55.0, "source": "aluminium framed 6.38 mm laminated glass about 25 kg/m2; solid-core door with frame and hardware 55 kg"},
+ "lumps": [
+  {"name": "Air conditioner, indoor and outdoor units", "kg": 62, "at": [11500, 1650, 0], "source": "manufacturer data, 7 kW split system"},
+  {"name": "Switchboard, data, electrical fit-off", "kg": 35, "at": [11700, 400, 0], "source": "estimate"},
+  {"name": "Whiteboards (2)", "kg": 70, "at": [6000, 200, 0], "source": "estimate"},
+  {"name": "Joinery: bench and cupboards", "kg": 120, "at": [600, 1650, 0], "source": "estimate"},
+  {"name": "Sundries: hardware, signage, blinds", "kg": 30, "at": [6000, 1650, 0], "source": "estimate"}
+ ]
+}

@@ -1,0 +1,105 @@
+{
+ "case": "R4_equalised",
+ "nodes": 3146,
+ "elements": 5162,
+ "pynite_seconds": 6.5,
+ "worst_local_axis_misfit": 1.1102230246251565e-16,
+ "max_disp_ref_mm": 1.9783,
+ "max_disp_difference_mm": 3.501583156761967e-08,
+ "relative_disp_difference": 1.7700394211889622e-08,
+ "max_axial_ref_kN": 5.558,
+ "max_axial_difference_kN": 1.7694896087050437e-08,
+ "relative_axial_difference": 3.18385430461028e-09,
+ "max_reaction_difference_N": 6.754971764166839e-06,
+ "slack_straps": [],
+ "sample_axial": {
+  "HANG_S1": {
+   "ref_kN": 3.871,
+   "pynite_kN": 3.871
+  },
+  "VSTR_S1a": {
+   "ref_kN": 2.653,
+   "pynite_kN": 2.653
+  },
+  "VSTR_S1b": {
+   "ref_kN": 2.88,
+   "pynite_kN": 2.88
+  },
+  "HANG_S2": {
+   "ref_kN": 3.728,
+   "pynite_kN": 3.728
+  },
+  "VSTR_S2a": {
+   "ref_kN": 3.035,
+   "pynite_kN": 3.035
+  },
+  "VSTR_S2b": {
+   "ref_kN": 2.599,
+   "pynite_kN": 2.599
+  },
+  "HANG_S3": {
+   "ref_kN": 3.599,
+   "pynite_kN": 3.599
+  },
+  "VSTR_S3a": {
+   "ref_kN": 2.859,
+   "pynite_kN": 2.859
+  },
+  "VSTR_S3b": {
+   "ref_kN": 2.869,
+   "pynite_kN": 2.869
+  },
+  "HANG_S4": {
+   "ref_kN": 3.78,
+   "pynite_kN": 3.78
+  },
+  "VSTR_S4a": {
+   "ref_kN": 2.864,
+   "pynite_kN": 2.864
+  },
+  "VSTR_S4b": {
+   "ref_kN": 2.63,
+   "pynite_kN": 2.63
+  },
+  "HANG_N1": {
+   "ref_kN": 4.157,
+   "pynite_kN": 4.157
+  },
+  "VSTR_N1a": {
+   "ref_kN": 2.587,
+   "pynite_kN": 2.587
+  },
+  "HANG_N2": {
+   "ref_kN": 2.9,
+   "pynite_kN": 2.9
+  },
+  "VSTR_N2a": {
+   "ref_kN": 2.529,
+   "pynite_kN": 2.529
+  },
+  "VSTR_N2b": {
+   "ref_kN": 1.394,
+   "pynite_kN": 1.394
+  },
+  "HANG_N3": {
+   "ref_kN": 2.899,
+   "pynite_kN": 2.899
+  },
+  "VSTR_N3a": {
+   "ref_kN": 1.347,
+   "pynite_kN": 1.347
+  },
+  "VSTR_N3b": {
+   "ref_kN": 2.538,
+   "pynite_kN": 2.538
+  },
+  "HANG_N4": {
+   "ref_kN": 4.053,
+   "pynite_kN": 4.053
+  },
+  "VSTR_N4b": {
+   "ref_kN": 2.562,
+   "pynite_kN": 2.562
+  }
+ }
+}

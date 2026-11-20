@@ -1,0 +1,1471 @@
+{
+ "meta": {
+  "config": "SENSITIVITY: twist buckling length = out-of-plane length (no credit for joint screws)",
+  "W_N": 63743.22499999976,
+  "rated_kg": 6500.0,
+  "itemised_kg": 4635.8061203557645,
+  "cg": [
+   5976.71203247893,
+   1389.085319411412,
+   1235.4257832328724
+  ],
+  "factor": 2.4333750000000003,
+  "factors": {
+   "weight": 1.03,
+   "cog": 1.05,
+   "dynamic": 1.5,
+   "load": 1.5
+  },
+  "member_steel": "G450",
+  "connection_steel": "connections fu 412.5",
+  "lift_points": {
+   "S1": {
+    "node": 3137,
+    "xyz": [
+     928.5,
+     44.5,
+     3150.0
+    ]
+   },
+   "S2": {
+    "node": 3143,
+    "xyz": [
+     4456.5,
+     44.5,
+     3150.0
+    ]
+   },
+   "S3": {
+    "node": 3149,
+    "xyz": [
+     7543.5,
+     44.5,
+     3150.0
+    ]
+   },
+   "S4": {
+    "node": 3155,
+    "xyz": [
+     11071.5,
+     44.5,
+     3150.0
+    ]
+   },
+   "N1": {
+    "node": 3161,
+    "xyz": [
+     928.5,
+     3255.5,
+     3150.0
+    ]
+   },
+   "N2": {
+    "node": 3167,
+    "xyz": [
+     4456.5,
+     3255.5,
+     3150.0
+    ]
+   },
+   "N3": {
+    "node": 3173,
+    "xyz": [
+     7543.5,
+     3255.5,
+     3150.0
+    ]
+   },
+   "N4": {
+    "node": 3179,
+    "xyz": [
+     11071.5,
+     3255.5,
+     3150.0
+    ]
+   }
+  }
+ },
+ "cases": {
+  "R1_rigid": {
+   "label": "Rigid lifting frame, 8 slings of exact equal length and no stretch",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 9395.995110826245,
+    "S2": 9502.514313160465,
+    "S3": 8668.903596502614,
+    "S4": 9483.75201459232,
+    "N1": 7661.592688499295,
+    "N2": 5745.241498586918,
+    "N3": 5752.637792666512,
+    "N4": 7532.587989105423
+   },
+   "sum_R": 63743.22500393979,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 5,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 1.5783786404485034,
+   "max_joint": 0.8426225647181899,
+   "max_link": 0.5372292669380578,
+   "sag_mm": -2.8268651746255395,
+   "hog_mm": -0.6565016407266953,
+   "design": true,
+   "slack_straps": []
+  },
+  "R4_equalised": {
+   "label": "Equalising rig (beam cascade): four equal sling forces on each side, sides by statics",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9329.763839070354,
+    "S2": 9283.174218014557,
+    "S3": 9242.408299590736,
+    "S4": 9195.818678534939,
+    "N1": 6739.987571464968,
+    "N2": 6693.397950409171,
+    "N3": 6652.632031985349,
+    "N4": 6606.042410929553
+   },
+   "sum_R": 63743.22499999963,
+   "unbalance": 3.1236650102073327e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 1.6775360119877267,
+   "max_joint": 0.830675107092562,
+   "max_link": 0.5362863968196063,
+   "sag_mm": -4.067653452168741,
+   "hog_mm": 3.0034650089030865,
+   "design": true,
+   "slack_straps": []
+  },
+  "T1_roll_S": {
+   "label": "Cascade picks off the CoG: module rolls down to the south by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8993.86370765995,
+    "S2": 8993.86370765995,
+    "S3": 8868.09838848933,
+    "S4": 8868.09838848933,
+    "N1": 7054.145879716003,
+    "N2": 7054.145879716003,
+    "N3": 6955.50452413453,
+    "N4": 6955.50452413453
+   },
+   "sum_R": 63743.22499999962,
+   "unbalance": 1.3456284023050102e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 7,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 2.122915597294121,
+   "max_joint": 0.8669460306352733,
+   "max_link": 0.49664614628756243,
+   "sag_mm": -4.443555344038586,
+   "hog_mm": 4.618487494311322,
+   "design": true,
+   "slack_straps": []
+  },
+  "T2_roll_N": {
+   "label": "Cascade picks off the CoG: module rolls down to the north by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9662.156652417898,
+    "S2": 9662.156652417898,
+    "S3": 9527.046286643408,
+    "S4": 9527.046286643408,
+    "N1": 6385.852934958054,
+    "N2": 6385.852934958054,
+    "N3": 6296.556625980454,
+    "N4": 6296.556625980454
+   },
+   "sum_R": 63743.224999999635,
+   "unbalance": 8.263106167305523e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 7,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 1.790063194353291,
+   "max_joint": 0.8725983290480629,
+   "max_link": 0.575701054443577,
+   "sag_mm": -3.8030891120981902,
+   "hog_mm": 1.5167766612362246,
+   "design": true,
+   "slack_straps": []
+  },
+  "T3_pitch_W": {
+   "label": "Cascade picks off the CoG: module pitches down at the west end by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9140.770437492607,
+    "S2": 9140.770437492607,
+    "S3": 9384.812080112686,
+    "S4": 9384.812080112686,
+    "N1": 6585.109871985349,
+    "N2": 6585.109871985349,
+    "N3": 6760.920110409171,
+    "N4": 6760.920110409171
+   },
+   "sum_R": 63743.22499999962,
+   "unbalance": 5.421128662419505e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 1.8014580670322324,
+   "max_joint": 0.8364316596061032,
+   "max_link": 0.5295702265889513,
+   "sag_mm": -5.1058759575563855,
+   "hog_mm": 4.715121157555426,
+   "design": true,
+   "slack_straps": []
+  },
+  "T4_pitch_E": {
+   "label": "Cascade picks off the CoG: module pitches down at the east end by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9515.249922585243,
+    "S2": 9515.249922585243,
+    "S3": 9010.33259502005,
+    "S4": 9010.33259502005,
+    "N1": 6854.888942688709,
+    "N2": 6854.888942688709,
+    "N3": 6491.141039705811,
+    "N4": 6491.141039705811
+   },
+   "sum_R": 63743.224999999635,
+   "unbalance": 6.790571205783635e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 1.9475551312741621,
+   "max_joint": 0.8656147425601507,
+   "max_link": 0.5429428007774646,
+   "sag_mm": -5.811647177742505,
+   "hog_mm": 2.7133133222691006,
+   "design": true,
+   "slack_straps": []
+  },
+  "T5_SW": {
+   "label": "Cascade picks off the CoG: module tilts down to the south-west by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8962.688087738967,
+    "S2": 8962.688087738967,
+    "S3": 9093.643929720905,
+    "S4": 9093.643929720905,
+    "N1": 6857.541702816585,
+    "N2": 6857.541702816585,
+    "N3": 6957.738779723359,
+    "N4": 6957.738779723359
+   },
+   "sum_R": 63743.224999999635,
+   "unbalance": 7.244676595519195e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 2.032073309861369,
+   "max_joint": 0.8765952740022893,
+   "max_link": 0.5037292164649888,
+   "sag_mm": -5.063501033559865,
+   "hog_mm": 5.2052271173711615,
+   "design": true,
+   "slack_straps": []
+  },
+  "T6_SE": {
+   "label": "Cascade picks off the CoG: module tilts down to the south-east by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9220.77779928141,
+    "S2": 9220.77779928141,
+    "S3": 8835.554218178462,
+    "S4": 8835.554218178462,
+    "N1": 7055.011584914947,
+    "N2": 7055.011584914947,
+    "N3": 6760.2688976249965,
+    "N4": 6760.2688976249965
+   },
+   "sum_R": 63743.22499999963,
+   "unbalance": 1.3286799827483264e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 2.190155860568879,
+   "max_joint": 0.8684953387434508,
+   "max_link": 0.5127986754900001,
+   "sag_mm": -5.431408556779835,
+   "hog_mm": 3.774899688512547,
+   "design": true,
+   "slack_straps": []
+  },
+  "T7_NW": {
+   "label": "Cascade picks off the CoG: module tilts down to the north-west by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9428.53528901463,
+    "S2": 9428.53528901463,
+    "S3": 9566.297728736085,
+    "S4": 9566.297728736085,
+    "N1": 6391.694501540922,
+    "N2": 6391.694501540922,
+    "N3": 6485.08498070818,
+    "N4": 6485.08498070818
+   },
+   "sum_R": 63743.22499999964,
+   "unbalance": 8.037649962489013e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 1.8312355650661198,
+   "max_joint": 0.8612041122351038,
+   "max_link": 0.5592451426581192,
+   "sag_mm": -4.572672132820962,
+   "hog_mm": 3.128640430882993,
+   "design": true,
+   "slack_straps": []
+  },
+  "T8_NE": {
+   "label": "Cascade picks off the CoG: module tilts down to the north-east by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9700.03954412069,
+    "S2": 9700.03954412069,
+    "S3": 9294.793473630023,
+    "S4": 9294.793473630023,
+    "N1": 6575.749840075666,
+    "N2": 6575.749840075666,
+    "N3": 6301.029642173436,
+    "N4": 6301.029642173436
+   },
+   "sum_R": 63743.224999999635,
+   "unbalance": 2.15158843275276e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 7,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 1.6306741868266288,
+   "max_joint": 0.8836631622962019,
+   "max_link": 0.5690871934893905,
+   "sag_mm": -4.47804628180404,
+   "hog_mm": 1.7749626470868645,
+   "design": true,
+   "slack_straps": []
+  },
+  "R2_springs": {
+   "label": "Rigid frame with elastic slings",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9392.932163098489,
+    "S2": 9361.344715684143,
+    "S3": 8953.173749455862,
+    "S4": 9343.7143990183,
+    "N1": 7503.196998647779,
+    "N2": 5907.090051677112,
+    "N3": 5893.788197646373,
+    "N4": 7387.984740515767
+   },
+   "sum_R": 63743.225015743825,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 1.578409657819107,
+   "max_joint": 0.8408957890293963,
+   "max_link": 0.53746257488922,
+   "sag_mm": -3.105625205604149,
+   "hog_mm": 0.36672836884797677,
+   "design": true,
+   "slack_straps": []
+  },
+  "L1_squeeze_y": {
+   "label": "Equalising rig, slings lean inwards across the module (5 % of each head's sling force sideways)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9329.763839070354,
+    "S2": 9283.174218014557,
+    "S3": 9242.408299590736,
+    "S4": 9195.818678534939,
+    "N1": 6739.987571464968,
+    "N2": 6693.397950409171,
+    "N3": 6652.632031985349,
+    "N4": 6606.042410929553
+   },
+   "sum_R": 63743.22499999963,
+   "unbalance": 258.97762457808716,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 1.6772776167282821,
+   "max_joint": 0.8297588529892478,
+   "max_link": 0.5360887944843784,
+   "sag_mm": -4.064063767770504,
+   "hog_mm": 2.995104886117182,
+   "design": true,
+   "slack_straps": []
+  },
+  "L2_spread_y": {
+   "label": "Equalising rig, slings lean outwards across the module (5 % of each head's sling force sideways)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9329.763839070354,
+    "S2": 9283.174218014557,
+    "S3": 9242.408299590736,
+    "S4": 9195.818678534939,
+    "N1": 6739.987571464968,
+    "N2": 6693.397950409171,
+    "N3": 6652.632031985349,
+    "N4": 6606.042410929553
+   },
+   "sum_R": 63743.22499999963,
+   "unbalance": 258.9776286714177,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 1.6778289716585475,
+   "max_joint": 0.8315913611981117,
+   "max_link": 0.5364839991536428,
+   "sag_mm": -4.071243136562025,
+   "hog_mm": 3.0118251316677127,
+   "design": true,
+   "slack_straps": []
+  },
+  "L3_squeeze_x": {
+   "label": "Equalising rig, slings lean inwards along the module (5 % of each head's sling force sideways)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9329.763839070354,
+    "S2": 9283.174218014557,
+    "S3": 9242.408299590736,
+    "S4": 9195.818678534939,
+    "N1": 6739.987571464968,
+    "N2": 6693.397950409171,
+    "N3": 6652.632031985349,
+    "N4": 6606.042410929553
+   },
+   "sum_R": 63743.22499999963,
+   "unbalance": 17.471107927269657,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 1.6324587456453927,
+   "max_joint": 0.8269991955354051,
+   "max_link": 0.5309696907643117,
+   "sag_mm": -3.970593923411938,
+   "hog_mm": 2.8202386277706584,
+   "design": true,
+   "slack_straps": []
+  },
+  "L4_spread_x": {
+   "label": "Equalising rig, slings lean outwards along the module (5 % of each head's sling force sideways)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9329.763839070354,
+    "S2": 9283.174218014557,
+    "S3": 9242.408299590736,
+    "S4": 9195.818678534939,
+    "N1": 6739.987571464968,
+    "N2": 6693.397950409171,
+    "N3": 6652.632031985349,
+    "N4": 6606.042410929553
+   },
+   "sum_R": 63743.22499999963,
+   "unbalance": 17.471107726518255,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 1.7226329441157957,
+   "max_joint": 0.8343510186540479,
+   "max_link": 0.5416031028765903,
+   "sag_mm": -4.164712980928286,
+   "hog_mm": 3.1866913900232916,
+   "design": true,
+   "slack_straps": []
+  }
+ },
+ "foot_layout": [
+  {
+   "id": "FOOT_S1h",
+   "side": "S",
+   "x_strap": 928.5,
+   "x_head": 928.5,
+   "cradle": [
+    868.3,
+    988.3
+   ],
+   "seats": [
+    899.2,
+    957.8
+   ],
+   "joints": [
+    899.2,
+    957.8
+   ],
+   "strap_gap": 152.0,
+   "cradle_gap": 117.2
+  },
+  {
+   "id": "FOOT_S2h",
+   "side": "S",
+   "x_strap": 4456.5,
+   "x_head": 4456.5,
+   "cradle": [
+    4396.3,
+    4516.3
+   ],
+   "seats": [
+    4427.2,
+    4485.8
+   ],
+   "joints": [
+    4427.2,
+    4485.8
+   ],
+   "strap_gap": 137.0,
+   "cradle_gap": 101.8
+  },
+  {
+   "id": "FOOT_S3h",
+   "side": "S",
+   "x_strap": 7543.5,
+   "x_head": 7543.5,
+   "cradle": [
+    7483.3,
+    7603.3
+   ],
+   "seats": [
+    7514.2,
+    7572.8
+   ],
+   "joints": [
+    7514.2,
+    7572.8
+   ],
+   "strap_gap": 137.0,
+   "cradle_gap": 102.2
+  },
+  {
+   "id": "FOOT_S4h",
+   "side": "S",
+   "x_strap": 11071.5,
+   "x_head": 11071.5,
+   "cradle": [
+    11011.3,
+    11131.3
+   ],
+   "seats": [
+    11042.2,
+    11100.8
+   ],
+   "joints": [
+    11042.2,
+    11100.8
+   ],
+   "strap_gap": 152.0,
+   "cradle_gap": 116.8
+  },
+  {
+   "id": "FOOT_N1h",
+   "side": "N",
+   "x_strap": 928.5,
+   "x_head": 928.5,
+   "cradle": [
+    868.3,
+    988.3
+   ],
+   "seats": [
+    899.2,
+    957.8
+   ],
+   "joints": [
+    899.2,
+    957.8
+   ],
+   "strap_gap": 152.0,
+   "cradle_gap": 117.2
+  },
+  {
+   "id": "FOOT_N2h",
+   "side": "N",
+   "x_strap": 4456.5,
+   "x_head": 4456.5,
+   "cradle": [
+    4396.3,
+    4516.3
+   ],
+   "seats": [
+    4427.2,
+    4485.8
+   ],
+   "joints": [
+    4427.2,
+    4485.8
+   ],
+   "strap_gap": 137.0,
+   "cradle_gap": 101.8
+  },
+  {
+   "id": "FOOT_N3h",
+   "side": "N",
+   "x_strap": 7543.5,
+   "x_head": 7543.5,
+   "cradle": [
+    7483.3,
+    7603.3
+   ],
+   "seats": [
+    7514.2,
+    7572.8
+   ],
+   "joints": [
+    7514.2,
+    7572.8
+   ],
+   "strap_gap": 137.0,
+   "cradle_gap": 102.2
+  },
+  {
+   "id": "FOOT_N4h",
+   "side": "N",
+   "x_strap": 11071.5,
+   "x_head": 11071.5,
+   "cradle": [
+    11011.3,
+    11131.3
+   ],
+   "seats": [
+    11042.2,
+    11100.8
+   ],
+   "joints": [
+    11042.2,
+    11100.8
+   ],
+   "strap_gap": 152.0,
+   "cradle_gap": 116.8
+  }
+ ],
+ "layout_warnings": [],
+ "envelope": {
+  "members_over": 9,
+  "joints_over": 0,
+  "links_over": 0,
+  "links_tie": 205,
+  "max_link_shear": 0.575701054443577,
+  "max_member": 2.190155860568879,
+  "max_joint": 0.8836631622962019,
+  "added": {
+   "GUIDE_S1": {
+    "N_max": 38.24433276499575,
+    "N_min": 0.24308738840809874,
+    "V": 1092.647669791274,
+    "M": 186292.89451991493,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point S1"
+   },
+   "FOOT_S1h_BASE": {
+    "N_max": 325.93460158432134,
+    "N_min": -0.24054935333145844,
+    "V": 11812.703458591413,
+    "M": 346319.5885074057,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point S1"
+   },
+   "FOOT_S1h_SEAT0": {
+    "N_max": -10684.627507680008,
+    "N_min": -11569.210982009601,
+    "V": 319.0621252837211,
+    "M": 6539.850638677469,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S1 - screwed seat at the chord joint x 899 (bearing packer + cheek screws)"
+   },
+   "FOOT_S1h_SEAT1": {
+    "N_max": -10890.919104582174,
+    "N_min": -11797.00774796673,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S1 - bearing-only seat at the chord joint x 958 (packer, no screws)"
+   },
+   "HANG_S1": {
+    "N_max": 23483.14550604946,
+    "N_min": 21692.833510707384,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point S1"
+   },
+   "GUIDE_S2": {
+    "N_max": 39.35343693482987,
+    "N_min": 0.1286137655529214,
+    "V": 1129.4722031445233,
+    "M": 193175.8826703234,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point S2"
+   },
+   "FOOT_S2h_BASE": {
+    "N_max": 325.91924800683194,
+    "N_min": -0.24054935361474056,
+    "V": 11812.143659663723,
+    "M": 346303.1864004292,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point S2"
+   },
+   "FOOT_S2h_SEAT0": {
+    "N_max": -10684.191572212774,
+    "N_min": -11568.661669316967,
+    "V": 319.0471231307051,
+    "M": 6539.5431113822515,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S2 - screwed seat at the chord joint x 4427 (bearing packer + cheek screws)"
+   },
+   "FOOT_S2h_SEAT1": {
+    "N_max": -10890.474680131814,
+    "N_min": -11796.447738627978,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S2 - bearing-only seat at the chord joint x 4486 (packer, no screws)"
+   },
+   "HANG_S2": {
+    "N_max": 23482.036404165025,
+    "N_min": 21691.953325520222,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point S2"
+   },
+   "GUIDE_S3": {
+    "N_max": 38.61886649272833,
+    "N_min": 0.1360412833843889,
+    "V": 1124.5122648053118,
+    "M": 192508.11165721645,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point S3"
+   },
+   "FOOT_S3h_BASE": {
+    "N_max": 312.3574274938961,
+    "N_min": -0.24054935333145844,
+    "V": 11642.179403450073,
+    "M": 341323.2336884004,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point S3"
+   },
+   "FOOT_S3h_SEAT0": {
+    "N_max": -10340.02350381583,
+    "N_min": -11414.250456823122,
+    "V": 298.8148643730729,
+    "M": 6124.495921939005,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S3 - screwed seat at the chord joint x 7514 (bearing packer + cheek screws)"
+   },
+   "FOOT_S3h_SEAT1": {
+    "N_max": -10534.05125604421,
+    "N_min": -11626.259230132828,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S3 - bearing-only seat at the chord joint x 7573 (packer, no screws)"
+   },
+   "HANG_S3": {
+    "N_max": 23157.525236281144,
+    "N_min": 20991.588965301788,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point S3"
+   },
+   "GUIDE_S4": {
+    "N_max": 37.954395224035714,
+    "N_min": 0.2050669673364089,
+    "V": 1118.8640007711722,
+    "M": 190762.86173793473,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point S4"
+   },
+   "FOOT_S4h_BASE": {
+    "N_max": 312.3664525510671,
+    "N_min": -0.2405493534730995,
+    "V": 11642.514670139448,
+    "M": 341333.05700230744,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point S4"
+   },
+   "FOOT_S4h_SEAT0": {
+    "N_max": -10533.36728089814,
+    "N_min": -11414.579679001237,
+    "V": 298.8251939601478,
+    "M": 6124.707679404181,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S4 - screwed seat at the chord joint x 11042 (bearing packer + cheek screws)"
+   },
+   "FOOT_S4h_SEAT1": {
+    "N_max": -10733.153508782238,
+    "N_min": -11626.59461827774,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S4 - bearing-only seat at the chord joint x 11101 (packer, no screws)"
+   },
+   "HANG_S4": {
+    "N_max": 23158.18971529684,
+    "N_min": 21383.879501439325,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point S4"
+   },
+   "GUIDE_N1": {
+    "N_max": 31.514209427441795,
+    "N_min": 0.3830862855583318,
+    "V": 820.0458628356855,
+    "M": 140482.423707687,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point N1"
+   },
+   "FOOT_N1h_BASE": {
+    "N_max": 255.02904324591833,
+    "N_min": -0.2405493547478691,
+    "V": 9318.628062047113,
+    "M": 273243.3061004663,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point N1"
+   },
+   "FOOT_N1h_SEAT0": {
+    "N_max": -7584.301651791982,
+    "N_min": -9123.94127285781,
+    "V": 249.2025141127363,
+    "M": 5108.156769776923,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N1 - screwed seat at the chord joint x 899 (bearing packer + cheek screws)"
+   },
+   "FOOT_N1h_SEAT1": {
+    "N_max": -7732.3613319619335,
+    "N_min": -9301.982195150184,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N1 - bearing-only seat at the chord joint x 958 (packer, no screws)"
+   },
+   "HANG_N1": {
+    "N_max": 18543.90734345271,
+    "N_min": 15435.189956819517,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point N1"
+   },
+   "GUIDE_N2": {
+    "N_max": 28.690845317502713,
+    "N_min": 0.3349719815116935,
+    "V": 814.3773618787519,
+    "M": 139363.46891278526,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point N2"
+   },
+   "FOOT_N2h_BASE": {
+    "N_max": 237.0212155411437,
+    "N_min": -0.24054935248161202,
+    "V": 8570.877265968478,
+    "M": 251334.08095019677,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point N2"
+   },
+   "FOOT_N2h_SEAT0": {
+    "N_max": -6818.408322779738,
+    "N_min": -8388.206603662435,
+    "V": 232.18546743175267,
+    "M": 4758.943321548478,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N2 - screwed seat at the chord joint x 4427 (bearing packer + cheek screws)"
+   },
+   "FOOT_N2h_SEAT1": {
+    "N_max": -6951.554181891337,
+    "N_min": -8553.96246925649,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N2 - bearing-only seat at the chord joint x 4486 (packer, no screws)"
+   },
+   "HANG_N2": {
+    "N_max": 17060.274932965203,
+    "N_min": 13888.870603424702,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point N2"
+   },
+   "GUIDE_N3": {
+    "N_max": 28.245717200583098,
+    "N_min": 0.33637480420172927,
+    "V": 809.4174236758811,
+    "M": 138646.4253919035,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point N3"
+   },
+   "FOOT_N3h_BASE": {
+    "N_max": 226.79083430693524,
+    "N_min": -0.24054935021535495,
+    "V": 8446.645044825853,
+    "M": 247694.07686169614,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point N3"
+   },
+   "FOOT_N3h_SEAT0": {
+    "N_max": -6829.829335750189,
+    "N_min": -8276.327716228163,
+    "V": 217.51361966640278,
+    "M": 4457.750011784658,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N3 - screwed seat at the chord joint x 7514 (bearing packer + cheek screws)"
+   },
+   "FOOT_N3h_SEAT1": {
+    "N_max": -6958.115717832559,
+    "N_min": -8429.567278817878,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N3 - bearing-only seat at the chord joint x 7573 (packer, no screws)"
+   },
+   "HANG_N3": {
+    "N_max": 16824.163040732125,
+    "N_min": 13906.860346798187,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point N3"
+   },
+   "GUIDE_N4": {
+    "N_max": 31.12932463308854,
+    "N_min": 0.38341555635259694,
+    "V": 803.7489225853036,
+    "M": 137545.78325047964,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point N4"
+   },
+   "FOOT_N4h_BASE": {
+    "N_max": 245.9607003240775,
+    "N_min": -0.24054935248161202,
+    "V": 9157.193006022333,
+    "M": 268513.2589602619,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point N4"
+   },
+   "FOOT_N4h_SEAT0": {
+    "N_max": -7479.605232410083,
+    "N_min": -8971.954772711328,
+    "V": 235.8543462488411,
+    "M": 4834.547911652724,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N4 - screwed seat at the chord joint x 11042 (bearing packer + cheek screws)"
+   },
+   "FOOT_N4h_SEAT1": {
+    "N_max": -7620.06084471031,
+    "N_min": -9140.360377416233,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N4 - bearing-only seat at the chord joint x 11101 (packer, no screws)"
+   },
+   "HANG_N4": {
+    "N_max": 18230.375417859497,
+    "N_min": 15218.247912854622,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point N4"
+   },
+   "FDIA_0a": {
+    "N_max": 342.03098458805044,
+    "N_min": -871.29816426757,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_0b": {
+    "N_max": 403.55091903387927,
+    "N_min": -928.1243186025469,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_1a": {
+    "N_max": 365.04798874414774,
+    "N_min": -676.9148899405443,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_1b": {
+    "N_max": 420.2581998508273,
+    "N_min": -621.7542074207279,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_2a": {
+    "N_max": 12.816000273959316,
+    "N_min": -130.84467769510226,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_2b": {
+    "N_max": 41.098178483050944,
+    "N_min": -91.05071636608652,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_3a": {
+    "N_max": 424.54320564063886,
+    "N_min": -636.4728515104556,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_3b": {
+    "N_max": 450.3517076802016,
+    "N_min": -602.6603355542691,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_4a": {
+    "N_max": 355.05327990688335,
+    "N_min": -826.1225349009034,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_4b": {
+    "N_max": 466.9555664585876,
+    "N_min": -833.4573217433257,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_0a": {
+    "N_max": 600.1478766255998,
+    "N_min": -961.347895492922,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_0b": {
+    "N_max": 511.1671369367737,
+    "N_min": -950.7671307204364,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_1a": {
+    "N_max": 507.01099445495663,
+    "N_min": -602.0753484997796,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_1b": {
+    "N_max": 527.2147647808913,
+    "N_min": -660.8892681636045,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_2a": {
+    "N_max": 223.04034615008308,
+    "N_min": -36.480561549863175,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_2b": {
+    "N_max": 162.60517616101868,
+    "N_min": -78.8035267336769,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_3a": {
+    "N_max": 582.6299371158264,
+    "N_min": -592.0155226566781,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_3b": {
+    "N_max": 494.65997064822324,
+    "N_min": -631.6339244133364,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_4a": {
+    "N_max": 603.7455344038608,
+    "N_min": -1010.0296083035524,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_4b": {
+    "N_max": 478.80338936142124,
+    "N_min": -900.6048962240188,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FBR_0": {
+    "N_max": 91.35649177997485,
+    "N_min": -52.81361642307802,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_1": {
+    "N_max": 82.31398890016985,
+    "N_min": -27.32070614736878,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_2": {
+    "N_max": 76.33906806476922,
+    "N_min": -12.581686947510436,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_3": {
+    "N_max": 74.26703133947957,
+    "N_min": 2.8791196797159366,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_4": {
+    "N_max": 78.19542327126912,
+    "N_min": 10.68786905519253,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_5": {
+    "N_max": 89.70017925804115,
+    "N_min": 12.087083726655766,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_6": {
+    "N_max": 102.72833454543051,
+    "N_min": 15.512871480216738,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_7": {
+    "N_max": 112.96521878413522,
+    "N_min": 18.010626975973295,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_8": {
+    "N_max": 114.85205331977329,
+    "N_min": 14.312065151587472,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_9": {
+    "N_max": 115.71163731465758,
+    "N_min": 11.271687290835043,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_10": {
+    "N_max": 139.31218975126055,
+    "N_min": 11.37276000663295,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_11": {
+    "N_max": 138.2253447629784,
+    "N_min": 15.002886437451053,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_12": {
+    "N_max": 133.65518230499748,
+    "N_min": 19.232179611033747,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_13": {
+    "N_max": 117.65698653191471,
+    "N_min": 16.924307026635418,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_14": {
+    "N_max": 97.3110146488296,
+    "N_min": 13.557469023506544,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_15": {
+    "N_max": 77.2047436182294,
+    "N_min": 12.246934654751438,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_16": {
+    "N_max": 59.54276898596935,
+    "N_min": 13.908313005799426,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_17": {
+    "N_max": 44.32193870745845,
+    "N_min": 17.194133828564972,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_18": {
+    "N_max": 30.814020368434264,
+    "N_min": 19.40873017102699,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_19": {
+    "N_max": 79.12525462193393,
+    "N_min": -40.3000216405538,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_0": {
+    "N_max": 23.322485621201274,
+    "N_min": -3.02071357595527,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_1": {
+    "N_max": 39.96826266310544,
+    "N_min": 3.326339600000695,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_2": {
+    "N_max": 55.13028032129741,
+    "N_min": 4.8833712815416055,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_3": {
+    "N_max": 69.98531298046242,
+    "N_min": 4.010572616478343,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_4": {
+    "N_max": 88.91628258818267,
+    "N_min": 5.100587354607401,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_5": {
+    "N_max": 112.12801405601779,
+    "N_min": 9.090560983103444,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_6": {
+    "N_max": 134.89907128752552,
+    "N_min": 14.413044959408156,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_7": {
+    "N_max": 153.85187344296432,
+    "N_min": 18.49122006532884,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_8": {
+    "N_max": 164.72522481361486,
+    "N_min": 18.94602142673763,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_9": {
+    "N_max": 169.73798944666044,
+    "N_min": 18.26875834056398,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_10": {
+    "N_max": 170.9858202802034,
+    "N_min": 18.553411780955276,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_11": {
+    "N_max": 168.52141639806024,
+    "N_min": 20.174698391740627,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_12": {
+    "N_max": 159.578822109077,
+    "N_min": 20.55140474795907,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_13": {
+    "N_max": 141.2390886894685,
+    "N_min": 16.685901157399922,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_14": {
+    "N_max": 118.374500930931,
+    "N_min": 11.500856199045561,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_15": {
+    "N_max": 94.73426826771642,
+    "N_min": 7.766306766093973,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_16": {
+    "N_max": 74.41605589996487,
+    "N_min": 6.809245157067397,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_17": {
+    "N_max": 58.920112593614704,
+    "N_min": 7.4419249184901135,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_18": {
+    "N_max": 42.77164055297,
+    "N_min": 6.666988369808398,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_19": {
+    "N_max": 24.92332991870244,
+    "N_min": -1.2016767646333015,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   }
+  },
+  "framed_steel_kg": 1302.2136435669795,
+  "added_kg": 116.13231678876731
+ }
+}

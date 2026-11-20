@@ -1,0 +1,1975 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Module Lift Engineering</title>
+<meta name="description" content="Interactive 3D study of how a light-gauge-steel classroom module is engineered to be lifted by crane at 8 points. Preliminary, subject to structural engineering. Not for construction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --font-head:'Outfit',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --font-body:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --bg:#f2f5f9;--surface:#ffffff;--surface-2:#eaf0f7;--text:#0e1e32;--muted:#4a5c71;--line:#d2dce8;
+  --navy:#0c2a4d;--navy-text:#ffffff;--sky:#1677cc;--sky-soft:#dcecfb;--focus:#1677cc;
+  --scene-bg:#e6ecf3;--grid-1:#a6b5c6;--grid-2:#c9d3df;
+  --badge-bg:#ffe9a8;--badge-text:#4d3000;--badge-line:#d99a1e;
+  --u0:#7d93a9;--u1:#2e9b5a;--u2:#e0a52b;--u3:#e8711f;--u4:#d3263b;
+  --frame:#97a4b2;--thick:#3d6da6;--strap:#ef8a22;--head:#f2c230;--plate:#4b5666;--steel:#6d7886;
+  --tie:#0f9f9f;--force:#1f6fe0;--weight:#7e45d1;
+  --rig:#35465c;--sling-slack:#9aa3ad;--sling-load:#e2701c;--select:#0b1220;
+  --shadow:0 1px 2px rgba(14,30,50,.06),0 6px 20px rgba(14,30,50,.07);
+  --radius:12px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#08121e;--surface:#0f1c2e;--surface-2:#152639;--text:#e4ecf6;--muted:#a3b4c8;--line:#26394f;
+    --navy:#0b2340;--navy-text:#ffffff;--sky:#4ba6ff;--sky-soft:#14324f;--focus:#79bdff;
+    --scene-bg:#0c1828;--grid-1:#2f445d;--grid-2:#1c2c40;
+    --badge-bg:#4a3606;--badge-text:#ffe39a;--badge-line:#c78f1a;
+    --u0:#8aa0b6;--u1:#3fb06c;--u2:#e8b03a;--u3:#f07f2e;--u4:#ef4458;
+    --frame:#a3afbd;--thick:#86b2e6;--strap:#f39a3d;--head:#f5cd47;--plate:#7a8697;--steel:#9aa5b2;
+    --tie:#23c0bf;--force:#4f9bff;--weight:#a77bf0;
+    --rig:#b3c1d1;--sling-slack:#6f7a86;--sling-load:#f08a3a;--select:#ffffff;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#08121e;--surface:#0f1c2e;--surface-2:#152639;--text:#e4ecf6;--muted:#a3b4c8;--line:#26394f;
+  --navy:#0b2340;--navy-text:#ffffff;--sky:#4ba6ff;--sky-soft:#14324f;--focus:#79bdff;
+  --scene-bg:#0c1828;--grid-1:#2f445d;--grid-2:#1c2c40;
+  --badge-bg:#4a3606;--badge-text:#ffe39a;--badge-line:#c78f1a;
+  --u0:#8aa0b6;--u1:#3fb06c;--u2:#e8b03a;--u3:#f07f2e;--u4:#ef4458;
+  --frame:#a3afbd;--thick:#86b2e6;--strap:#f39a3d;--head:#f5cd47;--plate:#7a8697;--steel:#9aa5b2;
+  --tie:#23c0bf;--force:#4f9bff;--weight:#a77bf0;
+  --rig:#b3c1d1;--sling-slack:#6f7a86;--sling-load:#f08a3a;--select:#ffffff;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 15px/1.55 var(--font-body);overflow-x:hidden}
+h1,h2,h3{font-family:var(--font-head);line-height:1.2;margin:0}
+a{color:var(--sky)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.muted{color:var(--muted)}
+.small{font-size:.82rem}
+/* header */
+.top{background:var(--navy);color:var(--navy-text);padding:14px 16px;display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between}
+.top h1{font-size:clamp(1.15rem,2.4vw,1.6rem);font-weight:600}
+.top .by{margin:3px 0 0;opacity:.88;font-size:.92rem}
+.badge{margin:0;background:var(--badge-bg);color:var(--badge-text);border:2px solid var(--badge-line);border-radius:10px;padding:7px 12px;font-weight:600;font-size:.92rem;max-width:560px}
+.intro{max-width:1150px;margin:14px 16px 0;color:var(--muted)}
+.intro b{color:var(--text)}
+/* summary */
+.summary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:14px 16px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;box-shadow:var(--shadow);min-width:0}
+.stat .k{display:block;font-size:.76rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.stat .v{display:block;font-family:var(--font-head);font-size:1.55rem;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
+.stat .s{display:block;font-size:.82rem;color:var(--muted)}
+.stat.bad .v{color:var(--u4)}
+.stat.good .v{color:var(--u1)}
+@media (max-width:900px){.summary{grid-template-columns:repeat(2,minmax(0,1fr))}.summary .stat:last-child{grid-column:1/-1}}
+/* workspace */
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:12px;margin:0 16px}
+.workspace.side-hidden{grid-template-columns:minmax(0,1fr)}
+.workspace.side-hidden .side{display:none}
+.viewer{position:relative;height:clamp(460px,76vh,900px);border-radius:var(--radius);overflow:hidden;background:var(--scene-bg);border:1px solid var(--line);box-shadow:var(--shadow);min-width:0}
+.viewer > canvas{display:block;width:100%;height:100%}
+.labels{position:absolute;inset:0;pointer-events:none;z-index:1}
+.side{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);height:clamp(460px,76vh,900px);overflow:auto;min-width:0}
+@media (max-width:960px){
+  .workspace{grid-template-columns:minmax(0,1fr)}
+  .viewer{height:62vh;min-height:340px}
+  .side{height:auto;overflow:visible}
+  .workspace.side-hidden .side{display:block}
+  #btn-side{display:none}
+}
+/* overlays in the viewer */
+.legend{position:absolute;top:10px;left:10px;max-width:min(262px,calc(100% - 20px));background:var(--surface);background:color-mix(in srgb,var(--surface) 93%,transparent);border:1px solid var(--line);border-radius:10px;font-size:.8rem;box-shadow:var(--shadow);z-index:3}
+.legend > summary{cursor:pointer;padding:6px 10px;font-weight:600;list-style-position:inside}
+.legend .lg{padding:0 10px 9px}
+.lg-t{font-weight:600;margin:2px 0 4px}
+.lg-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:1px 0}
+.lg-row .n{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.lg-note{color:var(--muted);margin-top:4px;line-height:1.35}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:7px;border:1px solid rgba(0,0,0,.18);flex:none}
+.sw.round{border-radius:50%}
+.vtools{position:absolute;top:10px;right:10px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;z-index:3;max-width:calc(100% - 20px)}
+.btn{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:8px;padding:7px 12px;font-weight:600;font-size:.88rem;cursor:pointer;line-height:1.2}
+.btn:hover{border-color:var(--sky)}
+.btn.primary{background:var(--sky);border-color:var(--sky);color:#fff}
+.btn[aria-pressed="true"]{background:var(--sky-soft);border-color:var(--sky);color:var(--text)}
+.btn:disabled{opacity:.6;cursor:default}
+.btn.mini{padding:5px 9px;font-size:.82rem}
+.vbadge{position:absolute;left:10px;bottom:10px;z-index:2;background:var(--badge-bg);color:var(--badge-text);border:1px solid var(--badge-line);border-radius:8px;padding:4px 8px;font-size:.74rem;font-weight:600;max-width:calc(100% - 20px)}
+.liftcap{position:absolute;left:50%;transform:translateX(-50%);bottom:44px;z-index:2;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-weight:600;font-size:.86rem;box-shadow:var(--shadow);white-space:nowrap}
+.liftcap[hidden]{display:none}
+.info{position:absolute;right:10px;top:54px;width:min(390px,calc(100% - 20px));max-height:calc(100% - 104px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);z-index:4;padding:12px 14px 14px;font-size:.86rem}
+.info[hidden]{display:none}
+@media (max-width:640px){.info{left:8px;right:8px;top:auto;bottom:8px;width:auto;max-height:56%}}
+.info h3{font-size:1.04rem;margin:0 30px 4px 0}
+.info .sub{margin:0 0 6px;color:var(--muted);font-size:.8rem}
+.info .x{position:absolute;top:8px;right:8px;width:30px;height:30px;padding:0;display:grid;place-items:center;font-size:1.1rem}
+.info p{margin:6px 0}
+.kv{display:grid;grid-template-columns:minmax(90px,auto) 1fr;gap:3px 10px;margin:8px 0}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;font-variant-numeric:tabular-nums;min-width:0}
+.tag{display:inline-block;border-radius:6px;padding:1px 7px;font-weight:700;font-size:.78rem}
+.chip{display:inline-block;min-width:3.1em;text-align:center;padding:1px 6px;border-radius:6px;font-weight:700;font-variant-numeric:tabular-nums}
+.chip.b0{background:var(--u0);color:#0b1626}
+.chip.b1{background:var(--u1);color:#fff}
+.chip.b2{background:var(--u2);color:#2b1d00}
+.chip.b3{background:var(--u3);color:#1d0d00}
+.chip.b4{background:var(--u4);color:#fff}
+.status{position:absolute;inset:0;display:grid;place-items:center;z-index:6;background:var(--scene-bg);color:var(--muted);font-weight:600;padding:24px;text-align:center}
+.status[hidden]{display:none}
+.status.err{color:var(--u4)}
+/* 3D labels */
+.lbl{pointer-events:auto;cursor:pointer;font:600 12px/1.25 var(--font-body);color:var(--text);background:var(--surface);background:color-mix(in srgb,var(--surface) 90%,transparent);border:1px solid var(--line);border-radius:6px;padding:3px 6px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.14)}
+.lbl small{font-weight:500;color:var(--muted);font-size:11px}
+.lbl.lp{border-left:3px solid var(--force)}
+.lbl.cg{border-left:3px solid var(--weight)}
+.lbl.lp{text-align:left;line-height:1.2}
+@media (max-width:640px){
+  .lbl{font-size:10.5px;padding:2px 4px}
+  .lbl small,.lbl.lp br,.lbl.hide-sm{display:none}
+}
+.lbl.ghost{background:var(--scene-bg);background:color-mix(in srgb,var(--scene-bg) 72%,transparent);border:0;box-shadow:none;color:var(--muted);pointer-events:none;font-weight:600;padding:1px 5px;border-radius:4px}
+/* sidebar */
+.tabs{display:flex;position:sticky;top:0;background:var(--surface);border-bottom:1px solid var(--line);z-index:2;border-radius:var(--radius) var(--radius) 0 0}
+.tabs button{flex:1;border:0;background:none;padding:12px 8px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;color:var(--muted)}
+.tabs button[aria-selected="true"]{color:var(--text);border-bottom-color:var(--sky)}
+.pane{padding:10px 14px 18px}
+.pane[hidden]{display:none}
+.ctl{border:0;border-top:1px solid var(--line);margin:0;padding:12px 0;min-width:0}
+.ctl:first-child{border-top:0;padding-top:4px}
+.ctl legend{font-family:var(--font-head);font-weight:600;font-size:1rem;padding:0;margin-bottom:6px;float:left;width:100%}
+.ctl legend + *{clear:both}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.hint{color:var(--muted);font-size:.82rem;margin:6px 0 0}
+.check,.radio{display:flex;gap:8px;align-items:flex-start;padding:3px 0;cursor:pointer}
+.check input,.radio input{margin:3px 0 0;accent-color:var(--sky);width:17px;height:17px;flex:none}
+.field{display:grid;gap:4px;margin-top:8px;font-size:.9rem}
+.range-row{display:grid;grid-template-columns:4.6em minmax(0,1fr) 4.4em;align-items:center;gap:8px;margin-top:6px;font-size:.9rem}
+input[type=range]{width:100%;accent-color:var(--sky);margin:0}
+select{width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+output{font-variant-numeric:tabular-nums;text-align:right}
+.btnrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+/* cards */
+.how-intro{margin:0 0 10px;color:var(--muted);font-size:.86rem}
+.how-nav{display:flex;gap:6px;align-items:center;margin-bottom:10px}
+.how-nav .count{flex:1;text-align:center;color:var(--muted);font-size:.85rem}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.card{border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.card.active{border-color:var(--sky);box-shadow:0 0 0 2px var(--sky-soft)}
+.card-head{width:100%;display:flex;gap:10px;align-items:center;text-align:left;border:0;background:none;padding:10px 12px;cursor:pointer;font-weight:600;border-radius:10px}
+.card-head .num{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--sky-soft);color:var(--sky);font-family:var(--font-head);font-weight:700;font-size:.9rem}
+.card-body{padding:0 12px 12px;font-size:.88rem}
+.card-body[hidden]{display:none}
+.card-body p{margin:7px 0}
+.card-body .without{background:var(--surface-2);border-radius:8px;padding:8px 10px}
+.card-body ul{margin:6px 0;padding-left:18px}
+.card-body li{margin:3px 0}
+/* tables */
+.tables{margin:16px;display:grid;gap:10px}
+.tbl{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);min-width:0}
+.tbl > summary{cursor:pointer;padding:12px 14px;font-family:var(--font-head);font-weight:600;font-size:1.06rem}
+.tbl .body{padding:0 14px 14px;min-width:0}
+.tbl .body > p{margin:0 0 10px;color:var(--muted);font-size:.88rem;max-width:1000px}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:8px;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--surface-2);font-weight:600}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.info-only td{color:var(--muted)}
+tr.hl td{background:var(--sky-soft)}
+.mini-table{font-size:.8rem;margin-top:6px}
+.mini-table th,.mini-table td{padding:3px 6px}
+.keys{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.key{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--surface-2);min-width:0}
+.key .k{font-size:.76rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.key .v{font-family:var(--font-head);font-size:1.3rem;font-weight:600;font-variant-numeric:tabular-nums}
+.key .s{font-size:.82rem;color:var(--muted)}
+.basis{max-width:1000px;font-size:.9rem}
+.basis li{margin:4px 0}
+footer{margin:20px 16px 34px;color:var(--muted);font-size:.85rem;max-width:1100px}
+footer p{margin:4px 0}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Lifting a steel-frame classroom module by crane</h1>
+    <p class="by">Infinity Living Options (ILO) - lift engineering study, Rev D (final design)</p>
+  </div>
+  <p class="badge" role="note">PRELIMINARY - subject to structural engineering. Not for construction.</p>
+</header>
+
+<p class="intro">One classroom module: <b>12.0 m long, 3.3 m wide, about 3.3 m high</b>, framed in 0.95 mm C89 steel sections joined with screws. It is picked up by a crane at <b>8 lift points</b>. This page shows the final <b>Rev D</b> design. Each piece of steel below is coloured by how hard it works during the lift. We call this its <b>utilisation</b>: the force in the part divided by what it can safely carry. <b>1.00</b> means the part is exactly at its design capacity, with all safety factors included. Click any part to see its numbers.</p>
+
+<section class="summary" aria-label="Summary">
+  <div class="stat bad"><span class="k">Before (as framed)</span><span class="v" id="s-before">…</span><span class="s" id="s-before-sub">members / joints over capacity</span></div>
+  <div class="stat good"><span class="k">After (Rev D)</span><span class="v" id="s-after">…</span><span class="s" id="s-after-sub">members / joints over capacity</span></div>
+  <div class="stat"><span class="k">Worst member, after</span><span class="v" id="s-mem">…</span><span class="s" id="s-mem-sub">of design capacity</span></div>
+  <div class="stat"><span class="k">Worst joint, after</span><span class="v" id="s-jnt">…</span><span class="s" id="s-jnt-sub">of design capacity</span></div>
+  <div class="stat"><span class="k">Rated lift mass</span><span class="v" id="s-rated">…</span><span class="s" id="s-factor">total factor …</span></div>
+</section>
+
+<main class="workspace" id="workspace">
+  <div class="viewer" id="viewer">
+    <details class="legend" id="legend" open>
+      <summary>Legend</summary>
+      <div class="lg" id="legend-body"></div>
+    </details>
+    <div class="vtools">
+      <button class="btn primary" id="btn-play" type="button">Play lift</button>
+      <button class="btn" id="btn-home" type="button">Reset view</button>
+      <button class="btn" id="btn-side" type="button" aria-pressed="false" aria-controls="side">Hide panel</button>
+    </div>
+    <div class="liftcap" id="liftcap" hidden aria-live="polite"></div>
+    <div class="vbadge">PRELIMINARY - subject to structural engineering. Not for construction.</div>
+    <div class="info" id="info" hidden role="region" aria-label="Selected part" tabindex="-1">
+      <button class="btn x" id="info-close" type="button" aria-label="Close details">×</button>
+      <div id="info-body"></div>
+    </div>
+    <div class="status" id="status" role="status">Loading the model…</div>
+  </div>
+
+  <aside class="side" id="side" aria-label="Controls and explanations">
+    <div class="tabs" role="tablist" aria-label="Panel">
+      <button role="tab" id="tab-view" aria-selected="true" aria-controls="pane-view" type="button">View</button>
+      <button role="tab" id="tab-how" aria-selected="false" aria-controls="pane-how" type="button" tabindex="-1">How it works</button>
+    </div>
+
+    <div class="pane" id="pane-view" role="tabpanel" aria-labelledby="tab-view">
+      <fieldset class="ctl">
+        <legend>Design</legend>
+        <div class="seg" role="group" aria-label="Before or after">
+          <button class="btn" id="btn-after" type="button" aria-pressed="true">After - Rev D</button>
+          <button class="btn" id="btn-before" type="button" aria-pressed="false">Before - frame as framed</button>
+        </div>
+        <p class="hint" id="mode-hint"></p>
+      </fieldset>
+
+      <fieldset class="ctl">
+        <legend>Colour by</legend>
+        <label class="radio"><input type="radio" name="cm" value="env" checked> <span>How hard it works - worst of all design cases</span></label>
+        <label class="radio"><input type="radio" name="cm" value="case"> <span>How hard it works - one load case</span></label>
+        <label class="radio"><input type="radio" name="cm" value="type"> <span>Part type</span></label>
+        <label class="field" for="case-sel">Load case
+          <select id="case-sel"></select>
+        </label>
+        <p class="hint">The load case sets the sling forces (blue arrows) and the "one load case" colours. Design cases decide pass or fail; information cases are shown for the record only.</p>
+      </fieldset>
+
+      <fieldset class="ctl">
+        <legend>Show</legend>
+        <label class="check"><input type="checkbox" id="chk-rig" checked> <span>Rig above the module (drawn to explain, not to scale)</span></label>
+        <label class="check"><input type="checkbox" id="chk-labels" checked> <span>Labels and sling forces</span></label>
+        <label class="check"><input type="checkbox" id="chk-joints" checked> <span>Joints working at 0.50 or more (dots)</span></label>
+        <label class="check"><input type="checkbox" id="chk-ties" checked> <span>Tie plates (teal)</span></label>
+        <label class="check"><input type="checkbox" id="chk-cg" checked> <span>Centre of gravity and weight</span></label>
+      </fieldset>
+
+      <fieldset class="ctl">
+        <legend>Bent shape</legend>
+        <label class="check"><input type="checkbox" id="chk-defl"> <span>Show the bent (deflected) shape</span></label>
+        <div class="range-row"><label for="rng-mag">Magnify</label><input type="range" id="rng-mag" min="10" max="300" step="10" value="100"><output id="out-mag" for="rng-mag">× 100</output></div>
+        <p class="hint">Main case (equalised rig) under the rated weight. Real movements are a few millimetres, so they are blown up. Before and After use the same magnification.</p>
+      </fieldset>
+
+      <fieldset class="ctl">
+        <legend>Explode</legend>
+        <div class="range-row"><label for="rng-exp">Apart</label><input type="range" id="rng-exp" min="0" max="1.2" step="0.01" value="0"><output id="out-exp" for="rng-exp">0.00 m</output></div>
+        <p class="hint">Lifts the roof (with the lifting heads) and drops the floor (with the cradles) away from the walls. The straps stretch between them.</p>
+      </fieldset>
+
+      <fieldset class="ctl">
+        <legend>Section</legend>
+        <div class="range-row"><label for="rng-x0">x from</label><input type="range" id="rng-x0" min="0" max="12" step="0.1" value="0"><output id="out-x0" for="rng-x0">0.0 m</output></div>
+        <div class="range-row"><label for="rng-x1">x to</label><input type="range" id="rng-x1" min="0" max="12" step="0.1" value="12"><output id="out-x1" for="rng-x1">12.0 m</output></div>
+        <label class="check"><input type="checkbox" id="chk-cut"> <span>Cut away the near (south) half to see inside</span></label>
+        <div class="btnrow"><button class="btn mini" id="btn-cut-reset" type="button">Reset cut</button></div>
+        <p class="hint">x runs along the 12 m length. You can also drag the two blue handles in the 3D view.</p>
+      </fieldset>
+
+      <fieldset class="ctl">
+        <legend>Camera</legend>
+        <div class="btnrow">
+          <button class="btn mini" type="button" data-view="home">Overall</button>
+          <button class="btn mini" type="button" data-view="south">South side</button>
+          <button class="btn mini" type="button" data-view="north">North side</button>
+          <button class="btn mini" type="button" data-view="top">From above</button>
+          <button class="btn mini" type="button" data-view="s2">Lift point S2</button>
+        </div>
+        <p class="hint">Drag to turn, scroll or pinch to zoom, right-drag (or two fingers) to move.</p>
+      </fieldset>
+    </div>
+
+    <div class="pane" id="pane-how" role="tabpanel" aria-labelledby="tab-how" hidden>
+      <p class="how-intro">Ten steps through the lift system. Each card says what the part is, what it does, and what the analysis found without it. Opening a card highlights those parts in the 3D view.</p>
+      <div class="how-nav">
+        <button class="btn mini" id="how-prev" type="button">Back</button>
+        <span class="count" id="how-count" aria-live="polite">Pick a card</span>
+        <button class="btn mini" id="how-next" type="button">Next</button>
+        <button class="btn mini" id="how-clear" type="button">Clear</button>
+      </div>
+      <ol class="cards" id="cards"></ol>
+    </div>
+  </aside>
+</main>
+
+<section class="tables" aria-label="Tables">
+  <details class="tbl" open>
+    <summary>What changed from Rev C to Rev D</summary>
+    <div class="body"><ul class="basis" id="changes"></ul></div>
+  </details>
+  <details class="tbl" open>
+    <summary>Key numbers</summary>
+    <div class="body"><div class="keys" id="keys"></div><p class="small muted" id="rigging-note" style="margin-top:10px"></p></div>
+  </details>
+  <details class="tbl" id="ledger-wrap">
+    <summary>What the module weighs (itemised mass)</summary>
+    <div class="body">
+      <p id="ledger-note"></p>
+      <div class="table-wrap" id="ledger-table"></div>
+    </div>
+  </details>
+  <details class="tbl">
+    <summary>Lifting part checks (connector table)</summary>
+    <div class="body">
+      <p>Every check on the lifting parts, at the worst design case, with the total factor included. "Use" is demand divided by capacity. In the engineering text, "rim" means the floor or roof edge truss.</p>
+      <div class="table-wrap" id="conn-table"></div>
+    </div>
+  </details>
+  <details class="tbl">
+    <summary>Load cases and sling forces</summary>
+    <div class="body">
+      <p id="cases-note"></p>
+      <div class="table-wrap" id="cases-table"></div>
+    </div>
+  </details>
+  <details class="tbl">
+    <summary>What each measure does (one taken away at a time)</summary>
+    <div class="body">
+      <p>Each row is the full Rev D design run again with one measure taken away, plus the Before frame and two checks that are not part of the design. Counts are over all design cases. "Connections" are the joints between panels, checked in shear; any pull across them is taken by tie plates or truss-end cleats (in Rev D the highest shear use is <span id="abl-link-shear">…</span>).</p>
+      <div class="table-wrap" id="abl-table"></div>
+    </div>
+  </details>
+  <details class="tbl">
+    <summary>In service (the classroom in use)</summary>
+    <div class="body">
+      <p id="svc-note"></p>
+      <div class="table-wrap" id="svc-table"></div>
+    </div>
+  </details>
+  <details class="tbl">
+    <summary>How the numbers were worked out</summary>
+    <div class="body basis" id="basis"></div>
+  </details>
+</section>
+
+<footer>
+  <p><b>Infinity Living Options (ILO) - lift engineering study, Rev D (final design).</b> PRELIMINARY - subject to structural engineering. Not for construction.</p>
+  <p>This page does not approve the module for lifting. A registered structural engineer must review, adopt and sign the design; the rig must be certified and proof tested; the hold points (weighing with load cells, hang angle stop, landing on continuous bearers and the others listed in "How it works") must be met. The calculations were produced with AI assistance under ILO's direction and have not been checked or certified by a registered engineer.</p>
+  <p id="drawn-count"></p>
+  <p>Data: data/revD.json (after, Rev D), data/before.json (before: frame only at the Rev D lift points), data/connectors.json, data/ablation.json, data/service.json.</p>
+</footer>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+
+/* ------------------------------------------------------------------ helpers */
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
+const MM = 0.001;
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const fx = (v, d = 2) => (v == null || !Number.isFinite(+v)) ? '–' : (+v).toFixed(d);
+const intf = v => Math.round(v).toLocaleString('en-AU');
+const pl = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
+const pct = u => Number.isFinite(u) ? Math.round(u * 100) + ' %' : '–';
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const narrowMQ = window.matchMedia('(max-width: 960px)');
+const viewer = $('#viewer');
+const statusEl = $('#status');
+function setStatus(msg, err = false) {
+  if (!msg) { statusEl.hidden = true; return; }
+  statusEl.hidden = false; statusEl.textContent = msg;
+  statusEl.classList.toggle('err', err);
+  statusEl.setAttribute('role', err ? 'alert' : 'status');
+}
+
+/* ------------------------------------------------------------------ data */
+async function getJSON(path) {
+  const r = await fetch(path);
+  if (!r.ok) throw new Error(path + ' (HTTP ' + r.status + ')');
+  return r.json();
+}
+const D = { after: null, before: null, conn: null, abl: null, svc: null };
+const pBefore = getJSON('data/before.json');
+pBefore.catch(() => {});
+try {
+  [D.after, D.conn, D.abl, D.svc] = await Promise.all(
+    ['data/revD.json', 'data/connectors.json', 'data/ablation.json', 'data/service.json'].map(getJSON));
+} catch (err) {
+  setStatus('Could not load the data: ' + err.message + '. Open this page through a web server (for example GitHub Pages), not straight from the disk.', true);
+  throw err;
+}
+
+/* ------------------------------------------------------------------ plain names */
+const CASE_NAMES = {
+  R4_equalised: 'Equalised rig (main case)',
+  T1_roll_S: 'Hanging 2° out of level: south side down',
+  T2_roll_N: 'Hanging 2° out of level: north side down',
+  T3_pitch_W: 'Hanging 2° out of level: west end down',
+  T4_pitch_E: 'Hanging 2° out of level: east end down',
+  T5_SW: 'Hanging 2° out of level: south-west corner down',
+  T6_SE: 'Hanging 2° out of level: south-east corner down',
+  T7_NW: 'Hanging 2° out of level: north-west corner down',
+  T8_NE: 'Hanging 2° out of level: north-east corner down',
+  R7a_outer_high: 'Sling shares 10 % off: more on the end points',
+  R7b_inner_high: 'Sling shares 10 % off: more on the inner points',
+  R7c_one_end_high: 'Sling shares 10 % off: more on one end',
+  R7d_twist: 'Sling shares 10 % off: twist',
+  L1_squeeze_y: 'Slings lean in 5 % across',
+  L2_spread_y: 'Slings lean out 5 % across',
+  L3_squeeze_x: 'Slings lean in 5 % along',
+  L4_spread_x: 'Slings lean out 5 % along',
+  /* (names are plain; whether a case is design or information comes from the data) */
+  R1_rigid: 'Rigid frame, equal slings',
+  R2_springs: 'Rigid frame, stretchy slings',
+};
+function caseName(id) {
+  if (!id) return '–';
+  if (CASE_NAMES[id]) return CASE_NAMES[id];
+  let m = id.match(/^R6_short_([SN]\d)$/); if (m) return `Rigid frame, sling ${m[1]} 10 mm short`;
+  m = id.match(/^R5_slack_([SN]\d)$/); if (m) return `Rigid frame, sling ${m[1]} slack (accident)`;
+  return id;
+}
+const WALL_NAMES = {
+  EW1: 'South wall', EW2: 'East end wall (x = 12 m)', EW4: 'West end wall (x = 0)',
+  EW3A: 'North side, east short wall', EW3B: 'North side, post at 7.5 m',
+  EW3C: 'North side, post at 4.5 m', EW3D: 'North side, west short wall',
+};
+const TYPE_NAMES = {
+  'STUD': 'stud', 'KING STUD': 'king stud (full-height stud beside an opening)', 'CRIPPLE': 'short stud (above or below an opening)',
+  'NOGGIN': 'nogging (short piece between studs)', 'DIAGONAL BRACE': 'diagonal brace', 'INTERNAL BRACE': 'internal brace',
+  'BOTTOM TRACK': 'bottom plate (track)', 'TOP TRACK': 'top plate (track)', 'HEADER': 'header (beam over an opening)',
+  'SILL': 'sill (under a window)', 'TOP CHORD': 'top chord (top member)', 'BOTTOM CHORD': 'bottom chord (bottom member)',
+  'WEB': 'web member (diagonal or upright inside the truss)',
+};
+const RULE_PLAIN = {
+  'truss end vertical screwed to the rim (end reaction)': 'Truss end upright screwed to the edge truss',
+  'wall panel to wall panel (seam studs, corner studs, stacked tracks)': 'Wall panel to wall panel (seam or corner studs)',
+  'floor truss chord end to floor rim chord': 'Floor truss chord end to the floor edge truss',
+  'roof truss chord end to roof rim chord': 'Roof truss chord end to the roof edge truss',
+  'wall bottom track on floor rim / end floor truss': 'Wall bottom plate on the floor edge truss',
+  'wall top track under roof rim / end roof truss': 'Wall top plate under the roof edge truss',
+};
+const ABL_NAMES = {
+  revD_final: 'Rev D design (all measures)',
+  A1_framed_screws: 'No added screws or gussets (joints as framed, 2 screws)',
+  A2_no_gussets: '4-screw joints but no joint gussets near the lift points',
+  A3_no_bridging: 'No bridging lines (floor and roof)',
+  A4_no_plane_bracing: 'No floor and roof strap bracing',
+  A5_seat_between_joints: 'Lift points half a truss panel off the joint pairs (cradles bearing between truss joints)',
+  A6_north_trusses_095: 'North edge trusses left at 0.95 mm',
+  A7_single_inner_hanger: 'One hanger strap on the inside face only (north)',
+  B0_frame_only: 'Before: frame as framed, no lifting parts',
+  S1_lining_credit: 'Check only: linings and floor sheet counted as bracing',
+  S2_twist_length_out: 'Check only: no credit for joint screws holding members against twisting',
+};
+function memberTitle(m) {
+  const t = TYPE_NAMES[m.type] || String(m.type || '').toLowerCase();
+  const x = fx(Math.min(m.a[0], m.b[0]) / 1000, 2);
+  switch (m.kind) {
+    case 'wall': return `${WALL_NAMES[m.wall] || 'Wall'} - ${t}`;
+    case 'floor_truss': return `${/^FTE/.test(m.wall || '') ? 'End floor truss' : 'Floor truss'} at x = ${x} m - ${t}`;
+    case 'roof_truss': return `${/^RTE/.test(m.wall || '') ? 'End roof truss' : 'Roof truss'} at x = ${x} m - ${t}`;
+    case 'rim_truss': return `Floor edge truss, ${m.wall === 'RIMF_N' ? 'north' : 'south'} - ${t}`;
+    case 'roof_rim': return `Roof edge truss, ${m.wall === 'RIMR_N' ? 'north' : 'south'} - ${t}`;
+    default: return m.id;
+  }
+}
+function modePlain(mode) {
+  if (!mode) return '–';
+  let t = mode.includes('compression') ? 'Squeezed and bent, buckling checked (compression + bending)'
+    : mode.startsWith('tension') ? 'Pulled and bent (tension + bending)'
+    : mode.startsWith('bending + shear') ? 'Bent and sheared (bending + shear)' : mode;
+  if (mode.includes('lip-notch')) t += ', where the lip is notched';
+  if (mode.includes('web hole')) t += ', at a hole in the web';
+  return t;
+}
+const PANEL_TITLE = {};
+for (const m of D.after.members) {
+  if (m.kind === 'added' || PANEL_TITLE[m.panel]) continue;
+  const x = fx(m.a[0] / 1000, 2);
+  PANEL_TITLE[m.panel] = m.kind === 'wall' ? (WALL_NAMES[m.wall] || 'Wall')
+    : m.kind === 'floor_truss' ? `${/^FTE/.test(m.wall || '') ? 'End floor truss' : 'Floor truss'} at x = ${x} m`
+    : m.kind === 'roof_truss' ? `${/^RTE/.test(m.wall || '') ? 'End roof truss' : 'Roof truss'} at x = ${x} m`
+    : m.kind === 'rim_truss' ? `Floor edge truss, ${m.wall === 'RIMF_N' ? 'north' : 'south'}`
+    : `Roof edge truss, ${m.wall === 'RIMR_N' ? 'north' : 'south'}`;
+}
+const panelTitle = p => `${PANEL_TITLE[p] || 'Panel'} (${p})`;
+
+/* ------------------------------------------------------------------ derived numbers */
+const META = D.after.meta, ENV = D.after.envelope, FACTOR = META.factor;
+const SCREWS = D.after.screws || null, LEDGER = Array.isArray(D.after.ledger) ? D.after.ledger : null;
+const PTS = ['S1', 'S2', 'S3', 'S4', 'N1', 'N2', 'N3', 'N4'];
+const R4 = D.after.cases.R4_equalised.reactions;
+const avg = a => a.reduce((s, v) => s + v, 0) / a.length;
+const sAvg = avg(['S1', 'S2', 'S3', 'S4'].map(k => R4[k])) / 1000;
+const nAvg = avg(['N1', 'N2', 'N3', 'N4'].map(k => R4[k])) / 1000;
+const r6 = Object.entries(D.after.cases).filter(([k]) => k.startsWith('R6'));
+const r6Joint = r6.length ? Math.max(...r6.map(([, c]) => c.max_joint)) : NaN;
+const r6Mem = r6.length ? Math.max(...r6.map(([, c]) => c.max_member)) : NaN;
+const designCount = data => Object.values(data.cases).filter(c => c.design).length;
+/* highest panel-to-panel connection shear (links[].util); per-case max_link includes pull that the ties take, so it is not used */
+const maxLinkShear = Number.isFinite(ENV.max_link_shear) ? ENV.max_link_shear : Math.max(...D.after.links.map(l => l.util));
+const ablById = Object.fromEntries(D.abl.map(r => [r.id, r]));
+const AB = id => ablById[id] || {};
+const CONN_KEY = { hanger: 'Hanger strap', vstrap: 'Inclined strap', cradle: 'Cradle', head: 'Lifting head', tie: 'Tie', cleat: 'Truss-end cleat',
+  brace: 'Plane bracing', bridging: 'Bridging', gusset: 'Joint gusset', stud: 'Stud bearing' };
+const connRows = (cat, prefix) => D.conn.rows.filter(r => r.group.startsWith(prefix || CONN_KEY[cat]));
+const CONN_MAX = {};
+for (const k in CONN_KEY) CONN_MAX[k] = connRows(k).reduce((mx, r) => Math.max(mx, r.util), 0);
+const CONN_TOP = [...D.conn.rows].sort((a, b) => b.util - a.util);
+const shortGroup = g => String(g).replace(/\s*\(.*$/, '');
+const SEATS = Array.isArray(D.conn.seats) ? D.conn.seats : [];
+const FOOTS = Object.fromEntries((D.after.foot_layout || []).map(f => [f.id, f]));
+const isDesign = (data, id) => !!(data.cases[id] && data.cases[id].design);
+/* which part carries the pull across a tied panel joint */
+function tieFor(rule) {
+  if (/chord end to (floor|roof) rim chord/.test(rule)) return 'Truss-end cleat';
+  if (/^wall (bottom|top) track/.test(rule)) return 'Tie T2';
+  if (/^wall panel to wall panel/.test(rule)) return 'Tie T3';
+  return null;
+}
+
+/* ------------------------------------------------------------------ state */
+const S = {
+  mode: 'after', colour: 'env', caseId: D.after.main_cases.includes('R4_equalised') ? 'R4_equalised' : D.after.main_cases[0],
+  showRig: true, showLabels: true, showJoints: true, showTies: true, showCG: true,
+  deflect: false, mag: 100, explode: 0,
+  x0: 0, x1: 12, cutSouth: false,
+  liftLoad: 1, liftZ: 0, play: null,
+  focus: null, card: -1, selected: null,
+};
+const act = () => (S.mode === 'after' ? D.after : D.before);
+
+/* ------------------------------------------------------------------ colours */
+const COL = {};
+const TOKENS = ['scene-bg', 'grid-1', 'grid-2', 'u0', 'u1', 'u2', 'u3', 'u4', 'frame', 'thick', 'strap', 'head', 'plate', 'steel', 'tie', 'force', 'weight', 'rig', 'sling-slack', 'sling-load', 'select', 'sky', 'muted'];
+function readTheme() {
+  const cs = getComputedStyle(document.documentElement);
+  for (const t of TOKENS) { const v = cs.getPropertyValue('--' + t).trim() || '#888888'; (COL[t] || (COL[t] = new THREE.Color())).set(v); }
+}
+readTheme();
+function band(u) {
+  if (u == null || !Number.isFinite(u)) return -1;
+  if (u > 1.0) return 4; if (u >= 0.95) return 3; if (u >= 0.8) return 2; if (u >= 0.5) return 1; return 0;
+}
+const utilCol = u => { const b = band(u); return b < 0 ? COL.frame : COL['u' + b]; };
+const _fade = new THREE.Color();
+const faded = c => _fade.copy(c).lerp(COL['scene-bg'], 0.84);
+const chip = u => { const b = band(u); return b < 0 ? '–' : `<span class="chip b${b}">${fx(u)}</span>`; };
+
+/* ------------------------------------------------------------------ renderer, scene, camera */
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+} catch (err) {
+  setStatus('This browser could not start 3D graphics (WebGL). The tables below still show every number.', true);
+  throw err;
+}
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.localClippingEnabled = true;
+const canvas = renderer.domElement;
+canvas.setAttribute('role', 'img');
+canvas.setAttribute('aria-label', '3D model of the module frame, the lifting parts and the crane rig. Every number shown here is also in the tables below the view.');
+canvas.tabIndex = 0;
+viewer.prepend(canvas);
+const labelRenderer = new CSS2DRenderer();
+labelRenderer.domElement.className = 'labels';
+viewer.insertBefore(labelRenderer.domElement, canvas.nextSibling);
+
+const scene = new THREE.Scene();
+scene.background = COL['scene-bg'].clone();
+const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 160);
+camera.up.set(0, 0, 1);
+/* camera views; the lift-point views follow the lift point positions in the data */
+const S2X = (D.after.lift_points.S2 ? D.after.lift_points.S2.xyz[0] : 4456.5) * MM;
+const N2X = (D.after.lift_points.N2 ? D.after.lift_points.N2.xyz[0] : 4456.5) * MM;
+const FOOT_S2A = (D.after.foot_layout || []).find(f => /_S2/.test(f.id)) || (D.after.foot_layout || [])[0];
+const FAX = FOOT_S2A ? (FOOT_S2A.cradle[0] + FOOT_S2A.cradle[1]) / 2 * MM : S2X - 0.44;
+const FAY = FOOT_S2A && FOOT_S2A.side === 'N' ? 3.2555 : 0.0445;
+const VIEWS = {
+  home: [[5.3, 1.65, 2.9], [-4.6, -12.4, 9.5]],
+  south: [[6, 1.65, 1.5], [6, -16, 3.4]],
+  north: [[6, 1.65, 1.5], [6, 19, 3.8]],
+  top: [[6, 1.65, 1.2], [6, -2.4, 19.5]],
+  s2: [[S2X, 0.05, 1.45], [S2X - 2.5, -5.4, 2.7]],
+  rig: [[6, 1.65, 4.0], [-7.5, -14.5, 9.5]],
+  head: [[S2X, 0.05, 3.05], [S2X - 1.5, -2.1, 3.95]],
+  hanger: [[S2X, 0.05, 1.4], [S2X - 2.3, -5.2, 2.4]],
+  nhanger: [[N2X, 3.25, 1.4], [N2X + 3.2, 9.6, 3.2]],
+  cradle: [[FAX, FAY, -0.27], [FAX - 0.55, FAY - 0.8, 0.0]],
+  thick: [[6, 1.65, 1.3], [-2.5, 13, 6.5]],
+  brace: [[6, 1.65, 1.4], [6, -4.2, 17]],
+  screws: [[S2X, 0.05, -0.05], [S2X - 1.6, -2.6, 1.1]],
+  ties: [[0.7, 0.6, 0.4], [-2.8, -2.7, 2.6]],
+  bridging: [[6, 1.65, 1.4], [3.6, 0.3, 9.5]],
+};
+camera.position.fromArray(VIEWS.home[1]);
+
+/* section handles: this listener is added before OrbitControls so a handle drag never orbits */
+const raycaster = new THREE.Raycaster();
+const ndc = new THREE.Vector2();
+function setRay(cx, cy) {
+  const r = canvas.getBoundingClientRect();
+  ndc.set(((cx - r.left) / r.width) * 2 - 1, -((cy - r.top) / r.height) * 2 + 1);
+  raycaster.setFromCamera(ndc, camera);
+}
+let drag = null;
+const dragPlane = new THREE.Plane();
+const handleMeshes = [];
+canvas.addEventListener('pointerdown', e => {
+  if (e.button !== 0) return;
+  setRay(e.clientX, e.clientY);
+  const hit = raycaster.intersectObjects(handleMeshes, false)[0];
+  if (!hit) return;
+  e.stopImmediatePropagation(); e.preventDefault();
+  const dir = camera.getWorldDirection(new THREE.Vector3());
+  const n = new THREE.Vector3(0, dir.y, dir.z);
+  if (n.lengthSq() < 1e-6) n.set(0, 0, 1);
+  dragPlane.setFromNormalAndCoplanarPoint(n.normalize(), hit.point);
+  drag = { which: hit.object.userData.handle, id: e.pointerId };
+  canvas.setPointerCapture(e.pointerId);
+});
+canvas.addEventListener('pointermove', e => {
+  if (!drag) {
+    if (e.buttons) return;
+    setRay(e.clientX, e.clientY);
+    canvas.style.cursor = raycaster.intersectObjects(handleMeshes, false).length ? 'ew-resize' : '';
+    return;
+  }
+  setRay(e.clientX, e.clientY);
+  const p = raycaster.ray.intersectPlane(dragPlane, new THREE.Vector3());
+  if (!p) return;
+  const x = Math.round(Math.min(12, Math.max(0, p.x)) * 10) / 10;
+  if (drag.which === 'x0') S.x0 = Math.min(x, S.x1 - 0.3); else S.x1 = Math.max(x, S.x0 + 0.3);
+  syncSectionInputs(); applySection();
+});
+const endDrag = e => { if (drag && e.pointerId === drag.id) { drag = null; try { canvas.releasePointerCapture(e.pointerId); } catch (_) {} } };
+canvas.addEventListener('pointerup', endDrag);
+canvas.addEventListener('pointercancel', endDrag);
+
+const controls = new OrbitControls(camera, canvas);
+controls.target.fromArray(VIEWS.home[0]);
+controls.enableDamping = true;
+controls.dampingFactor = 0.09;
+controls.minDistance = 0.6;
+controls.maxDistance = 75;
+controls.listenToKeyEvents(canvas);
+controls.update();
+
+scene.add(new THREE.HemisphereLight(0xffffff, 0x8792a0, 2.3));
+const sun = new THREE.DirectionalLight(0xffffff, 1.9); sun.position.set(-6, -10, 14); scene.add(sun);
+const fill = new THREE.DirectionalLight(0xffffff, 0.75); fill.position.set(10, 12, 6); scene.add(fill);
+
+/* ------------------------------------------------------------------ section planes and materials */
+const clipPlanes = [
+  new THREE.Plane(new THREE.Vector3(1, 0, 0), 1000),
+  new THREE.Plane(new THREE.Vector3(-1, 0, 0), 1000),
+  new THREE.Plane(new THREE.Vector3(0, 1, 0), 1000),
+];
+const CUT_Y = 1.65;
+const inSection = (x, y) => (S.x0 <= 0.001 || x >= S.x0 - 1e-6) && (S.x1 >= 11.999 || x <= S.x1 + 1e-6) && (!S.cutSouth || y >= CUT_Y);
+const mat = (o = {}) => new THREE.MeshLambertMaterial({ color: 0xffffff, clippingPlanes: clipPlanes, ...o });
+const GEO = {
+  box: new THREE.BoxGeometry(1, 1, 1),
+  cyl: new THREE.CylinderGeometry(1, 1, 1, 14),
+  sph: new THREE.IcosahedronGeometry(1, 2),
+  torus: new THREE.TorusGeometry(1, 0.17, 10, 28).rotateX(Math.PI / 2),
+};
+const edgeGeo = new THREE.EdgesGeometry(GEO.box);
+
+/* ------------------------------------------------------------------ geometry helpers */
+const v3 = p => new THREE.Vector3(p[0] * MM, p[1] * MM, p[2] * MM);
+const kindGrp = k => (k === 'floor_truss' || k === 'rim_truss') ? 'floor' : (k === 'roof_truss' || k === 'roof_rim') ? 'roof' : 'wall';
+const grpZ = zmm => zmm < 0 ? 'floor' : zmm > 2700 ? 'roof' : 'wall';
+const defK = () => (S.deflect ? S.mag * MM : 0);
+const gOff = g => (g === 'roof' ? S.explode : g === 'floor' ? -S.explode : 0);
+function addD(v, d, k) { if (k && d) { v.x += d[0] * k; v.y += d[1] * k; v.z += d[2] * k; } return v; }
+const _ax = new THREE.Vector3(), _nn = new THREE.Vector3(), _ww = new THREE.Vector3();
+function boxMatrix(out, a, b, nrm, depth, width) {
+  _ax.subVectors(b, a); const L = _ax.length() || 1e-6; _ax.divideScalar(L);
+  _nn.copy(nrm).addScaledVector(_ax, -nrm.dot(_ax));
+  if (_nn.lengthSq() < 1e-8) { _nn.set(0, 0, 1); if (Math.abs(_ax.z) > 0.9) _nn.set(1, 0, 0); _nn.addScaledVector(_ax, -_nn.dot(_ax)); }
+  _nn.normalize(); _ww.crossVectors(_ax, _nn);
+  return out.set(
+    _ax.x * L, _nn.x * depth, _ww.x * width, (a.x + b.x) / 2,
+    _ax.y * L, _nn.y * depth, _ww.y * width, (a.y + b.y) / 2,
+    _ax.z * L, _nn.z * depth, _ww.z * width, (a.z + b.z) / 2,
+    0, 0, 0, 1);
+}
+/* nearest member end -> displacement, for points that have no displacement of their own */
+function buildIndex(members) {
+  const map = new Map(), C = 0.1;
+  const put = (p, d) => {
+    const x = p[0] * MM, y = p[1] * MM, z = p[2] * MM;
+    const k = Math.floor(x / C) + ',' + Math.floor(y / C) + ',' + Math.floor(z / C);
+    let arr = map.get(k); if (!arr) map.set(k, arr = []);
+    arr.push([x, y, z, d]);
+  };
+  for (const m of members) if (m.d_a && m.d_b) { put(m.a, m.d_a); put(m.b, m.d_b); }
+  return { map, C };
+}
+function nearestD(ix, x, y, z, maxD = 0.2) {
+  const { map, C } = ix; const cx = Math.floor(x / C), cy = Math.floor(y / C), cz = Math.floor(z / C);
+  let best = null, bd = maxD * maxD;
+  for (let i = -2; i <= 2; i++) for (let j = -2; j <= 2; j++) for (let k = -2; k <= 2; k++) {
+    const arr = map.get((cx + i) + ',' + (cy + j) + ',' + (cz + k)); if (!arr) continue;
+    for (const e of arr) { const dd = (e[0] - x) ** 2 + (e[1] - y) ** 2 + (e[2] - z) ** 2; if (dd < bd) { bd = dd; best = e[3]; } }
+  }
+  return best;
+}
+const DISP = { after: buildIndex(D.after.members), before: null };
+const _A = new THREE.Vector3(), _B = new THREE.Vector3(), _P = new THREE.Vector3(), _Q = new THREE.Vector3(), _R = new THREE.Vector3(), _N = new THREE.Vector3();
+const _M = new THREE.Matrix4();
+function endPt(out, p, d, zoff = 0) { out.set(p[0] * MM, p[1] * MM, p[2] * MM + zoff); addD(out, d, defK()); out.z += gOff(grpZ(p[2])); return out; }
+function pointAt(out, p, grp, d) { out.copy(p); addD(out, d, defK()); out.z += gOff(grp); return out; }
+const avgD = m => (m.d_a && m.d_b) ? [(m.d_a[0] + m.d_b[0]) / 2, (m.d_a[1] + m.d_b[1]) / 2, (m.d_a[2] + m.d_b[2]) / 2] : null;
+
+/* ------------------------------------------------------------------ groups */
+const moduleG = new THREE.Group(); scene.add(moduleG);
+const partsG = new THREE.Group(); moduleG.add(partsG);
+const rigG = new THREE.Group(); scene.add(rigG);
+const dropsG = new THREE.Group(); scene.add(dropsG);
+const groundG = new THREE.Group(); scene.add(groundG);
+const drawn = new Set();
+
+/* ------------------------------------------------------------------ frame members (one instanced mesh) */
+const frameItems = D.after.members.filter(m => m.kind !== 'added').map((m, idx) => ({
+  idx, id: m.id, m, grp: kindGrp(m.kind), a0: v3(m.a), b0: v3(m.b), nrm: new THREE.Vector3().fromArray(m.nrm).normalize(),
+}));
+frameItems.forEach(it => drawn.add(it.id));
+const frameMesh = new THREE.InstancedMesh(GEO.box, mat(), frameItems.length);
+frameMesh.frustumCulled = false;
+moduleG.add(frameMesh);
+let beforeById = null;
+const rec = it => (S.mode === 'after' ? it.m : (beforeById && beforeById.get(it.id)) || it.m);
+function updateFrame() {
+  const k = defK();
+  for (const it of frameItems) {
+    const r = rec(it), dz = gOff(it.grp);
+    _A.copy(it.a0); _B.copy(it.b0); addD(_A, r.d_a, k); addD(_B, r.d_b, k); _A.z += dz; _B.z += dz;
+    frameMesh.setMatrixAt(it.idx, boxMatrix(_M, _A, _B, it.nrm, 0.089, 0.038));
+  }
+  frameMesh.instanceMatrix.needsUpdate = true; frameMesh.computeBoundingSphere();
+}
+function frameCol(it) {
+  const r = rec(it);
+  let c = S.colour === 'type' ? (r.t > 1 ? COL.thick : COL.frame) : utilCol(S.colour === 'case' ? (r.util_by_case ? r.util_by_case[S.caseId] : r.util) : r.util);
+  if (S.focus && !(S.focus.frame && S.focus.frame(r))) c = faded(c);
+  return c;
+}
+
+/* ------------------------------------------------------------------ lifting parts (instanced batches) */
+class Batch {
+  constructor(geom, material) { this.geom = geom; this.material = material; this.items = []; this.mesh = null; }
+  add(item) { this.items.push(item); return item; }
+  build(parent) {
+    this.mesh = new THREE.InstancedMesh(this.geom, this.material, Math.max(1, this.items.length));
+    this.mesh.count = this.items.length; this.mesh.frustumCulled = false; this.mesh.userData.batch = this;
+    if (!this.items.length) this.mesh.visible = false;
+    parent.add(this.mesh);
+  }
+  update() {
+    if (!this.items.length) return;
+    this.items.forEach((it, i) => this.mesh.setMatrixAt(i, it.place(_M)));
+    this.mesh.instanceMatrix.needsUpdate = true; this.mesh.computeBoundingSphere();
+  }
+  recolour() {
+    if (!this.items.length) return;
+    this.items.forEach((it, i) => this.mesh.setColorAt(i, partCol(it.part, it.fixed)));
+    this.mesh.instanceColor.needsUpdate = true;
+  }
+}
+const TYPE_COL = { hanger: 'strap', vstrap: 'strap', brace: 'strap', head: 'head', cradle: 'plate', bridging: 'plate', gusset: 'plate' };
+function partCol(part, fixed) {
+  let c;
+  if (fixed) c = COL[fixed];
+  else if (S.colour === 'type') c = COL[TYPE_COL[part.cat]] || COL.plate;
+  else c = utilCol(CONN_MAX[part.cat]);
+  if (S.focus && !(S.focus.parts || []).includes(part.cat)) c = faded(c);
+  return c;
+}
+const BT = {
+  strap: new Batch(GEO.box, mat()),
+  plate: new Batch(GEO.box, mat()),
+  brace: new Batch(GEO.box, mat()),
+  bridge: new Batch(GEO.box, mat()),
+  head: new Batch(GEO.box, mat()),
+  pin: new Batch(GEO.cyl, mat()),
+  eye: new Batch(GEO.torus, mat()),
+  gusset: new Batch(GEO.box, mat()),
+};
+const parts = [];
+function mkPart(cat, id, members, o = {}) { const p = { cat, id, members, ...o }; parts.push(p); members.forEach(m => drawn.add(m.id)); return p; }
+
+/* straps: one on each face, just outside the cradle cheeks */
+const STRAP_OFF = 0.053;
+function placeStrap(o, m, side) {
+  endPt(_P, m.a, m.d_a); endPt(_Q, m.b, m.d_b);
+  _N.fromArray(m.nrm).normalize().multiplyScalar(STRAP_OFF * side);
+  _P.add(_N); _Q.add(_N);
+  return boxMatrix(o, _P, _Q, _N.fromArray(m.nrm).normalize(), 0.003, 0.05);
+}
+/* lifting head: a saddle over the roof edge truss with no fasteners, keyed along the module by a stop block;
+   M20 pin with a free-turning 40 mm sleeve; the round sling eye goes straight over the sleeve (no shackle at the head) */
+function headBase(m) {
+  const k = defK(), d = avgD(m) || [0, 0, 0];
+  return [m.b[0] * MM + d[0] * k, m.b[1] * MM + d[1] * k, S.explode + d[2] * k];
+}
+function placeHead(o, m, piece, side = 1) {
+  const [x, y, dz] = headBase(m);
+  switch (piece) {
+    case 'cheek': return o.makeScale(0.16, 0.006, 0.5).setPosition(x, y + side * 0.058, 2.95 + dz);
+    case 'seat': return o.makeScale(0.16, 0.122, 0.006).setPosition(x, y, 3.006 + dz);
+    case 'pin': return o.makeScale(0.011, 0.15, 0.011).setPosition(x, y, 3.15 + dz);
+    case 'sleeve': return o.makeScale(0.02, 0.04, 0.02).setPosition(x, y, 3.15 + dz);
+    case 'stop': return o.makeScale(0.05, 0.09, 0.05).setPosition(x + side * 0.108, y, 3.024 + dz);
+    default: return o.makeScale(0.047, 0.047, 0.047).setPosition(x, y, 3.18 + dz);
+  }
+}
+/* cradle (foot): two 3 mm cheek plates either side of the floor edge truss bottom chord, joined under the chord by two
+   M16 bearing bolts with 95 mm sleeves, one under each truss joint of the pair, each on a 3 x 40 x 89 bearing packer */
+const CH_Y = 0.049, CH_H = 0.14, CH_Z0 = -0.3385, BOLT_Z = -0.3135, PACK_Z = -0.300;
+function footBase(f) {
+  const k = defK(), d = avgD(f.body) || [0, 0, 0];
+  return { dx: d[0] * k, y: f.y + d[1] * k, dz: -S.explode + d[2] * k };
+}
+function placeFoot(o, f, piece, i = 0, side = 1) {
+  const c = footBase(f), sx = f.seats[i] ? f.seats[i].x + c.dx : 0;
+  switch (piece) {
+    case 'cheek': return o.makeScale(f.x1 - f.x0, 0.004, CH_H).setPosition((f.x0 + f.x1) / 2 + c.dx, c.y + side * CH_Y, CH_Z0 + CH_H / 2 + c.dz);
+    case 'packer': return o.makeScale(0.04, 0.089, 0.003).setPosition(sx, c.y, PACK_Z + c.dz);
+    case 'sleeve': return o.makeScale(0.012, 0.095, 0.012).setPosition(sx, c.y, BOLT_Z + c.dz);
+    case 'bolt': return o.makeScale(0.008, 0.132, 0.008).setPosition(sx, c.y, BOLT_Z + c.dz);
+    default: return o.makeScale(0.0135, 0.012, 0.0135).setPosition(sx, c.y + side * 0.0575, BOLT_Z + c.dz);
+  }
+}
+function placeScrew(o, f, i, side, off) {
+  const c = footBase(f);
+  return o.makeScale(0.005, 0.005, 0.005).setPosition(f.seats[i].x + off * 0.012 + c.dx, c.y + side * (CH_Y + 0.0045), -0.2795 + c.dz);
+}
+const Z_AX = new THREE.Vector3(0, 0, 1);
+function placeBrace(o, m) {
+  endPt(_P, m.a, m.d_a, 0.021); endPt(_Q, m.b, m.d_b, 0.021);
+  return boxMatrix(o, _P, _Q, Z_AX, 0.003, 0.03);
+}
+
+const added = D.after.members.filter(m => m.kind === 'added');
+const footMembers = new Map();
+for (const m of added) {
+  if (m.type === 'CRADLE' || m.type === 'CRADLE SEAT') {
+    const key = m.id.replace(/_(BASE|SEAT\d+)$/, '');
+    if (!footMembers.has(key)) footMembers.set(key, []);
+    footMembers.get(key).push(m);
+    continue;
+  }
+  const pt = (m.id.match(/_([SN]\d)/) || [])[1];
+  if (m.type === 'STRAP' || m.type === 'V-STRAP') {
+    const cat = m.type === 'STRAP' ? 'hanger' : 'vstrap';
+    const part = mkPart(cat, m.id, [m], { pt, north: String(pt || '').startsWith('N'),
+      title: cat === 'hanger' ? `Hanger strap pair - lift point ${pt}` : `Inclined strap pair - lift point ${pt}` });
+    for (const side of [-1, 1]) BT.strap.add({ part, place: o => placeStrap(o, m, side) });
+  } else if (m.type === 'GUIDE') {
+    const part = mkPart('head', m.id, [m], { pt, title: `Lifting head (saddle) - lift point ${pt}` });
+    for (const side of [-1, 1]) BT.head.add({ part, place: o => placeHead(o, m, 'cheek', side) });
+    BT.head.add({ part, place: o => placeHead(o, m, 'seat') });
+    /* every head is keyed along the module by a stop block */
+    for (const side of [-1, 1]) BT.head.add({ part, fixed: 'steel', place: o => placeHead(o, m, 'stop', side) });
+    BT.pin.add({ part, fixed: 'steel', place: o => placeHead(o, m, 'pin') });
+    BT.pin.add({ part, fixed: 'steel', place: o => placeHead(o, m, 'sleeve') });
+    BT.eye.add({ part, fixed: 'sling-load', place: o => placeHead(o, m, 'eye') });
+  } else if (m.type === 'PLANE BRACE') {
+    const floor = m.a[2] < 0;
+    const part = mkPart('brace', m.id, [m], { title: `${floor ? 'Floor' : 'Roof'} strap bracing - crossed strap` });
+    BT.brace.add({ part, place: o => placeBrace(o, m) });
+  } else if (m.type === 'BRIDGING') {
+    const floor = m.a[2] < 0, nrm = new THREE.Vector3().fromArray(m.nrm).normalize();
+    const part = mkPart('bridging', m.id, [m], { floor,
+      title: `${floor ? 'Floor' : 'Roof'} bridging nogging, x ${fx(Math.min(m.a[0], m.b[0]) / 1000)} to ${fx(Math.max(m.a[0], m.b[0]) / 1000)} m` });
+    BT.bridge.add({ part, place: o => { endPt(_P, m.a, m.d_a); endPt(_Q, m.b, m.d_b); return boxMatrix(o, _P, _Q, nrm, 0.089, 0.038); } });
+  } else {
+    console.warn('Unknown lifting part type', m.type, m.id);
+  }
+}
+for (const [key, ms] of footMembers) {
+  const body = ms.find(m => m.type === 'CRADLE') || ms[0];
+  const lay = FOOTS[key] || null;
+  const seatMs = ms.filter(m => m.type === 'CRADLE SEAT').sort((p, q) => p.a[0] - q.a[0]);
+  const pt = (key.match(/_([SN]\d)/) || [])[1];
+  const f = {
+    key, body, lay, y: body.a[1] * MM,
+    x0: (lay ? lay.cradle[0] : Math.min(body.a[0], body.b[0])) * MM,
+    x1: (lay ? lay.cradle[1] : Math.max(body.a[0], body.b[0])) * MM,
+    seats: seatMs.map(m => ({ x: m.a[0] * MM, m, screwed: !/bearing-only/i.test(m.role) })),
+  };
+  const part = mkPart('cradle', key, ms, { pt, foot: f, title: `Cradle under the floor edge truss - lift point ${pt}` });
+  for (const side of [-1, 1]) BT.plate.add({ part, place: o => placeFoot(o, f, 'cheek', 0, side) });
+  f.seats.forEach((s, i) => {
+    BT.plate.add({ part, fixed: 'steel', place: o => placeFoot(o, f, 'packer', i) });
+    BT.pin.add({ part, fixed: 'steel', place: o => placeFoot(o, f, 'sleeve', i) });
+    BT.pin.add({ part, fixed: 'steel', place: o => placeFoot(o, f, 'bolt', i) });
+    for (const side of [-1, 1]) BT.pin.add({ part, fixed: 'steel', place: o => placeFoot(o, f, 'nut', i, side) });
+    if (s.screwed) for (const side of [-1, 1]) for (const off of [-1, 1]) BT.pin.add({ part, fixed: 'steel', place: o => placeScrew(o, f, i, side, off) });
+  });
+}
+/* joint gussets: a 1.5 mm plate on each face of the joint, at the positions listed in the data */
+const GUSSETS = Array.isArray(D.after.gussets) ? D.after.gussets : [];
+for (const g of GUSSETS) {
+  const p = v3(g.xyz), grp = grpZ(g.xyz[2]), d = nearestD(DISP.after, p.x, p.y, p.z);
+  const n = new THREE.Vector3().fromArray(g.nrm).normalize();
+  const u = Math.abs(n.z) > 0.9 ? new THREE.Vector3(1, 0, 0) : new THREE.Vector3(0, 0, 1);
+  const part = mkPart('gusset', 'GUSSET', [], { g, title: `Joint gusset - ${panelTitle(g.panel)}` });
+  for (const side of [-1, 1]) BT.gusset.add({ part, place: o => {
+    pointAt(_P, p, grp, d); _P.addScaledVector(n, side * 0.047);
+    _A.copy(_P).addScaledVector(u, -0.05); _B.copy(_P).addScaledVector(u, 0.05);
+    return boxMatrix(o, _A, _B, n, 0.003, 0.1);
+  } });
+}
+for (const b of Object.values(BT)) b.build(partsG);
+
+/* ------------------------------------------------------------------ joints (dots) and tie plates */
+const jointMesh = new THREE.InstancedMesh(GEO.sph, mat(), 2048);
+jointMesh.count = 0; jointMesh.frustumCulled = false; moduleG.add(jointMesh);
+const JOINTS = {};
+function buildJointItems(data, ix) {
+  return data.joints.map(j => { const p = v3(j.xyz); return { j, p, grp: grpZ(j.xyz[2]), d: nearestD(ix, p.x, p.y, p.z) }; });
+}
+JOINTS.after = buildJointItems(D.after, DISP.after);
+function updateJoints() {
+  const items = JOINTS[S.mode] || [];
+  jointMesh.count = items.length;
+  /* dots must be bigger than the 89 mm member section or they hide inside it */
+  items.forEach((it, i) => {
+    const u = it.j.util, r = u > 1 ? 0.078 : u >= 0.8 ? 0.068 : 0.06;
+    pointAt(_P, it.p, it.grp, it.d); jointMesh.setMatrixAt(i, _M.makeScale(r, r, r).setPosition(_P));
+  });
+  jointMesh.instanceMatrix.needsUpdate = true; jointMesh.computeBoundingSphere();
+}
+function recolourJoints() {
+  const items = JOINTS[S.mode] || [];
+  items.forEach((it, i) => {
+    let c = utilCol(it.j.util);
+    if (S.focus && !(S.focus.joints && S.focus.joints(it.j))) c = faded(c);
+    jointMesh.setColorAt(i, c);
+  });
+  if (jointMesh.instanceColor) jointMesh.instanceColor.needsUpdate = true;
+}
+const tieItems = D.after.links.filter(l => l.tie).map(l => ({
+  l, da: nearestD(DISP.after, l.a[0] * MM, l.a[1] * MM, l.a[2] * MM), db: nearestD(DISP.after, l.b[0] * MM, l.b[1] * MM, l.b[2] * MM),
+}));
+const tieMesh = new THREE.InstancedMesh(GEO.box, mat(), Math.max(1, tieItems.length));
+tieMesh.count = tieItems.length; tieMesh.frustumCulled = false; moduleG.add(tieMesh);
+function tieMatrix(o, it) {
+  endPt(_P, it.l.a, it.da); endPt(_Q, it.l.b, it.db);
+  return o.makeScale(0.11, 0.11, 0.11).setPosition(_P.add(_Q).multiplyScalar(0.5));
+}
+function updateTies() {
+  tieItems.forEach((it, i) => tieMesh.setMatrixAt(i, tieMatrix(_M, it)));
+  tieMesh.instanceMatrix.needsUpdate = true; tieMesh.computeBoundingSphere();
+}
+function recolourTies() {
+  tieItems.forEach((it, i) => tieMesh.setColorAt(i, (S.focus && !S.focus.ties) ? faded(COL.tie) : COL.tie));
+  if (tieMesh.instanceColor) tieMesh.instanceColor.needsUpdate = true;
+}
+
+/* ------------------------------------------------------------------ lift points, arrows, labels */
+const LP = {};
+function buildLP(data, ix) {
+  const o = {};
+  for (const pt of PTS) {
+    const v = data.lift_points[pt]; if (!v) continue;
+    const p = v3(v.xyz);
+    o[pt] = { pt, p, grp: grpZ(v.xyz[2]), d: nearestD(ix, p.x, p.y, p.z), side: pt[0] };
+  }
+  return o;
+}
+LP.after = buildLP(D.after, DISP.after);
+const ARROW_PER_KN = 0.1;
+const forceMat = mat({ color: COL.force.clone() });
+const shaftGeo = new THREE.CylinderGeometry(1, 1, 1, 12).rotateX(Math.PI / 2).translate(0, 0, 0.5);
+const coneGeo = new THREE.ConeGeometry(1, 1, 16).rotateX(Math.PI / 2).translate(0, 0, 0.5);
+function makeArrow(material, pick) {
+  const g = new THREE.Group();
+  const shaft = new THREE.Mesh(shaftGeo, material), head = new THREE.Mesh(coneGeo, material);
+  shaft.userData.pick = pick; head.userData.pick = pick;
+  g.add(shaft, head);
+  return { g, shaft, head };
+}
+function setArrowLen(ar, L, r = 0.024) {
+  const hl = Math.min(0.18, Math.max(L, 1e-4) * 0.45);
+  ar.shaft.scale.set(r, r, Math.max(1e-4, L - hl));
+  ar.head.scale.set(r * 2.7, r * 2.7, Math.max(1e-4, hl));
+  ar.head.position.z = Math.max(0, L - hl);
+}
+const arrows = {}, lpLabels = {};
+function makeLabel(html, cls, onClick) {
+  const wrap = document.createElement('div');
+  const el = document.createElement(onClick ? 'button' : 'div');
+  if (onClick) { el.type = 'button'; el.addEventListener('click', ev => { ev.stopPropagation(); onClick(); }); }
+  el.className = 'lbl ' + (cls || ''); el.innerHTML = html;
+  wrap.appendChild(el);
+  const obj = new CSS2DObject(wrap);
+  obj.userData.el = el;
+  return obj;
+}
+const pickables = [];
+for (const pt of PTS) {
+  const ar = makeArrow(forceMat, { kind: 'lift', pt });
+  moduleG.add(ar.g); arrows[pt] = ar; pickables.push(ar.shaft, ar.head);
+  const lb = makeLabel('', 'lp', () => showLiftInfo(pt));
+  moduleG.add(lb); lpLabels[pt] = lb;
+}
+function lpBase(out, it) {
+  pointAt(out, it.p, it.grp, it.d);
+  if (S.mode === 'after') out.z += 0.09; else out.y += it.side === 'S' ? -0.11 : 0.11;
+  return out;
+}
+/* centre of gravity */
+const weightMat = new THREE.MeshLambertMaterial({ color: COL.weight.clone() });
+const cgMesh = new THREE.Mesh(new THREE.SphereGeometry(0.09, 20, 14), weightMat);
+cgMesh.userData.pick = { kind: 'cg' };
+moduleG.add(cgMesh); pickables.push(cgMesh);
+const cgArrow = makeArrow(weightMat, { kind: 'cg' });
+cgArrow.g.rotation.x = Math.PI;
+moduleG.add(cgArrow.g); pickables.push(cgArrow.shaft, cgArrow.head);
+setArrowLen(cgArrow, 1.1, 0.03);
+const cgLabel = makeLabel('', 'cg', () => showCGInfo());
+moduleG.add(cgLabel);
+function updateMarkers() {
+  const data = act(), pts = LP[S.mode];
+  for (const pt of PTS) {
+    const it = pts && pts[pt], ar = arrows[pt], lb = lpLabels[pt];
+    if (!it) { ar.g.visible = false; lb.visible = false; continue; }
+    const kN = data.lift_points[pt].reactions_kN[S.caseId] ?? 0;
+    const L = kN * ARROW_PER_KN * S.liftLoad;
+    lpBase(ar.g.position, it); setArrowLen(ar, L);
+    ar.g.visible = L > 0.02;
+    lb.position.copy(ar.g.position);
+    if (it.side === 'S') { lb.position.y -= 0.45; lb.position.z += Math.max(0.25, L * 0.5); }
+    else { lb.position.y += 0.45; lb.position.z += L + 0.35; }
+    lb.userData.el.innerHTML = `<b>${pt}</b>&nbsp; ${fx(kN, 1)} kN<br><small>(${fx(kN * data.meta.factor, 1)} kN factored)</small>`;
+    lb.userData.el.style.opacity = String(Math.min(1, S.liftLoad * 1.4));
+    lb.visible = S.showLabels && S.liftLoad > 0.05 && inSection(it.p.x, it.p.y);
+  }
+  const cg = v3(data.meta.cg);
+  cgMesh.position.copy(cg); cgArrow.g.position.copy(cg);
+  cgLabel.position.set(cg.x, cg.y, cg.z - 1.35);
+  cgLabel.userData.el.innerHTML = `Centre of gravity <small>weight ${fx(data.meta.W_N / 1000, 1)} kN (${fx(data.meta.rated_kg / 1000, 1)} t rated)</small>`;
+  cgMesh.visible = cgArrow.g.visible = S.showCG;
+  cgLabel.visible = S.showCG && S.showLabels;
+}
+
+/* ------------------------------------------------------------------ rig (schematic cascade) */
+const RIG = {};
+RIG.x = [1, 2, 3, 4].map(i => D.after.lift_points['S' + i].xyz[0] * MM);
+RIG.yS = D.after.lift_points.S1.xyz[1] * MM; RIG.yN = D.after.lift_points.N1.xyz[1] * MM;
+RIG.cgX = META.cg[0] * MM; RIG.cgY = META.cg[1] * MM;
+{
+  const L = [1, 2, 3, 4].map(i => R4['S' + i] + R4['N' + i]);
+  RIG.xpA = (RIG.x[0] * L[0] + RIG.x[1] * L[1]) / (L[0] + L[1]);
+  RIG.xpB = (RIG.x[2] * L[2] + RIG.x[3] * L[3]) / (L[2] + L[3]);
+  RIG.xT = (RIG.xpA * (L[0] + L[1]) + RIG.xpB * (L[2] + L[3])) / (L[0] + L[1] + L[2] + L[3]);
+}
+RIG.ZC = 4.75; RIG.ZM = 5.75; RIG.ZT = 6.75; RIG.ZH = 8.1;
+const rigMat = new THREE.MeshLambertMaterial({ color: COL.rig.clone() });
+const rigLinkMat = new THREE.MeshLambertMaterial({ color: COL['sling-load'].clone() });
+const rigPinMat = new THREE.MeshLambertMaterial({ color: COL.steel.clone() });
+function rigBox(cx, cy, cz, sx, sy, sz) {
+  const m = new THREE.Mesh(GEO.box, rigMat); m.scale.set(sx, sy, sz); m.position.set(cx, cy, cz);
+  m.userData.pick = { kind: 'rig' }; rigG.add(m); pickables.push(m); return m;
+}
+const _Y = new THREE.Vector3(0, 1, 0);
+function rigCyl(a, b, r, material) {
+  const m = new THREE.Mesh(GEO.cyl, material);
+  const d = new THREE.Vector3().subVectors(b, a);
+  m.scale.set(r, d.length(), r); m.position.copy(a).add(b).multiplyScalar(0.5);
+  m.quaternion.setFromUnitVectors(_Y, d.normalize());
+  m.userData.pick = { kind: 'rig' }; rigG.add(m); pickables.push(m); return m;
+}
+function rigPin(x, y, z) { const m = new THREE.Mesh(GEO.sph, rigPinMat); m.scale.setScalar(0.06); m.position.set(x, y, z); m.userData.pick = { kind: 'rig' }; rigG.add(m); pickables.push(m); }
+{
+  const { x, yS, yN, cgY, xpA, xpB, xT, ZC, ZM, ZT, ZH } = RIG;
+  for (const xi of x) {
+    rigBox(xi, (yS + yN) / 2, ZC, 0.12, yN - yS + 0.24, 0.2); rigPin(xi, cgY, ZC + 0.12);
+    /* shackles only at the beam ends; the sling's lower eye goes straight over the sleeve in the head */
+    for (const yy of [yS, yN]) {
+      const sh = new THREE.Mesh(GEO.torus, rigPinMat); sh.scale.setScalar(0.045); sh.position.set(xi, yy, ZC - 0.135);
+      sh.userData.pick = { kind: 'rig' }; rigG.add(sh); pickables.push(sh);
+    }
+  }
+  rigBox((x[0] + x[1]) / 2, cgY, ZM, x[1] - x[0] + 0.24, 0.12, 0.2);
+  rigBox((x[2] + x[3]) / 2, cgY, ZM, x[3] - x[2] + 0.24, 0.12, 0.2);
+  rigBox((xpA + xpB) / 2, cgY, ZT, xpB - xpA + 0.24, 0.12, 0.2);
+  for (const xi of x) rigCyl(new THREE.Vector3(xi, cgY, ZC + 0.12), new THREE.Vector3(xi, cgY, ZM - 0.1), 0.014, rigLinkMat);
+  for (const xp of [xpA, xpB]) { rigPin(xp, cgY, ZM + 0.12); rigCyl(new THREE.Vector3(xp, cgY, ZM + 0.12), new THREE.Vector3(xp, cgY, ZT - 0.1), 0.014, rigLinkMat); }
+  rigPin(xT, cgY, ZT + 0.12);
+  rigCyl(new THREE.Vector3(xT, cgY, ZT + 0.12), new THREE.Vector3(xT, cgY, ZH - 0.22), 0.016, rigLinkMat);
+  const hook = new THREE.Mesh(new THREE.TorusGeometry(0.12, 0.028, 10, 24, Math.PI * 1.6), rigPinMat);
+  hook.rotation.x = Math.PI / 2; hook.rotation.y = Math.PI * 0.7; hook.position.set(xT, cgY, ZH - 0.12);
+  hook.userData.pick = { kind: 'rig' }; rigG.add(hook); pickables.push(hook);
+  rigBox(xT, cgY, ZH + 0.25, 0.34, 0.24, 0.42);
+}
+const hookLabel = makeLabel('Crane hook <small>(right above the centre of gravity)</small>', '', () => showRigInfo());
+hookLabel.position.set(RIG.xT, RIG.cgY, RIG.ZH + 0.75); rigG.add(hookLabel);
+const dropMat = new THREE.MeshLambertMaterial({ color: COL['sling-load'].clone() });
+const drops = {};
+for (const pt of PTS) {
+  const m = new THREE.Mesh(new THREE.BufferGeometry(), dropMat);
+  m.frustumCulled = false; m.userData.pick = { kind: 'lift', pt };
+  dropsG.add(m); drops[pt] = m; pickables.push(m);
+}
+const rigZ = (load = S.liftLoad) => S.liftZ - 0.35 * (1 - load) + (S.mode === 'after' ? S.explode : 0);
+function dropLower(out, it) {
+  if (S.mode === 'after') { pointAt(out, it.p, it.grp, it.d); out.z += 0.077; } else lpBase(out, it);
+  out.z += S.liftZ; return out;
+}
+function updateDrops() {
+  dropsG.visible = S.showRig;
+  rigG.position.z = rigZ();
+  if (!S.showRig) return;
+  const pts = LP[S.mode];
+  for (const pt of PTS) {
+    const it = pts && pts[pt]; const mesh = drops[pt];
+    if (!it) { mesh.visible = false; continue; }
+    mesh.visible = true;
+    const xi = RIG.x[+pt[1] - 1], yl = it.side === 'S' ? RIG.yS : RIG.yN;
+    dropLower(_P, it);
+    _Q.set(xi, yl, RIG.ZC - 0.175 + rigZ());
+    _R.set(xi, yl, RIG.ZC - 0.175 + rigZ(1));
+    const Lfull = _R.distanceTo(_P), d = _Q.distanceTo(_P);
+    const bow = d < Lfull ? Math.sqrt(0.375 * d * (Lfull - d)) : 0;
+    const ctrl = new THREE.Vector3().addVectors(_P, _Q).multiplyScalar(0.5);
+    ctrl.y += (it.side === 'S' ? -2 : 2) * bow;
+    const curve = new THREE.QuadraticBezierCurve3(_P.clone(), ctrl, _Q.clone());
+    const old = mesh.geometry;
+    mesh.geometry = new THREE.TubeGeometry(curve, bow > 0.002 ? 24 : 1, 0.014, 6, false);
+    old.dispose();
+  }
+}
+function recolourRig() {
+  const off = S.focus && !S.focus.rig;
+  rigMat.color.copy(off ? faded(COL.rig) : COL.rig);
+  rigLinkMat.color.copy(off ? faded(COL['sling-load']) : COL['sling-load']);
+  rigPinMat.color.copy(off ? faded(COL.steel) : COL.steel);
+  const sl = _fade.copy(COL['sling-slack']).lerp(COL['sling-load'], S.liftLoad);
+  dropMat.color.copy(off ? sl.lerp(COL['scene-bg'], 0.84) : sl);
+}
+
+/* ------------------------------------------------------------------ ground, orientation, section handles */
+const groundLabels = [];
+const GROUND_Z = -0.345;
+const lineMat = new THREE.LineBasicMaterial({ color: COL.muted.clone(), transparent: true, opacity: 0.7 });
+function buildGround() {
+  for (const c of [...groundG.children]) { groundG.remove(c); if (c.isGridHelper) { c.geometry.dispose(); c.material.dispose(); } }
+  const grid = new THREE.GridHelper(40, 40, COL['grid-1'], COL['grid-2']);
+  /* the ground sits just under the cradles, which hang about 40 mm below the floor edge truss */
+  grid.rotation.x = Math.PI / 2; grid.position.set(6, 1.65, GROUND_Z);
+  groundG.add(grid);
+  const Z = GROUND_Z + 0.004;
+  const seg = (a, b) => { const g = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(...a), new THREE.Vector3(...b)]); groundG.add(new THREE.Line(g, lineMat)); };
+  seg([0, -0.55, Z], [12, -0.55, Z]); seg([0, -0.45, Z], [0, -0.65, Z]); seg([12, -0.45, Z], [12, -0.65, Z]);
+  seg([-0.55, 0, Z], [-0.55, 3.3, Z]); seg([-0.45, 0, Z], [-0.65, 0, Z]); seg([-0.45, 3.3, Z], [-0.65, 3.3, Z]);
+  seg([13.3, 0.9, Z], [13.3, 2.6, Z]); seg([13.3, 2.6, Z], [13.15, 2.3, Z]); seg([13.3, 2.6, Z], [13.45, 2.3, Z]);
+  for (const l of groundLabels) groundG.add(l);
+}
+for (const [txt, p] of [
+  ['South wall (2 windows, door)', [6, -2.2, GROUND_Z]], ['North side: open, joins the second module', [6, 5.6, GROUND_Z]],
+  ['12.0 m', [6, -0.85, GROUND_Z]], ['3.3 m', [-1.05, 1.65, GROUND_Z]], ['North', [13.3, 2.9, GROUND_Z]],
+]) { const l = makeLabel(esc(txt), 'ghost' + (txt.length > 12 ? ' hide-sm' : '')); l.position.set(...p); groundLabels.push(l); }
+buildGround();
+
+const handleMat = new THREE.MeshBasicMaterial({ color: COL.sky.clone() });
+const handles = {};
+for (const which of ['x0', 'x1']) {
+  const g = new THREE.Group();
+  const s = new THREE.Mesh(new THREE.SphereGeometry(0.11, 18, 12), handleMat);
+  s.userData.handle = which; g.add(s); handleMeshes.push(s);
+  for (const dir of [-1, 1]) {
+    const c = new THREE.Mesh(new THREE.ConeGeometry(0.075, 0.2, 14), handleMat);
+    c.rotation.z = dir > 0 ? -Math.PI / 2 : Math.PI / 2; c.position.x = dir * 0.21;
+    c.userData.handle = which; g.add(c); handleMeshes.push(c);
+  }
+  scene.add(g); handles[which] = g;
+}
+const secBox = new THREE.LineSegments(edgeGeo, new THREE.LineBasicMaterial({ color: COL.sky.clone(), transparent: true, opacity: 0.85 }));
+secBox.visible = false; moduleG.add(secBox);
+function placeHandles() {
+  handles.x0.position.set(S.x0, -0.9, 1.35 + S.liftZ);
+  handles.x1.position.set(S.x1, -0.9, 1.35 + S.liftZ);
+  const active = S.x0 > 0.001 || S.x1 < 11.999 || S.cutSouth;
+  secBox.visible = active;
+  if (active) {
+    const y0 = S.cutSouth ? CUT_Y : -0.12, y1 = 3.42, z0 = GROUND_Z + 0.004 - S.explode, z1 = 3.3 + S.explode;
+    secBox.scale.set(Math.max(0.01, S.x1 - S.x0), y1 - y0, z1 - z0);
+    secBox.position.set((S.x0 + S.x1) / 2, (y0 + y1) / 2, (z0 + z1) / 2);
+  }
+}
+function applySection() {
+  clipPlanes[0].constant = S.x0 > 0.001 ? -S.x0 : 1000;
+  clipPlanes[1].constant = S.x1 < 11.999 ? S.x1 : 1000;
+  clipPlanes[2].constant = S.cutSouth ? -CUT_Y : 1000;
+  placeHandles(); updateMarkers(); requestRender();
+}
+
+/* ------------------------------------------------------------------ selection outline */
+const selG = new THREE.Group(); moduleG.add(selG);
+const selMat = new THREE.LineBasicMaterial({ color: COL.select.clone(), depthTest: false, transparent: true });
+const _S1 = new THREE.Matrix4();
+function refreshSelection() {
+  selG.clear();
+  const s = S.selected; if (!s) return;
+  const out = [];
+  const grab = (mesh, i, sx, sy, sz) => { mesh.getMatrixAt(i, _M); out.push(_M.clone().multiply(_S1.makeScale(sx, sy, sz))); };
+  if (s.kind === 'frame') grab(frameMesh, s.item.idx, 1.03, 1.9, 1.9);
+  else if (s.kind === 'joint' && s.i < jointMesh.count) grab(jointMesh, s.i, 2.4, 2.4, 2.4);
+  else if (s.kind === 'tie') grab(tieMesh, s.i, 1.4, 1.4, 1.4);
+  else if (s.kind === 'part') for (const b of Object.values(BT)) b.items.forEach((it, i) => { if (it.part === s.part && !it.fixed) grab(b.mesh, i, 1.02, 1.4, 1.4); });
+  for (const m of out) { const l = new THREE.LineSegments(edgeGeo, selMat); l.matrixAutoUpdate = false; l.matrix.copy(m); l.renderOrder = 20; selG.add(l); }
+}
+
+/* ------------------------------------------------------------------ update pipeline */
+let needsRender = true;
+const requestRender = () => { needsRender = true; };
+function updateGeometry() {
+  updateFrame();
+  for (const b of Object.values(BT)) b.update();
+  updateJoints(); updateTies(); updateMarkers(); updateDrops(); placeHandles(); refreshSelection();
+  requestRender();
+}
+function recolour() {
+  for (const it of frameItems) frameMesh.setColorAt(it.idx, frameCol(it));
+  frameMesh.instanceColor.needsUpdate = true;
+  for (const b of Object.values(BT)) b.recolour();
+  recolourJoints(); recolourTies(); recolourRig();
+  updateLegend(); requestRender();
+}
+function updateVisibility() {
+  const after = S.mode === 'after';
+  partsG.visible = after;
+  tieMesh.visible = after && S.showTies;
+  jointMesh.visible = S.showJoints && S.colour !== 'type';
+  rigG.visible = S.showRig; dropsG.visible = S.showRig;
+  hookLabel.visible = S.showRig && S.showLabels;
+  for (const l of groundLabels) l.visible = S.showLabels;
+  updateMarkers(); updateLegend(); requestRender();
+}
+
+/* ------------------------------------------------------------------ legend */
+const BAND_LABELS = ['below 0.50', '0.50 to 0.80', '0.80 to 0.95', '0.95 to 1.00', 'above 1.00 - over capacity'];
+function updateLegend() {
+  const after = S.mode === 'after';
+  let h = '';
+  const sw = (cls, style, text, n = '') => `<div class="lg-row"><span><span class="sw ${cls}" style="${style}"></span>${text}</span>${n !== '' ? `<span class="n">${n}</span>` : ''}</div>`;
+  if (S.colour === 'type') {
+    h += `<div class="lg-t">Part type</div>`;
+    h += sw('', 'background:var(--frame)', after ? 'Steel frame, 0.95 mm' : 'Steel frame, 0.95 mm (as framed)');
+    if (after) {
+      h += sw('', 'background:var(--thick)', 'Edge trusses in 1.15 mm: both floor edge trusses and the north roof edge truss');
+      h += sw('', 'background:var(--strap)', 'Straps and strap bracing');
+      h += sw('', 'background:var(--head)', 'Lifting heads (saddles)');
+      h += sw('', 'background:var(--plate)', 'Cradles, joint gussets and bridging');
+      h += sw('', 'background:var(--steel)', 'Bolts, pins, packers, stop blocks');
+      h += sw('', 'background:var(--sling-load)', 'Slings and sling eyes');
+    }
+  } else {
+    const counts = [0, 0, 0, 0, 0];
+    for (const it of frameItems) {
+      const r = rec(it); const u = S.colour === 'case' ? (r.util_by_case ? r.util_by_case[S.caseId] : r.util) : r.util;
+      const b = band(u); if (b >= 0) counts[b]++;
+    }
+    h += `<div class="lg-t">${S.colour === 'env' ? 'How hard each part works (worst design case)' : 'How hard each part works: ' + esc(caseName(S.caseId))}</div>`;
+    if (S.colour === 'case' && !isDesign(act(), S.caseId)) h += `<div class="lg-note">This is an information case, not a design case.</div>`;
+    for (let b = 0; b < 5; b++) h += sw('', `background:var(--u${b})`, BAND_LABELS[b], pl(counts[b], 'member'));
+    h += `<div class="lg-note">1.00 = at design capacity, all safety factors included.${after ? (S.colour === 'case' ? ' Lifting parts and joint dots show their worst design case.' : ' Lifting parts: worst check in the connector table.') : ''}</div>`;
+    if (after) h += `<div class="lg-note">Both floor edge trusses and the north roof edge truss are 1.15 mm steel (shown in blue under Part type).</div>`;
+  }
+  if (after && S.showTies) h += sw('', 'background:var(--tie)', 'Joint held by a tie plate or truss-end cleat');
+  if (S.showJoints && S.colour !== 'type') h += `<div class="lg-note">Dots: joints working at 0.50 or more.</div>`;
+  h += `<div class="lg-note"><span class="sw round" style="background:var(--force)"></span>Sling force, 0.1 m of arrow per kN.</div>`;
+  $('#legend-body').innerHTML = h;
+}
+
+/* ------------------------------------------------------------------ info panel */
+const infoEl = $('#info'), infoBody = $('#info-body');
+function showInfo(html) { infoBody.innerHTML = html; infoEl.hidden = false; infoEl.scrollTop = 0; requestRender(); }
+function hideInfo() { infoEl.hidden = true; S.selected = null; refreshSelection(); requestRender(); }
+$('#info-close').addEventListener('click', hideInfo);
+const row = (k, v) => `<dt>${k}</dt><dd>${v}</dd>`;
+const modeLabel = () => (S.mode === 'after' ? 'After (Rev D)' : 'Before (frame as framed)');
+function connTable(rows) {
+  if (!rows.length) return '';
+  return `<div class="table-wrap"><table class="mini-table"><thead><tr><th>Check</th><th class="num">Demand</th><th class="num">Capacity</th><th class="num">Use</th></tr></thead><tbody>${
+    rows.map(r => `<tr><td>${esc(r.item)}<br><small class="muted">${esc(r.group)}${r.note ? ' - ' + esc(r.note) : ''}</small></td><td class="num">${fx(r.demand)} ${esc(r.unit)}</td><td class="num">${fx(r.capacity)} ${esc(r.unit)}</td><td class="num">${chip(r.util)}</td></tr>`).join('')
+  }</tbody></table></div>`;
+}
+function selectFrame(it) {
+  S.selected = { kind: 'frame', item: it }; refreshSelection();
+  const r = rec(it);
+  const other = S.mode === 'after' ? (beforeById && beforeById.get(it.id)) : it.m;
+  const len = it.a0.distanceTo(it.b0), mid = it.a0.clone().add(it.b0).multiplyScalar(0.5);
+  let h = `<h3>${esc(memberTitle(r))}</h3><p class="sub">${modeLabel()} · panel ${esc(r.panel)} · ${esc(r.type)} · ${esc(r.profile)}</p><dl class="kv">`;
+  h += row('Utilisation', `${chip(r.util)} ${pct(r.util)} of its design capacity, worst of all design cases`);
+  h += row('Worst case', esc(caseName(r.case)));
+  h += row('Check', `${esc(modePlain(r.mode))}<br><small class="muted">${esc(r.mode || '')}</small>`);
+  h += row('Steel', `${fx(r.t, 2)} mm${r.t > 1 ? ' (edge truss rolled thicker for the lift)' : ''}`);
+  h += row('Axial force', `${fx(r.N)} kN ${r.N >= 0 ? '(pull)' : '(push)'}`);
+  h += row('Bending', `${fx(r.M_in, 3)} kNm in the panel plane, ${fx(r.M_out, 3)} kNm across it`);
+  h += row('Buckling length', `${r.L_in ?? '–'} mm in plane, ${r.L_out ?? '–'} mm out of plane`);
+  h += row('Length', `${fx(len)} m`);
+  h += row('Where', `x ${fx(mid.x)} m, y ${fx(mid.y)} m, z ${fx(mid.z)} m`);
+  if (other) h += row(S.mode === 'after' ? 'Before' : 'After (Rev D)', `${chip(other.util)} worst case: ${esc(caseName(other.case))}`);
+  h += `</dl><p class="small muted">Forces are factored (× ${fx(FACTOR, 3)}) at the worst case. Buckling length is the longest unheld length.</p>`;
+  if (r.util_by_case) {
+    const data = act();
+    h += `<div class="table-wrap"><table class="mini-table"><thead><tr><th>Load case</th><th>Type</th><th class="num">Utilisation</th></tr></thead><tbody>${
+      Object.entries(r.util_by_case).map(([c, u]) => `<tr class="${c === S.caseId ? 'hl' : ''}${isDesign(data, c) ? '' : ' info-only'}"><td>${esc(caseName(c))}</td><td>${isDesign(data, c) ? 'design' : 'information'}</td><td class="num">${chip(u)}</td></tr>`).join('')}</tbody></table></div>`;
+  }
+  if (r.d_a) h += `<p class="small muted">Movement of the two ends in the main case, under the rated weight (not factored): (${r.d_a.map(v => fx(v, 1)).join(', ')}) mm and (${r.d_b.map(v => fx(v, 1)).join(', ')}) mm.</p>`;
+  showInfo(h);
+}
+const PART_TEXT = {
+  hanger: 'A pair of 50 × 1.5 mm straps, one on each face of the edge truss, from the lifting head straight down to one cradle under the floor edge truss at this lift line. All 8 lift points are the same.',
+  vstrap: 'A pair of inclined straps from the lifting head down to a cradle.',
+  cradle: 'Two 3 mm cheek plates either side of the floor edge truss bottom chord, joined under the chord by two M16 bearing bolts with sleeves, one under each truss joint of the pair. The chord sits on the bolts through 3 mm packers, so the load goes straight into the V of the two truss diagonals and the chord does not bend. The cheeks are screwed at the first joint only; the second joint is bearing only.',
+  head: 'A saddle over the roof edge truss with no fasteners, keyed along the module by a stop block. It only holds the sling sideways and carries no weight into the roof; the weight goes down the hanger straps. The round sling eye goes straight over the free-turning sleeve on the M20 pin, so there is no shackle at the head.',
+  brace: 'Crossed strap in the floor or roof plane. It keeps the floor and roof square so the module cannot twist or rack.',
+  bridging: 'One short C89 nogging in a bridging line at truss mid-span. The line holds the truss top chords sideways so they cannot buckle sideways. No help is taken from the floor sheet or the ceiling.',
+  gusset: 'A 1.5 mm steel plate on each face of this joint, with 3 + 3 screws per face. With the framed screws it is worth 10 screws, so the joint can pass more force from member to member.',
+};
+const SUFFIX_NAMES = { BASE: 'cradle body (cheeks and bolts)', SEAT0: 'first seat', SEAT1: 'second seat' };
+function footInfo(f) {
+  const L = f.lay;
+  let h = '<dl class="kv">';
+  h += row('Cradle', `x ${intf(f.x0 * 1000)} to ${intf(f.x1 * 1000)} mm (${intf((f.x1 - f.x0) * 1000)} mm long, 140 mm high)`);
+  f.seats.forEach((s, i) => { h += row(i ? 'Second seat' : 'First seat', `x ${intf(s.x * 1000)} mm: ${s.screwed ? 'screwed seat (packer + 2 screws per cheek)' : 'bearing only (packer, no screws)'}`); });
+  if (L) {
+    if (Number.isFinite(L.x_strap)) h += row('Strap', `at x ${fx(L.x_strap, 1)} mm${Number.isFinite(L.x_head) ? `; lifting head at x ${fx(L.x_head, 1)} mm` : ''}`);
+    const GAP_NAMES = { strap_gap: 'strap clear of the nearest truss-end cleat', cradle_gap: 'cradle clear of the nearest truss-end cleat' };
+    const gaps = Object.keys(L).filter(k => /_gap$/.test(k) && Number.isFinite(L[k]));
+    if (gaps.length) h += row('Clearance', gaps.map(k => `${esc(GAP_NAMES[k] || k.replace(/_/g, ' '))}: ${fx(L[k], 1)} mm`).join('<br>'));
+  }
+  h += '</dl>';
+  const seatRows = f.seats.map(s => {
+    const all = SEATS.filter(x => x.seat === s.m.id);
+    if (!all.length) return '';
+    const mx = all.reduce((a, x) => (x.up_kN > a.up_kN ? x : a), all[0]);
+    const cur = all.find(x => x.case === S.caseId);
+    return `<tr><td>${s.screwed ? 'Screwed seat' : 'Bearing-only seat'}, x ${intf(s.x * 1000)}</td><td class="num">${fx(mx.up_kN)}</td><td>${esc(caseName(mx.case))}</td><td class="num">${cur ? fx(cur.up_kN) : '–'}</td></tr>`;
+  }).join('');
+  if (seatRows) h += `<p style="margin-top:8px"><b>Push up on each seat</b> (kN, factored)</p><div class="table-wrap"><table class="mini-table"><thead><tr><th>Seat</th><th class="num">Largest</th><th>In case</th><th class="num">Chosen case</th></tr></thead><tbody>${seatRows}</tbody></table></div><p class="small muted">"Chosen case" is the load case picked in the View panel (design cases only).</p>`;
+  return h;
+}
+function selectPart(part) {
+  S.selected = { kind: 'part', part }; refreshSelection();
+  const m0 = part.members[0];
+  let h = `<h3>${esc(part.title)}</h3>`;
+  h += `<p>${esc(PART_TEXT[part.cat] || '')}${part.cat === 'hanger' && part.north ? ' This is the open north (marriage) side: after set-down this strap pair and the cradle below are unbolted and taken off before the second module comes (they carry nothing in service). Marriage gap at least 15 mm.' : ''}</p>`;
+  if (part.cat === 'cradle' && part.foot) h += footInfo(part.foot);
+  if (part.cat === 'gusset' && part.g) h += `<dl class="kv">${row('Panel', esc(panelTitle(part.g.panel)))}${row('Where', `x ${fx(part.g.xyz[0] / 1000)} m, y ${fx(part.g.xyz[1] / 1000)} m, z ${fx(part.g.xyz[2] / 1000)} m`)}</dl>`;
+  if (m0) h += `<dl class="kv">${row('Role', esc(m0.role))}${row('Part', esc(m0.profile))}</dl>`;
+  if (part.members.length === 1) {
+    const m = m0;
+    h += `<dl class="kv">${row('Largest pull', `${fx(m.N_max)} kN`)}${row('Smallest', `${fx(m.N_min)} kN`)}${row('Shear', `${fx(m.V)} kN`)}${row('Bending', `${fx(m.Mmax, 3)} kNm`)}${row('Main case', `${fx(m.N_R4_unfactored)} kN, not factored`)}</dl>`;
+    h += `<p class="small muted">Forces in kN, factored (× ${fx(FACTOR, 3)}), worst over the design cases; + is pull. For a strap pair the force is for both straps together.</p>`;
+  } else if (part.members.length > 1) {
+    h += `<p class="small muted">In the analysis this cradle is modelled as ${part.members.length} short members. Forces in kN (kNm for bending), factored, worst over the design cases; + is pull, − is push.</p>`;
+    h += `<div class="table-wrap"><table class="mini-table"><thead><tr><th>Piece</th><th class="num">Max</th><th class="num">Min</th><th class="num">Shear</th><th class="num">Bend</th></tr></thead><tbody>${
+      part.members.map(m => { const suf = m.id === part.id ? '' : m.id.slice(part.id.length + 1); return `<tr><td>${esc(SUFFIX_NAMES[suf] || suf)}</td><td class="num">${fx(m.N_max)}</td><td class="num">${fx(m.N_min)}</td><td class="num">${fx(m.V)}</td><td class="num">${fx(m.Mmax, 3)}</td></tr>`; }).join('')}</tbody></table></div>`;
+  }
+  const rows = connRows(part.cat);
+  if (rows.length) h += `<p style="margin-top:10px"><b>Checks in the connector table</b> (worst case of this part type)</p>${connTable(rows)}`;
+  showInfo(h);
+}
+function selectJoint(it, i) {
+  S.selected = { kind: 'joint', i }; refreshSelection();
+  const j = it.j, gusset = j.screws >= 10;
+  let h = `<h3>Joint - ${esc(panelTitle(j.panel))}</h3><p class="sub">${modeLabel()}</p><dl class="kv">`;
+  h += row('Utilisation', `${chip(j.util)} ${pct(j.util)} of what its screws can carry`);
+  h += row('Force on screws', `${fx(j.demand)} kN (factored)`);
+  h += row('Screw capacity', `${fx(j.capacity)} kN`);
+  h += row('Screws', gusset ? `${j.screws} screw-equivalents: a joint gusset (a 1.5 mm plate on each face)` : String(j.screws));
+  h += row('Worst case', esc(caseName(j.case)));
+  h += row('Where', `x ${fx(j.xyz[0] / 1000)} m, y ${fx(j.xyz[1] / 1000)} m, z ${fx(j.xyz[2] / 1000)} m`);
+  h += `</dl><p class="small muted">The end force of every member that meets here passes through the screws. Truss joint screws go through both flanges. Only joints at 0.50 or more are shown as dots.</p>`;
+  if (gusset && S.mode === 'after') h += connTable(connRows('gusset'));
+  showInfo(h);
+}
+function selectTie(it, i) {
+  S.selected = { kind: 'tie', i }; refreshSelection();
+  const l = it.l, t = tieFor(l.rule);
+  const mid = [(l.a[0] + l.b[0]) / 2000, (l.a[1] + l.b[1]) / 2000, (l.a[2] + l.b[2]) / 2000];
+  let h = `<h3>${esc(t || 'Tie plate')} - ${esc(RULE_PLAIN[l.rule] || l.rule)}</h3>`;
+  h += t === 'Truss-end cleat'
+    ? '<p>This truss end would be pulled away from the edge truss during the lift. Every truss end has a folded 1.5 mm cleat on each side with 5 + 5 screws, so the cleat takes the pull and its screws work sideways (in shear). No screw is relied on in pull-out.</p><dl class="kv">'
+    : '<p>This joint between two panels would be pulled apart during the lift. A small flat steel plate is screwed across it, so the plate takes the pull and its screws work sideways (in shear). No screw is relied on in pull-out.</p><dl class="kv">';
+  h += row('Largest pull', `${fx(l.N_max)} kN (factored)`);
+  h += row('Shear use', `${chip(l.util)} of what its screws can carry in shear`);
+  h += row('Where', `x ${fx(mid[0])} m, y ${fx(mid[1])} m, z ${fx(mid[2])} m`);
+  h += `</dl>`;
+  h += connTable(t ? connRows('tie', t) : connRows('tie'));
+  showInfo(h);
+}
+function showLiftInfo(pt) {
+  S.selected = null; refreshSelection();
+  const data = act(), lp = data.lift_points[pt];
+  const kN = lp.reactions_kN[S.caseId];
+  let h = `<h3>Lift point ${pt} - ${pt[0] === 'S' ? 'south' : 'north'} side, x = ${fx(lp.xyz[0] / 1000, 2)} m</h3>`;
+  h += `<p class="sub">${S.mode === 'after'
+    ? 'After (Rev D): the sling\'s round eye goes over the free-turning sleeve on the M20 pin inside the head saddle. Below it, a pair of hanger straps runs straight down to one cradle under the floor edge truss.'
+    : 'Before: the sling goes straight onto the floor edge truss bottom chord.'}</p><dl class="kv">`;
+  h += row('Sling force', kN == null ? 'not in this file for the chosen case' : `${fx(kN)} kN in "${esc(caseName(S.caseId))}"${isDesign(data, S.caseId) ? '' : ' (information case)'}`);
+  if (kN != null) h += row('Factored', `${fx(kN * data.meta.factor)} kN (× ${fx(data.meta.factor, 3)})`);
+  h += `</dl><div class="table-wrap"><table class="mini-table"><thead><tr><th>Load case</th><th>Type</th><th class="num">kN</th></tr></thead><tbody>${
+    Object.entries(lp.reactions_kN).map(([c, v]) => { const d = isDesign(data, c); return `<tr class="${c === S.caseId ? 'hl' : ''}${d ? '' : ' info-only'}"><td>${esc(caseName(c))}</td><td>${d ? 'design' : 'information'}</td><td class="num">${fx(v)}</td></tr>`; }).join('')}</tbody></table></div>`;
+  h += `<p class="small muted">Sling forces are not factored here (rated weight ${fx(data.meta.W_N / 1000, 1)} kN). Largest static sling force in the design cases, for choosing the slings: ${fx(D.conn.rigging.max_static_drop_kN)} kN (${fx(D.conn.rigging.max_static_drop_t)} t).</p>`;
+  showInfo(h);
+}
+function showRigInfo() {
+  S.selected = null; refreshSelection();
+  let h = `<h3>Spreader-beam cascade (drawn to explain, not to scale)</h3>`;
+  h += `<p>One top beam, two middle beams, four cross beams and eight vertical slings. Each beam hangs from one pin, so each sling's share is fixed by balance, not by sling length. The cascade is lifting equipment: it must be certified to AS 4991 and proof tested (hold point H7), and a hang-angle stop at 1.5° applies (hold point H5).</p><dl class="kv">`;
+  h += row('Cross beams', `picked at y = ${fx(RIG.cgY)} m from the south face (the centre of gravity), not at the middle (${fx((RIG.yS + RIG.yN) / 2)} m)`);
+  h += row('Middle beams', `picked at x = ${fx(RIG.xpA)} m and ${fx(RIG.xpB)} m`);
+  h += row('Top beam', `picked at x = ${fx(RIG.xT)} m; centre of gravity at x = ${fx(RIG.cgX)} m`);
+  h += row('Largest sling force', `${fx(D.conn.rigging.max_static_drop_kN)} kN static (${fx(D.conn.rigging.max_static_drop_t)} t)`);
+  h += `</dl><p class="small muted">${esc(D.conn.rigging.note)}</p><p class="small muted">The real pick points are set from the centre of gravity measured with load cells before the first lift (hold point H1).</p>`;
+  showInfo(h);
+}
+function showCGInfo() {
+  S.selected = null; refreshSelection();
+  const m = act().meta;
+  let h = `<h3>Centre of gravity and weight</h3><dl class="kv">`;
+  h += row('Position', `x ${fx(m.cg[0] / 1000)} m, y ${fx(m.cg[1] / 1000)} m, z ${fx(m.cg[2] / 1000)} m`);
+  h += row('Weight checked', `${fx(m.W_N / 1000, 1)} kN = rated ${intf(m.rated_kg)} kg`);
+  h += row('Itemised mass', `${intf(m.itemised_kg)} kg (estimate)`);
+  h += row('Total factor', `${fx(m.factor, 3)} = ${m.factors.weight} × ${m.factors.cog} × ${m.factors.dynamic} × ${m.factors.load}`);
+  h += `</dl><p>The open north side makes the module heavier on the south side, so the centre of gravity sits ${fx((RIG.yS + RIG.yN) / 2 - m.cg[1] / 1000)} m south of the middle. The itemised mass is spread up to the rated mass, keeping its layout. The real centre of gravity is measured with load cells before the first lift.</p>`;
+  showInfo(h);
+}
+
+/* ------------------------------------------------------------------ picking */
+const shownObj = o => { for (; o; o = o.parent) if (!o.visible) return false; return true; };
+const inModule = o => { for (; o; o = o.parent) if (o === moduleG) return true; return false; };
+function pick(cx, cy) {
+  setRay(cx, cy);
+  const targets = [frameMesh, jointMesh, tieMesh, ...Object.values(BT).map(b => b.mesh), ...pickables];
+  const hits = raycaster.intersectObjects(targets, false);
+  for (const h of hits) {
+    if (!shownObj(h.object)) continue;
+    if (inModule(h.object) && !inSection(h.point.x, h.point.y)) continue;
+    return h;
+  }
+  return null;
+}
+function onPick(h) {
+  if (!h) { if (!infoEl.hidden) hideInfo(); return; }
+  const o = h.object;
+  if (o === frameMesh) selectFrame(frameItems[h.instanceId]);
+  else if (o === jointMesh) selectJoint((JOINTS[S.mode] || [])[h.instanceId], h.instanceId);
+  else if (o === tieMesh) selectTie(tieItems[h.instanceId], h.instanceId);
+  else if (o.userData.batch) selectPart(o.userData.batch.items[h.instanceId].part);
+  else if (o.userData.pick) {
+    const p = o.userData.pick;
+    if (p.kind === 'rig') showRigInfo(); else if (p.kind === 'lift') showLiftInfo(p.pt); else if (p.kind === 'cg') showCGInfo();
+  }
+}
+let downAt = null;
+canvas.addEventListener('pointerdown', e => { downAt = { x: e.clientX, y: e.clientY }; });
+canvas.addEventListener('pointerup', e => {
+  if (!downAt || e.button !== 0) return;
+  const moved = Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y); downAt = null;
+  if (moved < 6) onPick(pick(e.clientX, e.clientY));
+});
+
+/* ------------------------------------------------------------------ camera flights */
+let fly = null;
+function flyTo(t, p) {
+  if (reduceMotion.matches) { controls.target.copy(t); camera.position.copy(p); controls.update(); requestRender(); return; }
+  fly = { t0: performance.now(), dur: 900, fT: controls.target.clone(), fP: camera.position.clone(), tT: t, tP: p };
+}
+/* wide views move back on narrow (portrait) screens so the whole module stays in the picture */
+const WIDE_VIEWS = new Set(['home', 'south', 'north', 'top', 'rig', 'brace', 'thick', 'bridging']);
+function viewVectors(name) {
+  const v = VIEWS[name]; if (!v) return null;
+  const t = new THREE.Vector3(v[0][0], v[0][1], v[0][2] + S.liftZ), p = new THREE.Vector3(v[1][0], v[1][1], v[1][2] + S.liftZ);
+  const f = WIDE_VIEWS.has(name) ? Math.min(2, Math.max(1, Math.pow(1.3 / Math.max(0.2, camera.aspect), 0.55))) : 1;
+  if (f > 1) p.sub(t).multiplyScalar(f).add(t);
+  return [t, p];
+}
+function goView(name) { const tp = viewVectors(name); if (tp) flyTo(tp[0], tp[1]); }
+controls.addEventListener('start', () => { fly = null; });
+controls.addEventListener('change', requestRender);
+function stepFly(now) {
+  if (!fly) return false;
+  let u = Math.min(1, (now - fly.t0) / fly.dur);
+  const e = u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+  controls.target.lerpVectors(fly.fT, fly.tT, e); camera.position.lerpVectors(fly.fP, fly.tP, e);
+  if (u >= 1) fly = null;
+  return true;
+}
+
+/* ------------------------------------------------------------------ play lift */
+const playBtn = $('#btn-play'), liftCap = $('#liftcap');
+const T_SLACK = 0.6, T_LOAD = 2.2, T_TOP = 5.6, LIFT_H = 3.0;
+const smooth = u => u * u * (3 - 2 * u);
+function afterLift() {
+  moduleG.position.z = S.liftZ;
+  updateMarkers(); updateDrops(); placeHandles(); recolourRig(); requestRender();
+}
+function setLiftCap(t) { if (!t) { liftCap.hidden = true; return; } liftCap.hidden = false; liftCap.textContent = t; }
+function playLift() {
+  if (S.play) return;
+  if (S.liftZ > 0.01) { setDown(); return; }
+  if (reduceMotion.matches) {
+    const dz = (LIFT_H - S.liftZ) * 0.6; camera.position.z += dz; controls.target.z += dz;
+    S.liftLoad = 1; S.liftZ = LIFT_H; afterLift(); playBtn.textContent = 'Set down';
+    setLiftCap('Lifted ' + LIFT_H.toFixed(1) + ' m and holding'); return;
+  }
+  S.play = { kind: 'up', t0: performance.now() };
+  playBtn.disabled = true; playBtn.textContent = 'Lifting…';
+}
+function setDown() {
+  if (reduceMotion.matches) {
+    const dz = -S.liftZ * 0.6; camera.position.z += dz; controls.target.z += dz;
+    S.liftZ = 0; S.liftLoad = 1; afterLift(); playBtn.textContent = 'Play lift'; setLiftCap(''); return;
+  }
+  S.play = { kind: 'down', t0: performance.now(), z0: S.liftZ };
+  playBtn.disabled = true; playBtn.textContent = 'Setting down…'; setLiftCap('Setting down');
+}
+function stepLift(now) {
+  if (!S.play) return false;
+  const t = (now - S.play.t0) / 1000;
+  const z0 = S.liftZ;
+  stepLiftState(t);
+  /* the camera follows part of the rise, so the module and rig stay in view while the ground shows the movement */
+  const dz = (S.liftZ - z0) * 0.6;
+  if (dz && !fly) { camera.position.z += dz; controls.target.z += dz; }
+  afterLift();
+  return true;
+}
+function stepLiftState(t) {
+  if (S.play.kind === 'down') {
+    const u = Math.min(1, t / 2.2); S.liftZ = S.play.z0 * (1 - smooth(u)); S.liftLoad = 1;
+    if (u >= 1) { S.play = null; playBtn.disabled = false; playBtn.textContent = 'Play lift'; setLiftCap(''); }
+  } else if (t < T_SLACK) { S.liftLoad = 0; S.liftZ = 0; setLiftCap('On the ground, slings slack'); }
+  else if (t < T_LOAD) { S.liftLoad = smooth((t - T_SLACK) / (T_LOAD - T_SLACK)); S.liftZ = 0; setLiftCap('Slings take up the load'); }
+  else if (t < T_TOP) { S.liftLoad = 1; S.liftZ = LIFT_H * smooth((t - T_LOAD) / (T_TOP - T_LOAD)); setLiftCap('Lifting'); }
+  else { S.liftLoad = 1; S.liftZ = LIFT_H; S.play = null; playBtn.disabled = false; playBtn.textContent = 'Set down'; setLiftCap('Lifted ' + LIFT_H.toFixed(1) + ' m and holding'); }
+}
+playBtn.addEventListener('click', playLift);
+
+/* ------------------------------------------------------------------ render loop and resize */
+function resize() {
+  const w = Math.max(1, viewer.clientWidth), h = Math.max(1, viewer.clientHeight);
+  renderer.setSize(w, h, false); labelRenderer.setSize(w, h);
+  camera.aspect = w / h; camera.updateProjectionMatrix(); requestRender();
+}
+new ResizeObserver(resize).observe(viewer);
+function loop(now) {
+  requestAnimationFrame(loop);
+  const a = stepLift(now), b = stepFly(now), c = controls.update();
+  if (a || b || c || needsRender) {
+    /* keep the section handles about the same size on screen */
+    for (const h of Object.values(handles)) h.scale.setScalar(Math.min(1.5, Math.max(0.25, camera.position.distanceTo(h.position) * 0.062)));
+    renderer.render(scene, camera); labelRenderer.render(scene, camera); needsRender = false;
+  }
+}
+
+/* ------------------------------------------------------------------ mode switch */
+const modeHint = $('#mode-hint');
+const MODE_HINT = {
+  after: 'After (Rev D): the final design with all the lifting parts.',
+  before: 'Before: the frame exactly as framed (2 screws per joint, 0.95 mm edge trusses), no lifting parts, slings straight onto the floor edge truss bottom chords at the same 8 lift points. It was checked with its own list of cases, shown in the cases table.',
+};
+async function ensureBefore() {
+  if (D.before) return;
+  const b = await pBefore;
+  beforeById = new Map(b.members.map(m => [m.id, m]));
+  DISP.before = buildIndex(b.members);
+  JOINTS.before = buildJointItems(b, DISP.before);
+  LP.before = buildLP(b, DISP.before);
+  D.before = b;
+  fillSummary();
+}
+async function setMode(mode) {
+  if (mode === S.mode) return;
+  if (mode === 'before' && !D.before) {
+    try { setStatus('Loading the Before frame…'); await ensureBefore(); setStatus(''); }
+    catch (err) { setStatus(''); alertMsg('Could not load data/before.json: ' + err.message); return; }
+  }
+  S.mode = mode;
+  buildCaseSelect();
+  $('#btn-after').setAttribute('aria-pressed', String(mode === 'after'));
+  $('#btn-before').setAttribute('aria-pressed', String(mode === 'before'));
+  modeHint.textContent = MODE_HINT[mode];
+  if (S.selected && S.selected.kind !== 'frame') hideInfo();
+  updateVisibility(); updateGeometry(); recolour(); buildCasesTable();
+  if (S.selected && S.selected.kind === 'frame') selectFrame(S.selected.item);
+}
+function alertMsg(t) { showInfo(`<h3>Problem</h3><p>${esc(t)}</p>`); }
+$('#btn-after').addEventListener('click', () => setMode('after'));
+$('#btn-before').addEventListener('click', () => setMode('before'));
+
+/* ------------------------------------------------------------------ controls wiring */
+const caseSel = $('#case-sel');
+/* the picker lists the active file's main cases (the ones with per-member results), grouped into design and information cases */
+function buildCaseSelect() {
+  const data = act(), list = data.main_cases || [];
+  if (!list.includes(S.caseId)) S.caseId = list.includes('R4_equalised') ? 'R4_equalised' : list[0];
+  const opt = c => `<option value="${esc(c)}"${c === S.caseId ? ' selected' : ''}>${esc(caseName(c))}${isDesign(data, c) ? '' : ' (information only)'}</option>`;
+  const des = list.filter(c => isDesign(data, c)), inf = list.filter(c => !isDesign(data, c));
+  caseSel.innerHTML = (des.length ? `<optgroup label="Design cases">${des.map(opt).join('')}</optgroup>` : '')
+    + (inf.length ? `<optgroup label="Information only (not design)">${inf.map(opt).join('')}</optgroup>` : '');
+}
+buildCaseSelect();
+caseSel.addEventListener('change', () => { S.caseId = caseSel.value; updateMarkers(); if (S.colour === 'case') recolour(); else updateLegend(); requestRender(); });
+for (const r of $$('input[name="cm"]')) r.addEventListener('change', () => { if (r.checked) { S.colour = r.value; updateVisibility(); recolour(); } });
+const bindCheck = (id, key, fn) => { const el = $(id); el.checked = S[key]; el.addEventListener('change', () => { S[key] = el.checked; (fn || updateVisibility)(); }); };
+bindCheck('#chk-rig', 'showRig', () => { updateVisibility(); updateDrops(); });
+bindCheck('#chk-labels', 'showLabels');
+bindCheck('#chk-joints', 'showJoints');
+bindCheck('#chk-ties', 'showTies');
+bindCheck('#chk-cg', 'showCG');
+bindCheck('#chk-defl', 'deflect', updateGeometry);
+const rngMag = $('#rng-mag'), outMag = $('#out-mag');
+rngMag.addEventListener('input', () => { S.mag = +rngMag.value; outMag.textContent = '× ' + S.mag; if (S.deflect) updateGeometry(); });
+const rngExp = $('#rng-exp'), outExp = $('#out-exp');
+rngExp.addEventListener('input', () => { S.explode = +rngExp.value; outExp.textContent = S.explode.toFixed(2) + ' m'; updateGeometry(); });
+const rngX0 = $('#rng-x0'), rngX1 = $('#rng-x1'), outX0 = $('#out-x0'), outX1 = $('#out-x1'), chkCut = $('#chk-cut');
+function syncSectionInputs() { rngX0.value = S.x0; rngX1.value = S.x1; outX0.textContent = (+S.x0).toFixed(1) + ' m'; outX1.textContent = (+S.x1).toFixed(1) + ' m'; chkCut.checked = S.cutSouth; }
+rngX0.addEventListener('input', () => { S.x0 = Math.min(+rngX0.value, S.x1 - 0.3); syncSectionInputs(); applySection(); });
+rngX1.addEventListener('input', () => { S.x1 = Math.max(+rngX1.value, S.x0 + 0.3); syncSectionInputs(); applySection(); });
+chkCut.addEventListener('change', () => { S.cutSouth = chkCut.checked; applySection(); });
+$('#btn-cut-reset').addEventListener('click', () => { S.x0 = 0; S.x1 = 12; S.cutSouth = false; syncSectionInputs(); applySection(); });
+for (const b of $$('[data-view]')) b.addEventListener('click', () => goView(b.dataset.view));
+$('#btn-home').addEventListener('click', () => goView('home'));
+const sideBtn = $('#btn-side');
+sideBtn.addEventListener('click', () => {
+  const ws = $('#workspace'); const hidden = ws.classList.toggle('side-hidden');
+  sideBtn.setAttribute('aria-pressed', String(hidden)); sideBtn.textContent = hidden ? 'Show panel' : 'Hide panel';
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !infoEl.hidden) hideInfo(); });
+/* tabs */
+const tabs = [$('#tab-view'), $('#tab-how')];
+function selectTab(i, focus) {
+  tabs.forEach((t, j) => {
+    const on = i === j; t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;
+    $('#' + t.getAttribute('aria-controls')).hidden = !on;
+  });
+  if (focus) tabs[i].focus();
+}
+tabs.forEach((t, i) => {
+  t.addEventListener('click', () => selectTab(i));
+  t.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); selectTab((i + 1) % 2, true); } });
+});
+if (window.innerWidth < 700) $('#legend').open = false;
+
+/* ------------------------------------------------------------------ how it works cards */
+/* plain sentence for one ablation row, e.g. "2 members over capacity (worst member 2.44)" */
+function abTxt(r) {
+  const bits = [];
+  if (r.members_over) bits.push(pl(r.members_over, 'member'));
+  if (r.joints_over) bits.push(pl(r.joints_over, 'joint'));
+  if (r.links_over) bits.push(pl(r.links_over, 'panel connection'));
+  const worst = `worst member ${fx(r.max_member)}${r.joints_over && Number.isFinite(r.max_joint) ? `, worst joint ${fx(r.max_joint)}` : ''}`;
+  if (!bits.length) return `nothing over capacity (${worst})`;
+  const list = bits.length > 1 ? bits.slice(0, -1).join(', ') + ' and ' + bits[bits.length - 1] : bits[0];
+  return `${list} over capacity (${worst})`;
+}
+/* one sentence per ablation run, left out when the run is not in the file */
+const abSent = (id, lead) => { const r = ablById[id]; return r && r.members_over != null ? ` ${lead}: ${abTxt(r)}.` : ''; };
+const tiltCount = Object.keys(D.after.cases).filter(k => /^T\d/.test(k) && isDesign(D.after, k)).length;
+const thickPanels = [...new Set(D.after.members.filter(m => m.kind !== 'added' && m.t > 1).map(m => m.panel))];
+const boltRow = D.conn.rows.find(r => /bearing bolt bending/i.test(r.item));
+const bearRow = D.conn.rows.find(r => /^bearing under one truss joint/i.test(r.item));
+const tieTop = connRows('tie').sort((p, q) => q.util - p.util)[0];
+const svcBear = D.svc.layouts && D.svc.layouts.bearer && D.svc.layouts.bearer.ULS1;
+const PANEL_KIND = {};
+for (const m of D.after.members) if (m.kind !== 'added') PANEL_KIND[m.panel] = m.kind;
+const floorGussets = GUSSETS.filter(g => PANEL_KIND[g.panel] === 'floor_truss').length;
+const liftGussets = GUSSETS.length - floorGussets;
+const EVOLUTION = 'Rev D first used A-frames on the south side; they were replaced by vertical hangers because the inclined straps clashed with the truss-end cleats.';
+const CARDS = [
+  { key: 'rig', title: 'The rig (spreader-beam cascade)', view: 'rig', focus: { rig: true },
+    what: 'Spreader beams under the crane hook: one top beam, two middle beams, four cross beams and eight vertical slings, one to each lift point. Shackles are used only at the beam ends; at the module, each sling\'s round eye goes straight over the sleeve on the head pin.',
+    does: `Each beam hangs from one pin, so it tips until it balances, like a see-saw. That fixes each sling's share of the weight by simple balance, not by the sling lengths. The pick points are set to the centre of gravity measured with load cells before the first lift. The open north side makes the module heavier on the south side: in the main case each south point carries about ${fx(sAvg, 1)} kN and each north point about ${fx(nAvg, 1)} kN at the rated ${fx(META.rated_kg / 1000, 1)} t. The design also checks the module hanging 2° out of level (${tiltCount} cases); on site the lift stops at 1.5° (hold point H5).`,
+    without: `A rigid lifting frame with eight fixed slings is not allowed. With a rigid frame, one sling 10 mm short loads some joints to ${fx(r6Joint, 1)} times and some members to ${fx(r6Mem, 1)} times their design capacity (cases R6, information only). The cascade must be certified to AS 4991 and proof tested (hold point H7).`,
+    extra: '<div class="btnrow"><button class="btn mini" type="button" data-act="play">Play lift</button></div>' },
+  { key: 'head', title: 'Lifting head (saddle)', view: 'head', focus: { parts: ['head'] },
+    what: 'A folded 3 mm steel saddle that sits over the roof edge truss at each of the 8 lift points, with no fasteners, keyed along the module by a stop block. It carries an M20 lifting pin with a free-turning 40 mm sleeve.',
+    does: 'The hanger straps hang from the head, so the sling pulls on the straps, not on the roof. The saddle only holds the sling sideways; it carries no weight into the roof. The sling\'s round eye goes straight over the sleeve, so there is no shackle at the head.',
+    without: `It is the point the crane connects to, so there is no run without it. Its highest check in the connector table is ${fx(CONN_MAX.head)} of capacity.` },
+  { key: 'hanger', title: 'Hanger straps (all 8 lift points)', view: 'hanger', focus: { parts: ['hanger'] },
+    what: 'All 8 lift points are the same: a vertical pair of 50 × 1.5 mm steel straps, one on each face of the edge truss, runs from the head straight down to one cradle under the floor edge truss at the lift line.',
+    does: `The straps carry the lift point's share of the weight from the cradle up to the head. A strap on each face keeps the pull centred on the edge truss, so the truss is not twisted. ${EVOLUTION}`,
+    without: `The hanger straps' highest check is ${fx(CONN_MAX.hanger)} of capacity.${abSent('A7_single_inner_hanger', 'With one strap on the inside face only')} Without any lifting parts (the Before frame, with the slings straight onto the floor edge truss): ${b0Txt()}.` },
+  { key: 'cradle', title: 'Cradles at the truss joints', view: 'cradle', focus: { parts: ['cradle'] },
+    what: 'Under each lift point a cradle sits under the floor edge truss bottom chord, at a pair of truss joints: two 3 mm cheek plates, 120 mm long, joined under the chord by two M16 bolts with sleeves, one under each joint, each with a 3 × 40 × 89 mm bearing packer. The cheeks are screwed at the first joint only; the second joint is bearing only. The cradles sit clear of the truss-end cleats.',
+    does: 'The chord sits on the bolts right under the truss joints, so the load goes straight into the V of the two truss diagonals and the chord does not bend. Click a cradle to see its seats, the push on each seat and its clearances.',
+    without: `${abSent('A5_seat_between_joints', 'With the lift points half a truss panel off the joint pairs, so the cradles bear between the truss joints').trim()}${boltRow ? ` Highest cradle checks: M16 bearing bolt ${fx(boltRow.util)}` : ''}${bearRow ? `, bearing under a truss joint ${fx(bearRow.util)}` : ''}.` },
+  { key: 'marriage', title: 'The marriage side (north)', view: 'nhanger', focus: { parts: ['hanger', 'cradle', 'head'] },
+    what: 'The north side is open: it joins the second module, with short wall piers at the lift lines. The two modules meet north face to north face, and their lift lines fall opposite each other.',
+    does: 'So after set-down, before the second module comes, the 4 north cradles, the marriage-face hanger straps and the heads are unbolted and taken off (they carry nothing in service and are reused). Marriage gap at least 15 mm (hold point).',
+    without: abSent('A7_single_inner_hanger', 'With one strap on the inside face only (nothing on the marriage face)').trim() || 'There was no separate run for this.' },
+  { key: 'thick', title: 'Edge trusses in 1.15 mm steel', view: 'thick', focus: { frame: m => m.t > 1 },
+    what: `Both floor edge trusses and the north roof edge truss (panels ${thickPanels.join(', ')}) are rolled in 1.15 mm steel instead of 0.95 mm. "Part type" colours show them in blue.`,
+    does: 'The edge trusses are the main beams of the lift: they carry the module between the lift points. Thicker steel makes their members and joints stronger.',
+    without: abSent('A6_north_trusses_095', 'With the north edge trusses left at 0.95 mm').trim() || 'There was no separate run for this.' },
+  { key: 'screws', title: 'Joint gussets, screws and cleats', view: 'screws',
+    focus: { frame: m => m.kind === 'rim_truss' || m.kind === 'roof_rim', joints: j => j.screws >= 4, parts: ['gusset'] },
+    what: `Joint gussets: a 1.5 mm plate on each face of a joint, with 3 + 3 screws, worth 10 screws.${GUSSETS.length ? ` There are ${GUSSETS.length}: ${liftGussets} for the lift, at joints near the lift points, and ${floorGussets} for the 3 kPa classroom floor in service, at joints near the ends of the floor trusses.` : ''} 4 screws at the other truss joints, and folded cleats with 5 + 5 screws at every truss end.` +
+      (SCREWS ? ` In all, ${intf(SCREWS.extra)} screws are added to the ${intf(SCREWS.as_framed)} as framed.` : ''),
+    does: 'Every joint passes force from member to member through its screws, and each screw can only take so much. The screws at the truss joints go through both flanges, which also holds the members against twisting.',
+    without: `${abSent('A1_framed_screws', 'With no added screws or gussets (joints as framed)')}${abSent('A2_no_gussets', 'With 4-screw joints but no gussets')}${abSent('S2_twist_length_out', 'If the joint screws were not counted as holding the members against twisting')} So the truss joint screws must go through both flanges (hold point).`.trim() },
+  { key: 'ties', title: 'Tie plates and truss-end cleats', view: 'ties', focus: { ties: true },
+    what: `Small flat steel straps screwed across panel joints that would otherwise pull apart: T2 ties the wall plates to the edge trusses and T3 crosses wall panel seams. At the truss ends the folded cleats do the same job. ${ENV.links_tie} joints are held this way (teal markers).`,
+    does: 'The plate or cleat carries the pull and its screws work sideways (in shear), so no screw is relied on to resist pulling out.',
+    without: `These joints would rely on screws pulling out of thin steel, which this design does not allow.${tieTop ? ` The highest tie check is ${fx(tieTop.util)} (${shortGroup(tieTop.group)}: ${tieTop.item}).` : ''}` },
+  { key: 'bridging', title: 'Bridging and strap bracing', view: 'bridging', focus: { parts: ['bridging', 'brace'] },
+    what: 'A line of short C89 noggings across the floor trusses and another across the roof trusses at mid-span (bridging), and 30 × 1.0 mm steel straps crossed in the floor and roof planes (bracing).',
+    does: 'The bridging holds the truss top chords sideways so they cannot buckle sideways. The bracing makes the floor and roof act as stiff flat plates, so the box cannot twist or go out of square. No help is taken from linings or the floor sheet.',
+    without: `${abSent('A3_no_bridging', 'No bridging')}${abSent('A4_no_plane_bracing', 'No strap bracing')}`.trim() || 'There was no separate run for this.' },
+  { key: 'rely', title: 'Hold points: what the design depends on', view: 'home', focus: null,
+    list: [
+      `H1: weigh the module with load cells and find its centre of gravity before the first lift. The weight × ${META.factors.weight} must not be more than ${fx(META.rated_kg / 1000, 1)} t, and the measured centre of gravity sets the pick points of the rig.`,
+      'H2: coil certificates for the lift-critical steel: grade, and measured thickness at least 95 % of nominal.',
+      'H3: screw brand fixed, with a tested shear strength of at least 5.7 kN.',
+      'H4: proof-load test of one complete lift point (cradle, straps and head) before first use.',
+      'H5: hang-angle stop at 1.5°: stop the lift if the module hangs more than 1.5° out of level (the design checks 2°).',
+      'H6: lift conditions on the lift plan: crane on outriggers, no travelling with the load, steady hoisting, tag lines, wind limit.',
+      'H7: the cascade (beams, slings, shackles) is certified to AS 4991 and proof tested.',
+      `Land only on continuous, levelled bearers (within ±2 mm) under both floor edge trusses, never on corners.${svcBear ? ` On continuous bearers the in-service check passes (worst member ${fx(svcBear.max_member)}, worst joint ${fx(svcBear.max_joint)}); on piers at 1.8 m it does not.` : ''}`,
+      'Studs seated on the bottom track: end gap at most 1 mm.',
+      'Marriage gap at least 15 mm.',
+      'Truss joint screws go through both flanges.',
+      `No rigid lifting frame: only the balanced beam cascade. No strength is taken from linings, cladding or the floor sheet${ablById.S1_lining_credit ? ` (counting them would give a worst member of ${fx(ablById.S1_lining_credit.max_member)})` : ''}.`,
+    ] },
+];
+function b0Txt() { const r = ablById.B0_frame_only || (D.before && { ...D.before.envelope }); return r ? abTxt(r) : 'no result in the file'; }
+const cardsEl = $('#cards');
+cardsEl.innerHTML = CARDS.map((c, i) => `<li class="card" data-i="${i}">
+  <button class="card-head" type="button" aria-expanded="false" aria-controls="card-body-${i}"><span class="num">${i + 1}</span><span>${esc(c.title)}</span></button>
+  <div class="card-body" id="card-body-${i}" hidden>
+    ${c.list ? `<ul>${c.list.map(t => `<li>${esc(t)}</li>`).join('')}</ul><p class="small muted">These are the hold points and site rules of the Rev D design. The design depends on them.</p>`
+      : `<p><b>What it is.</b> ${esc(c.what)}</p><p><b>What it does.</b> ${esc(c.does)}</p><p class="without"><b>Without it.</b> ${esc(c.without)}</p>`}
+    ${c.extra || ''}
+  </div></li>`).join('');
+function activateCard(i) {
+  if (i < 0 || i >= CARDS.length) return;
+  const c = CARDS[i];
+  S.card = i; S.focus = c.focus;
+  $$('.card', cardsEl).forEach((el, j) => {
+    const on = j === i; el.classList.toggle('active', on);
+    el.querySelector('.card-head').setAttribute('aria-expanded', String(on));
+    el.querySelector('.card-body').hidden = !on;
+  });
+  $('#how-count').textContent = `${i + 1} of ${CARDS.length}`;
+  const go = () => { recolour(); goView(c.view); };
+  if (c.key !== 'rely' && S.mode !== 'after') setMode('after').then(go); else go();
+  if (c.key === 'ties' && !S.showTies) { S.showTies = true; $('#chk-ties').checked = true; updateVisibility(); }
+  if (c.key === 'rig' && !S.showRig) { S.showRig = true; $('#chk-rig').checked = true; updateVisibility(); updateDrops(); }
+  if (narrowMQ.matches) {
+    const r = viewer.getBoundingClientRect();
+    if (r.bottom < 60 || r.top > window.innerHeight - 60) viewer.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+  }
+}
+function clearCards() {
+  S.card = -1; S.focus = null;
+  $$('.card', cardsEl).forEach(el => { el.classList.remove('active'); el.querySelector('.card-head').setAttribute('aria-expanded', 'false'); el.querySelector('.card-body').hidden = true; });
+  $('#how-count').textContent = 'Pick a card';
+  recolour();
+}
+cardsEl.addEventListener('click', e => {
+  const actBtn = e.target.closest('[data-act]');
+  if (actBtn) { if (actBtn.dataset.act === 'play') playLift(); else goView(actBtn.dataset.act); return; }
+  const head = e.target.closest('.card-head'); if (!head) return;
+  const i = +head.parentElement.dataset.i;
+  if (S.card === i) clearCards(); else activateCard(i);
+});
+$('#how-next').addEventListener('click', () => activateCard(S.card < 0 ? 0 : Math.min(CARDS.length - 1, S.card + 1)));
+$('#how-prev').addEventListener('click', () => activateCard(S.card < 0 ? 0 : Math.max(0, S.card - 1)));
+$('#how-clear').addEventListener('click', clearCards);
+
+/* ------------------------------------------------------------------ summary and tables */
+function fillSummary() {
+  const ea = D.after.envelope, n = designCount(D.after);
+  $('#s-after').textContent = `${ea.members_over} / ${ea.joints_over}`;
+  $('#s-after-sub').textContent = `members / joints over capacity, all ${n} design cases`;
+  $('#s-mem').textContent = fx(ea.max_member);
+  $('#s-mem-sub').textContent = `of design capacity (${pct(ea.max_member)})`;
+  $('#s-jnt').textContent = fx(ea.max_joint);
+  $('#s-jnt-sub').textContent = `of design capacity (${pct(ea.max_joint)})`;
+  $('#s-rated').textContent = `${fx(META.rated_kg / 1000, 1)} t`;
+  $('#s-factor').textContent = `total factor ${fx(META.factor, 3)} on every check`;
+  if (D.before) {
+    const eb = D.before.envelope;
+    $('#s-before').textContent = `${eb.members_over} / ${eb.joints_over}`;
+    $('#s-before-sub').textContent = `members / joints over capacity (worst ${fx(eb.max_member)} / ${fx(eb.max_joint, 1)})`;
+  }
+}
+function buildChanges() {
+  const xs = PTS.slice(0, 4).map(p => D.after.lift_points[p] ? fx(D.after.lift_points[p].xyz[0] / 1000, 2) : '–').join(', ');
+  const info = Object.keys(D.after.cases).filter(k => !isDesign(D.after, k));
+  const items = [
+    `<b>Lift points moved</b> onto the middle of a pair of edge-truss joints: x = ${xs} m, on both sides.`,
+    '<b>Lifting heads are saddles</b> that sit over the roof edge truss with no fasteners, each keyed along the module by a stop block. They carry no weight into the roof. The sling eye goes straight over the sleeve on the head pin; shackles are used only at the beam ends.',
+    '<b>All 8 lift points are the same.</b> A vertical pair of hanger straps (2 × 50 × 1.5 mm, one on each face) runs from the saddle head straight down to one 120 mm cradle at the truss joint pair under the lift line.',
+    `<b>Why no A-frames.</b> ${EVOLUTION}`,
+    '<b>Cradles at truss joints.</b> Two 3 mm cheek plates under the floor edge truss bottom chord are joined by two M16 bolts with sleeves, one under each joint of a joint pair, each on a 3 mm bearing packer. The load goes straight into the V of the two truss diagonals, so the chord does not bend. The cradles sit clear of the truss-end cleats.',
+    '<b>Marriage side.</b> The modules meet north face to north face with their lift lines opposite each other, so after set-down the 4 north cradles, the marriage-face hanger straps and the heads are unbolted and taken off (they carry nothing in service). Marriage gap at least 15 mm.',
+    `<b>Thicker edge trusses.</b> Both floor edge trusses and the north roof edge truss (${thickPanels.join(', ')}) are rolled in 1.15 mm steel.`,
+    `<b>Joints.</b> Joint gussets (worth 10 screws each)${GUSSETS.length ? ` at ${GUSSETS.length} joints: ${liftGussets} for the lift and ${floorGussets} for the 3 kPa classroom floor in service` : ''}. 4 screws at the other truss joints, and truss-end cleats with 5 + 5 screws.${SCREWS ? ` ${intf(SCREWS.extra)} screws are added to the ${intf(SCREWS.as_framed)} as framed.` : ''} Bridging lines and strap bracing stay.`,
+    '<b>No temporary parts</b> any more.',
+    `<b>Load cases.</b> ${designCount(D.after)} design cases now include the module hanging 2° out of level (${tiltCount} cases). The cases with sling shares 10 % off, a sling short on a rigid rig and a slack sling (${info.length} cases) are information only.`,
+  ];
+  $('#changes').innerHTML = items.map(t => `<li>${t}</li>`).join('');
+}
+function buildKeys() {
+  const m = META, e = ENV, rg = D.conn.rigging;
+  const top = CONN_TOP[0], next = CONN_TOP.slice(1, 3);
+  const k = [
+    ['Rated lift mass', `${intf(m.rated_kg)} kg`, `${fx(m.rated_kg / 1000, 1)} t: the most the module may weigh when lifted`],
+    ['Itemised mass (estimate)', `${intf(m.itemised_kg)} kg`, `includes frame steel ${intf(e.framed_steel_kg)} kg and lifting parts ${intf(e.added_kg)} kg; the checks use the rated mass`],
+    ['Weight in the checks', `${fx(m.W_N / 1000, 1)} kN`, 'the rated mass × 9.81 m/s²'],
+    ['Total factor', fx(m.factor, 3), `weight ${m.factors.weight} × centre of gravity ${m.factors.cog} × dynamic ${m.factors.dynamic} × load ${m.factors.load}`],
+    ['Worst member', fx(e.max_member), `of design capacity over all ${designCount(D.after)} design cases; ${pl(e.members_over, 'member')} over`],
+    ['Worst joint', fx(e.max_joint), `of design capacity; ${pl(e.joints_over, 'joint')} over`],
+    ['Connections between panels', fx(maxLinkShear), `highest shear use; ${e.links_tie} joints in tension are held by tie plates or cleats`],
+  ];
+  if (top) k.push(['Largest lifting-part check', fx(top.util), `${shortGroup(top.group)}: ${top.item}${next.length ? `; next: ${next.map(r => `${shortGroup(r.group)} ${fx(r.util)}`).join(', ')}` : ''}`]);
+  if (SCREWS) k.push(['Screws added', intf(SCREWS.extra), `at ${intf(SCREWS.joints_upgraded)} of the ${intf(SCREWS.joints)} joints (${intf(SCREWS.as_framed)} screws as framed)${Number.isFinite(SCREWS.gusseted_joints) ? `; ${intf(SCREWS.gusseted_joints)} joints have gussets` : ''}`]);
+  k.push(['Steel', `${intf(e.framed_steel_kg)} + ${intf(e.added_kg)} kg`, 'frame + lifting parts (as modelled)']);
+  k.push(['Largest sling force (static)', `${fx(rg.max_static_drop_kN)} kN`, `${fx(rg.max_static_drop_t)} t, for choosing the slings and shackles`]);
+  k.push(['Centre of gravity', `x ${fx(m.cg[0] / 1000)} m, y ${fx(m.cg[1] / 1000)} m`, `height ${fx(m.cg[2] / 1000)} m; y is measured from the south face`]);
+  if (Number.isFinite(D.after.scale_to_rated)) k.splice(2, 0, ['Rated / itemised', `${fx(D.after.scale_to_rated, 2)} ×`, 'the rated mass is this many times the itemised mass; the checks scale the itemised layout up to the rated mass']);
+  const sb = D.svc.layouts && D.svc.layouts.bearer && D.svc.layouts.bearer.ULS1, sp = D.svc.layouts && D.svc.layouts.piers && D.svc.layouts.piers.ULS1;
+  if (sb) k.push(['In service', 'Continuous bearers', `passes on continuous bearers (worst member ${fx(sb.max_member)}, joint ${fx(sb.max_joint)})${sp ? `; on piers at 1.8 m it does not (worst member ${fx(sp.max_member)})` : ''}`]);
+  $('#keys').innerHTML = k.map(([a, b, c]) => `<div class="key"><div class="k">${esc(a)}</div><div class="v">${esc(b)}</div><div class="s">${esc(c)}</div></div>`).join('');
+  $('#rigging-note').textContent = 'Rigging: ' + rg.note;
+}
+function buildLedger() {
+  if (!LEDGER || !LEDGER.length) { $('#ledger-wrap').hidden = true; return; }
+  const groups = [];
+  for (const r of LEDGER) { let g = groups.find(x => x.name === r.group); if (!g) groups.push(g = { name: r.group, rows: [], kg: 0 }); g.rows.push(r); g.kg += +r.kg || 0; }
+  const total = groups.reduce((s, g) => s + g.kg, 0);
+  const NAMES = { frame: 'Steel frame and lifting parts', roof: 'Roof', ceiling: 'Ceiling', floor: 'Floor', walls: 'Walls', 'fit-out': 'Fit-out' };
+  $('#ledger-note').textContent = `Estimated finished mass, item by item: ${intf(total)} kg. The lift checks use the rated ${intf(META.rated_kg)} kg instead${Number.isFinite(D.after.scale_to_rated) ? ` (${fx(D.after.scale_to_rated, 2)} × this)` : ''}, spread the same way. The first module must be weighed with load cells before it is lifted.`;
+  $('#ledger-table').innerHTML = `<table><thead><tr><th>Item</th><th class="num">kg</th><th>Source</th></tr></thead><tbody>${
+    groups.map(g => `<tr class="hl"><td><b>${esc(NAMES[g.name] || g.name)}</b></td><td class="num"><b>${intf(g.kg)}</b></td><td class="muted">${pct(g.kg / total)} of the total</td></tr>${
+      g.rows.map(r => `<tr><td>${esc(r.item)}</td><td class="num">${fx(r.kg, 1)}</td><td><small class="muted">${esc(r.note || '')}</small></td></tr>`).join('')}`).join('')
+  }<tr><td><b>Total</b></td><td class="num"><b>${intf(total)}</b></td><td></td></tr></tbody></table>`;
+}
+function buildConnTable() {
+  $('#conn-table').innerHTML = `<table><thead><tr><th>Part</th><th>Check</th><th class="num">Demand</th><th class="num">Capacity</th><th>Unit</th><th class="num">Use</th><th>Rule</th></tr></thead><tbody>${
+    D.conn.rows.map(r => `<tr><td>${esc(r.group)}</td><td>${esc(r.item)}${r.note ? `<br><small class="muted">${esc(r.note)}</small>` : ''}</td><td class="num">${fx(r.demand)}</td><td class="num">${fx(r.capacity)}</td><td>${esc(r.unit)}</td><td class="num">${chip(r.util)}</td><td><small>${esc(r.rule)}</small></td></tr>`).join('')
+  }</tbody></table>`;
+}
+function buildCasesTable() {
+  const data = act(); const f = data.meta.factor;
+  $('#cases-note').textContent = `Showing: ${S.mode === 'after' ? 'After (Rev D)' : 'Before (frame as framed, checked with its own case list)'} - switch with the Before / After buttons. Sling forces in kN at the rated weight, not factored (factored = × ${fx(f, 3)}). Design cases decide pass or fail. Information cases are shown for the record: sling shares 10 % off, one sling 10 mm short on a rigid rig, one sling slack.`;
+  const ids = Object.keys(data.cases).sort((a, b) => (isDesign(data, b) - isDesign(data, a)));
+  $('#cases-table').innerHTML = `<table><thead><tr><th>Load case</th><th>Type</th>${PTS.map(p => `<th class="num">${p}</th>`).join('')}<th class="num">Total</th><th class="num">Members over</th><th class="num">Joints over</th><th class="num">Worst member</th><th class="num">Worst joint</th></tr></thead><tbody>${
+    ids.map(id => { const c = data.cases[id], d = isDesign(data, id); return `<tr class="${d ? '' : 'info-only'}"><td title="${esc(c.label)}">${esc(caseName(id))}<br><small class="muted">${esc(id)}</small></td><td>${d ? 'Design' : 'Information only'}</td>${
+      PTS.map(p => `<td class="num">${c.reactions[p] == null ? 'slack' : fx(c.reactions[p] / 1000, 2)}</td>`).join('')}<td class="num">${fx(c.sum_R / 1000, 1)}</td><td class="num">${c.members_over}</td><td class="num">${c.joints_over}</td><td class="num">${chip(c.max_member)}</td><td class="num">${chip(c.max_joint)}</td></tr>`; }).join('')
+  }</tbody></table>`;
+}
+function buildAblTable() {
+  $('#abl-link-shear').textContent = fx(maxLinkShear);
+  $('#abl-table').innerHTML = `<table><thead><tr><th>Run</th><th class="num">Members over</th><th class="num">Joints over</th><th class="num">Connections over (shear)</th><th class="num">Tie plates needed</th><th class="num">Worst member</th><th class="num">Worst joint</th><th class="num">Worst connection</th></tr></thead><tbody>${
+    D.abl.map(r => `<tr class="${r.id === 'revD_final' ? 'hl' : ''}"><td>${esc(ABL_NAMES[r.id] || r.name)}<br><small class="muted">${esc(r.name)}</small></td><td class="num">${r.members_over}</td><td class="num">${r.joints_over}</td><td class="num">${r.links_over}</td><td class="num">${r.ties}</td><td class="num">${chip(r.max_member)}</td><td class="num">${chip(r.max_joint)}</td><td class="num">${chip(r.max_link_shear)}</td></tr>`).join('')
+  }</tbody></table>`;
+}
+function buildSvcTable() {
+  const L = D.svc.layouts;
+  $('#svc-note').textContent = `A sanity check of the classroom in use, not the full in-service design: 1.2 × dead load + 1.5 × live load (3 kPa classroom floor, 0.25 kPa roof), and 1.35 × dead load alone. Dead load ${fx(D.svc.G_kN, 1)} kN (itemised ${intf(D.svc.itemised_kg)} kg), live load ${fx(D.svc.Q_kN, 1)} kN. The floor sheet restrains the floor truss top chords in service. Not checked: wind, earthquake, transport, foundations, floor sheet, roof sheeting. Landing rule: land only on continuous, levelled bearers (within ±2 mm) under both floor edge trusses, never on corners.`;
+  const LAY = { bearer: 'Continuous bearers under both floor edge trusses', piers: 'Piers under both floor edge trusses at 1.8 m' };
+  const COMB = { ULS1: '1.2 dead + 1.5 live', ULS2: '1.35 dead' };
+  let rows = '';
+  for (const lay of ['bearer', 'piers']) {
+    const l = L[lay]; if (!l) continue;
+    for (const c of ['ULS1', 'ULS2']) {
+      const r = l[c]; if (!r) continue;
+      const pass = r.members_over === 0 && r.joints_over === 0 && r.links_over_shear === 0;
+      rows += `<tr><td>${esc(LAY[lay])}</td><td>${esc(COMB[c])}</td><td class="num">${r.members_over}</td><td class="num">${r.joints_over}</td><td class="num">${r.links_over_shear}</td><td class="num">${chip(r.max_member)}</td><td class="num">${chip(r.max_joint)}</td><td class="num">${chip(r.max_link_shear)}</td><td>${pass ? 'Passes' : '<b>Does not pass as checked</b>'}<br><small class="muted">Worst: ${esc((r.worst_members || []).slice(0, 3).map(w => `${w[0]} ${String(w[1]).toLowerCase()} ${fx(w[2])}`).join(', '))}</small></td></tr>`;
+    }
+    rows += `<tr class="info-only"><td colspan="9">${esc(LAY[lay])}: floor truss sag under dead + 0.7 live ${fx(Math.abs(l.floor_truss_relative_sag_SLS_mm), 1)} mm; largest settlement ${fx(Math.abs(l.max_settlement_mm), 1)} mm.</td></tr>`;
+  }
+  $('#svc-table').innerHTML = `<table><thead><tr><th>Support</th><th>Load</th><th class="num">Members over</th><th class="num">Joints over</th><th class="num">Connections over</th><th class="num">Worst member</th><th class="num">Worst joint</th><th class="num">Worst connection</th><th>Result</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+function buildBasis() {
+  const m = META, info = Object.keys(D.after.cases).filter(k => !isDesign(D.after, k)).length;
+  $('#basis').innerHTML = `<ul>
+    <li><b>Total factor ${fx(m.factor, 3)}</b> = weight ${m.factors.weight} × centre of gravity ${m.factors.cog} × dynamic ${m.factors.dynamic} × load factor ${m.factors.load}, applied to the rated ${fx(m.rated_kg / 1000, 1)} t in every check of every member, joint, connection and lifting part. Weight: an allowance for weighing accuracy. Centre of gravity: an allowance for not knowing it exactly. Dynamic: crane bounce and jerks. Load factor: the usual safety factor on load.</li>
+    <li><b>Steel</b> taken as G450 (450 MPa strength) although the coil is likely G550. This is on the safe side. The edge trusses ${esc(thickPanels.join(', '))} are 1.15 mm; the rest of the frame is 0.95 mm.</li>
+    <li><b>Screws</b> in the thin steel: strength based on 75 % of the steel's tensile strength (412.5 MPa), as the standard requires for thin high-strength steel. Truss joint screws go through both flanges, and that is counted as holding the members against twisting (a hold point).</li>
+    <li><b>Members</b> checked to AS/NZS 4600:2018 (cold-formed steel), with two methods for buckling (DSM and EWM in the engineering text; the lower result governs), including the places where a lip is notched or the web has a hole.</li>
+    <li><b>No help</b> from linings, cladding or the floor sheet in the lift check.</li>
+    <li><b>Load cases:</b> ${designCount(D.after)} design cases decide pass or fail: the equalised rig (main case), a rigid frame with equal and with stretchy slings, the module hanging 2° out of level in ${tiltCount} ways (rolled, pitched and towards each corner), and the slings 5 % out of vertical four ways. ${info} information cases are shown but do not decide pass or fail: sling shares 10 % off, one sling 10 mm short on a rigid rig, and one sling slack.</li>
+    <li><b>Connections between panels</b> are checked in shear. Where a connection is pulled, a tie plate or a truss-end cleat takes the pull, so no screw is relied on in pull-out.</li>
+    <li><b>Bent shape</b> on the 3D view: displacements of the main case under the rated weight, not factored, with each member drawn straight between its two moved ends.</li>
+    <li><b>Lifting parts</b> are coloured by the worst check of their part type in the connector table. Bolts, packers, pins, sleeves and stop blocks are drawn to explain the parts; their sizes come from the part descriptions.</li>
+  </ul>`;
+}
+
+/* ------------------------------------------------------------------ theme changes */
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  readTheme();
+  scene.background.copy(COL['scene-bg']);
+  forceMat.color.copy(COL.force); weightMat.color.copy(COL.weight); handleMat.color.copy(COL.sky);
+  secBox.material.color.copy(COL.sky); selMat.color.copy(COL.select); lineMat.color.copy(COL.muted);
+  buildGround(); recolour();
+});
+
+/* ------------------------------------------------------------------ start */
+modeHint.textContent = MODE_HINT.after;
+syncSectionInputs();
+applySection();
+updateGeometry();
+recolour();
+updateVisibility();
+fillSummary(); buildChanges(); buildKeys(); buildLedger(); buildConnTable(); buildCasesTable(); buildAblTable(); buildSvcTable(); buildBasis();
+$('#drawn-count').textContent = `Members drawn: ${intf(drawn.size)} of ${intf(D.after.members.length)} in the model (${intf(frameItems.length)} frame members and ${intf(added.length)} lifting-part members; each cradle's body and two seats are drawn as one cradle with its bolts and packers). ${intf(tieItems.length)} joints held by tie plates or cleats, ${intf(D.after.joints.length)} joint dots.`;
+resize();
+{ const tp = viewVectors('home'); controls.target.copy(tp[0]); camera.position.copy(tp[1]); controls.update(); }
+setStatus('');
+requestAnimationFrame(loop);
+ensureBefore().catch(err => { $('#s-before').textContent = '–'; $('#s-before-sub').textContent = 'could not load data/before.json'; console.warn(err); });
+window.__lift = { S, D, frameItems, parts, drawn, renderer, scene, camera, controls, goView, activateCard, clearCards, setMode, playLift, pick, onPick };
+</script>
+</body>
+</html>

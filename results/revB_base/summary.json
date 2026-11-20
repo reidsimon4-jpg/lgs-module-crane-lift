@@ -1,0 +1,579 @@
+{
+ "meta": {
+  "W_N": 63743.22499999999,
+  "rated_kg": 6500.0,
+  "itemised_kg": 4514.2083018061,
+  "cg": [
+   5976.084678321715,
+   1379.1416502843028,
+   1238.2949351963298
+  ],
+  "factor": 2.25,
+  "factors": {
+   "dynamic": 1.5,
+   "load": 1.5,
+   "note": "provisional until the design-basis research is merged"
+  },
+  "steel": "G450",
+  "lift_points": {
+   "S1": {
+    "node": 473,
+    "xyz": [
+     899.2130901018629,
+     44.5,
+     -279.501989591188
+    ]
+   },
+   "S2": {
+    "node": 2212,
+    "xyz": [
+     4500.0,
+     44.5,
+     -279.5
+    ]
+   },
+   "S3": {
+    "node": 2216,
+    "xyz": [
+     7500.0,
+     44.5,
+     -279.5
+    ]
+   },
+   "S4": {
+    "node": 467,
+    "xyz": [
+     11100.269989117336,
+     44.5,
+     -280.3109351433585
+    ]
+   },
+   "N1": {
+    "node": 585,
+    "xyz": [
+     899.2130901018629,
+     3255.5,
+     -279.501989591188
+    ]
+   },
+   "N2": {
+    "node": 2224,
+    "xyz": [
+     4500.0,
+     3255.5,
+     -279.5
+    ]
+   },
+   "N3": {
+    "node": 2228,
+    "xyz": [
+     7500.0,
+     3255.5,
+     -279.5
+    ]
+   },
+   "N4": {
+    "node": 579,
+    "xyz": [
+     11100.269989117336,
+     3255.5,
+     -280.3109351433585
+    ]
+   }
+  }
+ },
+ "cases": {
+  "R1_rigid": {
+   "label": "Rigid lifting frame, 8 equal slings",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 9464.107957892806,
+    "S2": 9599.676884804314,
+    "S3": 8589.192141755633,
+    "S4": 9595.584979732148,
+    "N1": 7622.610690611819,
+    "N2": 5688.88494765901,
+    "N3": 5693.312331074136,
+    "N4": 7489.8550672973515
+   },
+   "sum_R": 63743.22500082722,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 10,
+   "joints_over": 60,
+   "links_over": 8,
+   "max_member": Infinity,
+   "max_joint": 3.4011499112942163,
+   "max_link": 1.483415598267133,
+   "sag_mm": -17.60843212560704,
+   "design": true
+  },
+  "R3_equal": {
+   "label": "Fully equalising rig: 8 equal sling forces",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9380.542414386759,
+    "S2": 9332.254376693087,
+    "S3": 9292.023139270288,
+    "S4": 9243.742033697503,
+    "N1": 6692.067682362921,
+    "N2": 6643.779644669249,
+    "N3": 6603.5484072464515,
+    "N4": 6555.267301673666
+   },
+   "sum_R": 63743.224999999926,
+   "unbalance": 1.9091889043920673e-05,
+   "factor": 2.25,
+   "members_over": 11,
+   "joints_over": 80,
+   "links_over": 13,
+   "max_member": Infinity,
+   "max_joint": 3.419500985786397,
+   "max_link": 2.2836158578718164,
+   "sag_mm": -19.467358755567105,
+   "design": true
+  },
+  "R4_sides": {
+   "label": "Two side cascades: four equal forces per side, sides by statics",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9380.542414386759,
+    "S2": 9332.254376693087,
+    "S3": 9292.023139270288,
+    "S4": 9243.742033697503,
+    "N1": 6692.067682362921,
+    "N2": 6643.77964466925,
+    "N3": 6603.5484072464515,
+    "N4": 6555.267301673667
+   },
+   "sum_R": 63743.224999999926,
+   "unbalance": 1.909147249534726e-05,
+   "factor": 2.25,
+   "members_over": 11,
+   "joints_over": 80,
+   "links_over": 13,
+   "max_member": Infinity,
+   "max_joint": 3.4195009857845453,
+   "max_link": 2.2836158578468875,
+   "sag_mm": -19.467358755442895,
+   "design": true
+  },
+  "R2_springs": {
+   "label": "Rigid frame with elastic slings",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9462.831582640358,
+    "S2": 9422.497213555705,
+    "S3": 8933.090616509204,
+    "S4": 9430.142534301467,
+    "N1": 7501.364897676619,
+    "N2": 5812.518794975914,
+    "N3": 5794.73393847197,
+    "N4": 7386.045424017558
+   },
+   "sum_R": 63743.22500214879,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 10,
+   "joints_over": 64,
+   "links_over": 10,
+   "max_member": Infinity,
+   "max_joint": 3.3703411723995567,
+   "max_link": 1.482896224450592,
+   "sag_mm": -17.991796776556715,
+   "design": true
+  },
+  "R6_short_S1": {
+   "label": "Elastic slings, sling S1 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 12006.147607257157,
+    "S2": 6240.958895745613,
+    "S3": 8509.11852153865,
+    "S4": 10492.337004523015,
+    "N1": 7096.72670987752,
+    "N2": 6049.415952091243,
+    "N3": 5557.270217102442,
+    "N4": 7791.250111184255
+   },
+   "sum_R": 63743.22501931989,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 13,
+   "joints_over": 94,
+   "links_over": 12,
+   "max_member": Infinity,
+   "max_joint": 4.179316149390214,
+   "max_link": 1.792057936047644,
+   "sag_mm": -15.70299808914924,
+   "design": true
+  },
+  "R6_short_S2": {
+   "label": "Elastic slings, sling S2 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 6281.293259330567,
+    "S2": 15978.214305052192,
+    "S3": 5855.717026837017,
+    "S4": 9133.337358360077,
+    "N1": 7530.833465226831,
+    "N2": 5798.920561148632,
+    "N3": 5809.751683948118,
+    "N4": 7355.157341713702
+   },
+   "sum_R": 63743.22500161714,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 15,
+   "joints_over": 111,
+   "links_over": 16,
+   "max_member": Infinity,
+   "max_joint": 5.62873931187491,
+   "max_link": 2.048296323147282,
+   "sag_mm": -18.518422519251132,
+   "design": true
+  },
+  "R6_short_S3": {
+   "label": "Elastic slings, sling S3 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9038.859481831032,
+    "S2": 6345.1236237742205,
+    "S3": 15808.406197568163,
+    "S4": 6056.172647736156,
+    "N1": 7488.6365359478405,
+    "N2": 5816.860448146038,
+    "N3": 5790.471587728248,
+    "N4": 7398.69448119178
+   },
+   "sum_R": 63743.22500392348,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 15,
+   "joints_over": 118,
+   "links_over": 15,
+   "max_member": Infinity,
+   "max_joint": 5.774957093732085,
+   "max_link": 2.546685390612144,
+   "sag_mm": -19.131428203472726,
+   "design": true
+  },
+  "R6_short_S4": {
+   "label": "Elastic slings, sling S4 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 10525.026051471743,
+    "S2": 9125.692041524228,
+    "S3": 5559.120739289135,
+    "S4": 12038.723197041763,
+    "N1": 7889.2628049535615,
+    "N2": 5584.878232542407,
+    "N3": 6021.442266867086,
+    "N4": 6999.079687100705
+   },
+   "sum_R": 63743.225020790625,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 12,
+   "joints_over": 88,
+   "links_over": 10,
+   "max_member": Infinity,
+   "max_joint": 4.337811173427235,
+   "max_link": 2.5876603865317342,
+   "sag_mm": -19.78356417547529,
+   "design": true
+  },
+  "R6_short_N1": {
+   "label": "Elastic slings, sling N1 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9058.193390803866,
+    "S2": 9451.965774927583,
+    "S3": 8920.362247566438,
+    "S4": 9818.040437924252,
+    "N1": 8872.94390532191,
+    "N2": 3923.4693088191043,
+    "N3": 6476.833687229821,
+    "N4": 7221.416220767624
+   },
+   "sum_R": 63743.2249733606,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 13,
+   "joints_over": 90,
+   "links_over": 10,
+   "max_member": Infinity,
+   "max_joint": 3.4454111859932444,
+   "max_link": 1.9285093919709373,
+   "sag_mm": -18.326774372124326,
+   "design": true
+  },
+  "R6_short_N2": {
+   "label": "Elastic slings, sling N2 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9699.728734536911,
+    "S2": 9408.898979030208,
+    "S3": 8937.43227009044,
+    "S4": 9202.501969605553,
+    "N1": 5612.315417643875,
+    "N2": 10007.067688785992,
+    "N3": 2806.8095737067315,
+    "N4": 8068.470364974311
+   },
+   "sum_R": 63743.22499837402,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 10,
+   "joints_over": 117,
+   "links_over": 12,
+   "max_member": Infinity,
+   "max_joint": 3.328096098637748,
+   "max_link": 2.659067371124957,
+   "sag_mm": -19.24703300950341,
+   "design": true
+  },
+  "R6_short_N3": {
+   "label": "Elastic slings, sling N3 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9225.367863771346,
+    "S2": 9437.514959632332,
+    "S3": 8928.828267038458,
+    "S4": 9656.85086745619,
+    "N1": 8183.464644033492,
+    "N2": 2824.594431237474,
+    "N3": 9989.301173648755,
+    "N4": 5497.302797437595
+   },
+   "sum_R": 63743.22500425564,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 11,
+   "joints_over": 119,
+   "links_over": 11,
+   "max_member": Infinity,
+   "max_joint": 3.4140061906297166,
+   "max_link": 2.6235554209072465,
+   "sag_mm": -19.26559687369071,
+   "design": true
+  },
+  "R6_short_N4": {
+   "label": "Elastic slings, sling N4 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9868.036271375375,
+    "S2": 9391.609126285182,
+    "S3": 8945.739662989537,
+    "S4": 9043.176792088949,
+    "N1": 7336.735691455268,
+    "N2": 6494.943732556185,
+    "N3": 3905.9913171706985,
+    "N4": 8756.992386636086
+   },
+   "sum_R": 63743.22498055728,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 12,
+   "joints_over": 90,
+   "links_over": 9,
+   "max_member": Infinity,
+   "max_joint": 3.335905749418113,
+   "max_link": 2.0316941817341045,
+   "sag_mm": -19.37147739471293,
+   "design": true
+  },
+  "R5_slack_S1": {
+   "label": "Rigid frame, sling S1 slack",
+   "rig": "rigid",
+   "reactions": {
+    "S2": 22964.00474650247,
+    "S3": 8137.254038895253,
+    "S4": 6147.303020392059,
+    "N1": 8966.582385229543,
+    "N2": 4436.243680990967,
+    "N3": 6948.959718494754,
+    "N4": 6142.877407846076
+   },
+   "sum_R": 63743.22499835112,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 39,
+   "joints_over": 268,
+   "links_over": 42,
+   "max_member": Infinity,
+   "max_joint": 8.850860649815193,
+   "max_link": 8.768360416260172,
+   "sag_mm": -38.10773339587562,
+   "design": false
+  },
+  "R5_slack_S2": {
+   "label": "Rigid frame, sling S2 slack",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 13779.623171896292,
+    "S3": 14313.203849128933,
+    "S4": 9155.734956551703,
+    "N1": 7454.755759103931,
+    "N2": 5838.678867802229,
+    "N3": 5541.4550673905305,
+    "N4": 7659.773331293731
+   },
+   "sum_R": 63743.22500316735,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 18,
+   "joints_over": 127,
+   "links_over": 19,
+   "max_member": Infinity,
+   "max_joint": 5.718122224076949,
+   "max_link": 2.6953729804229125,
+   "sag_mm": -16.358138882480223,
+   "design": false
+  },
+  "R5_slack_S3": {
+   "label": "Rigid frame, sling S3 slack",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 9343.499875145091,
+    "S2": 14330.235515261407,
+    "S4": 13574.826570717802,
+    "N1": 7746.11976828376,
+    "N2": 5579.078046959675,
+    "N3": 5803.195342343461,
+    "N4": 7366.269881230681
+   },
+   "sum_R": 63743.22499994188,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 19,
+   "joints_over": 130,
+   "links_over": 18,
+   "max_member": Infinity,
+   "max_joint": 6.146610442356443,
+   "max_link": 3.5576976897298525,
+   "sag_mm": -16.882206580108697,
+   "design": false
+  },
+  "R5_slack_S4": {
+   "label": "Rigid frame, sling S4 slack",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 6188.187022916106,
+    "S2": 8305.630877791202,
+    "S3": 22754.743810005795,
+    "N1": 6399.973812887929,
+    "N2": 6829.114656528916,
+    "N3": 4556.026192341728,
+    "N4": 8709.54862044478
+   },
+   "sum_R": 63743.22499291645,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 40,
+   "joints_over": 256,
+   "links_over": 34,
+   "max_member": Infinity,
+   "max_joint": 8.917942031836644,
+   "max_link": 9.733058888465258,
+   "sag_mm": -33.23714045506917,
+   "design": false
+  },
+  "R5_slack_N1": {
+   "label": "Rigid frame, sling N1 slack",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 11849.958739352824,
+    "S2": 8676.889275594667,
+    "S3": 9410.781117461209,
+    "S4": 7310.932904149016,
+    "N2": 17782.910871168024,
+    "N3": -770.2711058889105,
+    "N4": 9482.023131452299
+   },
+   "sum_R": 63743.22493328913,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 22,
+   "joints_over": 246,
+   "links_over": 21,
+   "max_member": Infinity,
+   "max_joint": 6.05436961677873,
+   "max_link": 10.11055170174712,
+   "sag_mm": -52.69637631837884,
+   "design": false
+  },
+  "R5_slack_N2": {
+   "label": "Rigid frame, sling N2 slack",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 9008.108180006528,
+    "S2": 9768.544576561953,
+    "S3": 8439.406526949533,
+    "S4": 10032.502682104003,
+    "N1": 10102.63328606972,
+    "N3": 10227.889177750658,
+    "N4": 6164.140567794227
+   },
+   "sum_R": 63743.22499723662,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 13,
+   "joints_over": 148,
+   "links_over": 9,
+   "max_member": Infinity,
+   "max_joint": 3.516411760079677,
+   "max_link": 2.282287216658732,
+   "sag_mm": -16.23716219315756,
+   "design": false
+  },
+  "R5_slack_N3": {
+   "label": "Rigid frame, sling N3 slack",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 9921.565774396651,
+    "S2": 9428.346894864377,
+    "S3": 8739.200845376221,
+    "S4": 9159.44844684993,
+    "N1": 6296.122029802053,
+    "N2": 10227.070053891553,
+    "N4": 9971.470949058721
+   },
+   "sum_R": 63743.22499423951,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 12,
+   "joints_over": 148,
+   "links_over": 9,
+   "max_member": Infinity,
+   "max_joint": 3.309413848590344,
+   "max_link": 2.3570418969719946,
+   "sag_mm": -16.650870604996772,
+   "design": false
+  },
+  "R5_slack_N4": {
+   "label": "Rigid frame, sling N4 slack",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 7113.572632032842,
+    "S2": 10517.92681530254,
+    "S3": 7781.073113731288,
+    "S4": 11835.989244874012,
+    "N1": 9580.910525470797,
+    "N2": -666.1574603118328,
+    "N3": 17579.9101309656
+   },
+   "sum_R": 63743.22500206525,
+   "unbalance": 0.0,
+   "factor": 2.25,
+   "members_over": 23,
+   "joints_over": 247,
+   "links_over": 22,
+   "max_member": Infinity,
+   "max_joint": 5.873612159263834,
+   "max_link": 9.928868741407062,
+   "sag_mm": -48.391290145363065,
+   "design": false
+  }
+ }
+}

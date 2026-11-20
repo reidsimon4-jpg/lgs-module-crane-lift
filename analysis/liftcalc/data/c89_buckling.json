@@ -1,0 +1,2110 @@
+{
+ "meta": {
+  "title": "Elastic local and distortional buckling of the C89 lipped channel (finite strip method)",
+  "units": {
+   "length": "mm",
+   "stress": "MPa",
+   "area": "mm2",
+   "second_moment": "mm4",
+   "warping": "mm6",
+   "resultant": "kN or kNm"
+  },
+  "section": {
+   "web_D": 89.0,
+   "flange_B": 38.0,
+   "lip_C": 9.0,
+   "dimensions": "out-to-out",
+   "thicknesses": [
+    0.75,
+    0.95,
+    1.15
+   ],
+   "corner_models": {
+    "sharp": "centreline D - t, B - t, C - t/2, square corners",
+    "rounded": "inside radius 2.0 mm, centreline radius 2.0 + t/2"
+   }
+  },
+  "material": {
+   "E": 200000.0,
+   "nu": 0.3,
+   "G": 76923.077,
+   "G_rule": "E / 2.6"
+  },
+  "axes": {
+   "x-x": "major axis, parallel to the flanges, through the centroid; bending about it compresses one flange",
+   "y-y": "minor axis, parallel to the web; two senses: web in compression, lips in compression"
+  },
+  "actions": {
+   "axial": "axial compression",
+   "bend_major": "major-axis bending (one flange in compression)",
+   "bend_minor_web_comp": "minor-axis bending, web in compression",
+   "bend_minor_lips_comp": "minor-axis bending, lips in compression"
+  },
+  "stress_definition": "f_local and f_dist are the critical largest compressive stress at mid-thickness (centreline model, CUFSM convention) = load factor x reference stress at the extreme compressive node. f_*_outer = f_* x extreme_fibre_factor is the same buckling state read at the outer surface. resultant_* is the critical axial force (kN) or moment (kNm) of the finite strip model. Pair f_* with a centreline section modulus and f_*_outer with an outer-face section modulus; both give the same moment.",
+  "usage_notes": [
+   "Multiplying f_local or f_dist by an OUTER-FACE section modulus understates the critical moment by the extreme_fibre_factor (0.9 to 1.3 % for major-axis bending, 1.4 to 2.2 % for lips in compression, 3.3 to 5.3 % for web in compression). That is on the safe side; use f_*_outer or resultant_* for the exact value.",
+   "bend_major and bend_minor_lips_comp: the distortional minimum is below the local minimum for every thickness, so a distortional check is needed for both; f_local alone is not enough.",
+   "bend_minor_web_comp has no distortional mode (f_dist is null): only local buckling of the web applies.",
+   "Rounded-corner rows are 0.6 to 7 % above the sharp-corner rows; the sharp-corner rows are the conservative choice."
+  ],
+  "method": {
+   "analysis": "semi-analytical finite strip method, simply supported ends, one longitudinal half-wave (signature curve)",
+   "half_wave_lengths": {
+    "min": 10.0,
+    "max": 3000.0,
+    "count": 121,
+    "spacing": "logarithmic"
+   },
+   "minima": "strict local minima of the first-mode curve, each refined by a bounded 1-D search (tolerance 1e-4 mm)",
+   "classification": {
+    "basis": "mode shape at the refined minimum",
+    "limits": {
+     "global_rigid_body_fraction": 0.9,
+     "junction_moves": 0.5,
+     "junction_fixed": 0.25
+    },
+    "rule": "global if rigid_body_fraction >= 0.90; else distortional if junction_ratio >= 0.50 and web_junction_ratio <= 0.25; else local if both ratios <= 0.25; else mixed"
+   },
+   "no_distortional_minimum": "f_dist = null with the reason in the row note; cFSM is not usable in pycufsm 0.2.0 here",
+   "reference_stress_mpa": 100.0,
+   "modes_kept": 4
+  },
+  "mesh": {
+   "strips": {
+    "web": 16,
+    "flange": 8,
+    "lip": 4,
+    "corner": 8
+   },
+   "minimum_required": {
+    "web": 8,
+    "flange": 4,
+    "lip": 2,
+    "corner": 4
+   },
+   "nodes_sharp": 41,
+   "nodes_rounded": 73,
+   "dof_sharp": 164,
+   "dof_rounded": 292,
+   "largest_change_when_mesh_is_doubled_pct": 0.116
+  },
+  "solver": {
+   "reported": "pycufsm.fsm.strip where it agrees with the independent solver, else the independent solver (see each row)",
+   "pycufsm_version": "0.2.0",
+   "pycufsm_backend": "pycufsm.solve.analysis_p",
+   "pycufsm_shim": "pycufsm.fsm.analysis -> pycufsm.solve.analysis_p with a one-element-array-safe int(); needed because the stock call raised TypeError: only 0-dimensional arrays can be converted to Python scalars",
+   "pycufsm_error": null,
+   "independent": "class FiniteStrip in buckling_fsm.py: own strip matrices by Gauss quadrature, scipy.linalg.eigh",
+   "rows_from_pycufsm": 24,
+   "rows_from_independent": 0
+  },
+  "pycufsm_calls": [
+   "pycufsm.pre.stresses.stress_gen(nodes=nodes, forces={'P','Mxx','Myy','M11','M22','restrain': False,'offset': [0, 0]}, sect_props=sect)",
+   "pycufsm.fsm.strip(props=[[0,E,E,nu,nu,G]], nodes=[[n,x,y,1,1,1,1,stress]], elements=[[e,i,j,t,0]], lengths=lengths, springs=np.array([]), constraints=np.array([]), GBT_con={'glob':[0],'dist':[0],'local':[0],'other':[0],'o_space':1,'couple':1,'orth':2,'norm':0}, B_C='S-S', m_all=np.ones((n_lengths,1)), n_eigs=4, sect_props=sect)"
+  ],
+  "crosscheck": {
+   "pycufsm_vs_independent": {
+    "cases_compared": 24,
+    "rel_diff_at_reported_minima_below": 1e-08,
+    "rel_diff_signature_curve_below": 0.0001,
+    "rel_diff_modes_1_to_4_all_lengths_below": 0.0001,
+    "tolerance_at_minima": 1e-06,
+    "tolerance_all_lengths": 0.0001,
+    "compared": "modes 1-4 at all 121 half-wave lengths, and mode 1 at every refined minimum",
+    "why_they_differ": "round-off only. The difference grows with half-wave length because the stiffness matrix becomes ill-conditioned there (condition number about 1e11 at 3000 mm for the rounded-corner mesh); at the local and distortional minima it is far smaller."
+   },
+   "reference_table_sharp_corners": [
+    {
+     "t": 0.95,
+     "action": "axial",
+     "f_dist": 201.111,
+     "reference": 201.8,
+     "ratio": 0.9966
+    },
+    {
+     "t": 0.95,
+     "action": "bend_major",
+     "f_dist": 354.069,
+     "reference": 350.6,
+     "ratio": 1.0099
+    },
+    {
+     "t": 1.15,
+     "action": "axial",
+     "f_dist": 252.226,
+     "reference": 253.2,
+     "ratio": 0.9962
+    },
+    {
+     "t": 1.15,
+     "action": "bend_major",
+     "f_dist": 440.975,
+     "reference": 435.4,
+     "ratio": 1.0128
+    }
+   ],
+   "cutwp": {
+    "ran": true,
+    "stock_call": "ValueError: setting an array element with a sequence.",
+    "max_rel_diff_A_xc_Ix_Iy_J_xsc": 1e-15,
+    "Cw_cutwp": 0.0,
+    "Cw_this_module": 51897760.0
+   }
+  },
+  "verification": {
+   "plate_buckling_coefficients_independent_solver": {
+    "simply_supported_uniform_compression": {
+     "k": 4.0,
+     "theory": 4.0
+    },
+    "clamped_uniform_compression": {
+     "k": 6.971,
+     "theory": 6.97
+    },
+    "simply_supported_pure_bending": {
+     "k": 23.8809,
+     "theory": 23.9
+    },
+    "one_edge_free_uniform_compression_at_a_equals_b": {
+     "k": 1.4016,
+     "theory": 1.4016
+    }
+   },
+   "long_half_wave_vs_beam_theory": [
+    {
+     "t": 0.75,
+     "corners": "sharp",
+     "half_wave": 3000.0,
+     "axial_fsm": 34.4823,
+     "axial_beam_theory": 34.4946,
+     "axial_ratio": 0.9996,
+     "bend_major_fsm": 65.1224,
+     "bend_major_beam_theory": 65.3317,
+     "bend_major_ratio": 0.9968
+    },
+    {
+     "t": 0.95,
+     "corners": "sharp",
+     "half_wave": 3000.0,
+     "axial_fsm": 37.7472,
+     "axial_beam_theory": 37.7546,
+     "axial_ratio": 0.9998,
+     "bend_major_fsm": 67.8053,
+     "bend_major_beam_theory": 67.9646,
+     "bend_major_ratio": 0.9977
+    },
+    {
+     "t": 1.15,
+     "corners": "sharp",
+     "half_wave": 3000.0,
+     "axial_fsm": 41.8487,
+     "axial_beam_theory": 41.8536,
+     "axial_ratio": 0.9999,
+     "bend_major_fsm": 71.0749,
+     "bend_major_beam_theory": 71.2061,
+     "bend_major_ratio": 0.9982
+    },
+    {
+     "t": 0.75,
+     "corners": "rounded",
+     "half_wave": 3000.0,
+     "axial_fsm": 34.0978,
+     "axial_beam_theory": 34.1125,
+     "axial_ratio": 0.9996,
+     "bend_major_fsm": 64.2416,
+     "bend_major_beam_theory": 64.4346,
+     "bend_major_ratio": 0.997
+    },
+    {
+     "t": 0.95,
+     "corners": "rounded",
+     "half_wave": 3000.0,
+     "axial_fsm": 37.4004,
+     "axial_beam_theory": 37.4111,
+     "axial_ratio": 0.9997,
+     "bend_major_fsm": 66.9173,
+     "bend_major_beam_theory": 67.0659,
+     "bend_major_ratio": 0.9978
+    },
+    {
+     "t": 1.15,
+     "corners": "rounded",
+     "half_wave": 3000.0,
+     "axial_fsm": 40.8595,
+     "axial_beam_theory": 40.9343,
+     "axial_ratio": 0.9982,
+     "bend_major_fsm": 70.1889,
+     "bend_major_beam_theory": 70.3124,
+     "bend_major_ratio": 0.9982
+    }
+   ],
+   "note": "the long half-wave check confirms A, Ix, Iy, J, Cw and x0 together (ratios within 0.5 % of 1)"
+  },
+  "section_props_note": "Thin-walled centreline properties. xc_from_web is measured from the WEB CENTRELINE (xc_from_web_outer_face adds t/2). x0_shear_centre_to_centroid is a distance. Rounded corners use 64 chords per corner. Centroid and shear centre lie on the x-x axis at mid-depth.",
+  "known_issues": [
+   "pycufsm 0.2.0 strip() raises TypeError under numpy 2.5.5 in the compiled analysis_c; run here through an in-process shim that uses pycufsm's own pure-Python analysis_p. No installed file is changed.",
+   "pycufsm strip() crashes when fewer than n_eigs eigenvalues are below 1e6 at some length; avoided with a 100 MPa reference stress.",
+   "pycufsm node fixity flags are not applied correctly (cfsm.constr_user); not used here.",
+   "pycufsm.pre.cutwp.prop2 fails under numpy 2.5.5 and returns Cw = 0 when helped past it; Cw comes from this module.",
+   "pycufsm constrained FSM (cFSM) is unusable (wrong warping vector in y_dofs, ValueError in base_vectors); rows with no distortional minimum therefore carry f_dist = null."
+  ],
+  "software": {
+   "python": "3.12.10",
+   "numpy": "2.5.5",
+   "scipy": "1.18.1"
+  },
+  "curves_file": "c89_buckling_curves.json",
+  "plots": {
+   "folder": "results/buckling",
+   "pattern": "c89_t###_<action>.png (### = thickness x 100)"
+  }
+ },
+ "rows": [
+  {
+   "t": 0.75,
+   "corners": "sharp",
+   "action": "axial",
+   "f_local": 72.075,
+   "half_wave_local": 69.07,
+   "f_dist": 153.243,
+   "half_wave_dist": 364.76,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.01 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.96, web junction 0.07 of the largest displacement); a distinct second minimum of the signature curve.",
+   "extreme_fibre_factor": 1.0,
+   "f_local_outer": 72.075,
+   "f_dist_outer": 153.243,
+   "resultant_unit": "kN",
+   "resultant_local": 9.73009,
+   "resultant_dist": 20.6878,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0082,
+    "web_junction_ratio": 0.0014,
+    "lip_tip_ratio": 0.0554,
+    "rigid_body_fraction": 0.3647,
+    "flange_rotation_ratio": 0.0083,
+    "flange_bending_ratio": 0.1204,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9595,
+    "web_junction_ratio": 0.0687,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.2194,
+    "flange_rotation_ratio": 0.9568,
+    "flange_bending_ratio": 0.0075,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 69.07,
+     "stress": 72.075,
+     "class": "local"
+    },
+    {
+     "half_wave": 364.76,
+     "stress": 153.243,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 153.29,
+     "half_wave": 370.5,
+     "mode": 1
+    },
+    "global": {
+     "stress": 34.48,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 72.1,
+     "half_wave": 70.2,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-09,
+    "signature_curve_below": 1e-07,
+    "modes_1_to_4_all_lengths_below": 1e-07
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.002,
+    "dist": -0.082
+   }
+  },
+  {
+   "t": 0.75,
+   "corners": "sharp",
+   "action": "bend_major",
+   "f_local": 325.228,
+   "half_wave_local": 45.95,
+   "f_dist": 271.719,
+   "half_wave_dist": 341.93,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.03 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.96, web junction 0.05 of the largest displacement); a distinct second minimum of the signature curve. The distortional minimum is LOWER than the local minimum, so distortional buckling governs elastically and a check that uses f_local alone would be unconservative.",
+   "extreme_fibre_factor": 1.0085,
+   "f_local_outer": 327.992,
+   "f_dist_outer": 274.028,
+   "resultant_unit": "kNm",
+   "resultant_local": 1.27019,
+   "resultant_dist": 1.06121,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0288,
+    "web_junction_ratio": 0.003,
+    "lip_tip_ratio": 0.472,
+    "rigid_body_fraction": 0.245,
+    "flange_rotation_ratio": 0.0274,
+    "flange_bending_ratio": 0.8182,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9581,
+    "web_junction_ratio": 0.0526,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.2352,
+    "flange_rotation_ratio": 0.9564,
+    "flange_bending_ratio": 0.0417,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 45.95,
+     "stress": 325.228,
+     "class": "local"
+    },
+    {
+     "half_wave": 341.93,
+     "stress": 271.719,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 271.81,
+     "half_wave": 336.9,
+     "mode": 1
+    },
+    "global": {
+     "stress": 65.12,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 325.23,
+     "half_wave": 45.8,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-09,
+    "signature_curve_below": 1e-07,
+    "modes_1_to_4_all_lengths_below": 1e-07
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.007,
+    "dist": -0.084
+   }
+  },
+  {
+   "t": 0.75,
+   "corners": "sharp",
+   "action": "bend_minor_web_comp",
+   "f_local": 73.382,
+   "half_wave_local": 68.36,
+   "f_dist": null,
+   "half_wave_dist": null,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.01 of the largest displacement). No distortional minimum: the signature curve has no second minimum and no mode with a distortional shape exists among modes 1-6 at any of the 121 half-wave lengths; both flange/lip junctions are in tension for this sense of bending. f_dist is null (constrained FSM is not usable in pycufsm 0.2.0 here, so no cFSM value is given). For the opposite sense of bending see bend_minor_lips_comp.",
+   "extreme_fibre_factor": 1.03325,
+   "f_local_outer": 75.822,
+   "f_dist_outer": null,
+   "resultant_unit": "kNm",
+   "resultant_local": 0.173215,
+   "resultant_dist": null,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0052,
+    "web_junction_ratio": 0.0012,
+    "lip_tip_ratio": 0.0372,
+    "rigid_body_fraction": 0.3669,
+    "flange_rotation_ratio": 0.0053,
+    "flange_bending_ratio": 0.1003,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": null,
+   "signature_minima": [
+    {
+     "half_wave": 68.36,
+     "stress": 73.382,
+     "class": "local"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "global": {
+     "stress": 1427.75,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 73.42,
+     "half_wave": 66.9,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-11,
+    "signature_curve_below": 1e-07,
+    "modes_1_to_4_all_lengths_below": 1e-07
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.001
+   }
+  },
+  {
+   "t": 0.75,
+   "corners": "sharp",
+   "action": "bend_minor_lips_comp",
+   "f_local": 859.117,
+   "half_wave_local": 32.29,
+   "f_dist": 317.87,
+   "half_wave_dist": 376.33,
+   "note": "Local: lip plate buckling, junctions stay put (flange/lip junction moves 0.02 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.96, web junction 0.05 of the largest displacement); a distinct second minimum of the signature curve. The distortional minimum is LOWER than the local minimum, so distortional buckling governs elastically and a check that uses f_local alone would be unconservative.",
+   "extreme_fibre_factor": 1.01444,
+   "f_local_outer": 871.522,
+   "f_dist_outer": 322.459,
+   "resultant_unit": "kNm",
+   "resultant_local": 0.880648,
+   "resultant_dist": 0.325836,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0173,
+    "web_junction_ratio": 0.0012,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.3021,
+    "flange_rotation_ratio": 0.0162,
+    "flange_bending_ratio": 0.828,
+    "max_displacement_at": "lip"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9572,
+    "web_junction_ratio": 0.0474,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.1216,
+    "flange_rotation_ratio": 0.9559,
+    "flange_bending_ratio": 0.0485,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 32.29,
+     "stress": 859.117,
+     "class": "local"
+    },
+    {
+     "half_wave": 376.33,
+     "stress": 317.87,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 317.99,
+     "half_wave": 370.5,
+     "mode": 1
+    },
+    "global": {
+     "stress": 105.55,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 859.28,
+     "half_wave": 32.8,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-10,
+    "signature_curve_below": 1e-06,
+    "modes_1_to_4_all_lengths_below": 1e-06
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.008,
+    "dist": -0.081
+   }
+  },
+  {
+   "t": 0.95,
+   "corners": "sharp",
+   "action": "axial",
+   "f_local": 115.971,
+   "half_wave_local": 69.13,
+   "f_dist": 201.111,
+   "half_wave_dist": 320.06,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.01 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.96, web junction 0.07 of the largest displacement); a distinct second minimum of the signature curve.",
+   "extreme_fibre_factor": 1.0,
+   "f_local_outer": 115.971,
+   "f_dist_outer": 201.111,
+   "resultant_unit": "kN",
+   "resultant_local": 19.7428,
+   "resultant_dist": 34.2371,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0138,
+    "web_junction_ratio": 0.0022,
+    "lip_tip_ratio": 0.0542,
+    "rigid_body_fraction": 0.3668,
+    "flange_rotation_ratio": 0.014,
+    "flange_bending_ratio": 0.1197,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9601,
+    "web_junction_ratio": 0.0694,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.2219,
+    "flange_rotation_ratio": 0.9573,
+    "flange_bending_ratio": 0.007,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 69.13,
+     "stress": 115.971,
+     "class": "local"
+    },
+    {
+     "half_wave": 320.06,
+     "stress": 201.111,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 201.11,
+     "half_wave": 321.3,
+     "mode": 1
+    },
+    "global": {
+     "stress": 37.75,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 116.0,
+     "half_wave": 70.2,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-09,
+    "signature_curve_below": 1e-07,
+    "modes_1_to_4_all_lengths_below": 1e-07
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.003,
+    "dist": -0.08
+   },
+   "reference_f_dist": 201.8,
+   "f_dist_over_reference": 0.9966
+  },
+  {
+   "t": 0.95,
+   "corners": "sharp",
+   "action": "bend_major",
+   "f_local": 522.541,
+   "half_wave_local": 46.46,
+   "f_dist": 354.069,
+   "half_wave_dist": 299.95,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.05 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.96, web junction 0.05 of the largest displacement); a distinct second minimum of the signature curve. The distortional minimum is LOWER than the local minimum, so distortional buckling governs elastically and a check that uses f_local alone would be unconservative.",
+   "extreme_fibre_factor": 1.01079,
+   "f_local_outer": 528.179,
+   "f_dist_outer": 357.889,
+   "resultant_unit": "kNm",
+   "resultant_local": 2.56598,
+   "resultant_dist": 1.73869,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0494,
+    "web_junction_ratio": 0.0049,
+    "lip_tip_ratio": 0.4566,
+    "rigid_body_fraction": 0.2499,
+    "flange_rotation_ratio": 0.0473,
+    "flange_bending_ratio": 0.7983,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9589,
+    "web_junction_ratio": 0.0523,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.2359,
+    "flange_rotation_ratio": 0.9569,
+    "flange_bending_ratio": 0.0415,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 46.46,
+     "stress": 522.541,
+     "class": "local"
+    },
+    {
+     "half_wave": 299.95,
+     "stress": 354.069,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 354.31,
+     "half_wave": 306.4,
+     "mode": 1
+    },
+    "global": {
+     "stress": 67.81,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 522.6,
+     "half_wave": 45.8,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-09,
+    "signature_curve_below": 1e-07,
+    "modes_1_to_4_all_lengths_below": 1e-07
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.012,
+    "dist": -0.083
+   },
+   "reference_f_dist": 350.6,
+   "f_dist_over_reference": 1.0099
+  },
+  {
+   "t": 0.95,
+   "corners": "sharp",
+   "action": "bend_minor_web_comp",
+   "f_local": 118.164,
+   "half_wave_local": 68.31,
+   "f_dist": null,
+   "half_wave_dist": null,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.01 of the largest displacement). No distortional minimum: the signature curve has no second minimum and no mode with a distortional shape exists among modes 1-6 at any of the 121 half-wave lengths; both flange/lip junctions are in tension for this sense of bending. f_dist is null (constrained FSM is not usable in pycufsm 0.2.0 here, so no cFSM value is given). For the opposite sense of bending see bend_minor_lips_comp.",
+   "extreme_fibre_factor": 1.04247,
+   "f_local_outer": 123.182,
+   "f_dist_outer": null,
+   "resultant_unit": "kNm",
+   "resultant_local": 0.35016,
+   "resultant_dist": null,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0083,
+    "web_junction_ratio": 0.002,
+    "lip_tip_ratio": 0.0362,
+    "rigid_body_fraction": 0.3689,
+    "flange_rotation_ratio": 0.0085,
+    "flange_bending_ratio": 0.0996,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": null,
+   "signature_minima": [
+    {
+     "half_wave": 68.31,
+     "stress": 118.164,
+     "class": "local"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "global": {
+     "stress": 1492.04,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 118.22,
+     "half_wave": 66.9,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-11,
+    "signature_curve_below": 1e-08,
+    "modes_1_to_4_all_lengths_below": 1e-07
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.002
+   }
+  },
+  {
+   "t": 0.95,
+   "corners": "sharp",
+   "action": "bend_minor_lips_comp",
+   "f_local": 1389.651,
+   "half_wave_local": 32.46,
+   "f_dist": 417.072,
+   "half_wave_dist": 329.64,
+   "note": "Local: lip plate buckling, junctions stay put (flange/lip junction moves 0.03 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.96, web junction 0.05 of the largest displacement); a distinct second minimum of the signature curve. The distortional minimum is LOWER than the local minimum, so distortional buckling governs elastically and a check that uses f_local alone would be unconservative.",
+   "extreme_fibre_factor": 1.01836,
+   "f_local_outer": 1415.172,
+   "f_dist_outer": 424.732,
+   "resultant_unit": "kNm",
+   "resultant_local": 1.78086,
+   "resultant_dist": 0.534483,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0316,
+    "web_junction_ratio": 0.0019,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.3102,
+    "flange_rotation_ratio": 0.0298,
+    "flange_bending_ratio": 0.8498,
+    "max_displacement_at": "lip"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9579,
+    "web_junction_ratio": 0.0469,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.1198,
+    "flange_rotation_ratio": 0.9566,
+    "flange_bending_ratio": 0.049,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 32.46,
+     "stress": 1389.651,
+     "class": "local"
+    },
+    {
+     "half_wave": 329.64,
+     "stress": 417.072,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 417.38,
+     "half_wave": 336.9,
+     "mode": 1
+    },
+    "global": {
+     "stress": 116.24,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 1389.77,
+     "half_wave": 32.8,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-09,
+    "signature_curve_below": 1e-06,
+    "modes_1_to_4_all_lengths_below": 1e-06
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.013,
+    "dist": -0.079
+   }
+  },
+  {
+   "t": 1.15,
+   "corners": "sharp",
+   "action": "axial",
+   "f_local": 170.323,
+   "half_wave_local": 69.27,
+   "f_dist": 252.226,
+   "half_wave_dist": 287.41,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.02 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.96, web junction 0.07 of the largest displacement); a distinct second minimum of the signature curve.",
+   "extreme_fibre_factor": 1.0,
+   "f_local_outer": 170.323,
+   "f_dist_outer": 252.226,
+   "resultant_unit": "kN",
+   "resultant_local": 34.9435,
+   "resultant_dist": 51.7467,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0213,
+    "web_junction_ratio": 0.0033,
+    "lip_tip_ratio": 0.0537,
+    "rigid_body_fraction": 0.3693,
+    "flange_rotation_ratio": 0.0215,
+    "flange_bending_ratio": 0.1189,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9607,
+    "web_junction_ratio": 0.0701,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.2244,
+    "flange_rotation_ratio": 0.9577,
+    "flange_bending_ratio": 0.0065,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 69.27,
+     "stress": 170.323,
+     "class": "local"
+    },
+    {
+     "half_wave": 287.41,
+     "stress": 252.226,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 252.3,
+     "half_wave": 292.2,
+     "mode": 1
+    },
+    "global": {
+     "stress": 41.85,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 170.36,
+     "half_wave": 70.2,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-10,
+    "signature_curve_below": 1e-07,
+    "modes_1_to_4_all_lengths_below": 1e-07
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.004,
+    "dist": -0.077
+   },
+   "reference_f_dist": 253.2,
+   "f_dist_over_reference": 0.9962
+  },
+  {
+   "t": 1.15,
+   "corners": "sharp",
+   "action": "bend_major",
+   "f_local": 764.618,
+   "half_wave_local": 47.27,
+   "f_dist": 440.975,
+   "half_wave_dist": 269.2,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.08 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.96, web junction 0.05 of the largest displacement); a distinct second minimum of the signature curve. The distortional minimum is LOWER than the local minimum, so distortional buckling governs elastically and a check that uses f_local alone would be unconservative.",
+   "extreme_fibre_factor": 1.01309,
+   "f_local_outer": 774.627,
+   "f_dist_outer": 446.747,
+   "resultant_unit": "kNm",
+   "resultant_local": 4.51156,
+   "resultant_dist": 2.60193,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0793,
+    "web_junction_ratio": 0.0076,
+    "lip_tip_ratio": 0.4409,
+    "rigid_body_fraction": 0.2557,
+    "flange_rotation_ratio": 0.0762,
+    "flange_bending_ratio": 0.7759,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9598,
+    "web_junction_ratio": 0.0521,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.2365,
+    "flange_rotation_ratio": 0.9574,
+    "flange_bending_ratio": 0.0412,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 47.27,
+     "stress": 764.618,
+     "class": "local"
+    },
+    {
+     "half_wave": 269.2,
+     "stress": 440.975,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 441.09,
+     "half_wave": 265.7,
+     "mode": 1
+    },
+    "global": {
+     "stress": 71.07,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 764.71,
+     "half_wave": 48.0,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-10,
+    "signature_curve_below": 1e-07,
+    "modes_1_to_4_all_lengths_below": 1e-07
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.019,
+    "dist": -0.081
+   },
+   "reference_f_dist": 435.4,
+   "f_dist_over_reference": 1.0128
+  },
+  {
+   "t": 1.15,
+   "corners": "sharp",
+   "action": "bend_minor_web_comp",
+   "f_local": 173.742,
+   "half_wave_local": 68.28,
+   "f_dist": null,
+   "half_wave_dist": null,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.01 of the largest displacement). No distortional minimum: the signature curve has no second minimum and no mode with a distortional shape exists among modes 1-6 at any of the 121 half-wave lengths; both flange/lip junctions are in tension for this sense of bending. f_dist is null (constrained FSM is not usable in pycufsm 0.2.0 here, so no cFSM value is given). For the opposite sense of bending see bend_minor_lips_comp.",
+   "extreme_fibre_factor": 1.05184,
+   "f_local_outer": 182.748,
+   "f_dist_outer": null,
+   "resultant_unit": "kNm",
+   "resultant_local": 0.617681,
+   "resultant_dist": null,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0119,
+    "web_junction_ratio": 0.0029,
+    "lip_tip_ratio": 0.0354,
+    "rigid_body_fraction": 0.3711,
+    "flange_rotation_ratio": 0.0122,
+    "flange_bending_ratio": 0.0989,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": null,
+   "signature_minima": [
+    {
+     "half_wave": 68.28,
+     "stress": 173.742,
+     "class": "local"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "global": {
+     "stress": 1531.97,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 173.82,
+     "half_wave": 66.9,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-13,
+    "signature_curve_below": 1e-08,
+    "modes_1_to_4_all_lengths_below": 1e-07
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.002
+   }
+  },
+  {
+   "t": 1.15,
+   "corners": "sharp",
+   "action": "bend_minor_lips_comp",
+   "f_local": 2046.813,
+   "half_wave_local": 32.84,
+   "f_dist": 522.86,
+   "half_wave_dist": 295.34,
+   "note": "Local: lip plate buckling, junctions stay put (flange/lip junction moves 0.05 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.96, web junction 0.05 of the largest displacement); a distinct second minimum of the signature curve. The distortional minimum is LOWER than the local minimum, so distortional buckling governs elastically and a check that uses f_local alone would be unconservative.",
+   "extreme_fibre_factor": 1.02232,
+   "f_local_outer": 2092.504,
+   "f_dist_outer": 534.532,
+   "resultant_unit": "kNm",
+   "resultant_local": 3.13362,
+   "resultant_dist": 0.800486,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0548,
+    "web_junction_ratio": 0.0028,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.3214,
+    "flange_rotation_ratio": 0.0521,
+    "flange_bending_ratio": 0.8769,
+    "max_displacement_at": "lip"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9587,
+    "web_junction_ratio": 0.0463,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.1179,
+    "flange_rotation_ratio": 0.9573,
+    "flange_bending_ratio": 0.0494,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 32.84,
+     "stress": 2046.813,
+     "class": "local"
+    },
+    {
+     "half_wave": 295.34,
+     "stress": 522.86,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 522.95,
+     "half_wave": 292.2,
+     "mode": 1
+    },
+    "global": {
+     "stress": 129.68,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 2046.81,
+     "half_wave": 32.8,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-09,
+    "signature_curve_below": 1e-07,
+    "modes_1_to_4_all_lengths_below": 1e-07
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.021,
+    "dist": -0.077
+   }
+  },
+  {
+   "t": 0.75,
+   "corners": "rounded",
+   "action": "axial",
+   "f_local": 73.388,
+   "half_wave_local": 68.48,
+   "f_dist": 154.255,
+   "half_wave_dist": 357.5,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.01 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.94, web junction 0.09 of the largest displacement); a distinct second minimum of the signature curve.",
+   "extreme_fibre_factor": 1.0,
+   "f_local_outer": 73.388,
+   "f_dist_outer": 154.255,
+   "resultant_unit": "kN",
+   "resultant_local": 9.68168,
+   "resultant_dist": 20.3499,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0108,
+    "web_junction_ratio": 0.0193,
+    "lip_tip_ratio": 0.0612,
+    "rigid_body_fraction": 0.3688,
+    "flange_rotation_ratio": 0.0044,
+    "flange_bending_ratio": 0.1178,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9429,
+    "web_junction_ratio": 0.0891,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.2357,
+    "flange_rotation_ratio": 0.9216,
+    "flange_bending_ratio": 0.0058,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 68.48,
+     "stress": 73.388,
+     "class": "local"
+    },
+    {
+     "half_wave": 357.5,
+     "stress": 154.255,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 154.28,
+     "half_wave": 353.3,
+     "mode": 1
+    },
+    "global": {
+     "stress": 34.1,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 73.43,
+     "half_wave": 66.9,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-08,
+    "signature_curve_below": 1e-05,
+    "modes_1_to_4_all_lengths_below": 1e-05
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.027,
+    "dist": -0.031
+   }
+  },
+  {
+   "t": 0.75,
+   "corners": "rounded",
+   "action": "bend_major",
+   "f_local": 330.789,
+   "half_wave_local": 46.8,
+   "f_dist": 283.299,
+   "half_wave_dist": 334.15,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.06 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.94, web junction 0.07 of the largest displacement); a distinct second minimum of the signature curve. The distortional minimum is LOWER than the local minimum, so distortional buckling governs elastically and a check that uses f_local alone would be unconservative.",
+   "extreme_fibre_factor": 1.0085,
+   "f_local_outer": 333.6,
+   "f_dist_outer": 285.707,
+   "resultant_unit": "kNm",
+   "resultant_local": 1.2462,
+   "resultant_dist": 1.06729,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0596,
+    "web_junction_ratio": 0.0656,
+    "lip_tip_ratio": 0.4596,
+    "rigid_body_fraction": 0.2549,
+    "flange_rotation_ratio": 0.0011,
+    "flange_bending_ratio": 0.7245,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9391,
+    "web_junction_ratio": 0.0696,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.2402,
+    "flange_rotation_ratio": 0.9238,
+    "flange_bending_ratio": 0.0389,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 46.8,
+     "stress": 330.789,
+     "class": "local"
+    },
+    {
+     "half_wave": 334.15,
+     "stress": 283.299,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 283.33,
+     "half_wave": 336.9,
+     "mode": 1
+    },
+    "global": {
+     "stress": 64.24,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 330.88,
+     "half_wave": 45.8,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-09,
+    "signature_curve_below": 1e-05,
+    "modes_1_to_4_all_lengths_below": 1e-05
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.081,
+    "dist": -0.045
+   }
+  },
+  {
+   "t": 0.75,
+   "corners": "rounded",
+   "action": "bend_minor_web_comp",
+   "f_local": 74.873,
+   "half_wave_local": 67.74,
+   "f_dist": null,
+   "half_wave_dist": null,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.01 of the largest displacement). No distortional minimum: the signature curve has no second minimum and no mode with a distortional shape exists among modes 1-6 at any of the 121 half-wave lengths; both flange/lip junctions are in tension for this sense of bending. f_dist is null (constrained FSM is not usable in pycufsm 0.2.0 here, so no cFSM value is given). For the opposite sense of bending see bend_minor_lips_comp.",
+   "extreme_fibre_factor": 1.03376,
+   "f_local_outer": 77.401,
+   "f_dist_outer": null,
+   "resultant_unit": "kNm",
+   "resultant_local": 0.170818,
+   "resultant_dist": null,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0069,
+    "web_junction_ratio": 0.0179,
+    "lip_tip_ratio": 0.0417,
+    "rigid_body_fraction": 0.3711,
+    "flange_rotation_ratio": 0.0072,
+    "flange_bending_ratio": 0.0969,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": null,
+   "signature_minima": [
+    {
+     "half_wave": 67.74,
+     "stress": 74.873,
+     "class": "local"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "global": {
+     "stress": 1427.61,
+     "half_wave": 1005.4,
+     "mode": 1
+    },
+    "local": {
+     "stress": 74.89,
+     "half_wave": 66.9,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-11,
+    "signature_curve_below": 1e-05,
+    "modes_1_to_4_all_lengths_below": 1e-05
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.026
+   }
+  },
+  {
+   "t": 0.75,
+   "corners": "rounded",
+   "action": "bend_minor_lips_comp",
+   "f_local": 882.631,
+   "half_wave_local": 32.2,
+   "f_dist": 337.968,
+   "half_wave_dist": 369.07,
+   "note": "Local: lip plate buckling, junctions stay put (flange/lip junction moves 0.10 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.94, web junction 0.06 of the largest displacement); a distinct second minimum of the signature curve. The distortional minimum is LOWER than the local minimum, so distortional buckling governs elastically and a check that uses f_local alone would be unconservative.",
+   "extreme_fibre_factor": 1.01434,
+   "f_local_outer": 895.292,
+   "f_dist_outer": 342.816,
+   "resultant_unit": "kNm",
+   "resultant_local": 0.855538,
+   "resultant_dist": 0.327594,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0951,
+    "web_junction_ratio": 0.02,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.2978,
+    "flange_rotation_ratio": 0.0471,
+    "flange_bending_ratio": 0.7998,
+    "max_displacement_at": "lip"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9377,
+    "web_junction_ratio": 0.0629,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.1326,
+    "flange_rotation_ratio": 0.9225,
+    "flange_bending_ratio": 0.0468,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 32.2,
+     "stress": 882.631,
+     "class": "local"
+    },
+    {
+     "half_wave": 369.07,
+     "stress": 337.968,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 337.98,
+     "half_wave": 370.5,
+     "mode": 1
+    },
+    "global": {
+     "stress": 105.71,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 882.88,
+     "half_wave": 32.8,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-08,
+    "signature_curve_below": 0.0001,
+    "modes_1_to_4_all_lengths_below": 0.0001
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.116,
+    "dist": -0.054
+   }
+  },
+  {
+   "t": 0.95,
+   "corners": "rounded",
+   "action": "axial",
+   "f_local": 118.08,
+   "half_wave_local": 68.49,
+   "f_dist": 202.391,
+   "half_wave_dist": 313.29,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.02 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.94, web junction 0.09 of the largest displacement); a distinct second minimum of the signature curve.",
+   "extreme_fibre_factor": 1.0,
+   "f_local_outer": 118.08,
+   "f_dist_outer": 202.391,
+   "resultant_unit": "kN",
+   "resultant_local": 19.6224,
+   "resultant_dist": 33.6333,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0161,
+    "web_junction_ratio": 0.0207,
+    "lip_tip_ratio": 0.0599,
+    "rigid_body_fraction": 0.3713,
+    "flange_rotation_ratio": 0.0008,
+    "flange_bending_ratio": 0.1173,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9427,
+    "web_junction_ratio": 0.0908,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.2391,
+    "flange_rotation_ratio": 0.9204,
+    "flange_bending_ratio": 0.0051,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 68.49,
+     "stress": 118.08,
+     "class": "local"
+    },
+    {
+     "half_wave": 313.29,
+     "stress": 202.391,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 202.51,
+     "half_wave": 306.4,
+     "mode": 1
+    },
+    "global": {
+     "stress": 37.4,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 118.15,
+     "half_wave": 66.9,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-08,
+    "signature_curve_below": 1e-05,
+    "modes_1_to_4_all_lengths_below": 1e-05
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.026,
+    "dist": -0.029
+   }
+  },
+  {
+   "t": 0.95,
+   "corners": "rounded",
+   "action": "bend_major",
+   "f_local": 530.153,
+   "half_wave_local": 47.02,
+   "f_dist": 369.707,
+   "half_wave_dist": 292.7,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.07 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.94, web junction 0.07 of the largest displacement); a distinct second minimum of the signature curve. The distortional minimum is LOWER than the local minimum, so distortional buckling governs elastically and a check that uses f_local alone would be unconservative.",
+   "extreme_fibre_factor": 1.01079,
+   "f_local_outer": 535.873,
+   "f_dist_outer": 373.695,
+   "resultant_unit": "kNm",
+   "resultant_local": 2.50681,
+   "resultant_dist": 1.74814,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0749,
+    "web_junction_ratio": 0.07,
+    "lip_tip_ratio": 0.4482,
+    "rigid_body_fraction": 0.2588,
+    "flange_rotation_ratio": 0.0156,
+    "flange_bending_ratio": 0.7124,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.939,
+    "web_junction_ratio": 0.0703,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.241,
+    "flange_rotation_ratio": 0.9228,
+    "flange_bending_ratio": 0.0386,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 47.02,
+     "stress": 530.153,
+     "class": "local"
+    },
+    {
+     "half_wave": 292.7,
+     "stress": 369.707,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 369.71,
+     "half_wave": 292.2,
+     "mode": 1
+    },
+    "global": {
+     "stress": 66.92,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 530.28,
+     "half_wave": 48.0,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-08,
+    "signature_curve_below": 1e-05,
+    "modes_1_to_4_all_lengths_below": 1e-05
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.071,
+    "dist": -0.044
+   }
+  },
+  {
+   "t": 0.95,
+   "corners": "rounded",
+   "action": "bend_minor_web_comp",
+   "f_local": 120.587,
+   "half_wave_local": 67.64,
+   "f_dist": null,
+   "half_wave_dist": null,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.01 of the largest displacement). No distortional minimum: the signature curve has no second minimum and no mode with a distortional shape exists among modes 1-6 at any of the 121 half-wave lengths; both flange/lip junctions are in tension for this sense of bending. f_dist is null (constrained FSM is not usable in pycufsm 0.2.0 here, so no cFSM value is given). For the opposite sense of bending see bend_minor_lips_comp.",
+   "extreme_fibre_factor": 1.04316,
+   "f_local_outer": 125.792,
+   "f_dist_outer": null,
+   "resultant_unit": "kNm",
+   "resultant_local": 0.344767,
+   "resultant_dist": null,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0097,
+    "web_junction_ratio": 0.0191,
+    "lip_tip_ratio": 0.0407,
+    "rigid_body_fraction": 0.3734,
+    "flange_rotation_ratio": 0.0044,
+    "flange_bending_ratio": 0.0964,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": null,
+   "signature_minima": [
+    {
+     "half_wave": 67.64,
+     "stress": 120.587,
+     "class": "local"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "global": {
+     "stress": 1502.64,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 120.6,
+     "half_wave": 66.9,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-11,
+    "signature_curve_below": 1e-06,
+    "modes_1_to_4_all_lengths_below": 1e-06
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.024
+   }
+  },
+  {
+   "t": 0.95,
+   "corners": "rounded",
+   "action": "bend_minor_lips_comp",
+   "f_local": 1424.373,
+   "half_wave_local": 32.03,
+   "f_dist": 444.58,
+   "half_wave_dist": 322.81,
+   "note": "Local: lip plate buckling, junctions stay put (flange/lip junction moves 0.11 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.94, web junction 0.06 of the largest displacement); a distinct second minimum of the signature curve. The distortional minimum is LOWER than the local minimum, so distortional buckling governs elastically and a check that uses f_local alone would be unconservative.",
+   "extreme_fibre_factor": 1.01824,
+   "f_local_outer": 1450.351,
+   "f_dist_outer": 452.688,
+   "resultant_unit": "kNm",
+   "resultant_local": 1.72095,
+   "resultant_dist": 0.537147,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.1069,
+    "web_junction_ratio": 0.0218,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.3032,
+    "flange_rotation_ratio": 0.0579,
+    "flange_bending_ratio": 0.8117,
+    "max_displacement_at": "lip"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9374,
+    "web_junction_ratio": 0.0631,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.1312,
+    "flange_rotation_ratio": 0.9217,
+    "flange_bending_ratio": 0.0472,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 32.03,
+     "stress": 1424.373,
+     "class": "local"
+    },
+    {
+     "half_wave": 322.81,
+     "stress": 444.58,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 444.59,
+     "half_wave": 321.3,
+     "mode": 1
+    },
+    "global": {
+     "stress": 116.73,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 1424.96,
+     "half_wave": 31.3,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-11,
+    "signature_curve_below": 0.0001,
+    "modes_1_to_4_all_lengths_below": 0.0001
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.105,
+    "dist": -0.052
+   }
+  },
+  {
+   "t": 1.15,
+   "corners": "rounded",
+   "action": "axial",
+   "f_local": 173.463,
+   "half_wave_local": 68.61,
+   "f_dist": 253.781,
+   "half_wave_dist": 280.97,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.02 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.94, web junction 0.09 of the largest displacement); a distinct second minimum of the signature curve.",
+   "extreme_fibre_factor": 1.0,
+   "f_local_outer": 173.463,
+   "f_dist_outer": 253.781,
+   "resultant_unit": "kN",
+   "resultant_local": 34.7007,
+   "resultant_dist": 50.7679,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0236,
+    "web_junction_ratio": 0.0224,
+    "lip_tip_ratio": 0.0589,
+    "rigid_body_fraction": 0.3742,
+    "flange_rotation_ratio": 0.0081,
+    "flange_bending_ratio": 0.1165,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9425,
+    "web_junction_ratio": 0.0926,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.2425,
+    "flange_rotation_ratio": 0.9191,
+    "flange_bending_ratio": 0.0046,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 68.61,
+     "stress": 173.463,
+     "class": "local"
+    },
+    {
+     "half_wave": 280.97,
+     "stress": 253.781,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 253.8,
+     "half_wave": 278.6,
+     "mode": 1
+    },
+    "global": {
+     "stress": 40.86,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 173.56,
+     "half_wave": 70.2,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-08,
+    "signature_curve_below": 1e-05,
+    "modes_1_to_4_all_lengths_below": 1e-05
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.026,
+    "dist": -0.026
+   }
+  },
+  {
+   "t": 1.15,
+   "corners": "rounded",
+   "action": "bend_major",
+   "f_local": 775.29,
+   "half_wave_local": 47.63,
+   "f_dist": 461.156,
+   "half_wave_dist": 262.3,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.10 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.94, web junction 0.07 of the largest displacement); a distinct second minimum of the signature curve. The distortional minimum is LOWER than the local minimum, so distortional buckling governs elastically and a check that uses f_local alone would be unconservative.",
+   "extreme_fibre_factor": 1.01309,
+   "f_local_outer": 785.439,
+   "f_dist_outer": 467.192,
+   "resultant_unit": "kNm",
+   "resultant_local": 4.39696,
+   "resultant_dist": 2.61539,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0989,
+    "web_junction_ratio": 0.0746,
+    "lip_tip_ratio": 0.4325,
+    "rigid_body_fraction": 0.2643,
+    "flange_rotation_ratio": 0.041,
+    "flange_bending_ratio": 0.6942,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.939,
+    "web_junction_ratio": 0.0709,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.2418,
+    "flange_rotation_ratio": 0.9217,
+    "flange_bending_ratio": 0.0383,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 47.63,
+     "stress": 775.29,
+     "class": "local"
+    },
+    {
+     "half_wave": 262.3,
+     "stress": 461.156,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 461.26,
+     "half_wave": 265.7,
+     "mode": 1
+    },
+    "global": {
+     "stress": 70.19,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 775.32,
+     "half_wave": 48.0,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-08,
+    "signature_curve_below": 1e-05,
+    "modes_1_to_4_all_lengths_below": 1e-05
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.069,
+    "dist": -0.042
+   }
+  },
+  {
+   "t": 1.15,
+   "corners": "rounded",
+   "action": "bend_minor_web_comp",
+   "f_local": 177.389,
+   "half_wave_local": 67.58,
+   "f_dist": null,
+   "half_wave_dist": null,
+   "note": "Local: web plate buckling, junctions stay put (flange/lip junction moves 0.01 of the largest displacement). No distortional minimum: the signature curve has no second minimum and no mode with a distortional shape exists among modes 1-6 at any of the 121 half-wave lengths; both flange/lip junctions are in tension for this sense of bending. f_dist is null (constrained FSM is not usable in pycufsm 0.2.0 here, so no cFSM value is given). For the opposite sense of bending see bend_minor_lips_comp.",
+   "extreme_fibre_factor": 1.05273,
+   "f_local_outer": 186.742,
+   "f_dist_outer": null,
+   "resultant_unit": "kNm",
+   "resultant_local": 0.607354,
+   "resultant_dist": null,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.0134,
+    "web_junction_ratio": 0.0204,
+    "lip_tip_ratio": 0.0398,
+    "rigid_body_fraction": 0.3759,
+    "flange_rotation_ratio": 0.001,
+    "flange_bending_ratio": 0.0957,
+    "max_displacement_at": "web"
+   },
+   "mode_dist": null,
+   "signature_minima": [
+    {
+     "half_wave": 67.58,
+     "stress": 177.389,
+     "class": "local"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "global": {
+     "stress": 1541.93,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 177.41,
+     "half_wave": 66.9,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-11,
+    "signature_curve_below": 1e-06,
+    "modes_1_to_4_all_lengths_below": 1e-05
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.024
+   }
+  },
+  {
+   "t": 1.15,
+   "corners": "rounded",
+   "action": "bend_minor_lips_comp",
+   "f_local": 2100.963,
+   "half_wave_local": 32.08,
+   "f_dist": 558.809,
+   "half_wave_dist": 288.8,
+   "note": "Local: lip plate buckling, junctions stay put (flange/lip junction moves 0.12 of the largest displacement). Distortional: flange and lip rotate about the web junction (flange/lip junction moves 0.94, web junction 0.06 of the largest displacement); a distinct second minimum of the signature curve. The distortional minimum is LOWER than the local minimum, so distortional buckling governs elastically and a check that uses f_local alone would be unconservative.",
+   "extreme_fibre_factor": 1.02216,
+   "f_local_outer": 2147.525,
+   "f_dist_outer": 571.193,
+   "resultant_unit": "kNm",
+   "resultant_local": 3.02337,
+   "resultant_dist": 0.804148,
+   "mode_local": {
+    "class": "local",
+    "junction_ratio": 0.1236,
+    "web_junction_ratio": 0.0241,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.311,
+    "flange_rotation_ratio": 0.0745,
+    "flange_bending_ratio": 0.829,
+    "max_displacement_at": "lip"
+   },
+   "mode_dist": {
+    "class": "distortional",
+    "junction_ratio": 0.9372,
+    "web_junction_ratio": 0.0632,
+    "lip_tip_ratio": 1.0,
+    "rigid_body_fraction": 0.1298,
+    "flange_rotation_ratio": 0.9208,
+    "flange_bending_ratio": 0.0476,
+    "max_displacement_at": "lip"
+   },
+   "signature_minima": [
+    {
+     "half_wave": 32.08,
+     "stress": 2100.963,
+     "class": "local"
+    },
+    {
+     "half_wave": 288.8,
+     "stress": 558.809,
+     "class": "distortional"
+    }
+   ],
+   "scan_lowest_by_class": {
+    "distortional": {
+     "stress": 558.92,
+     "half_wave": 292.2,
+     "mode": 1
+    },
+    "global": {
+     "stress": 130.63,
+     "half_wave": 3000.0,
+     "mode": 1
+    },
+    "local": {
+     "stress": 2101.76,
+     "half_wave": 32.8,
+     "mode": 1
+    }
+   },
+   "solver": "pycufsm",
+   "pycufsm_vs_independent": {
+    "at_reported_minima_below": 1e-08,
+    "signature_curve_below": 1e-05,
+    "modes_1_to_4_all_lengths_below": 1e-05
+   },
+   "mesh_doubling_change_pct": {
+    "local": -0.105,
+    "dist": -0.051
+   }
+  }
+ ],
+ "section_props": [
+  {
+   "t": 0.75,
+   "corners": "sharp",
+   "A": 135.0,
+   "Ix": 172332.1,
+   "Iy": 26622.41,
+   "J": 25.3125,
+   "Cw": 41960330.0,
+   "xc_from_web": 11.27847,
+   "xc_from_web_outer_face": 11.65347,
+   "x0_shear_centre_to_centroid": 28.41146,
+   "shear_centre_behind_web_centreline": 17.13298,
+   "Zx_centreline": 3905.544,
+   "Zx_outer_face": 3872.632,
+   "Zy_web_centreline": 2360.462,
+   "Zy_web_outer_face": 2284.505,
+   "Zy_lip_centreline": 1025.061,
+   "Zy_lip_outer_face": 1010.471,
+   "rx": 35.72862,
+   "ry": 14.0429,
+   "ro1": 47.75927,
+   "centreline_web": 88.25,
+   "centreline_flange": 37.25,
+   "centreline_lip": 8.625,
+   "centreline_corner_radius": 0.0
+  },
+  {
+   "t": 0.95,
+   "corners": "sharp",
+   "A": 170.24,
+   "Ix": 216188.8,
+   "Iy": 33145.94,
+   "J": 51.21387,
+   "Cw": 51897760.0,
+   "xc_from_web": 11.1853,
+   "xc_from_web_outer_face": 11.6603,
+   "x0_shear_centre_to_centroid": 28.18967,
+   "shear_centre_behind_web_centreline": 17.00437,
+   "Zx_centreline": 4910.591,
+   "Zx_outer_face": 4858.175,
+   "Zy_web_centreline": 2963.35,
+   "Zy_web_outer_face": 2842.633,
+   "Zy_lip_centreline": 1281.513,
+   "Zy_lip_outer_face": 1258.402,
+   "rx": 35.63574,
+   "ry": 13.95354,
+   "ro1": 47.53172,
+   "centreline_web": 88.05,
+   "centreline_flange": 37.05,
+   "centreline_lip": 8.525,
+   "centreline_corner_radius": 0.0
+  },
+  {
+   "t": 1.15,
+   "corners": "sharp",
+   "A": 205.16,
+   "Ix": 259175.7,
+   "Iy": 39434.56,
+   "J": 90.44137,
+   "Cw": 61336450.0,
+   "xc_from_web": 11.09218,
+   "xc_from_web_outer_face": 11.66718,
+   "x0_shear_centre_to_centroid": 27.96799,
+   "shear_centre_behind_web_centreline": 16.87581,
+   "Zx_centreline": 5900.413,
+   "Zx_outer_face": 5824.172,
+   "Zy_web_centreline": 3555.167,
+   "Zy_web_outer_face": 3379.956,
+   "Zy_lip_centreline": 1530.974,
+   "Zy_lip_outer_face": 1497.544,
+   "rx": 35.54273,
+   "ry": 13.86411,
+   "ro1": 47.30441,
+   "centreline_web": 87.85,
+   "centreline_flange": 36.85,
+   "centreline_lip": 8.425,
+   "centreline_corner_radius": 0.0
+  },
+  {
+   "t": 0.75,
+   "corners": "rounded",
+   "A": 131.9416,
+   "Ix": 166272.6,
+   "Iy": 25348.88,
+   "J": 24.73906,
+   "Cw": 39683570.0,
+   "xc_from_web": 11.10818,
+   "xc_from_web_outer_face": 11.48318,
+   "x0_shear_centre_to_centroid": 28.1495,
+   "shear_centre_behind_web_centreline": 17.04132,
+   "Zx_centreline": 3768.218,
+   "Zx_outer_face": 3736.463,
+   "Zy_web_centreline": 2282.0,
+   "Zy_web_outer_face": 2207.478,
+   "Zy_lip_centreline": 969.6677,
+   "Zy_lip_outer_face": 955.9547,
+   "rx": 35.49927,
+   "ry": 13.8608,
+   "ro1": 47.37842,
+   "centreline_web": 88.25,
+   "centreline_flange": 37.25,
+   "centreline_lip": 8.625,
+   "centreline_corner_radius": 2.375
+  },
+  {
+   "t": 0.95,
+   "corners": "rounded",
+   "A": 166.203,
+   "Ix": 208220.3,
+   "Iy": 31478.0,
+   "J": 49.99939,
+   "Cw": 48926690.0,
+   "xc_from_web": 11.00702,
+   "xc_from_web_outer_face": 11.48202,
+   "x0_shear_centre_to_centroid": 27.91272,
+   "shear_centre_behind_web_centreline": 16.90571,
+   "Zx_centreline": 4729.593,
+   "Zx_outer_face": 4679.109,
+   "Zy_web_centreline": 2859.812,
+   "Zy_web_outer_face": 2741.505,
+   "Zy_lip_centreline": 1208.694,
+   "Zy_lip_outer_face": 1187.043,
+   "rx": 35.39502,
+   "ry": 13.76208,
+   "ro1": 47.13091,
+   "centreline_web": 88.05,
+   "centreline_flange": 37.05,
+   "centreline_lip": 8.525,
+   "centreline_corner_radius": 2.475
+  },
+  {
+   "t": 1.15,
+   "corners": "rounded",
+   "A": 200.0756,
+   "Ix": 249177.8,
+   "Iy": 37350.35,
+   "J": 88.2,
+   "Cw": 57637550.0,
+   "xc_from_web": 10.90584,
+   "xc_from_web_outer_face": 11.48084,
+   "x0_shear_centre_to_centroid": 27.67571,
+   "shear_centre_behind_web_centreline": 16.76988,
+   "Zx_centreline": 5672.802,
+   "Zx_outer_face": 5599.501,
+   "Zy_web_centreline": 3424.804,
+   "Zy_web_outer_face": 3253.278,
+   "Zy_lip_centreline": 1439.644,
+   "Zy_lip_outer_face": 1408.429,
+   "rx": 35.29048,
+   "ry": 13.66313,
+   "ro1": 46.88331,
+   "centreline_web": 87.85,
+   "centreline_flange": 36.85,
+   "centreline_lip": 8.425,
+   "centreline_corner_radius": 2.575
+  }
+ ]
+}

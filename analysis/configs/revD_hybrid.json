@@ -1,0 +1,246 @@
+{
+ "name": "Rev D (design): 8 A-frame lift points (strap pair from each head to two feet, no hanger), south feet = U-cradles in bearing screwed over 200 mm, north (marriage side) parts on the inside face only, saddle heads that hold sideways only, floor and roof bridging, extra screws (rims, floor trusses, north posts, end walls, brace ends 15 mm from the cut), pinned-beam cascade set to the measured CoG; design cases include +/-2 deg tilt",
+ "rated_lift_mass_kg": 6500,
+ "steel": "G450",
+ "factors": {
+  "weight": 1.03,
+  "cog": 1.05,
+  "dynamic": 1.5,
+  "load": 1.5
+ },
+ "lift_lines_x": [
+  900,
+  4500,
+  7500,
+  11100
+ ],
+ "rim_y": {
+  "S": 44.5,
+  "N": 3255.5
+ },
+ "floor_rim_z": [
+  -279.5,
+  -20.5
+ ],
+ "roof_rim_top_z": 2979.5,
+ "head_z": 3150.0,
+ "v_strap": {
+  "label": "A-frame strap pair: 50 x 1.2 G450, one on each wall face, 2 x M12 8.8 each end",
+  "label_inner": "A-frame strap: one 50 x 2.4 G450 strap on the inside face, 2 x M12 8.8 each end",
+  "A": 120.0,
+  "kg_m": 0.94
+ },
+ "guide": {
+  "label": "lifting head saddle: folded 3 mm G450 box over the roof edge truss with running clearance (no fasteners), M20 lifting pin with a 40 mm free-turning sleeve",
+  "label_inner": "lifting head on the inside face: folded 3 mm G450 bracket bearing on the inside face of the roof edge truss (no fasteners), M20 pin with sleeve",
+  "A": 0.01,
+  "I": 500000.0,
+  "I_free": 100.0,
+  "kg_m": 0.0
+ },
+ "floor_diaphragm": {
+  "label": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)",
+  "x_stations": [
+   0,
+   900,
+   4500,
+   7500,
+   11100,
+   12000
+  ],
+  "z": -20.5,
+  "attach_kinds": [
+   "rim_truss"
+  ],
+  "A_eq": 15.0,
+  "kg_m": 0.47
+ },
+ "roof_diaphragm": {
+  "label": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)",
+  "x_stations": [
+   0,
+   900,
+   4500,
+   7500,
+   11100,
+   12000
+  ],
+  "z": 2979.5,
+  "attach_kinds": [
+   "roof_rim"
+  ],
+  "A_eq": 15.0,
+  "kg_m": 0.47
+ },
+ "k_sling_N_per_mm": 2000.0,
+ "sling_tolerance_mm": 10.0,
+ "sideways_fraction": 0.05,
+ "slack_cases": true,
+ "joint_fasteners": {
+  "rim_truss": 4,
+  "roof_rim": 4,
+  "floor_truss": 4
+ },
+ "skew": 0.1,
+ "short_in_envelope": false,
+ "roof_rim_bot_z": 2720.5,
+ "v_legs": [
+  {
+   "side": "S",
+   "line": 1,
+   "dx": -840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 1,
+   "dx": 840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 2,
+   "dx": -840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 2,
+   "dx": 840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 3,
+   "dx": -840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 3,
+   "dx": 840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 4,
+   "dx": -840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 4,
+   "dx": 840.0,
+   "temporary": false
+  }
+ ],
+ "joint_fasteners_panels": {
+  "W1": 4,
+  "W2": 4,
+  "W3": 4,
+  "W4": 4,
+  "W5": 4,
+  "W11": 4,
+  "NFT2": 6,
+  "NFT25": 6
+ },
+ "link_screws": {
+  "truss end vertical screwed to the rim (end reaction)": 4
+ },
+ "joint_rules": [
+  {
+   "kinds": [
+    "rim_truss",
+    "roof_rim"
+   ],
+   "x_lt": 300.0,
+   "n": 6
+  },
+  {
+   "kinds": [
+    "rim_truss",
+    "roof_rim"
+   ],
+   "x_gt": 11700.0,
+   "n": 6
+  },
+  {
+   "kinds": [
+    "floor_truss"
+   ],
+   "y_lt": 800.0,
+   "n": 6
+  },
+  {
+   "kinds": [
+    "floor_truss"
+   ],
+   "y_gt": 2500.0,
+   "n": 6
+  },
+  {
+   "types": [
+    "DIAGONAL BRACE"
+   ],
+   "n": 4
+  }
+ ],
+ "cradle_half": 300.0,
+ "cradle_screw_pitch": 100.0,
+ "service": {
+  "floor_live_kPa": 3.0,
+  "roof_live_kPa": 0.25,
+  "extra_pier_x": [
+   2700.0,
+   6000.0,
+   9300.0
+  ],
+  "restraint_lines": {
+   "floor_truss|TOP CHORD": 300.0
+  }
+ },
+ "design": "revD",
+ "length": 12000.0,
+ "inner_face_sides": [
+  "N"
+ ],
+ "inner_face_offset": 45.5,
+ "cradle_base_drop": 20.5,
+ "cradle": {
+  "label": "U-cradle: folded 2.5 mm G450 U, 600 long, 95 inside, wraps under the floor edge truss; cheeks screwed to both chords at the 3 middle stations (3 screws per face per chord per station)",
+  "base_A": 1737.5,
+  "base_I_major": 3150000.0,
+  "base_I_minor": 12000000.0,
+  "base_J": 2000.0,
+  "kg_per_cradle": 8.2,
+  "strip_A": 500.0,
+  "strip_I_major": 990000.0,
+  "strip_I_minor": 417000.0,
+  "strip_J": 1042.0
+ },
+ "foot_plate": {
+  "label": "foot plate on the inside face: 3 mm G450, 600 x 300, screwed to both chords at 7 stations (3 screws per chord per station)",
+  "A": 300.0,
+  "I_major": 225.0,
+  "I_minor": 250000.0,
+  "J": 900.0,
+  "kg_per_plate": 4.24
+ },
+ "bridging": {
+  "FBR": true,
+  "RBR": true
+ },
+ "bridging_y": 1650.0,
+ "twist_mode": "joint",
+ "tilt_deg": 2.0,
+ "skew_in_envelope": false,
+ "hanger_sides": [
+  "N"
+ ],
+ "hanger": {
+  "label": "hanger strap pair: 50 x 1.5 G450, one on each face",
+  "label_inner": "hanger strap: one 50 x 3.0 G450 strap on the inside face, 2 x M12 8.8 each end",
+  "A": 150.0,
+  "kg_m": 1.18
+ }
+}

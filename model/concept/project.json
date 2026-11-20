@@ -1,0 +1,196 @@
+{
+ "name": "Concept classroom module (3.3 x 12.0 m)",
+ "prefix": "GLA-classroom-module",
+ "settings": {},
+ "walls": [
+  {
+   "id": "EW1",
+   "start": [
+    44.5,
+    44.5
+   ],
+   "end": [
+    11955.5,
+    44.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": [
+    {
+     "id": "WN1",
+     "kind": "window",
+     "offset": 2077.8,
+     "width": 1800.0,
+     "height": 1200.0,
+     "sill": 900.0
+    },
+    {
+     "id": "WN2",
+     "kind": "window",
+     "offset": 8033.2,
+     "width": 1800.0,
+     "height": 1200.0,
+     "sill": 900.0
+    },
+    {
+     "id": "DR1",
+     "kind": "door",
+     "offset": 5000.0,
+     "width": 1020.0,
+     "height": 2100.0,
+     "sill": 0.0
+    }
+   ],
+   "type": "WT-ILO-EXT-RS-GRC12"
+  },
+  {
+   "id": "EW2",
+   "start": [
+    11955.5,
+    44.5
+   ],
+   "end": [
+    11955.5,
+    3255.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": [],
+   "type": "WT-ILO-EXT-RS-GRC12"
+  },
+  {
+   "id": "EW3",
+   "start": [
+    11955.5,
+    3255.5
+   ],
+   "end": [
+    44.5,
+    3255.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": [
+    {
+     "id": "MO1",
+     "kind": "door",
+     "offset": 300.0,
+     "width": 3500.0,
+     "height": 2450.0,
+     "sill": 0.0
+    },
+    {
+     "id": "MO2",
+     "kind": "door",
+     "offset": 4150.0,
+     "width": 3500.0,
+     "height": 2450.0,
+     "sill": 0.0
+    },
+    {
+     "id": "MO3",
+     "kind": "door",
+     "offset": 8000.0,
+     "width": 3500.0,
+     "height": 2450.0,
+     "sill": 0.0
+    }
+   ],
+   "type": "WT-ILO-EXT-RS-GRC12"
+  },
+  {
+   "id": "EW4",
+   "start": [
+    44.5,
+    3255.5
+   ],
+   "end": [
+    44.5,
+    44.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": [],
+   "type": "WT-ILO-EXT-RS-GRC12"
+  }
+ ],
+ "roofs": [
+  {
+   "id": "R1",
+   "outline": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     12000.0,
+     0.0
+    ],
+    [
+     12000.0,
+     3300.0
+    ],
+    [
+     0.0,
+     3300.0
+    ]
+   ],
+   "eave_z": 2700.0,
+   "pitch": 3.0,
+   "kind": "mono",
+   "overhang": 0.0,
+   "type": "RT-ILO-BITUMEN-TORCH",
+   "bottom_pitch": 3.0,
+   "vault_depth": 259.0
+  }
+ ],
+ "floors": [],
+ "rooms": [
+  {
+   "id": "RM1",
+   "name": "Classroom half-module",
+   "type": "other",
+   "outline": [
+    [
+     44.5,
+     44.5
+    ],
+    [
+     11955.5,
+     44.5
+    ],
+    [
+     11955.5,
+     3255.5
+    ],
+    [
+     44.5,
+     3255.5
+    ]
+   ],
+   "height": 2700.0
+  }
+ ],
+ "slabs": [],
+ "levels": [],
+ "elements": [
+  {
+   "id": "FT",
+   "kind": "floor_truss",
+   "p1": [
+    0.0,
+    0.0
+   ],
+   "p2": [
+    0.0,
+    3300.0
+   ],
+   "depth": 300.0,
+   "z": 0.0,
+   "array": {
+    "count": 21,
+    "spacing": 600.0
+   }
+  }
+ ]
+}

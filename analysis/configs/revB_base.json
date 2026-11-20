@@ -1,0 +1,17 @@
+{
+ "name": "Rev B base: 8 bottom pick-up points, cradles, strap diaphragms",
+ "rated_lift_mass_kg": 6500,
+ "steel": "G450",
+ "factors": {"dynamic": 1.5, "load": 1.5, "note": "provisional until the design-basis research is merged"},
+ "lift_lines_x": [900, 4500, 7500, 11100],
+ "rim_y": {"S": 44.5, "N": 3255.5},
+ "pickup_z": -279.5, "pickup_kinds": ["rim_truss"], "pickup_types": ["BOTTOM CHORD"], "pickup_tol": 40.0,
+ "cradle": {"floor_rim_z": [-279.5, -20.5], "roof_rim_z": [2720.5, 2979.5], "at_roof_rim": true,
+            "A": 900.0, "I_major": 1687500.0, "I_minor": 675.0, "J": 2700.0, "kg_m": 7.07, "snap": 3.0},
+ "floor_diaphragm": {"label": "floor plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)",
+                     "x_stations": [0, 900, 4500, 7500, 11100, 12000], "z": -20.5, "attach_kinds": ["rim_truss"], "A_eq": 25.0},
+ "roof_diaphragm": {"label": "roof plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)",
+                    "x_stations": [0, 900, 4500, 7500, 11100, 12000], "z": 2979.5, "attach_kinds": ["roof_rim"], "A_eq": 25.0},
+ "k_sling_N_per_mm": 2000.0, "sling_tolerance_mm": 10.0,
+ "slack_cases": true, "slack_in_envelope": false
+}

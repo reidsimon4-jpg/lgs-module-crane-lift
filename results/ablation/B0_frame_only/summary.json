@@ -1,0 +1,614 @@
+{
+ "meta": {
+  "config": "BEFORE: Framer frame as framed (2 screws per joint), no lift parts, slings straight onto the floor rim chords at the same 8 points",
+  "W_N": 63743.22499999997,
+  "rated_kg": 6500.0,
+  "itemised_kg": 4484.910221806102,
+  "cg": [
+   5975.928632853807,
+   1377.3722437173537,
+   1237.565502258783
+  ],
+  "factor": 2.4333750000000003,
+  "factors": {
+   "weight": 1.03,
+   "cog": 1.05,
+   "dynamic": 1.5,
+   "load": 1.5
+  },
+  "member_steel": "G450",
+  "connection_steel": "connections fu 412.5",
+  "lift_points": {
+   "S1": {
+    "node": 473,
+    "xyz": [
+     899.2130901018629,
+     44.5,
+     -279.501989591188
+    ]
+   },
+   "S2": {
+    "node": 441,
+    "xyz": [
+     4485.259989117336,
+     44.5,
+     -280.3109351433585
+    ]
+   },
+   "S3": {
+    "node": 499,
+    "xyz": [
+     7514.223090101863,
+     44.5,
+     -279.501989591188
+    ]
+   },
+   "S4": {
+    "node": 467,
+    "xyz": [
+     11100.269989117336,
+     44.5,
+     -280.3109351433585
+    ]
+   },
+   "N1": {
+    "node": 585,
+    "xyz": [
+     899.2130901018629,
+     3255.5,
+     -279.501989591188
+    ]
+   },
+   "N2": {
+    "node": 553,
+    "xyz": [
+     4485.259989117336,
+     3255.5,
+     -280.3109351433585
+    ]
+   },
+   "N3": {
+    "node": 611,
+    "xyz": [
+     7514.223090101863,
+     3255.5,
+     -279.501989591188
+    ]
+   },
+   "N4": {
+    "node": 579,
+    "xyz": [
+     11100.269989117336,
+     3255.5,
+     -280.3109351433585
+    ]
+   }
+  }
+ },
+ "cases": {
+  "R1_rigid": {
+   "label": "Rigid lifting frame, 8 slings of exact equal length and no stretch",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 9469.495630139443,
+    "S2": 9652.325430444269,
+    "S3": 8591.740015470376,
+    "S4": 9570.126294319392,
+    "N1": 7662.221005757408,
+    "N2": 5631.357284814071,
+    "N3": 5568.340794619741,
+    "N4": 7597.618545424692
+   },
+   "sum_R": 63743.22500098939,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 130,
+   "links_over": 9,
+   "max_member": 1.7371115775493917,
+   "max_joint": 4.1866457081522475,
+   "max_link": 1.818114559821459,
+   "sag_mm": -1.906043844091568,
+   "hog_mm": 0.0,
+   "design": true,
+   "slack_straps": []
+  },
+  "R4_equalised": {
+   "label": "Equalising rig (beam cascade): four equal sling forces on each side, sides by statics",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9389.293547731206,
+    "S2": 9341.223206925995,
+    "S3": 9300.62047844782,
+    "S4": 9252.55013764261,
+    "N1": 6683.2561123574005,
+    "N2": 6635.185771552191,
+    "N3": 6594.583043074015,
+    "N4": 6546.512702268806
+   },
+   "sum_R": 63743.22500000004,
+   "unbalance": 4.750787411467172e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 140,
+   "links_over": 15,
+   "max_member": 1.8018911499948587,
+   "max_joint": 4.234833145562424,
+   "max_link": 2.38481478291921,
+   "sag_mm": -20.81505964049643,
+   "hog_mm": 4.390495145133593,
+   "design": true,
+   "slack_straps": []
+  },
+  "R7a_outer_high": {
+   "label": "Equalising rig with 10 % skew (outer high): friction and geometry errors in the rig",
+   "rig": "forces",
+   "reactions": {
+    "S1": 10186.083860231207,
+    "S2": 8544.432894425996,
+    "S3": 8503.830165947818,
+    "S4": 10049.340450142608,
+    "N1": 7480.046424857401,
+    "N2": 5838.395459052191,
+    "N3": 5797.792730574014,
+    "N4": 7343.303014768803
+   },
+   "sum_R": 63743.225000000035,
+   "unbalance": 7.643273420399055e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 147,
+   "links_over": 12,
+   "max_member": 1.8299740575911094,
+   "max_joint": 4.268149455844031,
+   "max_link": 1.6531904303585594,
+   "sag_mm": -18.4359222718898,
+   "hog_mm": 6.471709758431002,
+   "design": true,
+   "slack_straps": []
+  },
+  "R7b_inner_high": {
+   "label": "Equalising rig with 10 % skew (inner high): friction and geometry errors in the rig",
+   "rig": "forces",
+   "reactions": {
+    "S1": 8592.503235231203,
+    "S2": 10138.013519425995,
+    "S3": 10097.410790947819,
+    "S4": 8455.759825142612,
+    "N1": 5886.465799857398,
+    "N2": 7431.976084052189,
+    "N3": 7391.373355574015,
+    "N4": 5749.722389768807
+   },
+   "sum_R": 63743.225000000035,
+   "unbalance": 3.114659193670377e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 14,
+   "joints_over": 209,
+   "links_over": 17,
+   "max_member": 2.046141605993972,
+   "max_joint": 4.814043228545253,
+   "max_link": 3.7693648540481077,
+   "sag_mm": -23.20193420262251,
+   "hog_mm": 6.8679390980944435,
+   "design": true,
+   "slack_straps": []
+  },
+  "R7c_one_end_high": {
+   "label": "Equalising rig with 10 % skew (one end high): friction and geometry errors in the rig",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9236.431813920315,
+    "S2": 9856.036756084175,
+    "S3": 8785.80692928964,
+    "S4": 9405.411871453498,
+    "N1": 6530.394378546512,
+    "N2": 7149.999320710371,
+    "N3": 6079.7694939158355,
+    "N4": 6699.374436079694
+   },
+   "sum_R": 63743.22500000004,
+   "unbalance": 4.27701434091432e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 7,
+   "joints_over": 147,
+   "links_over": 15,
+   "max_member": 1.805268838385994,
+   "max_joint": 4.351428496291091,
+   "max_link": 2.40407424516537,
+   "sag_mm": -21.493935467597378,
+   "hog_mm": 4.542303129538415,
+   "design": true,
+   "slack_straps": []
+  },
+  "R7d_twist": {
+   "label": "Equalising rig with 10 % skew (twist): friction and geometry errors in the rig",
+   "rig": "forces",
+   "reactions": {
+    "S1": 10186.083860231203,
+    "S2": 10138.013519425995,
+    "S3": 8503.83016594782,
+    "S4": 8455.759825142612,
+    "N1": 5886.465799857398,
+    "N2": 5838.39545905219,
+    "N3": 7391.373355574015,
+    "N4": 7343.303014768806
+   },
+   "sum_R": 63743.225000000035,
+   "unbalance": 0.00022203917069418821,
+   "factor": 2.4333750000000003,
+   "members_over": 20,
+   "joints_over": 229,
+   "links_over": 45,
+   "max_member": 2.2094685052306766,
+   "max_joint": 13.440280680909185,
+   "max_link": 28.561727726319365,
+   "sag_mm": -216.45829215268634,
+   "hog_mm": 530.4550905232438,
+   "design": true,
+   "slack_straps": []
+  },
+  "R2_springs": {
+   "label": "Rigid frame with elastic slings",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9471.603312486708,
+    "S2": 9456.006066009939,
+    "S3": 8948.214611998395,
+    "S4": 9407.863381661182,
+    "N1": 7535.579958402497,
+    "N2": 5752.7267761556495,
+    "N3": 5704.376803166156,
+    "N4": 7466.854095271066
+   },
+   "sum_R": 63743.225005151595,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 136,
+   "links_over": 10,
+   "max_member": 1.703850577384049,
+   "max_joint": 4.164851181706177,
+   "max_link": 1.760646512077631,
+   "sag_mm": -2.1929035899052276,
+   "hog_mm": 1.1483220000566319,
+   "design": true,
+   "slack_straps": []
+  },
+  "R6_short_S1": {
+   "label": "Rigid frame with elastic slings, sling S1 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 11779.995804562503,
+    "S2": 6177.323343356972,
+    "S3": 8475.635312856835,
+    "S4": 10850.732895620591,
+    "N1": 7515.328248844612,
+    "N2": 5765.229863438447,
+    "N3": 5692.957026559285,
+    "N4": 7486.022508195644
+   },
+   "sum_R": 63743.22500343489,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 9,
+   "joints_over": 189,
+   "links_over": 12,
+   "max_member": 2.2212815084232385,
+   "max_joint": 5.278223565812266,
+   "max_link": 2.458257512700574,
+   "sag_mm": -3.934744727060231,
+   "hog_mm": 7.808237631756246,
+   "design": false,
+   "slack_straps": []
+  },
+  "R6_short_S2": {
+   "label": "Rigid frame with elastic slings, sling S2 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 6192.920589632701,
+    "S2": 16194.954380931065,
+    "S3": 5841.071365871768,
+    "S4": 9054.741033055858,
+    "N1": 7537.700928426616,
+    "N2": 5750.42483766311,
+    "N3": 5705.428415520036,
+    "N4": 7465.983454426277
+   },
+   "sum_R": 63743.225005527434,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 14,
+   "joints_over": 199,
+   "links_over": 27,
+   "max_member": 3.5469977650185496,
+   "max_joint": 6.998479474652448,
+   "max_link": 3.0192531423134725,
+   "sag_mm": -2.814679328645357,
+   "hog_mm": 4.636474372379932,
+   "design": false,
+   "slack_straps": []
+  },
+  "R6_short_S3": {
+   "label": "Rigid frame with elastic slings, sling S3 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 8999.024013139337,
+    "S2": 6348.862819992037,
+    "S3": 16025.225133553482,
+    "S4": 5910.575403906289,
+    "N1": 7535.42299673031,
+    "N2": 5753.3547952022145,
+    "N3": 5702.577373231972,
+    "N4": 7468.182471993297
+   },
+   "sum_R": 63743.22500774894,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 15,
+   "joints_over": 218,
+   "links_over": 26,
+   "max_member": 3.7574362013396936,
+   "max_joint": 7.330476766606303,
+   "max_link": 3.5595082733856445,
+   "sag_mm": -3.3487517946137837,
+   "hog_mm": 4.721338996207567,
+   "design": false,
+   "slack_straps": []
+  },
+  "R6_short_S4": {
+   "label": "Rigid frame with elastic slings, sling S4 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 10914.472826372874,
+    "S2": 9102.883717337514,
+    "S3": 5450.926634469425,
+    "S4": 11815.4041594857,
+    "N1": 7553.867679105637,
+    "N2": 5741.897608639411,
+    "N3": 5716.54439453032,
+    "N4": 7447.227987086869
+   },
+   "sum_R": 63743.22500702775,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 9,
+   "joints_over": 179,
+   "links_over": 13,
+   "max_member": 2.2403784806087077,
+   "max_joint": 5.54004993626763,
+   "max_link": 3.2819483139427597,
+   "sag_mm": -3.927550576955493,
+   "hog_mm": 7.577073418764922,
+   "design": false,
+   "slack_straps": []
+  },
+  "R6_short_N1": {
+   "label": "Rigid frame with elastic slings, sling N1 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9451.35160348939,
+    "S2": 9458.127035894255,
+    "S3": 8948.057650072324,
+    "S4": 9426.15110213358,
+    "N1": 8492.794920731696,
+    "N2": 4093.9622389253454,
+    "N3": 6095.130518577827,
+    "N4": 7777.649932034976
+   },
+   "sum_R": 63743.22500185939,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 164,
+   "links_over": 10,
+   "max_member": 1.706724173801117,
+   "max_joint": 4.172610796216281,
+   "max_link": 1.7586278791378216,
+   "sag_mm": -3.1629521224236177,
+   "hog_mm": 9.802469683051598,
+   "design": false,
+   "slack_straps": []
+  },
+  "R6_short_N2": {
+   "label": "Rigid frame with elastic slings, sling N2 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9484.10640105156,
+    "S2": 9453.704127385397,
+    "S3": 8948.842631225574,
+    "S4": 9397.03421348242,
+    "N1": 5876.815420461199,
+    "N2": 9800.088189416037,
+    "N3": 2925.061695329366,
+    "N4": 7857.57231901472
+   },
+   "sum_R": 63743.22499736628,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 7,
+   "joints_over": 178,
+   "links_over": 15,
+   "max_member": 2.1344472961077505,
+   "max_joint": 4.160595108699499,
+   "max_link": 2.179272534892426,
+   "sag_mm": -3.38976867984029,
+   "hog_mm": 7.833907467627373,
+   "design": false,
+   "slack_straps": []
+  },
+  "R6_short_N3": {
+   "label": "Rigid frame with elastic slings, sling N3 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9460.183536091643,
+    "S2": 9457.057678420613,
+    "S3": 8946.415182547364,
+    "S4": 9420.030973668538,
+    "N1": 7926.33367369977,
+    "N2": 2973.41166814221,
+    "N3": 9752.03343986399,
+    "N4": 5807.758847932345
+   },
+   "sum_R": 63743.225000366474,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 7,
+   "joints_over": 174,
+   "links_over": 14,
+   "max_member": 2.1909188479074686,
+   "max_joint": 4.169047963108056,
+   "max_link": 1.8713336787355026,
+   "sag_mm": -3.455530046316024,
+   "hog_mm": 7.857934842590909,
+   "design": false,
+   "slack_straps": []
+  },
+  "R6_short_N4": {
+   "label": "Rigid frame with elastic slings, sling N4 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9490.771725358663,
+    "S2": 9455.13542506686,
+    "S3": 8949.542988462063,
+    "S4": 9388.237273503773,
+    "N1": 7846.375795146757,
+    "N2": 6143.444999752227,
+    "N3": 4045.281556397234,
+    "N4": 8424.435237854743
+   },
+   "sum_R": 63743.22500154232,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 168,
+   "links_over": 10,
+   "max_member": 1.7074210030321073,
+   "max_joint": 4.157150935257921,
+   "max_link": 1.7630869630581845,
+   "sag_mm": -3.6009556625546684,
+   "hog_mm": 9.752735941030503,
+   "design": false,
+   "slack_straps": []
+  },
+  "L1_squeeze_y": {
+   "label": "Equalising rig, slings lean inwards across the module (5 % of the sling force sideways at every head)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9389.293547731206,
+    "S2": 9341.223206925995,
+    "S3": 9300.62047844782,
+    "S4": 9252.55013764261,
+    "N1": 6683.2561123574005,
+    "N2": 6635.185771552191,
+    "N3": 6594.583043074015,
+    "N4": 6546.512702268806
+   },
+   "sum_R": 63743.22500000004,
+   "unbalance": 4.5645829231943935e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 140,
+   "links_over": 15,
+   "max_member": 1.877561059400576,
+   "max_joint": 4.234174183539369,
+   "max_link": 2.3836964978914286,
+   "sag_mm": -20.812861227281374,
+   "hog_mm": 4.3895511584669125,
+   "design": true,
+   "slack_straps": []
+  },
+  "L2_spread_y": {
+   "label": "Equalising rig, slings lean outwards across the module (5 % of the sling force sideways at every head)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9389.293547731206,
+    "S2": 9341.223206925995,
+    "S3": 9300.62047844782,
+    "S4": 9252.55013764261,
+    "N1": 6683.2561123574005,
+    "N2": 6635.185771552191,
+    "N3": 6594.583043074015,
+    "N4": 6546.512702268806
+   },
+   "sum_R": 63743.22500000004,
+   "unbalance": 4.652336428989656e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 140,
+   "links_over": 15,
+   "max_member": 1.877193786756351,
+   "max_joint": 4.235492551246452,
+   "max_link": 2.3859330700645898,
+   "sag_mm": -20.81725805342919,
+   "hog_mm": 4.39143913164672,
+   "design": true,
+   "slack_straps": []
+  },
+  "L3_squeeze_x": {
+   "label": "Equalising rig, slings lean inwards along the module (5 % of the sling force sideways at every head)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9389.293547731206,
+    "S2": 9341.223206925995,
+    "S3": 9300.62047844782,
+    "S4": 9252.55013764261,
+    "N1": 6683.2561123574005,
+    "N2": 6635.185771552191,
+    "N3": 6594.583043074015,
+    "N4": 6546.512702268806
+   },
+   "sum_R": 63743.22500000004,
+   "unbalance": 4.430261469678953e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 144,
+   "links_over": 16,
+   "max_member": 1.799107869082104,
+   "max_joint": 4.215441639278812,
+   "max_link": 2.4407545216009305,
+   "sag_mm": -20.901070895882953,
+   "hog_mm": 4.3098710692334485,
+   "design": true,
+   "slack_straps": []
+  },
+  "L4_spread_x": {
+   "label": "Equalising rig, slings lean outwards along the module (5 % of the sling force sideways at every head)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9389.293547731206,
+    "S2": 9341.223206925995,
+    "S3": 9300.62047844782,
+    "S4": 9252.55013764261,
+    "N1": 6683.2561123574005,
+    "N2": 6635.185771552191,
+    "N3": 6594.583043074015,
+    "N4": 6546.512702268806
+   },
+   "sum_R": 63743.22500000004,
+   "unbalance": 4.816695764020551e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 134,
+   "links_over": 15,
+   "max_member": 1.8046726938716617,
+   "max_joint": 4.254224651873826,
+   "max_link": 2.328885387360111,
+   "sag_mm": -20.72904838318088,
+   "hog_mm": 4.471119220260629,
+   "design": true,
+   "slack_straps": []
+  }
+ },
+ "envelope": {
+  "members_over": 22,
+  "joints_over": 312,
+  "links_over": 51,
+  "links_tie": 185,
+  "max_member": 2.2094685052306766,
+  "max_joint": 13.440280680909185,
+  "added": {},
+  "framed_steel_kg": 1267.4500618060995,
+  "added_kg": 0
+ }
+}

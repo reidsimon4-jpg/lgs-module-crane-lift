@@ -1,0 +1,261 @@
+{
+ "config": "Rev C (design): 8 bottom pick-ups with hanger straps both faces, V-straps (south and north ends permanent, north posts temporary), 4-screw rim/floor-truss/north-wall joints, 6 screws in the first two rim panels at each end, floor truss bridging at mid-span, 8 screws per truss end (4 top, 4 bottom), 6 screws at the end web joints of every floor truss, pinned-beam equalising cascade",
+ "factor": 2.4333750000000003,
+ "rows": [
+  {
+   "group": "Hanger strap HS (2 x 50 x 1.5 G450)",
+   "item": "strap tension per strap (gross yield / net section at M12 hole)",
+   "demand": 6.7,
+   "capacity": 16.85,
+   "unit": "kN",
+   "util": 0.4,
+   "rule": "0.90 Ag fy ; 0.65 An fu",
+   "note": ""
+  },
+  {
+   "group": "Hanger strap HS (2 x 50 x 1.5 G450)",
+   "item": "2 x M12 bolts each end, bearing on the 1.5 mm strap",
+   "demand": 6.7,
+   "capacity": 20.27,
+   "unit": "kN",
+   "util": 0.33,
+   "rule": "AISI J3.3.2 deformation-limited, phi 0.65",
+   "note": ""
+  },
+  {
+   "group": "Hanger strap HS (2 x 50 x 1.5 G450)",
+   "item": "end tear-out, 2 bolts, e = 30 mm, pitch 40 mm",
+   "demand": 6.7,
+   "capacity": 30.24,
+   "unit": "kN",
+   "util": 0.22,
+   "rule": "0.60 t e fu",
+   "note": ""
+  },
+  {
+   "group": "Hanger strap HS (2 x 50 x 1.5 G450)",
+   "item": "M12 8.8 bolt shear, single plane, threads included",
+   "demand": 3.35,
+   "capacity": 30.24,
+   "unit": "kN",
+   "util": 0.11,
+   "rule": "0.8 x 0.62 x 800 x Ac",
+   "note": ""
+  },
+  {
+   "group": "Inclined strap VS (2 x 50 x 1.2 G450)",
+   "item": "strap tension per strap",
+   "demand": 4.58,
+   "capacity": 13.48,
+   "unit": "kN",
+   "util": 0.34,
+   "rule": "0.90 Ag fy ; 0.65 An fu",
+   "note": ""
+  },
+  {
+   "group": "Inclined strap VS (2 x 50 x 1.2 G450)",
+   "item": "2 x M12 bolts each end, bearing on the 1.2 mm strap",
+   "demand": 4.58,
+   "capacity": 15.72,
+   "unit": "kN",
+   "util": 0.29,
+   "rule": "AISI J3.3.2, phi 0.65",
+   "note": ""
+  },
+  {
+   "group": "Inclined strap VS (2 x 50 x 1.2 G450)",
+   "item": "end tear-out, 2 bolts, e = 30 / 40 mm",
+   "demand": 4.58,
+   "capacity": 24.19,
+   "unit": "kN",
+   "util": 0.19,
+   "rule": "0.60 t e fu",
+   "note": ""
+  },
+  {
+   "group": "Cradle FC (2.5 mm G450 folded U, 600 long)",
+   "item": "screws within 150 mm of the strap bolts (24 screws: 3 stations x 2 chords x 2 faces x 2)",
+   "demand": 6.64,
+   "capacity": 38.23,
+   "unit": "kN",
+   "util": 0.17,
+   "rule": "AS/NZS 4600 5.4.2.4 in the 0.95 mm chord at 412.5 MPa, group 0.90",
+   "note": "upward force on the cradle base goes in bearing"
+  },
+  {
+   "group": "Cradle FC (2.5 mm G450 folded U, 600 long)",
+   "item": "all screws of the plate pair (56 screws at 100 mm, 2 per face per chord)",
+   "demand": 33.22,
+   "capacity": 89.21,
+   "unit": "kN",
+   "util": 0.37,
+   "rule": "as above",
+   "note": ""
+  },
+  {
+   "group": "Foot plate FP (2.0 mm G450 pair, 600 long)",
+   "item": "screws within 150 mm of the strap bolts (24 screws: 3 stations x 2 chords x 2 faces x 2)",
+   "demand": 19.47,
+   "capacity": 38.23,
+   "unit": "kN",
+   "util": 0.51,
+   "rule": "AS/NZS 4600 5.4.2.4 in the 0.95 mm chord at 412.5 MPa, group 0.90",
+   "note": "no bearing assumed: everything through screws"
+  },
+  {
+   "group": "Foot plate FP (2.0 mm G450 pair, 600 long)",
+   "item": "all screws of the plate pair (56 screws at 100 mm, 2 per face per chord)",
+   "demand": 42.22,
+   "capacity": 89.21,
+   "unit": "kN",
+   "util": 0.47,
+   "rule": "as above",
+   "note": ""
+  },
+  {
+   "group": "Cradle FC (2.5 mm G450 folded U)",
+   "item": "base fold bending under the rim bottom chord (89 mm span between cheeks, per mm of length)",
+   "demand": 248.53,
+   "capacity": 421.88,
+   "unit": "N.mm/mm",
+   "util": 0.59,
+   "rule": "elastic plate strip, phi 0.90 fy t^2/6",
+   "note": ""
+  },
+  {
+   "group": "Cradle FC (2.5 mm G450 folded U)",
+   "item": "2 x M12 bolts each strap, bearing on the 2.5 mm cheek",
+   "demand": 6.7,
+   "capacity": 37.21,
+   "unit": "kN",
+   "util": 0.18,
+   "rule": "AISI J3.3.2, phi 0.65",
+   "note": ""
+  },
+  {
+   "group": "Lifting head LH (3 mm G450 box, M20 pin)",
+   "item": "M20 8.8 lifting pin, double shear",
+   "demand": 24.78,
+   "capacity": 178.56,
+   "unit": "kN",
+   "util": 0.14,
+   "rule": "0.8 x 0.62 x 800 x Ac, 2 planes",
+   "note": ""
+  },
+  {
+   "group": "Lifting head LH (3 mm G450 box, M20 pin)",
+   "item": "pin bearing on 2 cheeks of 3 mm + 2 straps of 1.5 mm",
+   "demand": 24.78,
+   "capacity": 111.62,
+   "unit": "kN",
+   "util": 0.22,
+   "rule": "AISI J3.3.2, phi 0.65",
+   "note": ""
+  },
+  {
+   "group": "Lifting head LH (3 mm G450 box, M20 pin)",
+   "item": "tear-out above the pin, e = 45 mm, 2 cheeks of 3 mm",
+   "demand": 24.78,
+   "capacity": 77.76,
+   "unit": "kN",
+   "util": 0.32,
+   "rule": "0.60 t e fu",
+   "note": ""
+  },
+  {
+   "group": "Lifting head LH (3 mm G450 box, M20 pin)",
+   "item": "bolts to the roof rim (sideways / along the module): 2 x M12 at each chord, bearing in the 0.95 mm chord pair",
+   "demand": 3.2,
+   "capacity": 20.83,
+   "unit": "kN",
+   "util": 0.15,
+   "rule": "AISI J3.3.2 at 412.5 MPa",
+   "note": "vertical slots: no vertical load into the roof rim"
+  },
+  {
+   "group": "Lifting head LH (3 mm G450 box, M20 pin)",
+   "item": "sideways load on the head (10.5 % of the sling force) carried by the box, cantilever 170 mm",
+   "demand": 439.91,
+   "capacity": 3316.14,
+   "unit": "N.m",
+   "util": 0.13,
+   "rule": "box section of two 3 mm cheeks + flanges, phi 0.90 fy Z",
+   "note": ""
+  },
+  {
+   "group": "Tie T1 (40 x 1.0 G300 flat plate over the chord joint, 2 + 2 screws)",
+   "item": "truss chord to rim chord tension",
+   "demand": 1.55,
+   "capacity": 3.54,
+   "unit": "kN",
+   "util": 0.44,
+   "rule": "screws in shear; strap net section",
+   "note": ""
+  },
+  {
+   "group": "Tie T2 (30 x 0.8 G300 strap, 2 + 2 screws)",
+   "item": "wall plate to rim tension",
+   "demand": 2.3,
+   "capacity": 3.54,
+   "unit": "kN",
+   "util": 0.65,
+   "rule": "screws in shear; strap net section",
+   "note": ""
+  },
+  {
+   "group": "Tie T3 (30 x 0.8 G300 strap across a wall seam, 2 + 2 screws)",
+   "item": "seam stud pull-apart",
+   "demand": 0.39,
+   "capacity": 3.54,
+   "unit": "kN",
+   "util": 0.11,
+   "rule": "screws in shear; strap net section",
+   "note": ""
+  },
+  {
+   "group": "Plane bracing PB (30 x 1.0 G300 strap, tensioner)",
+   "item": "strap tension (tension diagonal carries both halves)",
+   "demand": 2.0,
+   "capacity": 5.53,
+   "unit": "kN",
+   "util": 0.36,
+   "rule": "0.90 Ag fy ; 0.65 An fu",
+   "note": ""
+  },
+  {
+   "group": "Plane bracing PB (30 x 1.0 G300 strap, tensioner)",
+   "item": "end fixing: 3 screws into the rim chord",
+   "demand": 2.0,
+   "capacity": 4.78,
+   "unit": "kN",
+   "util": 0.42,
+   "rule": "screws in shear, group 0.90",
+   "note": ""
+  },
+  {
+   "group": "Bridging BR (C89 0.95 noggings at floor truss mid-span)",
+   "item": "restraint force at one truss (2.5 % of its top chord compression), 2 screws",
+   "demand": 0.33,
+   "capacity": 3.54,
+   "unit": "kN",
+   "util": 0.09,
+   "rule": "screws in shear",
+   "note": ""
+  },
+  {
+   "group": "Bridging BR (C89 0.95 noggings at floor truss mid-span)",
+   "item": "accumulated restraint of all 21 trusses at one end anchor (anchors at both ends), 6 screws",
+   "demand": 6.93,
+   "capacity": 9.56,
+   "unit": "kN",
+   "util": 0.72,
+   "rule": "screws in shear, group 0.90",
+   "note": "conservative: all trusses in phase, taken by one anchor"
+  }
+ ],
+ "rigging": {
+  "max_static_drop_kN": 10.95,
+  "max_static_drop_t": 1.12,
+  "note": "largest drop force in the design cases (10 % skew included) x weight 1.03 x CoG 1.05; drop gear WLL to be at least this, recommended 2 t round slings with 3.25 t bow shackles over the sleeved M20 head pin"
+ }
+}

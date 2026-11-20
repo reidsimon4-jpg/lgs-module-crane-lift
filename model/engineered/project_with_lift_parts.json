@@ -1,0 +1,7415 @@
+{
+ "name": "Lift-engineered classroom module (3.3 x 12.0 m)",
+ "prefix": "LIFT-MOD",
+ "settings": {
+  "corner_through": "x",
+  "bracing": true,
+  "wall_shaping": false,
+  "backings_enabled": true,
+  "backings": {
+   "stud_packs": [
+    {
+     "wall_id": "EW3A",
+     "x": 879.5,
+     "kind": "b2b"
+    },
+    {
+     "wall_id": "EW3B",
+     "x": 129.5,
+     "kind": "b2b"
+    },
+    {
+     "wall_id": "EW3C",
+     "x": 129.5,
+     "kind": "b2b"
+    },
+    {
+     "wall_id": "EW3D",
+     "x": 879.5,
+     "kind": "b2b"
+    }
+   ]
+  }
+ },
+ "walls": [
+  {
+   "id": "EW1",
+   "start": [
+    0.0,
+    44.5
+   ],
+   "end": [
+    12000.0,
+    44.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "splits": [
+    900.0,
+    4500.0,
+    7500.0,
+    11100.0
+   ],
+   "openings": [
+    {
+     "id": "WN1",
+     "kind": "window",
+     "offset": 1800.0,
+     "width": 1800.0,
+     "height": 1200.0,
+     "sill": 900.0
+    },
+    {
+     "id": "DR1",
+     "kind": "door",
+     "offset": 5490.0,
+     "width": 1020.0,
+     "height": 2100.0,
+     "sill": 0.0
+    },
+    {
+     "id": "WN2",
+     "kind": "window",
+     "offset": 8400.0,
+     "width": 1800.0,
+     "height": 1200.0,
+     "sill": 900.0
+    }
+   ]
+  },
+  {
+   "id": "EW2",
+   "start": [
+    11955.5,
+    89.0
+   ],
+   "end": [
+    11955.5,
+    3211.0
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": []
+  },
+  {
+   "id": "EW3A",
+   "start": [
+    12000.0,
+    3255.5
+   ],
+   "end": [
+    10950.0,
+    3255.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": []
+  },
+  {
+   "id": "EW3B",
+   "start": [
+    7650.0,
+    3255.5
+   ],
+   "end": [
+    7350.0,
+    3255.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": []
+  },
+  {
+   "id": "EW3C",
+   "start": [
+    4650.0,
+    3255.5
+   ],
+   "end": [
+    4350.0,
+    3255.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": []
+  },
+  {
+   "id": "EW3D",
+   "start": [
+    0.0,
+    3255.5
+   ],
+   "end": [
+    1050.0,
+    3255.5
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": []
+  },
+  {
+   "id": "EW4",
+   "start": [
+    44.5,
+    3211.0
+   ],
+   "end": [
+    44.5,
+    89.0
+   ],
+   "height": 2700.0,
+   "base_z": 0.0,
+   "openings": []
+  }
+ ],
+ "roofs": [],
+ "floors": [],
+ "rooms": [],
+ "slabs": [],
+ "levels": [],
+ "elements": [
+  {
+   "id": "RIMF_S",
+   "kind": "floor_truss",
+   "p1": [
+    0.0,
+    44.5
+   ],
+   "p2": [
+    12000.0,
+    44.5
+   ],
+   "depth": 300.0,
+   "z": 0.0
+  },
+  {
+   "id": "RIMF_N",
+   "kind": "floor_truss",
+   "p1": [
+    0.0,
+    3255.5
+   ],
+   "p2": [
+    12000.0,
+    3255.5
+   ],
+   "depth": 300.0,
+   "z": 0.0
+  },
+  {
+   "id": "FTE1",
+   "kind": "floor_truss",
+   "p1": [
+    44.5,
+    89.0
+   ],
+   "p2": [
+    44.5,
+    3211.0
+   ],
+   "depth": 300.0,
+   "z": 0.0
+  },
+  {
+   "id": "FT",
+   "kind": "floor_truss",
+   "p1": [
+    600.0,
+    89.0
+   ],
+   "p2": [
+    600.0,
+    3211.0
+   ],
+   "depth": 300.0,
+   "z": 0.0,
+   "array": {
+    "count": 19,
+    "spacing": 600.0,
+    "dir": "x"
+   }
+  },
+  {
+   "id": "FTE2",
+   "kind": "floor_truss",
+   "p1": [
+    11955.5,
+    89.0
+   ],
+   "p2": [
+    11955.5,
+    3211.0
+   ],
+   "depth": 300.0,
+   "z": 0.0
+  },
+  {
+   "id": "RIMR_S",
+   "kind": "floor_truss",
+   "p1": [
+    0.0,
+    44.5
+   ],
+   "p2": [
+    12000.0,
+    44.5
+   ],
+   "depth": 300.0,
+   "z": 3000.0
+  },
+  {
+   "id": "RIMR_N",
+   "kind": "floor_truss",
+   "p1": [
+    0.0,
+    3255.5
+   ],
+   "p2": [
+    12000.0,
+    3255.5
+   ],
+   "depth": 300.0,
+   "z": 3000.0
+  },
+  {
+   "id": "RTE1",
+   "kind": "floor_truss",
+   "p1": [
+    44.5,
+    89.0
+   ],
+   "p2": [
+    44.5,
+    3211.0
+   ],
+   "depth": 300.0,
+   "z": 3000.0
+  },
+  {
+   "id": "RT",
+   "kind": "floor_truss",
+   "p1": [
+    600.0,
+    89.0
+   ],
+   "p2": [
+    600.0,
+    3211.0
+   ],
+   "depth": 300.0,
+   "z": 3000.0,
+   "array": {
+    "count": 19,
+    "spacing": 600.0,
+    "dir": "x"
+   }
+  },
+  {
+   "id": "RTE2",
+   "kind": "floor_truss",
+   "p1": [
+    11955.5,
+    89.0
+   ],
+   "p2": [
+    11955.5,
+    3211.0
+   ],
+   "depth": 300.0,
+   "z": 3000.0
+  }
+ ],
+ "component_defs": [
+  {
+   "id": "LIFT_HEAD",
+   "name": "LH lifting head saddle - folded 3 mm G450 box over the roof edge truss, M20 8.8 pin + 40 mm sleeve, no fasteners, stop block along the module",
+   "category": "pod",
+   "parameters": [
+    {
+     "name": "Material",
+     "kind": "material",
+     "value": "steel G450 (G300 for ties and plane bracing) - grade by engineer",
+     "instance": false
+    },
+    {
+     "name": "Mass kg",
+     "kind": "number",
+     "value": 0,
+     "instance": false,
+     "formula": "(2*120*450*3 + 120*101*3) * 7.85e-6 + 0.35"
+    }
+   ],
+   "forms": [
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       -60,
+       0
+      ],
+      [
+       60,
+       0
+      ],
+      [
+       60,
+       450
+      ],
+      [
+       -60,
+       450
+      ]
+     ],
+     "from": -50.5,
+     "depth": 3,
+     "material": "Material"
+    },
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       -60,
+       0
+      ],
+      [
+       60,
+       0
+      ],
+      [
+       60,
+       450
+      ],
+      [
+       -60,
+       450
+      ]
+     ],
+     "from": 47.5,
+     "depth": 3,
+     "material": "Material"
+    },
+    {
+     "kind": "extrude",
+     "plane": "xy",
+     "profile": [
+      [
+       -60,
+       -50.5
+      ],
+      [
+       60,
+       -50.5
+      ],
+      [
+       60,
+       50.5
+      ],
+      [
+       -60,
+       50.5
+      ]
+     ],
+     "from": 447,
+     "depth": 3,
+     "material": "Material"
+    },
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       -10,
+       380
+      ],
+      [
+       10,
+       380
+      ],
+      [
+       10,
+       400
+      ],
+      [
+       -10,
+       400
+      ]
+     ],
+     "from": -60,
+     "depth": 120,
+     "material": "Material"
+    }
+   ],
+   "boq": {
+    "code": "LIFT-LH",
+    "unit": "kg",
+    "qty_formula": "Mass kg"
+   }
+  },
+  {
+   "id": "LIFT_HS",
+   "name": "HS hanger strap pair - 2 x 50 x 1.5 G450, one on each face, 2 x M12 8.8 each end",
+   "category": "pod",
+   "parameters": [
+    {
+     "name": "Length",
+     "kind": "length",
+     "value": 3430,
+     "instance": true
+    },
+    {
+     "name": "Material",
+     "kind": "material",
+     "value": "steel G450 (G300 for ties and plane bracing) - grade by engineer",
+     "instance": false
+    },
+    {
+     "name": "Mass kg",
+     "kind": "number",
+     "value": 0,
+     "instance": false,
+     "formula": "2 * Length * 50 * 1.5 * 7.85e-6"
+    }
+   ],
+   "forms": [
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       -25,
+       0
+      ],
+      [
+       25,
+       0
+      ],
+      [
+       25,
+       "Length"
+      ],
+      [
+       -25,
+       "Length"
+      ]
+     ],
+     "from": -46,
+     "depth": 1.5,
+     "material": "Material"
+    },
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       -25,
+       0
+      ],
+      [
+       25,
+       0
+      ],
+      [
+       25,
+       "Length"
+      ],
+      [
+       -25,
+       "Length"
+      ]
+     ],
+     "from": 44.5,
+     "depth": 1.5,
+     "material": "Material"
+    }
+   ],
+   "boq": {
+    "code": "LIFT-HS",
+    "unit": "kg",
+    "qty_formula": "Mass kg"
+   }
+  },
+  {
+   "id": "LIFT_VS",
+   "name": "VS A-frame strap pair (south) - 2 x 50 x 1.2 G450, one on each wall face, 2 x M12 8.8 each end",
+   "category": "pod",
+   "parameters": [
+    {
+     "name": "Run",
+     "kind": "length",
+     "value": 441,
+     "instance": true
+    },
+    {
+     "name": "Rise",
+     "kind": "length",
+     "value": 3450,
+     "instance": true
+    },
+    {
+     "name": "Material",
+     "kind": "material",
+     "value": "steel G450 (G300 for ties and plane bracing) - grade by engineer",
+     "instance": false
+    },
+    {
+     "name": "Length",
+     "kind": "length",
+     "value": 0,
+     "instance": false,
+     "formula": "sqrt(Run^2 + Rise^2)"
+    },
+    {
+     "name": "Mass kg",
+     "kind": "number",
+     "value": 0,
+     "instance": false,
+     "formula": "2 * Length * 50 * 1.2 * 7.85e-6"
+    }
+   ],
+   "forms": [
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       -25,
+       0
+      ],
+      [
+       25,
+       0
+      ],
+      [
+       "Run + 25",
+       "Rise"
+      ],
+      [
+       "Run - 25",
+       "Rise"
+      ]
+     ],
+     "from": -46,
+     "depth": 1.2,
+     "material": "Material"
+    },
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       -25,
+       0
+      ],
+      [
+       25,
+       0
+      ],
+      [
+       "Run + 25",
+       "Rise"
+      ],
+      [
+       "Run - 25",
+       "Rise"
+      ]
+     ],
+     "from": 44.5,
+     "depth": 1.2,
+     "material": "Material"
+    }
+   ],
+   "boq": {
+    "code": "LIFT-VS",
+    "unit": "kg",
+    "qty_formula": "Mass kg"
+   }
+  },
+  {
+   "id": "LIFT_CR",
+   "name": "CR cradle - two 3 mm G450 cheeks 120 x 160, 2 x M16 8.8 bearing bolts + sleeves under the truss joints, 3 x 40 x 89 packers; screwed at the first joint, bearing only at the second",
+   "category": "pod",
+   "parameters": [
+    {
+     "name": "S1",
+     "kind": "length",
+     "value": 40,
+     "instance": true
+    },
+    {
+     "name": "S2",
+     "kind": "length",
+     "value": 99,
+     "instance": true
+    },
+    {
+     "name": "Material",
+     "kind": "material",
+     "value": "steel G450 (G300 for ties and plane bracing) - grade by engineer",
+     "instance": false
+    },
+    {
+     "name": "Mass kg",
+     "kind": "number",
+     "value": 0,
+     "instance": false,
+     "formula": "2*120*160*3*7.85e-6 + 2*0.32 + 2*0.05 + 2*40*89*3*7.85e-6 + 4*0.06"
+    }
+   ],
+   "forms": [
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       0,
+       0
+      ],
+      [
+       120,
+       0
+      ],
+      [
+       120,
+       160
+      ],
+      [
+       0,
+       160
+      ]
+     ],
+     "from": -47.5,
+     "depth": 3,
+     "material": "Material"
+    },
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       0,
+       0
+      ],
+      [
+       120,
+       0
+      ],
+      [
+       120,
+       160
+      ],
+      [
+       0,
+       160
+      ]
+     ],
+     "from": 44.5,
+     "depth": 3,
+     "material": "Material"
+    },
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       "S1 - 8",
+       89.5
+      ],
+      [
+       "S1 + 8",
+       89.5
+      ],
+      [
+       "S1 + 8",
+       105.5
+      ],
+      [
+       "S1 - 8",
+       105.5
+      ]
+     ],
+     "from": -55,
+     "depth": 110,
+     "material": "Material"
+    },
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       "S2 - 8",
+       89.5
+      ],
+      [
+       "S2 + 8",
+       89.5
+      ],
+      [
+       "S2 + 8",
+       105.5
+      ],
+      [
+       "S2 - 8",
+       105.5
+      ]
+     ],
+     "from": -55,
+     "depth": 110,
+     "material": "Material"
+    },
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       "S1 - 20",
+       110
+      ],
+      [
+       "S1 + 20",
+       110
+      ],
+      [
+       "S1 + 20",
+       113
+      ],
+      [
+       "S1 - 20",
+       113
+      ]
+     ],
+     "from": -44.5,
+     "depth": 89,
+     "material": "Material"
+    },
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       "S2 - 20",
+       110
+      ],
+      [
+       "S2 + 20",
+       110
+      ],
+      [
+       "S2 + 20",
+       113
+      ],
+      [
+       "S2 - 20",
+       113
+      ]
+     ],
+     "from": -44.5,
+     "depth": 89,
+     "material": "Material"
+    }
+   ],
+   "boq": {
+    "code": "LIFT-CR",
+    "unit": "kg",
+    "qty_formula": "Mass kg"
+   }
+  },
+  {
+   "id": "LIFT_GU",
+   "name": "GU joint gusset pair - 1.5 mm G450 100 x 100 plate each face, 3 + 3 screws per face",
+   "category": "pod",
+   "parameters": [
+    {
+     "name": "Material",
+     "kind": "material",
+     "value": "steel G450 (G300 for ties and plane bracing) - grade by engineer",
+     "instance": false
+    },
+    {
+     "name": "Mass kg",
+     "kind": "number",
+     "value": 0,
+     "instance": false,
+     "formula": "2 * 100 * 100 * 1.5 * 7.85e-6"
+    }
+   ],
+   "forms": [
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       -50,
+       -50
+      ],
+      [
+       50,
+       -50
+      ],
+      [
+       50,
+       50
+      ],
+      [
+       -50,
+       50
+      ]
+     ],
+     "from": -46,
+     "depth": 1.5,
+     "material": "Material"
+    },
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       -50,
+       -50
+      ],
+      [
+       50,
+       -50
+      ],
+      [
+       50,
+       50
+      ],
+      [
+       -50,
+       50
+      ]
+     ],
+     "from": 44.5,
+     "depth": 1.5,
+     "material": "Material"
+    }
+   ],
+   "boq": {
+    "code": "LIFT-GU",
+    "unit": "kg",
+    "qty_formula": "Mass kg"
+   }
+  },
+  {
+   "id": "LIFT_CL",
+   "name": "CL truss-end cleat pair - folded 1.5 mm G450 50 x 50 angle each side of the truss end, 5 + 5 screws",
+   "category": "pod",
+   "parameters": [
+    {
+     "name": "Material",
+     "kind": "material",
+     "value": "steel G450 (G300 for ties and plane bracing) - grade by engineer",
+     "instance": false
+    },
+    {
+     "name": "Mass kg",
+     "kind": "number",
+     "value": 0,
+     "instance": false,
+     "formula": "2 * 100 * 200 * 1.5 * 7.85e-6"
+    }
+   ],
+   "forms": [
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       -96.5,
+       -100
+      ],
+      [
+       -46.5,
+       -100
+      ],
+      [
+       -46.5,
+       100
+      ],
+      [
+       -96.5,
+       100
+      ]
+     ],
+     "from": 0,
+     "depth": 1.5,
+     "material": "Material"
+    },
+    {
+     "kind": "extrude",
+     "plane": "xz",
+     "profile": [
+      [
+       46.5,
+       -100
+      ],
+      [
+       96.5,
+       -100
+      ],
+      [
+       96.5,
+       100
+      ],
+      [
+       46.5,
+       100
+      ]
+     ],
+     "from": 0,
+     "depth": 1.5,
+     "material": "Material"
+    }
+   ],
+   "boq": {
+    "code": "LIFT-CL",
+    "unit": "kg",
+    "qty_formula": "Mass kg"
+   }
+  },
+  {
+   "id": "LIFT_PB",
+   "name": "PB floor / roof plane bracing strap - 30 x 1.0 G300 with tensioner",
+   "category": "pod",
+   "parameters": [
+    {
+     "name": "Run",
+     "kind": "length",
+     "value": 3600,
+     "instance": true
+    },
+    {
+     "name": "Span",
+     "kind": "length",
+     "value": 3211,
+     "instance": true
+    },
+    {
+     "name": "Material",
+     "kind": "material",
+     "value": "steel G450 (G300 for ties and plane bracing) - grade by engineer",
+     "instance": false
+    },
+    {
+     "name": "Length",
+     "kind": "length",
+     "value": 0,
+     "instance": false,
+     "formula": "sqrt(Run^2 + Span^2)"
+    },
+    {
+     "name": "Mass kg",
+     "kind": "number",
+     "value": 0,
+     "instance": false,
+     "formula": "Length * 30 * 1.0 * 7.85e-6"
+    }
+   ],
+   "forms": [
+    {
+     "kind": "extrude",
+     "plane": "xy",
+     "profile": [
+      [
+       0,
+       -15
+      ],
+      [
+       0,
+       15
+      ],
+      [
+       "Run",
+       "Span + 15"
+      ],
+      [
+       "Run",
+       "Span - 15"
+      ]
+     ],
+     "from": 0,
+     "depth": 1.0,
+     "material": "Material"
+    }
+   ],
+   "boq": {
+    "code": "LIFT-PB",
+    "unit": "kg",
+    "qty_formula": "Mass kg"
+   }
+  },
+  {
+   "id": "LIFT_BR",
+   "name": "BR truss bridging - C89 0.95 nogging at mid-span, 2 screws each end",
+   "category": "pod",
+   "parameters": [
+    {
+     "name": "Length",
+     "kind": "length",
+     "value": 510,
+     "instance": true
+    },
+    {
+     "name": "Material",
+     "kind": "material",
+     "value": "steel G450 (G300 for ties and plane bracing) - grade by engineer",
+     "instance": false
+    },
+    {
+     "name": "Mass kg",
+     "kind": "number",
+     "value": 0,
+     "instance": false,
+     "formula": "Length * 1.33e-3"
+    }
+   ],
+   "forms": [
+    {
+     "kind": "extrude",
+     "plane": "yz",
+     "profile": [
+      [
+       -44.5,
+       -38
+      ],
+      [
+       44.5,
+       -38
+      ],
+      [
+       44.5,
+       0
+      ],
+      [
+       -44.5,
+       0
+      ]
+     ],
+     "from": "0 - Length / 2",
+     "depth": "Length",
+     "material": "Material"
+    }
+   ],
+   "boq": {
+    "code": "LIFT-BR",
+    "unit": "kg",
+    "qty_formula": "Mass kg"
+   }
+  },
+  {
+   "id": "LIFT_TIE",
+   "name": "T2-T3 tie plate - 30-40 x 0.8-1.0 G300 strap across a joint, 4 + 4 / 2 + 2 screws",
+   "category": "pod",
+   "parameters": [
+    {
+     "name": "Material",
+     "kind": "material",
+     "value": "steel G450 (G300 for ties and plane bracing) - grade by engineer",
+     "instance": false
+    },
+    {
+     "name": "Mass kg",
+     "kind": "number",
+     "value": 0,
+     "instance": false,
+     "formula": "40 * 150 * 1.0 * 7.85e-6"
+    }
+   ],
+   "forms": [
+    {
+     "kind": "extrude",
+     "plane": "xy",
+     "profile": [
+      [
+       -75,
+       -20
+      ],
+      [
+       75,
+       -20
+      ],
+      [
+       75,
+       20
+      ],
+      [
+       -75,
+       20
+      ]
+     ],
+     "from": 0,
+     "depth": 1.0,
+     "material": "Material"
+    }
+   ],
+   "boq": {
+    "code": "LIFT-TIE",
+    "unit": "kg",
+    "qty_formula": "Mass kg"
+   }
+  }
+ ],
+ "components": [
+  {
+   "id": "LP1",
+   "def": "LIFT_HEAD",
+   "position": [
+    928.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP2",
+   "def": "LIFT_HS",
+   "position": [
+    928.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -300.0,
+   "values": {
+    "Length": 3450.0
+   }
+  },
+  {
+   "id": "LP3",
+   "def": "LIFT_HEAD",
+   "position": [
+    4456.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP4",
+   "def": "LIFT_HS",
+   "position": [
+    4456.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -300.0,
+   "values": {
+    "Length": 3450.0
+   }
+  },
+  {
+   "id": "LP5",
+   "def": "LIFT_HEAD",
+   "position": [
+    7543.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP6",
+   "def": "LIFT_HS",
+   "position": [
+    7543.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -300.0,
+   "values": {
+    "Length": 3450.0
+   }
+  },
+  {
+   "id": "LP7",
+   "def": "LIFT_HEAD",
+   "position": [
+    11071.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP8",
+   "def": "LIFT_HS",
+   "position": [
+    11071.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -300.0,
+   "values": {
+    "Length": 3450.0
+   }
+  },
+  {
+   "id": "LP9",
+   "def": "LIFT_HEAD",
+   "position": [
+    928.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP10",
+   "def": "LIFT_HS",
+   "position": [
+    928.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -300.0,
+   "values": {
+    "Length": 3450.0
+   }
+  },
+  {
+   "id": "LP11",
+   "def": "LIFT_HEAD",
+   "position": [
+    4456.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP12",
+   "def": "LIFT_HS",
+   "position": [
+    4456.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -300.0,
+   "values": {
+    "Length": 3450.0
+   }
+  },
+  {
+   "id": "LP13",
+   "def": "LIFT_HEAD",
+   "position": [
+    7543.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP14",
+   "def": "LIFT_HS",
+   "position": [
+    7543.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -300.0,
+   "values": {
+    "Length": 3450.0
+   }
+  },
+  {
+   "id": "LP15",
+   "def": "LIFT_HEAD",
+   "position": [
+    11071.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP16",
+   "def": "LIFT_HS",
+   "position": [
+    11071.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -300.0,
+   "values": {
+    "Length": 3450.0
+   }
+  },
+  {
+   "id": "LP17",
+   "def": "LIFT_PB",
+   "position": [
+    0.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Run": 900.0,
+    "Span": 3211.0
+   }
+  },
+  {
+   "id": "LP18",
+   "def": "LIFT_PB",
+   "position": [
+    0.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Run": 900.0,
+    "Span": -3211.0
+   }
+  },
+  {
+   "id": "LP19",
+   "def": "LIFT_PB",
+   "position": [
+    900.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Run": 3600.0,
+    "Span": 3211.0
+   }
+  },
+  {
+   "id": "LP20",
+   "def": "LIFT_PB",
+   "position": [
+    900.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Run": 3600.0,
+    "Span": -3211.0
+   }
+  },
+  {
+   "id": "LP21",
+   "def": "LIFT_PB",
+   "position": [
+    4500.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Run": 3000.0,
+    "Span": 3211.0
+   }
+  },
+  {
+   "id": "LP22",
+   "def": "LIFT_PB",
+   "position": [
+    4500.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Run": 3000.0,
+    "Span": -3211.0
+   }
+  },
+  {
+   "id": "LP23",
+   "def": "LIFT_PB",
+   "position": [
+    7500.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Run": 3600.0,
+    "Span": 3211.0
+   }
+  },
+  {
+   "id": "LP24",
+   "def": "LIFT_PB",
+   "position": [
+    7500.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Run": 3600.0,
+    "Span": -3211.0
+   }
+  },
+  {
+   "id": "LP25",
+   "def": "LIFT_PB",
+   "position": [
+    11100.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Run": 900.0,
+    "Span": 3211.0
+   }
+  },
+  {
+   "id": "LP26",
+   "def": "LIFT_PB",
+   "position": [
+    11100.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Run": 900.0,
+    "Span": -3211.0
+   }
+  },
+  {
+   "id": "LP27",
+   "def": "LIFT_PB",
+   "position": [
+    0.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Run": 900.0,
+    "Span": 3211.0
+   }
+  },
+  {
+   "id": "LP28",
+   "def": "LIFT_PB",
+   "position": [
+    0.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Run": 900.0,
+    "Span": -3211.0
+   }
+  },
+  {
+   "id": "LP29",
+   "def": "LIFT_PB",
+   "position": [
+    900.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Run": 3600.0,
+    "Span": 3211.0
+   }
+  },
+  {
+   "id": "LP30",
+   "def": "LIFT_PB",
+   "position": [
+    900.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Run": 3600.0,
+    "Span": -3211.0
+   }
+  },
+  {
+   "id": "LP31",
+   "def": "LIFT_PB",
+   "position": [
+    4500.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Run": 3000.0,
+    "Span": 3211.0
+   }
+  },
+  {
+   "id": "LP32",
+   "def": "LIFT_PB",
+   "position": [
+    4500.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Run": 3000.0,
+    "Span": -3211.0
+   }
+  },
+  {
+   "id": "LP33",
+   "def": "LIFT_PB",
+   "position": [
+    7500.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Run": 3600.0,
+    "Span": 3211.0
+   }
+  },
+  {
+   "id": "LP34",
+   "def": "LIFT_PB",
+   "position": [
+    7500.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Run": 3600.0,
+    "Span": -3211.0
+   }
+  },
+  {
+   "id": "LP35",
+   "def": "LIFT_PB",
+   "position": [
+    11100.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Run": 900.0,
+    "Span": 3211.0
+   }
+  },
+  {
+   "id": "LP36",
+   "def": "LIFT_PB",
+   "position": [
+    11100.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Run": 900.0,
+    "Span": -3211.0
+   }
+  },
+  {
+   "id": "LP37",
+   "def": "LIFT_BR",
+   "position": [
+    322.2,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 466.5
+   }
+  },
+  {
+   "id": "LP38",
+   "def": "LIFT_BR",
+   "position": [
+    900.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP39",
+   "def": "LIFT_BR",
+   "position": [
+    1500.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP40",
+   "def": "LIFT_BR",
+   "position": [
+    2100.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP41",
+   "def": "LIFT_BR",
+   "position": [
+    2700.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP42",
+   "def": "LIFT_BR",
+   "position": [
+    3300.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP43",
+   "def": "LIFT_BR",
+   "position": [
+    3900.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP44",
+   "def": "LIFT_BR",
+   "position": [
+    4500.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP45",
+   "def": "LIFT_BR",
+   "position": [
+    5100.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP46",
+   "def": "LIFT_BR",
+   "position": [
+    5700.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP47",
+   "def": "LIFT_BR",
+   "position": [
+    6300.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP48",
+   "def": "LIFT_BR",
+   "position": [
+    6900.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP49",
+   "def": "LIFT_BR",
+   "position": [
+    7500.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP50",
+   "def": "LIFT_BR",
+   "position": [
+    8100.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP51",
+   "def": "LIFT_BR",
+   "position": [
+    8700.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP52",
+   "def": "LIFT_BR",
+   "position": [
+    9300.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP53",
+   "def": "LIFT_BR",
+   "position": [
+    9900.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP54",
+   "def": "LIFT_BR",
+   "position": [
+    10500.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP55",
+   "def": "LIFT_BR",
+   "position": [
+    11100.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP56",
+   "def": "LIFT_BR",
+   "position": [
+    11677.8,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": -20.5,
+   "values": {
+    "Length": 466.5
+   }
+  },
+  {
+   "id": "LP57",
+   "def": "LIFT_BR",
+   "position": [
+    322.2,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 466.5
+   }
+  },
+  {
+   "id": "LP58",
+   "def": "LIFT_BR",
+   "position": [
+    900.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP59",
+   "def": "LIFT_BR",
+   "position": [
+    1500.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP60",
+   "def": "LIFT_BR",
+   "position": [
+    2100.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP61",
+   "def": "LIFT_BR",
+   "position": [
+    2700.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP62",
+   "def": "LIFT_BR",
+   "position": [
+    3300.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP63",
+   "def": "LIFT_BR",
+   "position": [
+    3900.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP64",
+   "def": "LIFT_BR",
+   "position": [
+    4500.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP65",
+   "def": "LIFT_BR",
+   "position": [
+    5100.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP66",
+   "def": "LIFT_BR",
+   "position": [
+    5700.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP67",
+   "def": "LIFT_BR",
+   "position": [
+    6300.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP68",
+   "def": "LIFT_BR",
+   "position": [
+    6900.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP69",
+   "def": "LIFT_BR",
+   "position": [
+    7500.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP70",
+   "def": "LIFT_BR",
+   "position": [
+    8100.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP71",
+   "def": "LIFT_BR",
+   "position": [
+    8700.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP72",
+   "def": "LIFT_BR",
+   "position": [
+    9300.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP73",
+   "def": "LIFT_BR",
+   "position": [
+    9900.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP74",
+   "def": "LIFT_BR",
+   "position": [
+    10500.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP75",
+   "def": "LIFT_BR",
+   "position": [
+    11100.0,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 511.0
+   }
+  },
+  {
+   "id": "LP76",
+   "def": "LIFT_BR",
+   "position": [
+    11677.8,
+    1650.0
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5,
+   "values": {
+    "Length": 466.5
+   }
+  },
+  {
+   "id": "LP77",
+   "def": "LIFT_CR",
+   "position": [
+    868.3,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -410.0,
+   "values": {
+    "S1": 30.9,
+    "S2": 89.5
+   }
+  },
+  {
+   "id": "LP78",
+   "def": "LIFT_CR",
+   "position": [
+    4396.3,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -410.0,
+   "values": {
+    "S1": 30.9,
+    "S2": 89.5
+   }
+  },
+  {
+   "id": "LP79",
+   "def": "LIFT_CR",
+   "position": [
+    7483.3,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -410.0,
+   "values": {
+    "S1": 30.9,
+    "S2": 89.5
+   }
+  },
+  {
+   "id": "LP80",
+   "def": "LIFT_CR",
+   "position": [
+    11011.3,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -410.0,
+   "values": {
+    "S1": 30.9,
+    "S2": 89.5
+   }
+  },
+  {
+   "id": "LP81",
+   "def": "LIFT_CR",
+   "position": [
+    868.3,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -410.0,
+   "values": {
+    "S1": 30.9,
+    "S2": 89.5
+   }
+  },
+  {
+   "id": "LP82",
+   "def": "LIFT_CR",
+   "position": [
+    4396.3,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -410.0,
+   "values": {
+    "S1": 30.9,
+    "S2": 89.5
+   }
+  },
+  {
+   "id": "LP83",
+   "def": "LIFT_CR",
+   "position": [
+    7483.3,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -410.0,
+   "values": {
+    "S1": 30.9,
+    "S2": 89.5
+   }
+  },
+  {
+   "id": "LP84",
+   "def": "LIFT_CR",
+   "position": [
+    11011.3,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -410.0,
+   "values": {
+    "S1": 30.9,
+    "S2": 89.5
+   }
+  },
+  {
+   "id": "LP85",
+   "def": "LIFT_GU",
+   "position": [
+    3620.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 1348.5
+  },
+  {
+   "id": "LP86",
+   "def": "LIFT_GU",
+   "position": [
+    4201.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 654.9
+  },
+  {
+   "id": "LP87",
+   "def": "LIFT_GU",
+   "position": [
+    11979.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 1290.9
+  },
+  {
+   "id": "LP88",
+   "def": "LIFT_GU",
+   "position": [
+    11979.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 1409.1
+  },
+  {
+   "id": "LP89",
+   "def": "LIFT_GU",
+   "position": [
+    11922.2,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP90",
+   "def": "LIFT_GU",
+   "position": [
+    11398.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 655.1
+  },
+  {
+   "id": "LP91",
+   "def": "LIFT_GU",
+   "position": [
+    11922.2,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP92",
+   "def": "LIFT_GU",
+   "position": [
+    11398.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2044.9
+  },
+  {
+   "id": "LP93",
+   "def": "LIFT_GU",
+   "position": [
+    11398.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP94",
+   "def": "LIFT_GU",
+   "position": [
+    20.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 1290.9
+  },
+  {
+   "id": "LP95",
+   "def": "LIFT_GU",
+   "position": [
+    20.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 1409.1
+  },
+  {
+   "id": "LP96",
+   "def": "LIFT_GU",
+   "position": [
+    77.8,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP97",
+   "def": "LIFT_GU",
+   "position": [
+    601.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 655.1
+  },
+  {
+   "id": "LP98",
+   "def": "LIFT_GU",
+   "position": [
+    77.8,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP99",
+   "def": "LIFT_GU",
+   "position": [
+    601.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2044.9
+  },
+  {
+   "id": "LP100",
+   "def": "LIFT_GU",
+   "position": [
+    601.5,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP101",
+   "def": "LIFT_GU",
+   "position": [
+    1122.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP102",
+   "def": "LIFT_GU",
+   "position": [
+    957.3,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP103",
+   "def": "LIFT_GU",
+   "position": [
+    4650.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP104",
+   "def": "LIFT_GU",
+   "position": [
+    4485.3,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP105",
+   "def": "LIFT_GU",
+   "position": [
+    7737.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP106",
+   "def": "LIFT_GU",
+   "position": [
+    7572.3,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP107",
+   "def": "LIFT_GU",
+   "position": [
+    11265.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP108",
+   "def": "LIFT_GU",
+   "position": [
+    11100.3,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP109",
+   "def": "LIFT_GU",
+   "position": [
+    733.7,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP110",
+   "def": "LIFT_GU",
+   "position": [
+    899.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP111",
+   "def": "LIFT_GU",
+   "position": [
+    1174.7,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP112",
+   "def": "LIFT_GU",
+   "position": [
+    4261.7,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP113",
+   "def": "LIFT_GU",
+   "position": [
+    4427.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP114",
+   "def": "LIFT_GU",
+   "position": [
+    6907.7,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP115",
+   "def": "LIFT_GU",
+   "position": [
+    7348.7,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP116",
+   "def": "LIFT_GU",
+   "position": [
+    7514.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP117",
+   "def": "LIFT_GU",
+   "position": [
+    7789.7,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP118",
+   "def": "LIFT_GU",
+   "position": [
+    7955.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP119",
+   "def": "LIFT_GU",
+   "position": [
+    10876.7,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP120",
+   "def": "LIFT_GU",
+   "position": [
+    11042.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP121",
+   "def": "LIFT_GU",
+   "position": [
+    11317.7,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP122",
+   "def": "LIFT_GU",
+   "position": [
+    4702.7,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP123",
+   "def": "LIFT_GU",
+   "position": [
+    4868.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP124",
+   "def": "LIFT_GU",
+   "position": [
+    7131.3,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP125",
+   "def": "LIFT_GU",
+   "position": [
+    7296.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP126",
+   "def": "LIFT_GU",
+   "position": [
+    957.3,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP127",
+   "def": "LIFT_GU",
+   "position": [
+    4650.8,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP128",
+   "def": "LIFT_GU",
+   "position": [
+    4485.3,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP129",
+   "def": "LIFT_GU",
+   "position": [
+    7737.8,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP130",
+   "def": "LIFT_GU",
+   "position": [
+    7572.3,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP131",
+   "def": "LIFT_GU",
+   "position": [
+    11265.8,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP132",
+   "def": "LIFT_GU",
+   "position": [
+    11100.3,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP133",
+   "def": "LIFT_GU",
+   "position": [
+    733.7,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP134",
+   "def": "LIFT_GU",
+   "position": [
+    899.2,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP135",
+   "def": "LIFT_GU",
+   "position": [
+    4261.7,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP136",
+   "def": "LIFT_GU",
+   "position": [
+    4427.2,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP137",
+   "def": "LIFT_GU",
+   "position": [
+    7348.7,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP138",
+   "def": "LIFT_GU",
+   "position": [
+    7514.2,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP139",
+   "def": "LIFT_GU",
+   "position": [
+    10876.7,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP140",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP141",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP142",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP143",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP144",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP145",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP146",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP147",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP148",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP149",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP150",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    758.3
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP151",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    597.0
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP152",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    2541.2
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP153",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    2702.5
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP154",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    3190.5
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP155",
+   "def": "LIFT_GU",
+   "position": [
+    600.0,
+    3190.5
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP156",
+   "def": "LIFT_GU",
+   "position": [
+    1200.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP157",
+   "def": "LIFT_GU",
+   "position": [
+    1200.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP158",
+   "def": "LIFT_GU",
+   "position": [
+    1200.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP159",
+   "def": "LIFT_GU",
+   "position": [
+    1200.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP160",
+   "def": "LIFT_GU",
+   "position": [
+    1200.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP161",
+   "def": "LIFT_GU",
+   "position": [
+    1200.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP162",
+   "def": "LIFT_GU",
+   "position": [
+    1200.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP163",
+   "def": "LIFT_GU",
+   "position": [
+    1200.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP164",
+   "def": "LIFT_GU",
+   "position": [
+    1800.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP165",
+   "def": "LIFT_GU",
+   "position": [
+    1800.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP166",
+   "def": "LIFT_GU",
+   "position": [
+    1800.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP167",
+   "def": "LIFT_GU",
+   "position": [
+    1800.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP168",
+   "def": "LIFT_GU",
+   "position": [
+    1800.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP169",
+   "def": "LIFT_GU",
+   "position": [
+    1800.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP170",
+   "def": "LIFT_GU",
+   "position": [
+    1800.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP171",
+   "def": "LIFT_GU",
+   "position": [
+    1800.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP172",
+   "def": "LIFT_GU",
+   "position": [
+    1800.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP173",
+   "def": "LIFT_GU",
+   "position": [
+    2400.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP174",
+   "def": "LIFT_GU",
+   "position": [
+    2400.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP175",
+   "def": "LIFT_GU",
+   "position": [
+    2400.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP176",
+   "def": "LIFT_GU",
+   "position": [
+    2400.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP177",
+   "def": "LIFT_GU",
+   "position": [
+    2400.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP178",
+   "def": "LIFT_GU",
+   "position": [
+    2400.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP179",
+   "def": "LIFT_GU",
+   "position": [
+    2400.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP180",
+   "def": "LIFT_GU",
+   "position": [
+    2400.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP181",
+   "def": "LIFT_GU",
+   "position": [
+    3000.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP182",
+   "def": "LIFT_GU",
+   "position": [
+    3000.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP183",
+   "def": "LIFT_GU",
+   "position": [
+    3000.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP184",
+   "def": "LIFT_GU",
+   "position": [
+    3000.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP185",
+   "def": "LIFT_GU",
+   "position": [
+    3000.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP186",
+   "def": "LIFT_GU",
+   "position": [
+    3000.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP187",
+   "def": "LIFT_GU",
+   "position": [
+    3000.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP188",
+   "def": "LIFT_GU",
+   "position": [
+    3000.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP189",
+   "def": "LIFT_GU",
+   "position": [
+    3600.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP190",
+   "def": "LIFT_GU",
+   "position": [
+    3600.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP191",
+   "def": "LIFT_GU",
+   "position": [
+    3600.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP192",
+   "def": "LIFT_GU",
+   "position": [
+    3600.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP193",
+   "def": "LIFT_GU",
+   "position": [
+    3600.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP194",
+   "def": "LIFT_GU",
+   "position": [
+    3600.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP195",
+   "def": "LIFT_GU",
+   "position": [
+    3600.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP196",
+   "def": "LIFT_GU",
+   "position": [
+    3600.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP197",
+   "def": "LIFT_GU",
+   "position": [
+    3600.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP198",
+   "def": "LIFT_GU",
+   "position": [
+    4200.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP199",
+   "def": "LIFT_GU",
+   "position": [
+    4200.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP200",
+   "def": "LIFT_GU",
+   "position": [
+    4200.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP201",
+   "def": "LIFT_GU",
+   "position": [
+    4200.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP202",
+   "def": "LIFT_GU",
+   "position": [
+    4200.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP203",
+   "def": "LIFT_GU",
+   "position": [
+    4200.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP204",
+   "def": "LIFT_GU",
+   "position": [
+    4200.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP205",
+   "def": "LIFT_GU",
+   "position": [
+    4200.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP206",
+   "def": "LIFT_GU",
+   "position": [
+    4800.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP207",
+   "def": "LIFT_GU",
+   "position": [
+    4800.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP208",
+   "def": "LIFT_GU",
+   "position": [
+    4800.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP209",
+   "def": "LIFT_GU",
+   "position": [
+    4800.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP210",
+   "def": "LIFT_GU",
+   "position": [
+    4800.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP211",
+   "def": "LIFT_GU",
+   "position": [
+    4800.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP212",
+   "def": "LIFT_GU",
+   "position": [
+    4800.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP213",
+   "def": "LIFT_GU",
+   "position": [
+    4800.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP214",
+   "def": "LIFT_GU",
+   "position": [
+    5400.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP215",
+   "def": "LIFT_GU",
+   "position": [
+    5400.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP216",
+   "def": "LIFT_GU",
+   "position": [
+    5400.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP217",
+   "def": "LIFT_GU",
+   "position": [
+    5400.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP218",
+   "def": "LIFT_GU",
+   "position": [
+    5400.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP219",
+   "def": "LIFT_GU",
+   "position": [
+    5400.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP220",
+   "def": "LIFT_GU",
+   "position": [
+    5400.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP221",
+   "def": "LIFT_GU",
+   "position": [
+    5400.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP222",
+   "def": "LIFT_GU",
+   "position": [
+    5400.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP223",
+   "def": "LIFT_GU",
+   "position": [
+    6000.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP224",
+   "def": "LIFT_GU",
+   "position": [
+    6000.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP225",
+   "def": "LIFT_GU",
+   "position": [
+    6000.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP226",
+   "def": "LIFT_GU",
+   "position": [
+    6000.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP227",
+   "def": "LIFT_GU",
+   "position": [
+    6000.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP228",
+   "def": "LIFT_GU",
+   "position": [
+    6000.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP229",
+   "def": "LIFT_GU",
+   "position": [
+    6000.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP230",
+   "def": "LIFT_GU",
+   "position": [
+    6000.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP231",
+   "def": "LIFT_GU",
+   "position": [
+    6000.0,
+    3190.5
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP232",
+   "def": "LIFT_GU",
+   "position": [
+    6000.0,
+    3190.5
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP233",
+   "def": "LIFT_GU",
+   "position": [
+    6600.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP234",
+   "def": "LIFT_GU",
+   "position": [
+    6600.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP235",
+   "def": "LIFT_GU",
+   "position": [
+    6600.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP236",
+   "def": "LIFT_GU",
+   "position": [
+    6600.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP237",
+   "def": "LIFT_GU",
+   "position": [
+    6600.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP238",
+   "def": "LIFT_GU",
+   "position": [
+    6600.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP239",
+   "def": "LIFT_GU",
+   "position": [
+    6600.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP240",
+   "def": "LIFT_GU",
+   "position": [
+    6600.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP241",
+   "def": "LIFT_GU",
+   "position": [
+    6600.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP242",
+   "def": "LIFT_GU",
+   "position": [
+    7200.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP243",
+   "def": "LIFT_GU",
+   "position": [
+    7200.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP244",
+   "def": "LIFT_GU",
+   "position": [
+    7200.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP245",
+   "def": "LIFT_GU",
+   "position": [
+    7200.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP246",
+   "def": "LIFT_GU",
+   "position": [
+    7200.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP247",
+   "def": "LIFT_GU",
+   "position": [
+    7200.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP248",
+   "def": "LIFT_GU",
+   "position": [
+    7200.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP249",
+   "def": "LIFT_GU",
+   "position": [
+    7200.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP250",
+   "def": "LIFT_GU",
+   "position": [
+    7800.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP251",
+   "def": "LIFT_GU",
+   "position": [
+    7800.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP252",
+   "def": "LIFT_GU",
+   "position": [
+    7800.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP253",
+   "def": "LIFT_GU",
+   "position": [
+    7800.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP254",
+   "def": "LIFT_GU",
+   "position": [
+    7800.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP255",
+   "def": "LIFT_GU",
+   "position": [
+    7800.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP256",
+   "def": "LIFT_GU",
+   "position": [
+    7800.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP257",
+   "def": "LIFT_GU",
+   "position": [
+    7800.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP258",
+   "def": "LIFT_GU",
+   "position": [
+    8400.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP259",
+   "def": "LIFT_GU",
+   "position": [
+    8400.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP260",
+   "def": "LIFT_GU",
+   "position": [
+    8400.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP261",
+   "def": "LIFT_GU",
+   "position": [
+    8400.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP262",
+   "def": "LIFT_GU",
+   "position": [
+    8400.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP263",
+   "def": "LIFT_GU",
+   "position": [
+    8400.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP264",
+   "def": "LIFT_GU",
+   "position": [
+    8400.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP265",
+   "def": "LIFT_GU",
+   "position": [
+    8400.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP266",
+   "def": "LIFT_GU",
+   "position": [
+    8400.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP267",
+   "def": "LIFT_GU",
+   "position": [
+    9000.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP268",
+   "def": "LIFT_GU",
+   "position": [
+    9000.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP269",
+   "def": "LIFT_GU",
+   "position": [
+    9000.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP270",
+   "def": "LIFT_GU",
+   "position": [
+    9000.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP271",
+   "def": "LIFT_GU",
+   "position": [
+    9000.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP272",
+   "def": "LIFT_GU",
+   "position": [
+    9000.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP273",
+   "def": "LIFT_GU",
+   "position": [
+    9000.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP274",
+   "def": "LIFT_GU",
+   "position": [
+    9000.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP275",
+   "def": "LIFT_GU",
+   "position": [
+    9600.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP276",
+   "def": "LIFT_GU",
+   "position": [
+    9600.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP277",
+   "def": "LIFT_GU",
+   "position": [
+    9600.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP278",
+   "def": "LIFT_GU",
+   "position": [
+    9600.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP279",
+   "def": "LIFT_GU",
+   "position": [
+    9600.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP280",
+   "def": "LIFT_GU",
+   "position": [
+    9600.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP281",
+   "def": "LIFT_GU",
+   "position": [
+    9600.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP282",
+   "def": "LIFT_GU",
+   "position": [
+    9600.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP283",
+   "def": "LIFT_GU",
+   "position": [
+    10200.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP284",
+   "def": "LIFT_GU",
+   "position": [
+    10200.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP285",
+   "def": "LIFT_GU",
+   "position": [
+    10200.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP286",
+   "def": "LIFT_GU",
+   "position": [
+    10200.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP287",
+   "def": "LIFT_GU",
+   "position": [
+    10200.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP288",
+   "def": "LIFT_GU",
+   "position": [
+    10200.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP289",
+   "def": "LIFT_GU",
+   "position": [
+    10200.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP290",
+   "def": "LIFT_GU",
+   "position": [
+    10200.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP291",
+   "def": "LIFT_GU",
+   "position": [
+    10200.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP292",
+   "def": "LIFT_GU",
+   "position": [
+    10800.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP293",
+   "def": "LIFT_GU",
+   "position": [
+    10800.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP294",
+   "def": "LIFT_GU",
+   "position": [
+    10800.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP295",
+   "def": "LIFT_GU",
+   "position": [
+    10800.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP296",
+   "def": "LIFT_GU",
+   "position": [
+    10800.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP297",
+   "def": "LIFT_GU",
+   "position": [
+    10800.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP298",
+   "def": "LIFT_GU",
+   "position": [
+    10800.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP299",
+   "def": "LIFT_GU",
+   "position": [
+    10800.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP300",
+   "def": "LIFT_GU",
+   "position": [
+    11400.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP301",
+   "def": "LIFT_GU",
+   "position": [
+    11400.0,
+    109.5
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP302",
+   "def": "LIFT_GU",
+   "position": [
+    11400.0,
+    325.6
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP303",
+   "def": "LIFT_GU",
+   "position": [
+    11400.0,
+    164.3
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP304",
+   "def": "LIFT_GU",
+   "position": [
+    11400.0,
+    2921.9
+   ],
+   "rotation": 90.0,
+   "offset": -21.3
+  },
+  {
+   "id": "LP305",
+   "def": "LIFT_GU",
+   "position": [
+    11400.0,
+    2760.6
+   ],
+   "rotation": 90.0,
+   "offset": -280.3
+  },
+  {
+   "id": "LP306",
+   "def": "LIFT_GU",
+   "position": [
+    11400.0,
+    377.6
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP307",
+   "def": "LIFT_GU",
+   "position": [
+    11400.0,
+    538.9
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP308",
+   "def": "LIFT_GU",
+   "position": [
+    11400.0,
+    2973.9
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP309",
+   "def": "LIFT_GU",
+   "position": [
+    11400.0,
+    3135.2
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP310",
+   "def": "LIFT_GU",
+   "position": [
+    11400.0,
+    3190.5
+   ],
+   "rotation": 90.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP311",
+   "def": "LIFT_GU",
+   "position": [
+    11400.0,
+    3190.5
+   ],
+   "rotation": 90.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP312",
+   "def": "LIFT_CL",
+   "position": [
+    44.5,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP313",
+   "def": "LIFT_CL",
+   "position": [
+    44.5,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP314",
+   "def": "LIFT_CL",
+   "position": [
+    600.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP315",
+   "def": "LIFT_CL",
+   "position": [
+    600.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP316",
+   "def": "LIFT_CL",
+   "position": [
+    1200.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP317",
+   "def": "LIFT_CL",
+   "position": [
+    1200.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP318",
+   "def": "LIFT_CL",
+   "position": [
+    1800.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP319",
+   "def": "LIFT_CL",
+   "position": [
+    1800.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP320",
+   "def": "LIFT_CL",
+   "position": [
+    2400.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP321",
+   "def": "LIFT_CL",
+   "position": [
+    2400.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP322",
+   "def": "LIFT_CL",
+   "position": [
+    3000.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP323",
+   "def": "LIFT_CL",
+   "position": [
+    3000.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP324",
+   "def": "LIFT_CL",
+   "position": [
+    3600.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP325",
+   "def": "LIFT_CL",
+   "position": [
+    3600.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP326",
+   "def": "LIFT_CL",
+   "position": [
+    4200.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP327",
+   "def": "LIFT_CL",
+   "position": [
+    4200.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP328",
+   "def": "LIFT_CL",
+   "position": [
+    4800.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP329",
+   "def": "LIFT_CL",
+   "position": [
+    4800.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP330",
+   "def": "LIFT_CL",
+   "position": [
+    5400.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP331",
+   "def": "LIFT_CL",
+   "position": [
+    5400.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP332",
+   "def": "LIFT_CL",
+   "position": [
+    6000.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP333",
+   "def": "LIFT_CL",
+   "position": [
+    6000.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP334",
+   "def": "LIFT_CL",
+   "position": [
+    6600.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP335",
+   "def": "LIFT_CL",
+   "position": [
+    6600.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP336",
+   "def": "LIFT_CL",
+   "position": [
+    7200.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP337",
+   "def": "LIFT_CL",
+   "position": [
+    7200.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP338",
+   "def": "LIFT_CL",
+   "position": [
+    7800.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP339",
+   "def": "LIFT_CL",
+   "position": [
+    7800.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP340",
+   "def": "LIFT_CL",
+   "position": [
+    8400.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP341",
+   "def": "LIFT_CL",
+   "position": [
+    8400.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP342",
+   "def": "LIFT_CL",
+   "position": [
+    9000.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP343",
+   "def": "LIFT_CL",
+   "position": [
+    9000.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP344",
+   "def": "LIFT_CL",
+   "position": [
+    9600.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP345",
+   "def": "LIFT_CL",
+   "position": [
+    9600.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP346",
+   "def": "LIFT_CL",
+   "position": [
+    10200.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP347",
+   "def": "LIFT_CL",
+   "position": [
+    10200.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP348",
+   "def": "LIFT_CL",
+   "position": [
+    10800.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP349",
+   "def": "LIFT_CL",
+   "position": [
+    10800.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP350",
+   "def": "LIFT_CL",
+   "position": [
+    11400.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP351",
+   "def": "LIFT_CL",
+   "position": [
+    11400.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP352",
+   "def": "LIFT_CL",
+   "position": [
+    11955.5,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP353",
+   "def": "LIFT_CL",
+   "position": [
+    11955.5,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": -150.0
+  },
+  {
+   "id": "LP354",
+   "def": "LIFT_CL",
+   "position": [
+    44.5,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP355",
+   "def": "LIFT_CL",
+   "position": [
+    44.5,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP356",
+   "def": "LIFT_CL",
+   "position": [
+    600.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP357",
+   "def": "LIFT_CL",
+   "position": [
+    600.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP358",
+   "def": "LIFT_CL",
+   "position": [
+    1200.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP359",
+   "def": "LIFT_CL",
+   "position": [
+    1200.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP360",
+   "def": "LIFT_CL",
+   "position": [
+    1800.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP361",
+   "def": "LIFT_CL",
+   "position": [
+    1800.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP362",
+   "def": "LIFT_CL",
+   "position": [
+    2400.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP363",
+   "def": "LIFT_CL",
+   "position": [
+    2400.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP364",
+   "def": "LIFT_CL",
+   "position": [
+    3000.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP365",
+   "def": "LIFT_CL",
+   "position": [
+    3000.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP366",
+   "def": "LIFT_CL",
+   "position": [
+    3600.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP367",
+   "def": "LIFT_CL",
+   "position": [
+    3600.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP368",
+   "def": "LIFT_CL",
+   "position": [
+    4200.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP369",
+   "def": "LIFT_CL",
+   "position": [
+    4200.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP370",
+   "def": "LIFT_CL",
+   "position": [
+    4800.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP371",
+   "def": "LIFT_CL",
+   "position": [
+    4800.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP372",
+   "def": "LIFT_CL",
+   "position": [
+    5400.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP373",
+   "def": "LIFT_CL",
+   "position": [
+    5400.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP374",
+   "def": "LIFT_CL",
+   "position": [
+    6000.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP375",
+   "def": "LIFT_CL",
+   "position": [
+    6000.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP376",
+   "def": "LIFT_CL",
+   "position": [
+    6600.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP377",
+   "def": "LIFT_CL",
+   "position": [
+    6600.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP378",
+   "def": "LIFT_CL",
+   "position": [
+    7200.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP379",
+   "def": "LIFT_CL",
+   "position": [
+    7200.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP380",
+   "def": "LIFT_CL",
+   "position": [
+    7800.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP381",
+   "def": "LIFT_CL",
+   "position": [
+    7800.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP382",
+   "def": "LIFT_CL",
+   "position": [
+    8400.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP383",
+   "def": "LIFT_CL",
+   "position": [
+    8400.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP384",
+   "def": "LIFT_CL",
+   "position": [
+    9000.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP385",
+   "def": "LIFT_CL",
+   "position": [
+    9000.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP386",
+   "def": "LIFT_CL",
+   "position": [
+    9600.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP387",
+   "def": "LIFT_CL",
+   "position": [
+    9600.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP388",
+   "def": "LIFT_CL",
+   "position": [
+    10200.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP389",
+   "def": "LIFT_CL",
+   "position": [
+    10200.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP390",
+   "def": "LIFT_CL",
+   "position": [
+    10800.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP391",
+   "def": "LIFT_CL",
+   "position": [
+    10800.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP392",
+   "def": "LIFT_CL",
+   "position": [
+    11400.0,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP393",
+   "def": "LIFT_CL",
+   "position": [
+    11400.0,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP394",
+   "def": "LIFT_CL",
+   "position": [
+    11955.5,
+    89.0
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP395",
+   "def": "LIFT_CL",
+   "position": [
+    11955.5,
+    3209.5
+   ],
+   "rotation": 0.0,
+   "offset": 2829.5
+  },
+  {
+   "id": "LP396",
+   "def": "LIFT_TIE",
+   "position": [
+    32.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP397",
+   "def": "LIFT_TIE",
+   "position": [
+    32.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP398",
+   "def": "LIFT_TIE",
+   "position": [
+    32.5,
+    77.0
+   ],
+   "rotation": 0.0,
+   "offset": 1215.1
+  },
+  {
+   "id": "LP399",
+   "def": "LIFT_TIE",
+   "position": [
+    910.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP400",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP401",
+   "def": "LIFT_TIE",
+   "position": [
+    112.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP402",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP403",
+   "def": "LIFT_TIE",
+   "position": [
+    562.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP404",
+   "def": "LIFT_TIE",
+   "position": [
+    337.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP405",
+   "def": "LIFT_TIE",
+   "position": [
+    900.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 1215.1
+  },
+  {
+   "id": "LP406",
+   "def": "LIFT_TIE",
+   "position": [
+    900.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 1484.9
+  },
+  {
+   "id": "LP407",
+   "def": "LIFT_TIE",
+   "position": [
+    889.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP408",
+   "def": "LIFT_TIE",
+   "position": [
+    4510.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP409",
+   "def": "LIFT_TIE",
+   "position": [
+    1592.3,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP410",
+   "def": "LIFT_TIE",
+   "position": [
+    3253.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP411",
+   "def": "LIFT_TIE",
+   "position": [
+    3530.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP412",
+   "def": "LIFT_TIE",
+   "position": [
+    3807.7,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP413",
+   "def": "LIFT_TIE",
+   "position": [
+    4510.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP414",
+   "def": "LIFT_TIE",
+   "position": [
+    4084.6,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP415",
+   "def": "LIFT_TIE",
+   "position": [
+    3253.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP416",
+   "def": "LIFT_TIE",
+   "position": [
+    2700.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP417",
+   "def": "LIFT_TIE",
+   "position": [
+    2146.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP418",
+   "def": "LIFT_TIE",
+   "position": [
+    1315.4,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP419",
+   "def": "LIFT_TIE",
+   "position": [
+    4500.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 1215.1
+  },
+  {
+   "id": "LP420",
+   "def": "LIFT_TIE",
+   "position": [
+    4500.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 1484.9
+  },
+  {
+   "id": "LP421",
+   "def": "LIFT_TIE",
+   "position": [
+    4489.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP422",
+   "def": "LIFT_TIE",
+   "position": [
+    4489.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP423",
+   "def": "LIFT_TIE",
+   "position": [
+    7510.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP424",
+   "def": "LIFT_TIE",
+   "position": [
+    5181.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP425",
+   "def": "LIFT_TIE",
+   "position": [
+    5454.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP426",
+   "def": "LIFT_TIE",
+   "position": [
+    6818.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP427",
+   "def": "LIFT_TIE",
+   "position": [
+    6818.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP428",
+   "def": "LIFT_TIE",
+   "position": [
+    6545.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP429",
+   "def": "LIFT_TIE",
+   "position": [
+    6272.7,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP430",
+   "def": "LIFT_TIE",
+   "position": [
+    5727.3,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP431",
+   "def": "LIFT_TIE",
+   "position": [
+    5181.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP432",
+   "def": "LIFT_TIE",
+   "position": [
+    4909.1,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP433",
+   "def": "LIFT_TIE",
+   "position": [
+    7489.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP434",
+   "def": "LIFT_TIE",
+   "position": [
+    11110.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP435",
+   "def": "LIFT_TIE",
+   "position": [
+    8192.3,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP436",
+   "def": "LIFT_TIE",
+   "position": [
+    10407.7,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP437",
+   "def": "LIFT_TIE",
+   "position": [
+    10684.6,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP438",
+   "def": "LIFT_TIE",
+   "position": [
+    9853.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP439",
+   "def": "LIFT_TIE",
+   "position": [
+    9300.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP440",
+   "def": "LIFT_TIE",
+   "position": [
+    8746.2,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP441",
+   "def": "LIFT_TIE",
+   "position": [
+    7915.4,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP442",
+   "def": "LIFT_TIE",
+   "position": [
+    11100.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 1215.1
+  },
+  {
+   "id": "LP443",
+   "def": "LIFT_TIE",
+   "position": [
+    11100.0,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 1484.9
+  },
+  {
+   "id": "LP444",
+   "def": "LIFT_TIE",
+   "position": [
+    11089.8,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP445",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP446",
+   "def": "LIFT_TIE",
+   "position": [
+    11887.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP447",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP448",
+   "def": "LIFT_TIE",
+   "position": [
+    11662.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP449",
+   "def": "LIFT_TIE",
+   "position": [
+    11437.5,
+    44.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP450",
+   "def": "LIFT_TIE",
+   "position": [
+    11967.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP451",
+   "def": "LIFT_TIE",
+   "position": [
+    11967.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP452",
+   "def": "LIFT_TIE",
+   "position": [
+    11967.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP453",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP454",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    219.1
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP455",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    479.2
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP456",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    739.4
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP457",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    1259.8
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP458",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    2820.8
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP459",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    3080.9
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP460",
+   "def": "LIFT_TIE",
+   "position": [
+    11967.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP461",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP462",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    2820.8
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP463",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    2560.6
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP464",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    2300.4
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP465",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    2040.2
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP466",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    1780.1
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP467",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    1519.9
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP468",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    1259.8
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP469",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    999.6
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP470",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    739.4
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP471",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    479.2
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP472",
+   "def": "LIFT_TIE",
+   "position": [
+    11967.5,
+    3223.0
+   ],
+   "rotation": 0.0,
+   "offset": 1215.1
+  },
+  {
+   "id": "LP473",
+   "def": "LIFT_TIE",
+   "position": [
+    11895.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP474",
+   "def": "LIFT_TIE",
+   "position": [
+    11265.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP475",
+   "def": "LIFT_TIE",
+   "position": [
+    11475.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP476",
+   "def": "LIFT_TIE",
+   "position": [
+    11685.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP477",
+   "def": "LIFT_TIE",
+   "position": [
+    32.5,
+    3223.0
+   ],
+   "rotation": 0.0,
+   "offset": 1215.1
+  },
+  {
+   "id": "LP478",
+   "def": "LIFT_TIE",
+   "position": [
+    32.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP479",
+   "def": "LIFT_TIE",
+   "position": [
+    32.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP480",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 20.5
+  },
+  {
+   "id": "LP481",
+   "def": "LIFT_TIE",
+   "position": [
+    105.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP482",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    3223.0
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP483",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2679.5
+  },
+  {
+   "id": "LP484",
+   "def": "LIFT_TIE",
+   "position": [
+    735.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP485",
+   "def": "LIFT_TIE",
+   "position": [
+    525.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP486",
+   "def": "LIFT_TIE",
+   "position": [
+    315.0,
+    3255.5
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP487",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    3080.9
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP488",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    2820.8
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP489",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    2560.6
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP490",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    2040.2
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP491",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    479.2
+   ],
+   "rotation": 0.0,
+   "offset": 0.0
+  },
+  {
+   "id": "LP492",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    479.2
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP493",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    999.6
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP494",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    1259.8
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP495",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    1519.9
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP496",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    1780.1
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP497",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    2040.2
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP498",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    2300.4
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP499",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    2560.6
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP500",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    2820.8
+   ],
+   "rotation": 0.0,
+   "offset": 2700.0
+  },
+  {
+   "id": "LP501",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP502",
+   "def": "LIFT_TIE",
+   "position": [
+    600.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP503",
+   "def": "LIFT_TIE",
+   "position": [
+    1200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP504",
+   "def": "LIFT_TIE",
+   "position": [
+    1800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP505",
+   "def": "LIFT_TIE",
+   "position": [
+    3600.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP506",
+   "def": "LIFT_TIE",
+   "position": [
+    4200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP507",
+   "def": "LIFT_TIE",
+   "position": [
+    4800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP508",
+   "def": "LIFT_TIE",
+   "position": [
+    5400.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP509",
+   "def": "LIFT_TIE",
+   "position": [
+    6600.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP510",
+   "def": "LIFT_TIE",
+   "position": [
+    7200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP511",
+   "def": "LIFT_TIE",
+   "position": [
+    7800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP512",
+   "def": "LIFT_TIE",
+   "position": [
+    8400.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP513",
+   "def": "LIFT_TIE",
+   "position": [
+    10200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP514",
+   "def": "LIFT_TIE",
+   "position": [
+    10800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP515",
+   "def": "LIFT_TIE",
+   "position": [
+    11400.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP516",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP517",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP518",
+   "def": "LIFT_TIE",
+   "position": [
+    600.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP519",
+   "def": "LIFT_TIE",
+   "position": [
+    1800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP520",
+   "def": "LIFT_TIE",
+   "position": [
+    4200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP521",
+   "def": "LIFT_TIE",
+   "position": [
+    4800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP522",
+   "def": "LIFT_TIE",
+   "position": [
+    7200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP523",
+   "def": "LIFT_TIE",
+   "position": [
+    7800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP524",
+   "def": "LIFT_TIE",
+   "position": [
+    8400.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP525",
+   "def": "LIFT_TIE",
+   "position": [
+    10200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP526",
+   "def": "LIFT_TIE",
+   "position": [
+    11400.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP527",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP528",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP529",
+   "def": "LIFT_TIE",
+   "position": [
+    1200.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP530",
+   "def": "LIFT_TIE",
+   "position": [
+    3600.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP531",
+   "def": "LIFT_TIE",
+   "position": [
+    4200.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP532",
+   "def": "LIFT_TIE",
+   "position": [
+    4800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP533",
+   "def": "LIFT_TIE",
+   "position": [
+    5400.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP534",
+   "def": "LIFT_TIE",
+   "position": [
+    6600.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP535",
+   "def": "LIFT_TIE",
+   "position": [
+    7200.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP536",
+   "def": "LIFT_TIE",
+   "position": [
+    7800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP537",
+   "def": "LIFT_TIE",
+   "position": [
+    8400.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP538",
+   "def": "LIFT_TIE",
+   "position": [
+    10200.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP539",
+   "def": "LIFT_TIE",
+   "position": [
+    10800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP540",
+   "def": "LIFT_TIE",
+   "position": [
+    11400.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP541",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -279.5
+  },
+  {
+   "id": "LP542",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP543",
+   "def": "LIFT_TIE",
+   "position": [
+    600.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP544",
+   "def": "LIFT_TIE",
+   "position": [
+    1800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP545",
+   "def": "LIFT_TIE",
+   "position": [
+    4200.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP546",
+   "def": "LIFT_TIE",
+   "position": [
+    4800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP547",
+   "def": "LIFT_TIE",
+   "position": [
+    7800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP548",
+   "def": "LIFT_TIE",
+   "position": [
+    11400.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP549",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": -20.5
+  },
+  {
+   "id": "LP550",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP551",
+   "def": "LIFT_TIE",
+   "position": [
+    600.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP552",
+   "def": "LIFT_TIE",
+   "position": [
+    1200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP553",
+   "def": "LIFT_TIE",
+   "position": [
+    1800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP554",
+   "def": "LIFT_TIE",
+   "position": [
+    4200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP555",
+   "def": "LIFT_TIE",
+   "position": [
+    4800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP556",
+   "def": "LIFT_TIE",
+   "position": [
+    5400.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP557",
+   "def": "LIFT_TIE",
+   "position": [
+    6600.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP558",
+   "def": "LIFT_TIE",
+   "position": [
+    7200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP559",
+   "def": "LIFT_TIE",
+   "position": [
+    7800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP560",
+   "def": "LIFT_TIE",
+   "position": [
+    8400.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP561",
+   "def": "LIFT_TIE",
+   "position": [
+    10200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP562",
+   "def": "LIFT_TIE",
+   "position": [
+    10800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP563",
+   "def": "LIFT_TIE",
+   "position": [
+    11400.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP564",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP565",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP566",
+   "def": "LIFT_TIE",
+   "position": [
+    600.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP567",
+   "def": "LIFT_TIE",
+   "position": [
+    1200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP568",
+   "def": "LIFT_TIE",
+   "position": [
+    4200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP569",
+   "def": "LIFT_TIE",
+   "position": [
+    4800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP570",
+   "def": "LIFT_TIE",
+   "position": [
+    7200.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP571",
+   "def": "LIFT_TIE",
+   "position": [
+    7800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP572",
+   "def": "LIFT_TIE",
+   "position": [
+    10800.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP573",
+   "def": "LIFT_TIE",
+   "position": [
+    11400.0,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP574",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    66.8
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP575",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP576",
+   "def": "LIFT_TIE",
+   "position": [
+    600.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP577",
+   "def": "LIFT_TIE",
+   "position": [
+    1200.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP578",
+   "def": "LIFT_TIE",
+   "position": [
+    1800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP579",
+   "def": "LIFT_TIE",
+   "position": [
+    3600.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP580",
+   "def": "LIFT_TIE",
+   "position": [
+    4200.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP581",
+   "def": "LIFT_TIE",
+   "position": [
+    4800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP582",
+   "def": "LIFT_TIE",
+   "position": [
+    5400.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP583",
+   "def": "LIFT_TIE",
+   "position": [
+    6600.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP584",
+   "def": "LIFT_TIE",
+   "position": [
+    7200.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP585",
+   "def": "LIFT_TIE",
+   "position": [
+    7800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP586",
+   "def": "LIFT_TIE",
+   "position": [
+    8400.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP587",
+   "def": "LIFT_TIE",
+   "position": [
+    10200.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP588",
+   "def": "LIFT_TIE",
+   "position": [
+    10800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP589",
+   "def": "LIFT_TIE",
+   "position": [
+    11400.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP590",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2720.5
+  },
+  {
+   "id": "LP591",
+   "def": "LIFT_TIE",
+   "position": [
+    44.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP592",
+   "def": "LIFT_TIE",
+   "position": [
+    600.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP593",
+   "def": "LIFT_TIE",
+   "position": [
+    1200.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP594",
+   "def": "LIFT_TIE",
+   "position": [
+    4200.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP595",
+   "def": "LIFT_TIE",
+   "position": [
+    4800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP596",
+   "def": "LIFT_TIE",
+   "position": [
+    7200.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP597",
+   "def": "LIFT_TIE",
+   "position": [
+    7800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP598",
+   "def": "LIFT_TIE",
+   "position": [
+    10800.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP599",
+   "def": "LIFT_TIE",
+   "position": [
+    11400.0,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  },
+  {
+   "id": "LP600",
+   "def": "LIFT_TIE",
+   "position": [
+    11955.5,
+    3233.2
+   ],
+   "rotation": 0.0,
+   "offset": 2979.5
+  }
+ ],
+ "notes": {
+  "lift_engineering": "Rev D lift parts as components (see the lgs-module-lift repository). Edge trusses NFT1, NFT2 and NFT25 are rolled in 1.15 mm (set after framing; Framer 0.7.1 has no per-element gauge)."
+ }
+}

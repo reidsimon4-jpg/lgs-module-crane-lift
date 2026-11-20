@@ -1,0 +1,92 @@
+============================================================================================================== 
+1. SECTION PROPERTIES (theirs vs mine, % difference)
+   self-test plain channel: e 14.11765 vs exact 14.11765; Cw 5.01961e+07 vs exact 5.01961e+07
+   t=0.75 sharp   A=135(+0.000%) Ix=172332(-0.000%) Iy=26622.4(-0.000%) J=25.3125(+0.000%) Cw=4.19603e+07(-0.000%) xc=11.2785(-0.000%) x0=28.4115(+0.000%)
+        closed form: e=17.1330 x0=28.4115 Cw=4.19603e+07; max |diff| vs theirs 0.0000%
+   t=0.95 sharp   A=170.24(+0.000%) Ix=216189(+0.000%) Iy=33145.9(-0.000%) J=51.2139(+0.000%) Cw=5.18978e+07(+0.000%) xc=11.1853(+0.000%) x0=28.1897(+0.000%)
+        closed form: e=17.0044 x0=28.1897 Cw=5.18978e+07; max |diff| vs theirs 0.0000%
+   t=1.15 sharp   A=205.16(+0.000%) Ix=259176(+0.000%) Iy=39434.6(+0.000%) J=90.4414(+0.000%) Cw=6.13365e+07(-0.000%) xc=11.0922(-0.000%) x0=27.968(-0.000%)
+        closed form: e=16.8758 x0=27.9680 Cw=6.13365e+07; max |diff| vs theirs 0.0000%
+   t=0.75 rounded A=131.941(+0.000%) Ix=166272(+0.001%) Iy=25348.7(+0.001%) J=24.739(+0.000%) Cw=3.96831e+07(+0.001%) xc=11.1082(+0.000%) x0=28.1495(+0.000%)
+   t=0.95 rounded A=166.202(+0.000%) Ix=208219(+0.001%) Iy=31477.7(+0.001%) J=49.9992(+0.000%) Cw=4.89261e+07(+0.001%) xc=11.007(+0.000%) x0=27.9127(+0.000%)
+   t=1.15 rounded A=200.075(+0.000%) Ix=249176(+0.001%) Iy=37350(+0.001%) J=88.1997(+0.000%) Cw=5.76369e+07(+0.001%) xc=10.9058(+0.000%) x0=27.6757(+0.000%)
+   worst difference: numeric 0.0012 %, closed form 0.0000 %
+============================================================================================================== 
+2. LOCAL BUCKLING: hand plate stresses (centreline flat widths) vs their finite strip f_local
+   t=0.75: web k=4 52.2, k=6.97 91.0, k=23.9 312.0; flange k=4 293.1; lip k=0.43 587.7
+      axial   FSM 72.1  implied web k 5.52 (4..6.97)   interaction hand 67.5 ratio 1.068
+      major   FSM 325.2  implied web k 24.91 (23.9), flange k 4.44 (4)   interaction hand 316.6 ratio 1.027
+      web-c   FSM 73.4  implied web k 5.62
+      lips-c  FSM 859.1  implied lip k 0.629 (0.43 pinned .. 1.28 fixed), flange k 11.72 (gradient k = 12.77 -> 936 MPa)
+   t=0.95: web k=4 84.2, k=6.97 146.7, k=23.9 502.9; flange k=4 475.4; lip k=0.43 965.2
+      axial   FSM 116.0  implied web k 5.51 (4..6.97)   interaction hand 108.8 ratio 1.066
+      major   FSM 522.5  implied web k 24.83 (23.9), flange k 4.40 (4)   interaction hand 513.7 ratio 1.017
+      web-c   FSM 118.2  implied web k 5.62
+      lips-c  FSM 1389.7  implied lip k 0.619 (0.43 pinned .. 1.28 fixed), flange k 11.69 (gradient k = 12.74 -> 1514 MPa)
+   t=1.15: web k=4 123.9, k=6.97 215.9, k=23.9 740.3; flange k=4 704.2; lip k=0.43 1448.2
+      axial   FSM 170.3  implied web k 5.50 (4..6.97)   interaction hand 160.3 ratio 1.063
+      major   FSM 764.6  implied web k 24.68 (23.9), flange k 4.34 (4)   interaction hand 761.3 ratio 1.004
+      web-c   FSM 173.7  implied web k 5.61
+      lips-c  FSM 2046.8  implied lip k 0.608 (0.43 pinned .. 1.28 fixed), flange k 11.63 (gradient k = 12.72 -> 2239 MPa)
+============================================================================================================== 
+3. DISTORTIONAL closed form vs their sharp-corner f_dist (ratio = closed form / FSM)
+   t=0.75 axial      FSM   153.2 (L 365) | Lau-Hancock   162.9 ratio 1.063 (lambda 383, kphi 83.6) | Schafer   160.1 ratio 1.045 (Lcr 356)
+   t=0.75 bend_major FSM   271.7 (L 342) | Lau-Hancock   268.8 ratio 0.989 (lambda 322, kphi 269.8) | Schafer   258.4 ratio 0.951 (Lcr 322)
+   t=0.95 axial      FSM   201.1 (L 320) | Lau-Hancock   214.5 ratio 1.066 (lambda 336, kphi 169.7) | Schafer   208.3 ratio 1.036 (Lcr 313)
+   t=0.95 bend_major FSM   354.1 (L 300) | Lau-Hancock   352.2 ratio 0.995 (lambda 283, kphi 560.1) | Schafer   338.7 ratio 0.957 (Lcr 283)
+   t=1.15 axial      FSM   252.2 (L 287) | Lau-Hancock   269.3 ratio 1.068 (lambda 303, kphi 298.5) | Schafer   259.1 ratio 1.027 (Lcr 282)
+   t=1.15 bend_major FSM   441.0 (L 269) | Lau-Hancock   440.1 ratio 0.998 (lambda 255, kphi 1009.5) | Schafer   424.5 ratio 0.963 (Lcr 255)
+============================================================================================================== 
+4. OWN FINITE STRIP RUNS (pycufsm.fsm.strip called directly)
+   pycufsm backend: pure-python assembler (stock failed: TypeError)
+   benchmark SHS 100x100x2 uniform compression: k = 3.9954 at half-wave 100.0 mm (exact 4.000 at 100)
+   t=0.75 sharp   axial                 | local    72.08 @   69.1 (junc 0.01, max at web) | disto   153.37 @  365.0 (junc 0.96, max at lip tip) || theirs L 72.075 D 153.243 | dL -0.00% dD -0.08%
+   t=0.75 sharp   bend_major            | local   325.26 @   45.9 (junc 0.03, max at web) | disto   271.96 @  342.1 (junc 0.96, max at lip tip) || theirs L 325.228 D 271.719 | dL -0.01% dD -0.09%
+   t=0.75 sharp   bend_minor_web_comp   | local    73.38 @   68.4 (junc 0.01, max at web) || theirs L 73.382 D None | dL -0.00%
+   t=0.75 sharp   bend_minor_lips_comp  | local   859.23 @   32.3 (junc 0.02, max at lip tip) | disto   318.14 @  376.5 (junc 0.96, max at lip tip) || theirs L 859.117 D 317.87 | dL -0.01% dD -0.08%
+   t=0.95 sharp   axial                 | local   115.97 @   69.1 (junc 0.01, max at web) | disto   201.28 @  320.2 (junc 0.96, max at lip tip) || theirs L 115.971 D 201.111 | dL -0.00% dD -0.08%
+   t=0.95 sharp   bend_major            | local   522.61 @   46.5 (junc 0.05, max at web) | disto   354.37 @  300.1 (junc 0.96, max at lip tip) || theirs L 522.541 D 354.069 | dL -0.01% dD -0.09%
+   t=0.95 sharp   bend_minor_web_comp   | local   118.17 @   68.3 (junc 0.01, max at web) || theirs L 118.164 D None | dL -0.00%
+   t=0.95 sharp   bend_minor_lips_comp  | local  1389.89 @   32.5 (junc 0.03, max at lip tip) | disto   417.41 @  329.8 (junc 0.96, max at lip tip) || theirs L 1389.651 D 417.072 | dL -0.02% dD -0.08%
+   t=1.15 sharp   axial                 | local   170.33 @   69.3 (junc 0.02, max at web) | disto   252.43 @  287.6 (junc 0.96, max at lip tip) || theirs L 170.323 D 252.226 | dL -0.00% dD -0.08%
+   t=1.15 sharp   bend_major            | local   764.77 @   47.3 (junc 0.08, max at web) | disto   441.34 @  269.4 (junc 0.96, max at lip tip) || theirs L 764.618 D 440.975 | dL -0.02% dD -0.08%
+   t=1.15 sharp   bend_minor_web_comp   | local   173.75 @   68.3 (junc 0.01, max at web) || theirs L 173.742 D None | dL -0.00%
+   t=1.15 sharp   bend_minor_lips_comp  | local  2047.33 @   32.8 (junc 0.05, max at lip tip) | disto   523.28 @  295.5 (junc 0.96, max at lip tip) || theirs L 2046.813 D 522.86 | dL -0.03% dD -0.08%
+   t=0.75 rounded axial                 | local    73.43 @   68.5 (junc 0.01, max at web) | disto   154.30 @  357.5 (junc 0.95, max at lip tip) || theirs L 73.388 D 154.255 | dL -0.05% dD -0.03%
+   t=0.75 rounded bend_major            | local   331.30 @   46.9 (junc 0.06, max at web) | disto   283.46 @  334.1 (junc 0.93, max at lip tip) || theirs L 330.789 D 283.299 | dL -0.15% dD -0.06%
+   t=0.75 rounded bend_minor_web_comp   | local    74.91 @   67.7 (junc 0.01, max at web) || theirs L 74.873 D None | dL -0.05%
+   t=0.75 rounded bend_minor_lips_comp  | local   884.61 @   32.2 (junc 0.11, max at lip tip) | disto   338.22 @  369.0 (junc 0.95, max at lip tip) || theirs L 882.631 D 337.968 | dL -0.22% dD -0.08%
+   t=0.95 rounded axial                 | local   118.14 @   68.5 (junc 0.02, max at web) | disto   202.44 @  313.3 (junc 0.95, max at lip tip) || theirs L 118.08 D 202.391 | dL -0.05% dD -0.02%
+   t=0.95 rounded bend_major            | local   530.87 @   47.1 (junc 0.08, max at web) | disto   369.91 @  292.7 (junc 0.93, max at lip tip) || theirs L 530.153 D 369.707 | dL -0.14% dD -0.05%
+   t=0.95 rounded bend_minor_web_comp   | local   120.65 @   67.6 (junc 0.01, max at web) || theirs L 120.587 D None | dL -0.05%
+   t=0.95 rounded bend_minor_lips_comp  | local  1427.27 @   32.0 (junc 0.12, max at lip tip) | disto   444.92 @  322.8 (junc 0.95, max at lip tip) || theirs L 1424.373 D 444.58 | dL -0.20% dD -0.08%
+   t=1.15 rounded axial                 | local   173.55 @   68.6 (junc 0.03, max at web) | disto   253.84 @  280.9 (junc 0.95, max at lip tip) || theirs L 173.463 D 253.781 | dL -0.05% dD -0.02%
+   t=1.15 rounded bend_major            | local   776.29 @   47.7 (junc 0.11, max at web) | disto   461.40 @  262.3 (junc 0.93, max at lip tip) || theirs L 775.29 D 461.156 | dL -0.13% dD -0.05%
+   t=1.15 rounded bend_minor_web_comp   | local   177.47 @   67.6 (junc 0.01, max at web) || theirs L 177.389 D None | dL -0.05%
+   t=1.15 rounded bend_minor_lips_comp  | local  2105.18 @   32.1 (junc 0.13, max at lip tip) | disto   559.23 @  288.7 (junc 0.95, max at lip tip) || theirs L 2100.963 D 558.809 | dL -0.20% dD -0.08%
+   second mesh 20/10/5 with a LINEAR half-wave grid (20..800 step 20), t = 0.95 sharp:
+      axial                 local 115.97 @ 69.1 | disto 201.03 @ 320.0 || theirs 115.971 / 201.111
+      bend_major            local 522.51 @ 46.5 | disto 353.93 @ 299.9 || theirs 522.541 / 354.069
+      bend_minor_web_comp   local 118.16 @ 68.3 || theirs 118.164 / None
+      bend_minor_lips_comp  local 1389.56 @ 32.5 | disto 416.91 @ 329.6 || theirs 1389.651 / 417.072
+   reference table (other program, sharp corners): mine / reference, theirs / reference
+      axial      t=0.95: ref 201.8  theirs 201.111 (0.9966)  mine 201.28 (0.9974)
+      axial      t=1.15: ref 253.2  theirs 252.226 (0.9962)  mine 252.43 (0.9969)
+      bend_major t=0.95: ref 350.6  theirs 354.069 (1.0099)  mine 354.37 (1.0108)
+      bend_major t=1.15: ref 435.4  theirs 440.975 (1.0128)  mine 441.34 (1.0137)
+============================================================================================================== 
+5. MINOR-AXIS STRESS CONVENTION
+   t=0.75 bend_minor_web_comp  : reference field web  +100.0, lips  -230.3 MPa (max compression 100.0); outer/centreline factor mine 1.0332 theirs 1.03325; Mcr,local mine 0.17322 theirs 0.173215 kNm
+   t=0.75 bend_minor_lips_comp : reference field web   -43.4, lips  +100.0 MPa (max compression 100.0); outer/centreline factor mine 1.0144 theirs 1.01444; Mcr,local mine 0.88065 theirs 0.880648 kNm
+      web-in-compression local 73.382 vs lips-in-compression local 859.117: ratio 11.7 (web sense must be much lower)
+   t=0.95 bend_minor_web_comp  : reference field web  +100.0, lips  -231.2 MPa (max compression 100.0); outer/centreline factor mine 1.0425 theirs 1.04247; Mcr,local mine 0.35016 theirs 0.35016 kNm
+   t=0.95 bend_minor_lips_comp : reference field web   -43.2, lips  +100.0 MPa (max compression 100.0); outer/centreline factor mine 1.0184 theirs 1.01836; Mcr,local mine 1.78086 theirs 1.78086 kNm
+      web-in-compression local 118.164 vs lips-in-compression local 1389.651: ratio 11.8 (web sense must be much lower)
+   t=1.15 bend_minor_web_comp  : reference field web  +100.0, lips  -232.2 MPa (max compression 100.0); outer/centreline factor mine 1.0518 theirs 1.05184; Mcr,local mine 0.61768 theirs 0.617681 kNm
+   t=1.15 bend_minor_lips_comp : reference field web   -43.1, lips  +100.0 MPa (max compression 100.0); outer/centreline factor mine 1.0223 theirs 1.02232; Mcr,local mine 3.13362 theirs 3.13362 kNm
+      web-in-compression local 173.742 vs lips-in-compression local 2046.813: ratio 11.8 (web sense must be much lower)
+============================================================================================================== 
+6. JSON INTERNAL CONSISTENCY (resultants, outer-fibre values, units)
+   worst difference: resultants 0.041 %, extreme fibre factor 0.0006 %, outer stresses 0.0009 %
+==============================================================================================================
+WORST DIFFERENCES (%): {"props_numeric": 0.0012, "props_closed": 0.0, "dist_lh": 6.7831, "dist_sp": 4.8842, "fsm_local": 0.2243, "fsm_dist": 0.0872, "json_resultant": 0.041, "json_factor": 0.0006, "json_outer": 0.0009}

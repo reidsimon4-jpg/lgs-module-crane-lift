@@ -1,0 +1,99 @@
+{
+ "frame_kg": 1302.22,
+ "members": 1194,
+ "panels": 57,
+ "gauged_panels": {
+  "NFT1": 58,
+  "NFT2": 58,
+  "NFT25": 58
+ },
+ "components": 600,
+ "components_by_def": {
+  "LIFT_HEAD": 8,
+  "LIFT_HS": 8,
+  "LIFT_PB": 20,
+  "LIFT_BR": 40,
+  "LIFT_CR": 8,
+  "LIFT_GU": 227,
+  "LIFT_CL": 84,
+  "LIFT_TIE": 205
+ },
+ "component_rows": [
+  {
+   "code": "COMP-LIFT_BR",
+   "item": "BR truss bridging - C89 0.95 nogging at mid-span, 2 screws each end",
+   "qty": 26.95,
+   "unit": "kg",
+   "count": 40
+  },
+  {
+   "code": "COMP-LIFT_CL",
+   "item": "CL truss-end cleat pair - folded 1.5 mm G450 50 x 50 angle each side of the truss end, 5 + 5 screws",
+   "qty": 39.56,
+   "unit": "kg",
+   "count": 84
+  },
+  {
+   "code": "COMP-LIFT_CR",
+   "item": "CR cradle - two 3 mm G450 cheeks 120 x 160, 2 x M16 8.8 bearing bolts + sleeves under the truss joints, 3 x 40 x 89 packers; screwed at the first joint, bearing only at the second",
+   "qty": 16.42,
+   "unit": "kg",
+   "count": 8
+  },
+  {
+   "code": "COMP-LIFT_GU",
+   "item": "GU joint gusset pair - 1.5 mm G450 100 x 100 plate each face, 3 + 3 screws per face",
+   "qty": 53.46,
+   "unit": "kg",
+   "count": 227
+  },
+  {
+   "code": "COMP-LIFT_HEAD",
+   "item": "LH lifting head saddle - folded 3 mm G450 box over the roof edge truss, M20 8.8 pin + 40 mm sleeve, no fasteners, stop block along the module",
+   "qty": 25.43,
+   "unit": "kg",
+   "count": 8
+  },
+  {
+   "code": "COMP-LIFT_HS",
+   "item": "HS hanger strap pair - 2 x 50 x 1.5 G450, one on each face, 2 x M12 8.8 each end",
+   "qty": 32.5,
+   "unit": "kg",
+   "count": 8
+  },
+  {
+   "code": "COMP-LIFT_PB",
+   "item": "PB floor / roof plane bracing strap - 30 x 1.0 G300 with tensioner",
+   "qty": 19.51,
+   "unit": "kg",
+   "count": 20
+  },
+  {
+   "code": "COMP-LIFT_TIE",
+   "item": "T2-T3 tie plate - 30-40 x 0.8-1.0 G300 strap across a joint, 4 + 4 / 2 + 2 screws",
+   "qty": 9.66,
+   "unit": "kg",
+   "count": 205
+  }
+ ],
+ "component_kg": 223.5,
+ "clashes": 0,
+ "clash_kinds": {},
+ "release_ok": true,
+ "release_blockers": 0,
+ "release_blocker_checks": {},
+ "release_blocker_details": [],
+ "regen_warnings": [],
+ "warnings": [
+  "Headers not checked - loads missing (Settings > Loads): wall EW1 (WT-ILO-EXT-RS-GRC12): layer 'Mesa stone-look spray paint' - material 'PAINT' has no sourced mass - confirm with supplier; wall EW1 (WT",
+  "nesting: EW1-2 EW1-2-D+EW1-2-D: WEB_FLAT - touching studs face the same way (web-flat sideways)",
+  "nesting: EW1-2 EW1-2-O+EW1-2-O: WEB_FLAT - touching studs face the same way (web-flat sideways)",
+  "nesting: EW1-4 EW1-4-D+EW1-4-D: WEB_FLAT - touching studs face the same way (web-flat sideways)",
+  "nesting: EW1-4 EW1-4-O+EW1-4-O: WEB_FLAT - touching studs face the same way (web-flat sideways)",
+  "wall EW3B: no clear corner for a corner brace, left out (nothing braces this wall for handling: check it stays square)",
+  "wall EW3C: no clear corner for a corner brace, left out (nothing braces this wall for handling: check it stays square)"
+ ],
+ "ifc": "model\\engineered\\lift_module_frame_and_parts.ifc",
+ "ifc_bytes": 3467040,
+ "project_with_parts_sha256": "edfa256233195541e579bcef8ba816378fa5408d62972198bf11bd96972abada"
+}

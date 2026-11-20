@@ -1,0 +1,148 @@
+{
+ "synthesis": {
+  "verdict": "Five independent AI reviewers (frame model, capacity code, load cases and rigging, buildability, hand re-computation) reviewed Rev C and found it 'not yet' ready: 7 blocking findings and 16 should-fix findings. Rev D answers all of them: 21 resolved, 1 partly, 1 open (listed below).",
+  "reviewed_revision": "Rev C (commit e1631e6)",
+  "findings_blocking": 7,
+  "findings_should_fix": 16
+ },
+ "resolutions": [
+  {
+   "title": "The load split between the hanger and the V-straps at each lift point is set by bolt fit-up, not by the analysis",
+   "severity": "blocking",
+   "status": "resolved",
+   "action": "Every lift point is now statically determinate: one vertical hanger strap pair from the head straight down to one cradle at the truss joint pair under it, at all 8 points. There is no second load path, so bolt fit-up cannot change the share."
+  },
+  {
+   "title": "A 2-degree hang angle, which the basis allows, overloads the end walls; no design case puts a net sideways load on the module",
+   "severity": "blocking",
+   "status": "resolved",
+   "action": "Eight tilt design cases T1-T8 (roll, pitch and the four corner combinations at 2 degrees) solved with the cascade geometry (pick offsets h tan 2 deg, gravity turned with the module), plus L1-L4 with a sideways 5 % of each drop's own force. All pass: worst member 0.97 (W4 bottom track, T6), worst joint 0.88."
+  },
+  {
+   "title": "Cradle and foot-plate screws are over capacity at single stations, and several plates cannot be built where they are modelled",
+   "severity": "blocking",
+   "status": "resolved",
+   "action": "The 600 mm plates and the foot plates are gone. Each lift point has one 120 mm cradle at the truss joint pair under it: two 3 mm cheeks joined under the chord by 2 x M16 bearing bolts, one under each joint, screwed at the first joint only. Every cradle is at least 101.8 mm clear of the truss-end cleats. Per-seat forces are checked: bearing 0.71, bolt bending 0.71, cheek screws 0.05."
+  },
+  {
+   "title": "The lifting head is assumed to carry no vertical load, but the stated slotted-bolt detail can grip",
+   "severity": "blocking",
+   "status": "resolved",
+   "action": "Saddle heads with running clearance and no fasteners: they hold the module sideways and cannot carry vertical load (modelled with no vertical stiffness). Every head is keyed along the module by a stop block."
+  },
+  {
+   "title": "Member compression capacities rest on an undocumented 1200 mm twist length",
+   "severity": "blocking",
+   "status": "resolved",
+   "action": "Twist length = the gap between screwed joints (screws through both flanges at every truss joint and wall noggin), stated in the design basis. Sensitivity S2 (twist length = out-of-plane length): 9 members over, worst 2.19, so screws through both flanges at every joint and noggin are a hold point (H3)."
+  },
+  {
+   "title": "The lip notches and service holes Framer cuts in the members are not in any capacity",
+   "severity": "blocking",
+   "status": "resolved",
+   "action": "Every member with a Framer lip notch is also checked at the notched section (lips removed, flanges unstiffened, k = 0.425 + (b/a)^2 over a 50 mm notch); members with a service hole use the net area (32 mm hole). Member shear and bending with shear are checked. The governing members are now lip-notch checks (worst 0.97)."
+  },
+  {
+   "title": "Wall brace-end screws sit below the code minimum end distance, and end tear-out is never checked",
+   "severity": "blocking",
+   "status": "resolved",
+   "action": "End rupture is checked at every Framer screw from its distance to the member end (lower of 0.5 t e fu and 0.6 t (e - d/2) fu). Added screws go at least 15 mm from the end. Where 4 screws are not enough the joint gets a gusset (sized joint by joint, 227 in all)."
+  },
+  {
+   "title": "Stud bases near the lift lines pass only with bearing credit; there is no seating tolerance and no crippling check",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "Hold point: stud end gap at most 1 mm (inspected) within 600 mm of the lift lines and feet. Stud bearing is checked as crippling of the edge-truss flanges: 0.70."
+  },
+  {
+   "title": "Centre-of-gravity control: H1 has no CoG limit, and weighing in the rig cannot measure the CoG",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "H1: weigh on load cells under the 8 lift points before the first lift; the centre of gravity comes from the readings. Limit: within 90 mm across and 150 mm along of the design position, otherwise the engineer re-checks; the cascade pick points are set from the measured position."
+  },
+  {
+   "title": "The temporary north V-straps and other lift-critical parts are missing from the design basis and hold points",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "Rev D has no temporary parts. Every lift part is described in the design basis, and a pre-lift inspection hold point covers them all."
+  },
+  {
+   "title": "Landing, storage and in-service supports are not specified",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "Landing rule: only on continuous levelled bearers (+-2 mm) under both floor edge trusses, packed between the cradles (the cradles stand 113 mm below the edge truss), never on corners. In service on bearers: members 0.95, joints 0.89. On piers at 1.8 m it does not pass (members 1.07, joints 2.14), so piers need their own design."
+  },
+  {
+   "title": "The rigging interface and the cascade beams are not designed or certified",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "H7: the cascade is designed, certified to AS 4991, proof tested and rated by the rigging supplier. Interface: round sling eye straight over the 40 mm free-turning sleeve on the M20 pin. Planning hook load: module 6.5 t plus rigging."
+  },
+  {
+   "title": "Truss-end screws and T1 ties cannot be installed as drawn",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "Folded 1.5 mm cleats each side of every truss end, 5 + 5 screws (also the T1 load path). Checked: end reaction 0.58, chord pull 0.15."
+  },
+  {
+   "title": "The specified 6-screw joints do not fit around the Framer dimple",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "At most 4 screws per joint (2 per side). Where 4 is not enough: a gusset (two 1.5 mm plates, 3 + 3 screws per face), sized joint by joint: 55 for the lift, 172 for the in-service 3 kPa floor load."
+  },
+  {
+   "title": "Marriage-line hardware and the second module's sequence are not worked out",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "The modules meet north face to north face with their lift lines opposite each other. After set-down and before the second module is placed, the 8 heads, the 4 north cradles and the marriage-face hanger straps are unbolted and removed (hold point H9); they carry nothing in service. Marriage gap at least 15 mm. The module-to-module connection itself is outside this study."
+  },
+  {
+   "title": "The south heads clash with the gutter, fascia and roof sheeting",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "The saddle heads have no fasteners, so they lift off after set-down; the gutter and fascia go on after the lift. The pin sits about 170 mm above the roof edge truss."
+  },
+  {
+   "title": "The floor bridging sits on the truss panel point, and its end anchorage is not a real anchor",
+   "severity": "should fix",
+   "status": "partly",
+   "action": "Bridging is modelled as members (C89 noggings at mid-span, 2 screws each end; largest force 0.18 kN). Drawing note: set the line 90 mm off the panel point and tie its ends to the plane-bracing crossings."
+  },
+  {
+   "title": "The rim chords are assumed fully restrained sideways at every truss link",
+   "severity": "should fix",
+   "status": "open",
+   "action": "Plane bracing is modelled as members and checked (largest strap force 2.0 kN). A full elastic buckling (geometric stiffness) analysis of the whole model was not run; it is recommended to the engineer."
+  },
+  {
+   "title": "Member shear, minor-axis bending basis and material values",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "Member shear and bending with shear checks were added. Distortional buckling is in the Direct Strength Method check. Minor-axis bending basis is stated. Material is taken as G450 (fy 450 MPa), conservative for G550 coil."
+  },
+  {
+   "title": "Connector-sheet details: bolt tear-out, pin bearing and sideways allowance",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "Inner-bolt tear-out uses the clear distance (pitch minus hole radius); each ply on the pin is checked with its own force; one sideways fraction (10.5 % of each drop's own force)."
+  },
+  {
+   "title": "Factor statements, case labels and rig wording",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "The factor is stated once: 2.433 = 1.03 x 1.05 x 1.5 x 1.5. The skew cases R7 are now information only (a pinned cascade shares by balance). The rigid frame is excluded; R6 is information."
+  },
+  {
+   "title": "Documentation and QA errors",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "Design basis corrected (21 floor trusses, link stiffness, every lift part, CoG). Capacity unit tests added from the reviewers' hand values (phi Nc 29.23 kN, phi My 0.363 kNm, screw 1.77 kN, M12 bearing 10.13 / 5.21 kN), plus the new checks: 42 tests pass."
+  },
+  {
+   "title": "Minor detailing clashes",
+   "severity": "should fix",
+   "status": "resolved",
+   "action": "Each hanger lands on the truss joint pair under its lift line, off the wall seams; every cradle's clearance to the truss-end cleats is checked (at least 101.8 mm); T3 ties are straps across the seams."
+  }
+ ]
+}

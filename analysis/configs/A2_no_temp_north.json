@@ -1,0 +1,193 @@
+{
+ "name": "ABLATION: design without the temporary north straps",
+ "rated_lift_mass_kg": 6500,
+ "steel": "G450",
+ "factors": {
+  "weight": 1.03,
+  "cog": 1.05,
+  "dynamic": 1.5,
+  "load": 1.5
+ },
+ "lift_lines_x": [
+  900,
+  4500,
+  7500,
+  11100
+ ],
+ "rim_y": {
+  "S": 44.5,
+  "N": 3255.5
+ },
+ "floor_rim_z": [
+  -279.5,
+  -20.5
+ ],
+ "roof_rim_top_z": 2979.5,
+ "head_z": 3150.0,
+ "hanger": {
+  "label": "hanger strap pair: 50 x 1.5 G450 flat strap, one on each face of the wall, 2 x M12 8.8 bolts each end",
+  "A": 150.0,
+  "kg_m": 1.18
+ },
+ "v_strap": {
+  "label": "inclined strap pair: 50 x 1.2 G450 flat strap, one on each face of the wall, 2 x M12 8.8 bolts each end",
+  "A": 120.0,
+  "kg_m": 0.94
+ },
+ "stirrup": {
+  "label": "folded 2.5 mm G450 cradle plate pair (one each face of the rim), screwed to both rim chords at 100 mm",
+  "A": 375.0,
+  "I_major": 743000.0,
+  "I_minor": 176000.0,
+  "J": 780.0,
+  "kg_m": 5.89
+ },
+ "guide": {
+  "label": "lifting head: folded 3 mm G450 box bracket over the roof rim, M20 lifting pin with sleeve",
+  "A": 0.01,
+  "I": 500000.0,
+  "kg_m": 7.0
+ },
+ "floor_diaphragm": {
+  "label": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)",
+  "x_stations": [
+   0,
+   900,
+   4500,
+   7500,
+   11100,
+   12000
+  ],
+  "z": -20.5,
+  "attach_kinds": [
+   "rim_truss"
+  ],
+  "A_eq": 15.0,
+  "kg_m": 0.47
+ },
+ "roof_diaphragm": {
+  "label": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)",
+  "x_stations": [
+   0,
+   900,
+   4500,
+   7500,
+   11100,
+   12000
+  ],
+  "z": 2979.5,
+  "attach_kinds": [
+   "roof_rim"
+  ],
+  "A_eq": 15.0,
+  "kg_m": 0.47
+ },
+ "k_sling_N_per_mm": 2000.0,
+ "sling_tolerance_mm": 10.0,
+ "sideways_fraction": 0.05,
+ "slack_cases": false,
+ "joint_fasteners": {
+  "rim_truss": 4,
+  "roof_rim": 4,
+  "floor_truss": 4
+ },
+ "skew": 0.1,
+ "short_in_envelope": false,
+ "roof_rim_bot_z": 2720.5,
+ "v_legs": [
+  {
+   "side": "S",
+   "line": 1,
+   "dx": -840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 1,
+   "dx": 840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 2,
+   "dx": -840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 2,
+   "dx": 840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 3,
+   "dx": -840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 3,
+   "dx": 840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 4,
+   "dx": -840.0,
+   "temporary": false
+  },
+  {
+   "side": "S",
+   "line": 4,
+   "dx": 840.0,
+   "temporary": false
+  },
+  {
+   "side": "N",
+   "line": 1,
+   "dx": -840.0,
+   "temporary": false
+  },
+  {
+   "side": "N",
+   "line": 4,
+   "dx": 840.0,
+   "temporary": false
+  }
+ ],
+ "joint_fasteners_panels": {
+  "W1": 4,
+  "W2": 4,
+  "W3": 4,
+  "W4": 4,
+  "NFT2": 6
+ },
+ "restraint_lines": {
+  "floor_truss|TOP CHORD": 1561.0
+ },
+ "link_screws": {
+  "truss end vertical screwed to the rim (end reaction)": 3
+ },
+ "joint_rules": [
+  {
+   "kinds": [
+    "rim_truss",
+    "roof_rim"
+   ],
+   "x_lt": 300.0,
+   "n": 6
+  },
+  {
+   "kinds": [
+    "rim_truss",
+    "roof_rim"
+   ],
+   "x_gt": 11700.0,
+   "n": 6
+  }
+ ],
+ "cradle_half": 300.0,
+ "foot_half": 300.0,
+ "cradle_screw_pitch": 100.0
+}

@@ -1,0 +1,2683 @@
+{
+ "config": "Rev D (design): 8 identical lift points on the edge-truss joint-pair centres (x 928.5, 4456.5, 7543.5, 11071.5, both sides), each one vertical hanger strap pair (2 x 50 x 1.5 G450, both faces) from a saddle head over the roof edge truss down to a 120 mm cradle at the truss joint pair under it (two 3 mm cheeks, 2 x M16 bearing bolts under the joints; screwed at the first joint, bearing only at the second), so each lift point is settled by statics; saddle heads with no fasteners, keyed along the module by a stop block; floor edge trusses and the north roof edge truss in 1.15 mm; 4 screws per truss joint, gussets sized joint by joint, cleats 5 + 5 at every truss end, tie plates, floor and roof strap bracing and bridging; no temporary parts; pinned-beam cascade set to the measured CoG; design cases R1, R2, R4, 8 tilt cases at 2 deg and 4 sideways cases; skew, short-sling and slack-sling cases reported as information",
+ "factor": 2.4333750000000003,
+ "rows": [
+  {
+   "group": "Hanger strap pair (2 x 50 x 1.5 G450, one on each face of the edge truss and wall)",
+   "item": "strap tension per strap (gross yield / net section at a 14 mm hole)",
+   "demand": 11.74,
+   "capacity": 16.85,
+   "unit": "kN",
+   "util": 0.7,
+   "rule": "0.90 Ag fy ; 0.65 An fu",
+   "note": ""
+  },
+  {
+   "group": "Hanger strap pair (2 x 50 x 1.5 G450, one on each face of the edge truss and wall)",
+   "item": "2 x M12 each end, bearing on the 1.5 mm strap",
+   "demand": 11.74,
+   "capacity": 20.27,
+   "unit": "kN",
+   "util": 0.58,
+   "rule": "AISI J3.3.2 deformation-limited, phi 0.65",
+   "note": ""
+  },
+  {
+   "group": "Hanger strap pair (2 x 50 x 1.5 G450, one on each face of the edge truss and wall)",
+   "item": "tear-out: end bolt e = 30 mm, inner bolt clear distance 40 - 7 = 33 mm",
+   "demand": 11.74,
+   "capacity": 27.22,
+   "unit": "kN",
+   "util": 0.43,
+   "rule": "0.60 t e fu",
+   "note": ""
+  },
+  {
+   "group": "Hanger strap pair (2 x 50 x 1.5 G450, one on each face of the edge truss and wall)",
+   "item": "M12 8.8 bolt shear, single plane, threads included",
+   "demand": 5.87,
+   "capacity": 30.24,
+   "unit": "kN",
+   "util": 0.19,
+   "rule": "0.8 x 0.62 x 800 x Ac",
+   "note": ""
+  },
+  {
+   "group": "Cradle (two 3 mm G450 cheek plates joined under the chord by 2 x M16 8.8 bearing bolts with sleeves, one under each truss joint of the pair; screwed at the first joint, bearing only at the second)",
+   "item": "bearing under one truss joint on a 3 x 40 x 89 packer: crippling of the chord's two flanges (1.15 mm chord; worst: FOOT_S1h seat at x 957, T8_NE)",
+   "demand": 11.79,
+   "capacity": 16.72,
+   "unit": "kN",
+   "util": 0.71,
+   "rule": "AS/NZS 4600 3.3.6 form (AISI G5 C, interior one-flange, unfastened), phi 0.90",
+   "note": "conservative: the nested truss diagonals stiffen the chord flanges at the joint"
+  },
+  {
+   "group": "Cradle (two 3 mm G450 cheek plates joined under the chord by 2 x M16 8.8 bearing bolts with sleeves, one under each truss joint of the pair; screwed at the first joint, bearing only at the second)",
+   "item": "M16 8.8 bearing bolt bending between the cheeks (95 mm span), packer load as a point load at mid-span",
+   "demand": 280.07,
+   "capacity": 393.22,
+   "unit": "N.m",
+   "util": 0.71,
+   "rule": "plain shank in the bending zone, phi 0.90 fy Zp (fy 640 MPa)",
+   "note": ""
+  },
+  {
+   "group": "Cradle (two 3 mm G450 cheek plates joined under the chord by 2 x M16 8.8 bearing bolts with sleeves, one under each truss joint of the pair; screwed at the first joint, bearing only at the second)",
+   "item": "M16 8.8 bearing bolt shear at each cheek (2 planes share the seat load)",
+   "demand": 5.9,
+   "capacity": 57.14,
+   "unit": "kN",
+   "util": 0.1,
+   "rule": "0.8 x 0.62 x 800 x Ac",
+   "note": ""
+  },
+  {
+   "group": "Cradle (two 3 mm G450 cheek plates joined under the chord by 2 x M16 8.8 bearing bolts with sleeves, one under each truss joint of the pair; screwed at the first joint, bearing only at the second)",
+   "item": "M16 bearing bolt on the 3 mm cheek (each cheek takes half)",
+   "demand": 5.9,
+   "capacity": 31.14,
+   "unit": "kN",
+   "util": 0.19,
+   "rule": "AISI J3.3.2, phi 0.65",
+   "note": ""
+  },
+  {
+   "group": "Cradle (two 3 mm G450 cheek plates joined under the chord by 2 x M16 8.8 bearing bolts with sleeves, one under each truss joint of the pair; screwed at the first joint, bearing only at the second)",
+   "item": "tear-out of the cheek below the bearing bolt, e = 25 mm",
+   "demand": 5.9,
+   "capacity": 21.6,
+   "unit": "kN",
+   "util": 0.27,
+   "rule": "0.60 t e fu",
+   "note": ""
+  },
+  {
+   "group": "Cradle (two 3 mm G450 cheek plates joined under the chord by 2 x M16 8.8 bearing bolts with sleeves, one under each truss joint of the pair; screwed at the first joint, bearing only at the second)",
+   "item": "cheek screws at the screwed seat, 2 per cheek: along-truss shear with any uplift (worst: FOOT_S1h seat at x 899, T8_NE)",
+   "demand": 0.33,
+   "capacity": 6.37,
+   "unit": "kN",
+   "util": 0.05,
+   "rule": "AS/NZS 4600 5.4.2.4, taken in a 0.95 mm chord at 412.5 MPa (the edge trusses are 1.15), group 0.90",
+   "note": ""
+  },
+  {
+   "group": "Cradle (two 3 mm G450 cheek plates joined under the chord by 2 x M16 8.8 bearing bolts with sleeves, one under each truss joint of the pair; screwed at the first joint, bearing only at the second)",
+   "item": "strap bolts: 2 x M12 per strap, bearing on the 3 mm cheek",
+   "demand": 11.74,
+   "capacity": 46.7,
+   "unit": "kN",
+   "util": 0.25,
+   "rule": "AISI J3.3.2, phi 0.65",
+   "note": ""
+  },
+  {
+   "group": "Cradle (two 3 mm G450 cheek plates joined under the chord by 2 x M16 8.8 bearing bolts with sleeves, one under each truss joint of the pair; screwed at the first joint, bearing only at the second)",
+   "item": "sideways force at one seat, carried by a cheek bearing on the chord flange over the 120 mm cheek (worst: FOOT_N3h seat at x 7514, T2_roll_N)",
+   "demand": 0.0,
+   "capacity": 23.09,
+   "unit": "kN",
+   "util": 0.0,
+   "rule": "half the flange yield in bearing over the cheek length (local), phi 0.90",
+   "note": "information: small once both faces carry straps"
+  },
+  {
+   "group": "Lifting head (saddle: folded 3 mm G450 box over the roof edge truss, M20 pin, 40 mm sleeve)",
+   "item": "M20 8.8 lifting pin, double shear",
+   "demand": 23.73,
+   "capacity": 178.56,
+   "unit": "kN",
+   "util": 0.13,
+   "rule": "0.8 x 0.62 x 800 x Ac, 2 planes",
+   "note": ""
+  },
+  {
+   "group": "Lifting head (saddle: folded 3 mm G450 box over the roof edge truss, M20 pin, 40 mm sleeve)",
+   "item": "pin bearing on the two 3 mm cheeks (the straps bolt to the cheeks separately)",
+   "demand": 23.73,
+   "capacity": 77.84,
+   "unit": "kN",
+   "util": 0.3,
+   "rule": "AISI J3.3.2, phi 0.65",
+   "note": ""
+  },
+  {
+   "group": "Lifting head (saddle: folded 3 mm G450 box over the roof edge truss, M20 pin, 40 mm sleeve)",
+   "item": "tear-out above the pin, e = 45 mm, 2 cheeks of 3 mm",
+   "demand": 23.73,
+   "capacity": 77.76,
+   "unit": "kN",
+   "util": 0.31,
+   "rule": "0.60 t e fu",
+   "note": ""
+  },
+  {
+   "group": "Lifting head (saddle: folded 3 mm G450 box over the roof edge truss, M20 pin, 40 mm sleeve)",
+   "item": "strap bolts at the head: 2 x M12 per strap, bearing on the 3 mm cheek",
+   "demand": 11.74,
+   "capacity": 46.7,
+   "unit": "kN",
+   "util": 0.25,
+   "rule": "AISI J3.3.2, phi 0.65",
+   "note": ""
+  },
+  {
+   "group": "Lifting head (saddle: folded 3 mm G450 box over the roof edge truss, M20 pin, 40 mm sleeve)",
+   "item": "head bearing on the roof edge truss face (no fasteners; every head keyed along the module by a stop block): web crippling over a 40 mm pad",
+   "demand": 1.13,
+   "capacity": 5.46,
+   "unit": "kN",
+   "util": 0.21,
+   "rule": "AS/NZS 4600 3.3.6 form, one web",
+   "note": ""
+  },
+  {
+   "group": "Lifting head (saddle: folded 3 mm G450 box over the roof edge truss, M20 pin, 40 mm sleeve)",
+   "item": "sideways load at the lug (10.5 % of the sling force, 6 deg drop tolerance), box cantilever 170 mm",
+   "demand": 421.33,
+   "capacity": 3316.14,
+   "unit": "N.m",
+   "util": 0.13,
+   "rule": "box of two 3 mm cheeks, phi 0.90 fy Z",
+   "note": ""
+  },
+  {
+   "group": "Truss-end cleat (folded 1.5 mm G450 angle each side of every truss end, 5 + 5 screws)",
+   "item": "chord pull at the truss end, through the cleat leg screws in shear",
+   "demand": 1.22,
+   "capacity": 7.97,
+   "unit": "kN",
+   "util": 0.15,
+   "rule": "5 screws per leg in shear, group 0.90",
+   "note": ""
+  },
+  {
+   "group": "Truss-end cleat (folded 1.5 mm G450 angle each side of every truss end, 5 + 5 screws)",
+   "item": "end reaction through the end vertical (per tie of the model)",
+   "demand": 4.59,
+   "capacity": 7.97,
+   "unit": "kN",
+   "util": 0.58,
+   "rule": "5 screws per leg in shear, group 0.90",
+   "note": ""
+  },
+  {
+   "group": "Tie T2 (40 x 1.0 G300 strap on the side faces of the track and edge truss, 4 + 4 screws)",
+   "item": "wall plate to edge truss tension",
+   "demand": 5.76,
+   "capacity": 6.37,
+   "unit": "kN",
+   "util": 0.9,
+   "rule": "screws in shear, group 0.90; strap net section",
+   "note": ""
+  },
+  {
+   "group": "Tie T3 (30 x 0.8 G300 strap across a wall seam, 2 + 2 screws)",
+   "item": "seam stud pull-apart",
+   "demand": 1.21,
+   "capacity": 3.54,
+   "unit": "kN",
+   "util": 0.34,
+   "rule": "screws in shear; strap net section",
+   "note": ""
+  },
+  {
+   "group": "Joint gusset (1.5 mm G450 plate each face, 3 + 3 screws per face)",
+   "item": "largest gusseted joint force against the plate pair (100 mm wide) in tension",
+   "demand": 14.38,
+   "capacity": 88.92,
+   "unit": "kN",
+   "util": 0.16,
+   "rule": "0.90 Ag fy / 0.65 An fu",
+   "note": "the screws are in the joint check (10 screw-equivalents)"
+  },
+  {
+   "group": "Plane bracing (30 x 1.0 G300 strap, tensioner)",
+   "item": "strap tension (tension diagonal carries both halves)",
+   "demand": 2.02,
+   "capacity": 5.53,
+   "unit": "kN",
+   "util": 0.37,
+   "rule": "0.90 Ag fy ; 0.65 An fu",
+   "note": ""
+  },
+  {
+   "group": "Plane bracing (30 x 1.0 G300 strap, tensioner)",
+   "item": "end fixing: 3 screws into the edge truss chord",
+   "demand": 2.02,
+   "capacity": 4.78,
+   "unit": "kN",
+   "util": 0.42,
+   "rule": "screws in shear, group 0.90",
+   "note": ""
+  },
+  {
+   "group": "Bridging (C89 0.95 noggings at truss mid-span, floor and roof)",
+   "item": "largest nogging force (from the model), 2 screws each end",
+   "demand": 0.17,
+   "capacity": 3.54,
+   "unit": "kN",
+   "util": 0.05,
+   "rule": "screws in shear",
+   "note": ""
+  },
+  {
+   "group": "Stud bearing on the bottom track over the floor edge truss",
+   "item": "largest stud compression in the design cases (studs seated, end gap at most 1 mm: hold point)",
+   "demand": 7.85,
+   "capacity": 11.2,
+   "unit": "kN",
+   "util": 0.7,
+   "rule": "AS/NZS 4600 3.3.6 form, the chord's two flanges",
+   "note": ""
+  }
+ ],
+ "rigging": {
+  "max_static_drop_kN": 10.49,
+  "max_static_drop_t": 1.07,
+  "note": "largest drop force in the design cases x weight 1.03 x CoG 1.05 (no dynamic factor): drop gear WLL at least this. Interface: round sling eye directly over the free-turning 40 mm sleeve on the M20 pin inside the head; shackles only at the beam ends, sling in the bow. The rig (beams, slings, shackles) is lifting equipment: designed, proof tested and rated."
+ },
+ "seats": [
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "R1_rigid",
+   "up_kN": 11.21,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "R1_rigid",
+   "up_kN": 11.43,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "R4_equalised",
+   "up_kN": 11.13,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "R4_equalised",
+   "up_kN": 11.34,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "T1_roll_S",
+   "up_kN": 10.72,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "T1_roll_S",
+   "up_kN": 10.93,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "T2_roll_N",
+   "up_kN": 11.52,
+   "down_kN": 0.0,
+   "along_kN": 0.32,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "T2_roll_N",
+   "up_kN": 11.75,
+   "down_kN": 0.0,
+   "along_kN": -0.32,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "T3_pitch_W",
+   "up_kN": 10.9,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "T3_pitch_W",
+   "up_kN": 11.1,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "T4_pitch_E",
+   "up_kN": 11.35,
+   "down_kN": 0.0,
+   "along_kN": 0.32,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "T4_pitch_E",
+   "up_kN": 11.57,
+   "down_kN": 0.0,
+   "along_kN": -0.32,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "T5_SW",
+   "up_kN": 10.68,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "T5_SW",
+   "up_kN": 10.89,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "T6_SE",
+   "up_kN": 10.99,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "T6_SE",
+   "up_kN": 11.21,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "T7_NW",
+   "up_kN": 11.24,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "T7_NW",
+   "up_kN": 11.46,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "T8_NE",
+   "up_kN": 11.57,
+   "down_kN": 0.0,
+   "along_kN": 0.33,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "T8_NE",
+   "up_kN": 11.79,
+   "down_kN": 0.0,
+   "along_kN": -0.32,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "R2_springs",
+   "up_kN": 11.21,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "R2_springs",
+   "up_kN": 11.42,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "L1_squeeze_y",
+   "up_kN": 11.13,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "L1_squeeze_y",
+   "up_kN": 11.34,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "L2_spread_y",
+   "up_kN": 11.13,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "L2_spread_y",
+   "up_kN": 11.34,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "L3_squeeze_x",
+   "up_kN": 11.13,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "L3_squeeze_x",
+   "up_kN": 11.34,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT0",
+   "x": 899.2,
+   "case": "L4_spread_x",
+   "up_kN": 11.13,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S1h",
+   "seat": "FOOT_S1h_SEAT1",
+   "x": 957.3,
+   "case": "L4_spread_x",
+   "up_kN": 11.34,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "R1_rigid",
+   "up_kN": 11.34,
+   "down_kN": 0.0,
+   "along_kN": 0.32,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "R1_rigid",
+   "up_kN": 11.56,
+   "down_kN": 0.0,
+   "along_kN": -0.32,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "R4_equalised",
+   "up_kN": 11.08,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "R4_equalised",
+   "up_kN": 11.29,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "T1_roll_S",
+   "up_kN": 10.72,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "T1_roll_S",
+   "up_kN": 10.93,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "T2_roll_N",
+   "up_kN": 11.52,
+   "down_kN": 0.0,
+   "along_kN": 0.32,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "T2_roll_N",
+   "up_kN": 11.74,
+   "down_kN": 0.0,
+   "along_kN": -0.32,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "T3_pitch_W",
+   "up_kN": 10.9,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "T3_pitch_W",
+   "up_kN": 11.1,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "T4_pitch_E",
+   "up_kN": 11.35,
+   "down_kN": 0.0,
+   "along_kN": 0.32,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "T4_pitch_E",
+   "up_kN": 11.57,
+   "down_kN": 0.0,
+   "along_kN": -0.32,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "T5_SW",
+   "up_kN": 10.68,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "T5_SW",
+   "up_kN": 10.89,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "T6_SE",
+   "up_kN": 10.99,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "T6_SE",
+   "up_kN": 11.2,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "T7_NW",
+   "up_kN": 11.24,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "T7_NW",
+   "up_kN": 11.46,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "T8_NE",
+   "up_kN": 11.57,
+   "down_kN": 0.0,
+   "along_kN": 0.33,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "T8_NE",
+   "up_kN": 11.79,
+   "down_kN": 0.0,
+   "along_kN": -0.32,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "R2_springs",
+   "up_kN": 11.17,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "R2_springs",
+   "up_kN": 11.38,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "L1_squeeze_y",
+   "up_kN": 11.08,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "L1_squeeze_y",
+   "up_kN": 11.29,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "L2_spread_y",
+   "up_kN": 11.08,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "L2_spread_y",
+   "up_kN": 11.29,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "L3_squeeze_x",
+   "up_kN": 11.08,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "L3_squeeze_x",
+   "up_kN": 11.29,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT0",
+   "x": 4427.2,
+   "case": "L4_spread_x",
+   "up_kN": 11.08,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S2h",
+   "seat": "FOOT_S2h_SEAT1",
+   "x": 4485.3,
+   "case": "L4_spread_x",
+   "up_kN": 11.29,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "R1_rigid",
+   "up_kN": 10.34,
+   "down_kN": 0.0,
+   "along_kN": 0.28,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "R1_rigid",
+   "up_kN": 10.53,
+   "down_kN": 0.0,
+   "along_kN": -0.28,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "R4_equalised",
+   "up_kN": 11.03,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "R4_equalised",
+   "up_kN": 11.23,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "T1_roll_S",
+   "up_kN": 10.57,
+   "down_kN": 0.0,
+   "along_kN": 0.29,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "T1_roll_S",
+   "up_kN": 10.77,
+   "down_kN": 0.0,
+   "along_kN": -0.29,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "T2_roll_N",
+   "up_kN": 11.37,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "T2_roll_N",
+   "up_kN": 11.57,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "T3_pitch_W",
+   "up_kN": 11.2,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "T3_pitch_W",
+   "up_kN": 11.4,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "T4_pitch_E",
+   "up_kN": 10.74,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "T4_pitch_E",
+   "up_kN": 10.94,
+   "down_kN": 0.0,
+   "along_kN": -0.29,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "T5_SW",
+   "up_kN": 10.85,
+   "down_kN": 0.0,
+   "along_kN": 0.29,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "T5_SW",
+   "up_kN": 11.04,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "T6_SE",
+   "up_kN": 10.53,
+   "down_kN": 0.0,
+   "along_kN": 0.29,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "T6_SE",
+   "up_kN": 10.73,
+   "down_kN": 0.0,
+   "along_kN": -0.29,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "T7_NW",
+   "up_kN": 11.41,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "T7_NW",
+   "up_kN": 11.62,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "T8_NE",
+   "up_kN": 11.09,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "T8_NE",
+   "up_kN": 11.29,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "R2_springs",
+   "up_kN": 10.68,
+   "down_kN": 0.0,
+   "along_kN": 0.29,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "R2_springs",
+   "up_kN": 10.88,
+   "down_kN": 0.0,
+   "along_kN": -0.29,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "L1_squeeze_y",
+   "up_kN": 11.03,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "L1_squeeze_y",
+   "up_kN": 11.23,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "L2_spread_y",
+   "up_kN": 11.03,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "L2_spread_y",
+   "up_kN": 11.23,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "L3_squeeze_x",
+   "up_kN": 11.03,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "L3_squeeze_x",
+   "up_kN": 11.23,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT0",
+   "x": 7514.2,
+   "case": "L4_spread_x",
+   "up_kN": 11.03,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S3h",
+   "seat": "FOOT_S3h_SEAT1",
+   "x": 7572.3,
+   "case": "L4_spread_x",
+   "up_kN": 11.23,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "R1_rigid",
+   "up_kN": 11.32,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "R1_rigid",
+   "up_kN": 11.53,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "R4_equalised",
+   "up_kN": 10.97,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "R4_equalised",
+   "up_kN": 11.18,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "T1_roll_S",
+   "up_kN": 10.57,
+   "down_kN": 0.0,
+   "along_kN": 0.29,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "T1_roll_S",
+   "up_kN": 10.77,
+   "down_kN": 0.0,
+   "along_kN": -0.29,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "T2_roll_N",
+   "up_kN": 11.37,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "T2_roll_N",
+   "up_kN": 11.58,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "T3_pitch_W",
+   "up_kN": 11.2,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "T3_pitch_W",
+   "up_kN": 11.4,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "T4_pitch_E",
+   "up_kN": 10.74,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "T4_pitch_E",
+   "up_kN": 10.94,
+   "down_kN": 0.0,
+   "along_kN": -0.29,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "T5_SW",
+   "up_kN": 10.85,
+   "down_kN": 0.0,
+   "along_kN": 0.29,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "T5_SW",
+   "up_kN": 11.04,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "T6_SE",
+   "up_kN": 10.53,
+   "down_kN": 0.0,
+   "along_kN": 0.29,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "T6_SE",
+   "up_kN": 10.73,
+   "down_kN": 0.0,
+   "along_kN": -0.29,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "T7_NW",
+   "up_kN": 11.41,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "T7_NW",
+   "up_kN": 11.62,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "T8_NE",
+   "up_kN": 11.09,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "T8_NE",
+   "up_kN": 11.29,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "R2_springs",
+   "up_kN": 11.15,
+   "down_kN": 0.0,
+   "along_kN": 0.31,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "R2_springs",
+   "up_kN": 11.36,
+   "down_kN": 0.0,
+   "along_kN": -0.31,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "L1_squeeze_y",
+   "up_kN": 10.97,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "L1_squeeze_y",
+   "up_kN": 11.18,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "L2_spread_y",
+   "up_kN": 10.97,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "L2_spread_y",
+   "up_kN": 11.18,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "L3_squeeze_x",
+   "up_kN": 10.97,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "L3_squeeze_x",
+   "up_kN": 11.18,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT0",
+   "x": 11042.2,
+   "case": "L4_spread_x",
+   "up_kN": 10.97,
+   "down_kN": 0.0,
+   "along_kN": 0.3,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_S4h",
+   "seat": "FOOT_S4h_SEAT1",
+   "x": 11100.3,
+   "case": "L4_spread_x",
+   "up_kN": 11.18,
+   "down_kN": 0.0,
+   "along_kN": -0.3,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "R1_rigid",
+   "up_kN": 9.12,
+   "down_kN": 0.0,
+   "along_kN": 0.26,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "R1_rigid",
+   "up_kN": 9.3,
+   "down_kN": 0.0,
+   "along_kN": -0.26,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "R4_equalised",
+   "up_kN": 8.01,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "R4_equalised",
+   "up_kN": 8.17,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "T1_roll_S",
+   "up_kN": 8.39,
+   "down_kN": 0.0,
+   "along_kN": 0.23,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "T1_roll_S",
+   "up_kN": 8.55,
+   "down_kN": 0.0,
+   "along_kN": -0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "T2_roll_N",
+   "up_kN": 7.58,
+   "down_kN": 0.0,
+   "along_kN": 0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "T2_roll_N",
+   "up_kN": 7.73,
+   "down_kN": 0.0,
+   "along_kN": -0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "T3_pitch_W",
+   "up_kN": 7.83,
+   "down_kN": 0.0,
+   "along_kN": 0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "T3_pitch_W",
+   "up_kN": 7.97,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "T4_pitch_E",
+   "up_kN": 8.15,
+   "down_kN": 0.0,
+   "along_kN": 0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "T4_pitch_E",
+   "up_kN": 8.31,
+   "down_kN": 0.0,
+   "along_kN": -0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "T5_SW",
+   "up_kN": 8.15,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "T5_SW",
+   "up_kN": 8.31,
+   "down_kN": 0.0,
+   "along_kN": -0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "T6_SE",
+   "up_kN": 8.39,
+   "down_kN": 0.0,
+   "along_kN": 0.24,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "T6_SE",
+   "up_kN": 8.55,
+   "down_kN": 0.0,
+   "along_kN": -0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "T7_NW",
+   "up_kN": 7.59,
+   "down_kN": 0.0,
+   "along_kN": 0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "T7_NW",
+   "up_kN": 7.74,
+   "down_kN": 0.0,
+   "along_kN": -0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "T8_NE",
+   "up_kN": 7.81,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "T8_NE",
+   "up_kN": 7.96,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "R2_springs",
+   "up_kN": 8.93,
+   "down_kN": 0.0,
+   "along_kN": 0.25,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "R2_springs",
+   "up_kN": 9.1,
+   "down_kN": 0.0,
+   "along_kN": -0.25,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "L1_squeeze_y",
+   "up_kN": 8.01,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "L1_squeeze_y",
+   "up_kN": 8.17,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "L2_spread_y",
+   "up_kN": 8.01,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "L2_spread_y",
+   "up_kN": 8.17,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "L3_squeeze_x",
+   "up_kN": 8.01,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "L3_squeeze_x",
+   "up_kN": 8.17,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT0",
+   "x": 899.2,
+   "case": "L4_spread_x",
+   "up_kN": 8.01,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N1h",
+   "seat": "FOOT_N1h_SEAT1",
+   "x": 957.3,
+   "case": "L4_spread_x",
+   "up_kN": 8.17,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "R1_rigid",
+   "up_kN": 6.82,
+   "down_kN": 0.0,
+   "along_kN": 0.19,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "R1_rigid",
+   "up_kN": 6.95,
+   "down_kN": 0.0,
+   "along_kN": -0.19,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "R4_equalised",
+   "up_kN": 7.96,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "R4_equalised",
+   "up_kN": 8.11,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "T1_roll_S",
+   "up_kN": 8.39,
+   "down_kN": 0.0,
+   "along_kN": 0.23,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "T1_roll_S",
+   "up_kN": 8.55,
+   "down_kN": 0.0,
+   "along_kN": -0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "T2_roll_N",
+   "up_kN": 7.58,
+   "down_kN": 0.0,
+   "along_kN": 0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "T2_roll_N",
+   "up_kN": 7.73,
+   "down_kN": 0.0,
+   "along_kN": -0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "T3_pitch_W",
+   "up_kN": 7.83,
+   "down_kN": 0.0,
+   "along_kN": 0.21,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "T3_pitch_W",
+   "up_kN": 7.97,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "T4_pitch_E",
+   "up_kN": 8.15,
+   "down_kN": 0.0,
+   "along_kN": 0.23,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "T4_pitch_E",
+   "up_kN": 8.31,
+   "down_kN": 0.0,
+   "along_kN": -0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "T5_SW",
+   "up_kN": 8.15,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "T5_SW",
+   "up_kN": 8.31,
+   "down_kN": 0.0,
+   "along_kN": -0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "T6_SE",
+   "up_kN": 8.39,
+   "down_kN": 0.0,
+   "along_kN": 0.24,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "T6_SE",
+   "up_kN": 8.55,
+   "down_kN": 0.0,
+   "along_kN": -0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "T7_NW",
+   "up_kN": 7.59,
+   "down_kN": 0.0,
+   "along_kN": 0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "T7_NW",
+   "up_kN": 7.74,
+   "down_kN": 0.0,
+   "along_kN": -0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "T8_NE",
+   "up_kN": 7.81,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "T8_NE",
+   "up_kN": 7.96,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "R2_springs",
+   "up_kN": 7.01,
+   "down_kN": 0.0,
+   "along_kN": 0.2,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "R2_springs",
+   "up_kN": 7.15,
+   "down_kN": 0.0,
+   "along_kN": -0.2,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "L1_squeeze_y",
+   "up_kN": 7.96,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "L1_squeeze_y",
+   "up_kN": 8.11,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "L2_spread_y",
+   "up_kN": 7.96,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "L2_spread_y",
+   "up_kN": 8.11,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "L3_squeeze_x",
+   "up_kN": 7.96,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "L3_squeeze_x",
+   "up_kN": 8.11,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT0",
+   "x": 4427.2,
+   "case": "L4_spread_x",
+   "up_kN": 7.96,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N2h",
+   "seat": "FOOT_N2h_SEAT1",
+   "x": 4485.3,
+   "case": "L4_spread_x",
+   "up_kN": 8.11,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "R1_rigid",
+   "up_kN": 6.83,
+   "down_kN": 0.0,
+   "along_kN": 0.19,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "R1_rigid",
+   "up_kN": 6.96,
+   "down_kN": 0.0,
+   "along_kN": -0.19,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "R4_equalised",
+   "up_kN": 7.91,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "R4_equalised",
+   "up_kN": 8.06,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "T1_roll_S",
+   "up_kN": 8.27,
+   "down_kN": 0.0,
+   "along_kN": 0.23,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "T1_roll_S",
+   "up_kN": 8.42,
+   "down_kN": 0.0,
+   "along_kN": -0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "T2_roll_N",
+   "up_kN": 7.48,
+   "down_kN": 0.0,
+   "along_kN": 0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "T2_roll_N",
+   "up_kN": 7.62,
+   "down_kN": 0.0,
+   "along_kN": -0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "T3_pitch_W",
+   "up_kN": 8.04,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "T3_pitch_W",
+   "up_kN": 8.18,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "T4_pitch_E",
+   "up_kN": 7.71,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "T4_pitch_E",
+   "up_kN": 7.86,
+   "down_kN": 0.0,
+   "along_kN": -0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "T5_SW",
+   "up_kN": 8.28,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "T5_SW",
+   "up_kN": 8.43,
+   "down_kN": 0.0,
+   "along_kN": -0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "T6_SE",
+   "up_kN": 8.04,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "T6_SE",
+   "up_kN": 8.19,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "T7_NW",
+   "up_kN": 7.71,
+   "down_kN": 0.0,
+   "along_kN": 0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "T7_NW",
+   "up_kN": 7.85,
+   "down_kN": 0.0,
+   "along_kN": -0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "T8_NE",
+   "up_kN": 7.48,
+   "down_kN": 0.0,
+   "along_kN": 0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "T8_NE",
+   "up_kN": 7.62,
+   "down_kN": 0.0,
+   "along_kN": -0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "R2_springs",
+   "up_kN": 7.0,
+   "down_kN": 0.0,
+   "along_kN": 0.19,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "R2_springs",
+   "up_kN": 7.13,
+   "down_kN": 0.0,
+   "along_kN": -0.19,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "L1_squeeze_y",
+   "up_kN": 7.91,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "L1_squeeze_y",
+   "up_kN": 8.06,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "L2_spread_y",
+   "up_kN": 7.91,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "L2_spread_y",
+   "up_kN": 8.06,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "L3_squeeze_x",
+   "up_kN": 7.91,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "L3_squeeze_x",
+   "up_kN": 8.06,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT0",
+   "x": 7514.2,
+   "case": "L4_spread_x",
+   "up_kN": 7.91,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N3h",
+   "seat": "FOOT_N3h_SEAT1",
+   "x": 7572.3,
+   "case": "L4_spread_x",
+   "up_kN": 8.06,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "R1_rigid",
+   "up_kN": 8.97,
+   "down_kN": 0.0,
+   "along_kN": 0.25,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "R1_rigid",
+   "up_kN": 9.14,
+   "down_kN": 0.0,
+   "along_kN": -0.25,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "R4_equalised",
+   "up_kN": 7.86,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "R4_equalised",
+   "up_kN": 8.0,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "T1_roll_S",
+   "up_kN": 8.27,
+   "down_kN": 0.0,
+   "along_kN": 0.23,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "T1_roll_S",
+   "up_kN": 8.42,
+   "down_kN": 0.0,
+   "along_kN": -0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "T2_roll_N",
+   "up_kN": 7.48,
+   "down_kN": 0.0,
+   "along_kN": 0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "T2_roll_N",
+   "up_kN": 7.62,
+   "down_kN": 0.0,
+   "along_kN": -0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "T3_pitch_W",
+   "up_kN": 8.04,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "T3_pitch_W",
+   "up_kN": 8.18,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "T4_pitch_E",
+   "up_kN": 7.71,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "T4_pitch_E",
+   "up_kN": 7.86,
+   "down_kN": 0.0,
+   "along_kN": -0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "T5_SW",
+   "up_kN": 8.28,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "T5_SW",
+   "up_kN": 8.43,
+   "down_kN": 0.0,
+   "along_kN": -0.23,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "T6_SE",
+   "up_kN": 8.04,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "T6_SE",
+   "up_kN": 8.19,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "T7_NW",
+   "up_kN": 7.71,
+   "down_kN": 0.0,
+   "along_kN": 0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "T7_NW",
+   "up_kN": 7.85,
+   "down_kN": 0.0,
+   "along_kN": -0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "T8_NE",
+   "up_kN": 7.48,
+   "down_kN": 0.0,
+   "along_kN": 0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "T8_NE",
+   "up_kN": 7.62,
+   "down_kN": 0.0,
+   "along_kN": -0.21,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "R2_springs",
+   "up_kN": 8.8,
+   "down_kN": 0.0,
+   "along_kN": 0.24,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "R2_springs",
+   "up_kN": 8.96,
+   "down_kN": 0.0,
+   "along_kN": -0.24,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "L1_squeeze_y",
+   "up_kN": 7.86,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "L1_squeeze_y",
+   "up_kN": 8.0,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "L2_spread_y",
+   "up_kN": 7.86,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "L2_spread_y",
+   "up_kN": 8.0,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "L3_squeeze_x",
+   "up_kN": 7.86,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "L3_squeeze_x",
+   "up_kN": 8.0,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT0",
+   "x": 11042.2,
+   "case": "L4_spread_x",
+   "up_kN": 7.86,
+   "down_kN": 0.0,
+   "along_kN": 0.22,
+   "across_kN": -0.0
+  },
+  {
+   "cradle": "FOOT_N4h",
+   "seat": "FOOT_N4h_SEAT1",
+   "x": 11100.3,
+   "case": "L4_spread_x",
+   "up_kN": 8.0,
+   "down_kN": 0.0,
+   "along_kN": -0.22,
+   "across_kN": 0.0
+  }
+ ]
+}

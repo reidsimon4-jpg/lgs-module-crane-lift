@@ -1,0 +1,28 @@
+ 0.70     11.74 /    16.85 kN      Hanger strap pair (2 x 50 x 1.5 G450, one on strap tension per strap (gross yield / net section at a 14 mm hole)
+ 0.58     11.74 /    20.27 kN      Hanger strap pair (2 x 50 x 1.5 G450, one on 2 x M12 each end, bearing on the 1.5 mm strap
+ 0.43     11.74 /    27.22 kN      Hanger strap pair (2 x 50 x 1.5 G450, one on tear-out: end bolt e = 30 mm, inner bolt clear distance 40 - 7 = 33 mm
+ 0.19      5.87 /    30.24 kN      Hanger strap pair (2 x 50 x 1.5 G450, one on M12 8.8 bolt shear, single plane, threads included
+ 0.71     11.79 /    16.72 kN      Cradle (two 3 mm G450 cheek plates joined un bearing under one truss joint on a 3 x 40 x 89 packer: crippling of the chord's 
+ 0.71    280.07 /   393.22 N.m     Cradle (two 3 mm G450 cheek plates joined un M16 8.8 bearing bolt bending between the cheeks (95 mm span), packer load as a p
+ 0.10      5.90 /    57.14 kN      Cradle (two 3 mm G450 cheek plates joined un M16 8.8 bearing bolt shear at each cheek (2 planes share the seat load)
+ 0.19      5.90 /    31.14 kN      Cradle (two 3 mm G450 cheek plates joined un M16 bearing bolt on the 3 mm cheek (each cheek takes half)
+ 0.27      5.90 /    21.60 kN      Cradle (two 3 mm G450 cheek plates joined un tear-out of the cheek below the bearing bolt, e = 25 mm
+ 0.05      0.33 /     6.37 kN      Cradle (two 3 mm G450 cheek plates joined un cheek screws at the screwed seat, 2 per cheek: along-truss shear with any uplift
+ 0.25     11.74 /    46.70 kN      Cradle (two 3 mm G450 cheek plates joined un strap bolts: 2 x M12 per strap, bearing on the 3 mm cheek
+ 0.00      0.00 /    23.09 kN      Cradle (two 3 mm G450 cheek plates joined un sideways force at one seat, carried by a cheek bearing on the chord flange over 
+ 0.13     23.73 /   178.56 kN      Lifting head (saddle: folded 3 mm G450 box o M20 8.8 lifting pin, double shear
+ 0.30     23.73 /    77.84 kN      Lifting head (saddle: folded 3 mm G450 box o pin bearing on the two 3 mm cheeks (the straps bolt to the cheeks separately)
+ 0.31     23.73 /    77.76 kN      Lifting head (saddle: folded 3 mm G450 box o tear-out above the pin, e = 45 mm, 2 cheeks of 3 mm
+ 0.25     11.74 /    46.70 kN      Lifting head (saddle: folded 3 mm G450 box o strap bolts at the head: 2 x M12 per strap, bearing on the 3 mm cheek
+ 0.21      1.13 /     5.46 kN      Lifting head (saddle: folded 3 mm G450 box o head bearing on the roof edge truss face (no fasteners; every head keyed along t
+ 0.13    421.33 /  3316.14 N.m     Lifting head (saddle: folded 3 mm G450 box o sideways load at the lug (10.5 % of the sling force, 6 deg drop tolerance), box 
+ 0.15      1.22 /     7.97 kN      Truss-end cleat (folded 1.5 mm G450 angle ea chord pull at the truss end, through the cleat leg screws in shear
+ 0.58      4.59 /     7.97 kN      Truss-end cleat (folded 1.5 mm G450 angle ea end reaction through the end vertical (per tie of the model)
+ 0.90      5.76 /     6.37 kN      Tie T2 (40 x 1.0 G300 strap on the side face wall plate to edge truss tension
+ 0.34      1.21 /     3.54 kN      Tie T3 (30 x 0.8 G300 strap across a wall se seam stud pull-apart
+ 0.16     14.38 /    88.92 kN      Joint gusset (1.5 mm G450 plate each face, 3 largest gusseted joint force against the plate pair (100 mm wide) in tension
+ 0.37      2.02 /     5.53 kN      Plane bracing (30 x 1.0 G300 strap, tensione strap tension (tension diagonal carries both halves)
+ 0.42      2.02 /     4.78 kN      Plane bracing (30 x 1.0 G300 strap, tensione end fixing: 3 screws into the edge truss chord
+ 0.05      0.17 /     3.54 kN      Bridging (C89 0.95 noggings at truss mid-spa largest nogging force (from the model), 2 screws each end
+ 0.70      7.85 /    11.20 kN      Stud bearing on the bottom track over the fl largest stud compression in the design cases (studs seated, end gap at most 1 mm
+rigging: {'max_static_drop_kN': np.float64(10.49), 'max_static_drop_t': np.float64(1.07), 'note': 'largest drop force in the design cases x weight 1.03 x CoG 1.05 (no dynamic factor): drop gear WLL at least this. Interface: round sling eye directly over the free-turning 40 mm sleeve on the M20 pin inside the head; shackles only at the beam ends, sling in the bow. The rig (beams, slings, shackles) is lifting equipment: designed, proof tested and rated.'}

@@ -1,0 +1,2983 @@
+{
+ "limit": 0.9,
+ "gusset_joints": 227,
+ "by_panel": {
+  "W7": 2,
+  "W4": 7,
+  "W1": 7,
+  "NFT1": 25,
+  "NFT2": 14,
+  "NFT4": 16,
+  "NFT5": 8,
+  "NFT6": 9,
+  "NFT7": 8,
+  "NFT8": 8,
+  "NFT9": 9,
+  "NFT10": 8,
+  "NFT11": 8,
+  "NFT12": 9,
+  "NFT13": 10,
+  "NFT14": 9,
+  "NFT15": 8,
+  "NFT16": 8,
+  "NFT17": 9,
+  "NFT18": 8,
+  "NFT19": 8,
+  "NFT20": 9,
+  "NFT21": 8,
+  "NFT22": 12
+ },
+ "joints": {
+  "J-6d55fdaec65ffe0fc3ae3097": {
+   "util_4": 1.0,
+   "demand_kN": 3.56,
+   "case": "T7_NW",
+   "panel": "W7",
+   "member": "NOGGIN",
+   "xyz": [
+    3620.5,
+    44.5,
+    1348.5
+   ],
+   "source": "lift"
+  },
+  "J-aaaccf1500bb2443176cc7b3": {
+   "util_4": 0.96,
+   "demand_kN": 3.22,
+   "case": "T7_NW",
+   "panel": "W7",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    4201.5,
+    44.5,
+    654.9
+   ],
+   "source": "lift"
+  },
+  "J-659e2b92ce16a7704829f98a": {
+   "util_4": 1.09,
+   "demand_kN": 4.55,
+   "case": "T6_SE",
+   "panel": "W4",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    11979.5,
+    3255.5,
+    1290.9
+   ],
+   "source": "lift"
+  },
+  "J-6b7f5dbb9a26d4576cb0d5a3": {
+   "util_4": 1.1,
+   "demand_kN": 4.59,
+   "case": "T6_SE",
+   "panel": "W4",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    11979.5,
+    3255.5,
+    1409.1
+   ],
+   "source": "lift"
+  },
+  "J-5e76f0e560afd1d15df2487a": {
+   "util_4": 1.13,
+   "demand_kN": 5.39,
+   "case": "T6_SE",
+   "panel": "W4",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    11922.2,
+    3255.5,
+    20.5
+   ],
+   "source": "lift"
+  },
+  "J-db024a3db3f03daaf704272e": {
+   "util_4": 1.49,
+   "demand_kN": 5.39,
+   "case": "T6_SE",
+   "panel": "W4",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    11398.5,
+    3255.5,
+    655.1
+   ],
+   "source": "lift"
+  },
+  "J-e86cce8f80a1b7be6ca48b13": {
+   "util_4": 1.15,
+   "demand_kN": 5.46,
+   "case": "T6_SE",
+   "panel": "W4",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    11922.2,
+    3255.5,
+    2679.5
+   ],
+   "source": "lift"
+  },
+  "J-7e9b61d02468b2843abbe03d": {
+   "util_4": 1.51,
+   "demand_kN": 5.46,
+   "case": "T6_SE",
+   "panel": "W4",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    11398.5,
+    3255.5,
+    2044.9
+   ],
+   "source": "lift"
+  },
+  "J-379786762cc057aeb89c1bfe": {
+   "util_4": 0.93,
+   "demand_kN": 5.9,
+   "case": "T6_SE",
+   "panel": "W4",
+   "member": "STUD",
+   "xyz": [
+    11398.5,
+    3255.5,
+    2679.5
+   ],
+   "source": "lift"
+  },
+  "J-7f8f0c092b6551d66066bd13": {
+   "util_4": 1.04,
+   "demand_kN": 4.37,
+   "case": "T5_SW",
+   "panel": "W1",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    20.5,
+    3255.5,
+    1290.9
+   ],
+   "source": "lift"
+  },
+  "J-c3883b8d92b1a301a2ce12c3": {
+   "util_4": 1.06,
+   "demand_kN": 4.41,
+   "case": "T5_SW",
+   "panel": "W1",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    20.5,
+    3255.5,
+    1409.1
+   ],
+   "source": "lift"
+  },
+  "J-cb56a11fc47da236d69019a6": {
+   "util_4": 1.09,
+   "demand_kN": 5.2,
+   "case": "T5_SW",
+   "panel": "W1",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    77.8,
+    3255.5,
+    20.5
+   ],
+   "source": "lift"
+  },
+  "J-ff6cefddda5726f04bbb1130": {
+   "util_4": 1.44,
+   "demand_kN": 5.2,
+   "case": "T5_SW",
+   "panel": "W1",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    601.5,
+    3255.5,
+    655.1
+   ],
+   "source": "lift"
+  },
+  "J-49566a760f999ef35ea97453": {
+   "util_4": 1.11,
+   "demand_kN": 5.27,
+   "case": "T5_SW",
+   "panel": "W1",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    77.8,
+    3255.5,
+    2679.5
+   ],
+   "source": "lift"
+  },
+  "J-b55466b54ea4399cbbcbcd55": {
+   "util_4": 1.46,
+   "demand_kN": 5.27,
+   "case": "T5_SW",
+   "panel": "W1",
+   "member": "DIAGONAL BRACE",
+   "xyz": [
+    601.5,
+    3255.5,
+    2044.9
+   ],
+   "source": "lift"
+  },
+  "J-a1b689d7959317121a454e8c": {
+   "util_4": 0.94,
+   "demand_kN": 6.0,
+   "case": "T5_SW",
+   "panel": "W1",
+   "member": "STUD",
+   "xyz": [
+    601.5,
+    3255.5,
+    2679.5
+   ],
+   "source": "lift"
+  },
+  "J-86f3aa62dd3757f986d2dfbc": {
+   "util_4": 1.36,
+   "demand_kN": 11.57,
+   "case": "T6_SE",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    1122.8,
+    44.5,
+    -21.3
+   ],
+   "source": "lift"
+  },
+  "J-f42ae56e522db48032bae44a": {
+   "util_4": 1.51,
+   "demand_kN": 11.57,
+   "case": "T6_SE",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    957.3,
+    44.5,
+    -280.3
+   ],
+   "source": "lift"
+  },
+  "J-5059244632028866580c4789": {
+   "util_4": 1.59,
+   "demand_kN": 13.5,
+   "case": "T8_NE",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    4650.8,
+    44.5,
+    -21.3
+   ],
+   "source": "lift"
+  },
+  "J-613360677310a4d4e2709e00": {
+   "util_4": 1.76,
+   "demand_kN": 13.5,
+   "case": "T8_NE",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    4485.3,
+    44.5,
+    -280.3
+   ],
+   "source": "lift"
+  },
+  "J-47f079dbc18fa66f4985d747": {
+   "util_4": 1.51,
+   "demand_kN": 12.84,
+   "case": "T2_roll_N",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    7737.8,
+    44.5,
+    -21.3
+   ],
+   "source": "lift"
+  },
+  "J-0e8e4231406a73d85c54f587": {
+   "util_4": 1.68,
+   "demand_kN": 12.84,
+   "case": "T2_roll_N",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    7572.3,
+    44.5,
+    -280.3
+   ],
+   "source": "lift"
+  },
+  "J-0cd4e0d277745a7642db9f7e": {
+   "util_4": 1.63,
+   "demand_kN": 13.84,
+   "case": "T2_roll_N",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    11265.8,
+    44.5,
+    -21.3
+   ],
+   "source": "lift"
+  },
+  "J-bf4605bf93f80f29bd4a1a50": {
+   "util_4": 1.81,
+   "demand_kN": 13.84,
+   "case": "T2_roll_N",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    11100.3,
+    44.5,
+    -280.3
+   ],
+   "source": "lift"
+  },
+  "J-ae1ebe4c5a54104cbe423732": {
+   "util_4": 1.88,
+   "demand_kN": 14.38,
+   "case": "T2_roll_N",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    733.7,
+    44.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-8f1777297c8c9c7736f98313": {
+   "util_4": 1.69,
+   "demand_kN": 14.38,
+   "case": "T2_roll_N",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    899.2,
+    44.5,
+    -279.5
+   ],
+   "source": "lift"
+  },
+  "J-11277661443d37d5269c4131": {
+   "util_4": 0.92,
+   "demand_kN": 7.06,
+   "case": "T2_roll_N",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    1174.7,
+    44.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-7d6c848ecc034ae130eab969": {
+   "util_4": 1.68,
+   "demand_kN": 12.83,
+   "case": "T2_roll_N",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    4261.7,
+    44.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-af3ccf782843e8b42fdec550": {
+   "util_4": 1.51,
+   "demand_kN": 12.83,
+   "case": "T2_roll_N",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    4427.2,
+    44.5,
+    -279.5
+   ],
+   "source": "lift"
+  },
+  "J-a565a905ac1ed2516babf0f6": {
+   "util_4": 0.93,
+   "demand_kN": 7.09,
+   "case": "T3_pitch_W",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    6907.7,
+    44.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-fa162de3a1b0fbf4426c35fc": {
+   "util_4": 1.74,
+   "demand_kN": 13.34,
+   "case": "T7_NW",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    7348.7,
+    44.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-4c70f085462707014265f2e5": {
+   "util_4": 1.57,
+   "demand_kN": 13.34,
+   "case": "T7_NW",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    7514.2,
+    44.5,
+    -279.5
+   ],
+   "source": "lift"
+  },
+  "J-7d4bd651275dc679786fcca0": {
+   "util_4": 1.02,
+   "demand_kN": 7.81,
+   "case": "T3_pitch_W",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    7789.7,
+    44.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-4eba868add5209f7eae40254": {
+   "util_4": 0.92,
+   "demand_kN": 7.81,
+   "case": "T3_pitch_W",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    7955.2,
+    44.5,
+    -279.5
+   ],
+   "source": "lift"
+  },
+  "J-7b12dc3647606404ac66783a": {
+   "util_4": 1.58,
+   "demand_kN": 12.12,
+   "case": "R1_rigid",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    10876.7,
+    44.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-cbcbe0469d673fc9fe3ed582": {
+   "util_4": 1.43,
+   "demand_kN": 12.12,
+   "case": "R1_rigid",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    11042.2,
+    44.5,
+    -279.5
+   ],
+   "source": "lift"
+  },
+  "J-7c576f77e9c30ad03d9153dd": {
+   "util_4": 0.95,
+   "demand_kN": 7.31,
+   "case": "T7_NW",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    11317.7,
+    44.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-a17e798326684214f235fdf1": {
+   "util_4": 1.06,
+   "demand_kN": 8.08,
+   "case": "T7_NW",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    4702.7,
+    44.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-a7c754eeed1bedd6db9dc514": {
+   "util_4": 0.95,
+   "demand_kN": 8.08,
+   "case": "T7_NW",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    4868.2,
+    44.5,
+    -279.5
+   ],
+   "source": "lift"
+  },
+  "J-3fc434fb9d0e6dbb0e6f66ad": {
+   "util_4": 1.28,
+   "demand_kN": 9.81,
+   "case": "T3_pitch_W",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    7131.3,
+    44.5,
+    -280.3
+   ],
+   "source": "lift"
+  },
+  "J-a9fe640cf0674aca3231be5b": {
+   "util_4": 1.16,
+   "demand_kN": 9.81,
+   "case": "T3_pitch_W",
+   "panel": "NFT1",
+   "member": "WEB",
+   "xyz": [
+    7296.8,
+    44.5,
+    -21.3
+   ],
+   "source": "lift"
+  },
+  "J-1a13cf217662d84d96462bc9": {
+   "util_4": 0.92,
+   "demand_kN": 7.06,
+   "case": "R1_rigid",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    957.3,
+    3255.5,
+    -280.3
+   ],
+   "source": "lift"
+  },
+  "J-e10cd42bfbad068e6a755a77": {
+   "util_4": 1.17,
+   "demand_kN": 9.95,
+   "case": "T6_SE",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    4650.8,
+    3255.5,
+    -21.3
+   ],
+   "source": "lift"
+  },
+  "J-9d3fbbc9f9834cb6dd4ba60f": {
+   "util_4": 1.3,
+   "demand_kN": 9.95,
+   "case": "T6_SE",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    4485.3,
+    3255.5,
+    -280.3
+   ],
+   "source": "lift"
+  },
+  "J-9bb20705648c76009e6508c3": {
+   "util_4": 1.15,
+   "demand_kN": 9.72,
+   "case": "T1_roll_S",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    7737.8,
+    3255.5,
+    -21.3
+   ],
+   "source": "lift"
+  },
+  "J-7fa8662046687869e1f557a0": {
+   "util_4": 1.27,
+   "demand_kN": 9.72,
+   "case": "T1_roll_S",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    7572.3,
+    3255.5,
+    -280.3
+   ],
+   "source": "lift"
+  },
+  "J-b25ebb48040db9d671d3a518": {
+   "util_4": 1.57,
+   "demand_kN": 13.36,
+   "case": "R1_rigid",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    11265.8,
+    3255.5,
+    -21.3
+   ],
+   "source": "lift"
+  },
+  "J-d4f88c7f929b3e07de2afac9": {
+   "util_4": 1.74,
+   "demand_kN": 13.36,
+   "case": "R1_rigid",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    11100.3,
+    3255.5,
+    -280.3
+   ],
+   "source": "lift"
+  },
+  "J-5c5cdf90ed54e858d45158ea": {
+   "util_4": 1.78,
+   "demand_kN": 13.61,
+   "case": "R1_rigid",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    733.7,
+    3255.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-93f9d62e0bf33317d8ba060c": {
+   "util_4": 1.6,
+   "demand_kN": 13.61,
+   "case": "R1_rigid",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    899.2,
+    3255.5,
+    -279.5
+   ],
+   "source": "lift"
+  },
+  "J-0ed03008458707d91383fb9a": {
+   "util_4": 1.29,
+   "demand_kN": 9.86,
+   "case": "T1_roll_S",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    4261.7,
+    3255.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-d73069076d695110a8c52321": {
+   "util_4": 1.16,
+   "demand_kN": 9.86,
+   "case": "T1_roll_S",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    4427.2,
+    3255.5,
+    -279.5
+   ],
+   "source": "lift"
+  },
+  "J-4989b1106c98f30420d6fa32": {
+   "util_4": 1.28,
+   "demand_kN": 9.79,
+   "case": "T5_SW",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    7348.7,
+    3255.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-23502311d478678a3b741915": {
+   "util_4": 1.15,
+   "demand_kN": 9.79,
+   "case": "T5_SW",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    7514.2,
+    3255.5,
+    -279.5
+   ],
+   "source": "lift"
+  },
+  "J-5f88e41a9eda6fd9b9379299": {
+   "util_4": 0.93,
+   "demand_kN": 7.14,
+   "case": "R1_rigid",
+   "panel": "NFT2",
+   "member": "WEB",
+   "xyz": [
+    10876.7,
+    3255.5,
+    -20.5
+   ],
+   "source": "lift"
+  },
+  "J-2efc03958d65bfba2e460b48": {
+   "util_4": 1.11,
+   "demand_kN": 7.05,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    109.5,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-155416821c2536444fe528af": {
+   "util_4": 1.11,
+   "demand_kN": 7.05,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    109.5,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-46d3bfbf27e4a8d4696a022f": {
+   "util_4": 1.31,
+   "demand_kN": 8.37,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-76cdfd56aecf5454a5f1f14a": {
+   "util_4": 1.38,
+   "demand_kN": 8.37,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-ca065f4630daa1417f897084": {
+   "util_4": 1.06,
+   "demand_kN": 6.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-6a77dce08309ba4e9001c9b2": {
+   "util_4": 1.11,
+   "demand_kN": 6.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-d7c248c1dba000c51c6aa944": {
+   "util_4": 1.1,
+   "demand_kN": 6.69,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-24a112ebeda2bafaee581162": {
+   "util_4": 1.05,
+   "demand_kN": 6.69,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-79c26dcc7844eadc53e38e2f": {
+   "util_4": 1.37,
+   "demand_kN": 8.31,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-33da3f54ecad4795da1e4ed8": {
+   "util_4": 1.3,
+   "demand_kN": 8.31,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-4e5684e73b0468afe36c5678": {
+   "util_4": 0.91,
+   "demand_kN": 5.81,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    758.3,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-ff7bb3d5d4994b4f0a14b9bd": {
+   "util_4": 0.96,
+   "demand_kN": 5.81,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    597.0,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-7a27f57698e2b3f6ec6ce332": {
+   "util_4": 0.96,
+   "demand_kN": 5.82,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    2541.2,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-bd3d6a1a5439703020dbd16e": {
+   "util_4": 0.91,
+   "demand_kN": 5.82,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    2702.5,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-040aee05f96d43b6f93fc44c": {
+   "util_4": 0.95,
+   "demand_kN": 6.05,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    3190.5,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-dcde0d86689826b67725260c": {
+   "util_4": 0.95,
+   "demand_kN": 6.05,
+   "case": "service ULS on bearers",
+   "panel": "NFT4",
+   "member": "WEB",
+   "xyz": [
+    600.0,
+    3190.5,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-d7d76f826deee1b1de08cf45": {
+   "util_4": 1.15,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT5",
+   "member": "WEB",
+   "xyz": [
+    1200.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-c22fe97c3515c465f188dd5b": {
+   "util_4": 1.21,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT5",
+   "member": "WEB",
+   "xyz": [
+    1200.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-3349a6a5fa77661d86b4b142": {
+   "util_4": 0.91,
+   "demand_kN": 5.79,
+   "case": "service ULS on bearers",
+   "panel": "NFT5",
+   "member": "WEB",
+   "xyz": [
+    1200.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-ec39205a09829c46268fc6d0": {
+   "util_4": 0.95,
+   "demand_kN": 5.79,
+   "case": "service ULS on bearers",
+   "panel": "NFT5",
+   "member": "WEB",
+   "xyz": [
+    1200.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-468c21cf09d1c8693b5ee676": {
+   "util_4": 0.95,
+   "demand_kN": 5.74,
+   "case": "service ULS on bearers",
+   "panel": "NFT5",
+   "member": "WEB",
+   "xyz": [
+    1200.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-d7dc256b93b133a5f4fd470a": {
+   "util_4": 0.9,
+   "demand_kN": 5.74,
+   "case": "service ULS on bearers",
+   "panel": "NFT5",
+   "member": "WEB",
+   "xyz": [
+    1200.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-b29393532bd7867a7c7ced0e": {
+   "util_4": 1.2,
+   "demand_kN": 7.3,
+   "case": "service ULS on bearers",
+   "panel": "NFT5",
+   "member": "WEB",
+   "xyz": [
+    1200.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-27600652045fdc99d77829d2": {
+   "util_4": 1.15,
+   "demand_kN": 7.3,
+   "case": "service ULS on bearers",
+   "panel": "NFT5",
+   "member": "WEB",
+   "xyz": [
+    1200.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-c51910e423e88561f8996b05": {
+   "util_4": 0.99,
+   "demand_kN": 6.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT6",
+   "member": "WEB",
+   "xyz": [
+    1800.0,
+    109.5,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-5291b58eb1c863c52d447855": {
+   "util_4": 0.99,
+   "demand_kN": 6.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT6",
+   "member": "WEB",
+   "xyz": [
+    1800.0,
+    109.5,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-f2c0df7d7fe51617702037b3": {
+   "util_4": 1.16,
+   "demand_kN": 7.39,
+   "case": "service ULS on bearers",
+   "panel": "NFT6",
+   "member": "WEB",
+   "xyz": [
+    1800.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-f122aaa4a174853828acc113": {
+   "util_4": 1.22,
+   "demand_kN": 7.39,
+   "case": "service ULS on bearers",
+   "panel": "NFT6",
+   "member": "WEB",
+   "xyz": [
+    1800.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-a248576e2843873c64d7d9e2": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT6",
+   "member": "WEB",
+   "xyz": [
+    1800.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-9804def5a5bdad981d337adf": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT6",
+   "member": "WEB",
+   "xyz": [
+    1800.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-f08336e1981ab06babfbc7c1": {
+   "util_4": 0.94,
+   "demand_kN": 5.69,
+   "case": "service ULS on bearers",
+   "panel": "NFT6",
+   "member": "WEB",
+   "xyz": [
+    1800.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-21347b78f6165edcafda1b58": {
+   "util_4": 1.21,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT6",
+   "member": "WEB",
+   "xyz": [
+    1800.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-3f39cc0d1f0accc3403e2286": {
+   "util_4": 1.15,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT6",
+   "member": "WEB",
+   "xyz": [
+    1800.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-94afcb87f7f23c352717c73e": {
+   "util_4": 1.15,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT7",
+   "member": "WEB",
+   "xyz": [
+    2400.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-6bf0630929d1ccefa71cdb1b": {
+   "util_4": 1.21,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT7",
+   "member": "WEB",
+   "xyz": [
+    2400.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-359a4e3771e4e6ec683df9b7": {
+   "util_4": 0.9,
+   "demand_kN": 5.75,
+   "case": "service ULS on bearers",
+   "panel": "NFT7",
+   "member": "WEB",
+   "xyz": [
+    2400.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-f62007f7a0e304fd4754f955": {
+   "util_4": 0.95,
+   "demand_kN": 5.75,
+   "case": "service ULS on bearers",
+   "panel": "NFT7",
+   "member": "WEB",
+   "xyz": [
+    2400.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-0e9bac19f6849a9474d0a9c9": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT7",
+   "member": "WEB",
+   "xyz": [
+    2400.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-238aec5add74ed348229de62": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT7",
+   "member": "WEB",
+   "xyz": [
+    2400.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-91f2837231ac995da919deed": {
+   "util_4": 1.21,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT7",
+   "member": "WEB",
+   "xyz": [
+    2400.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-88c308910ad305018fbe0369": {
+   "util_4": 1.15,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT7",
+   "member": "WEB",
+   "xyz": [
+    2400.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-2382bf8e0a68fad75e9df558": {
+   "util_4": 1.15,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT8",
+   "member": "WEB",
+   "xyz": [
+    3000.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-9b967ab50d38b7d40f8434c8": {
+   "util_4": 1.2,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT8",
+   "member": "WEB",
+   "xyz": [
+    3000.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-6f5351390cd8984eb9a0a0b3": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT8",
+   "member": "WEB",
+   "xyz": [
+    3000.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-06d79e77c03ef1d9f2932f50": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT8",
+   "member": "WEB",
+   "xyz": [
+    3000.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-211f981c7da53c0e253d8356": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT8",
+   "member": "WEB",
+   "xyz": [
+    3000.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-8dd08eb4c1d5a0ed7a5fae82": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT8",
+   "member": "WEB",
+   "xyz": [
+    3000.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-aec1e4682a258a772331147d": {
+   "util_4": 1.21,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT8",
+   "member": "WEB",
+   "xyz": [
+    3000.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-7644ce444fe55b38abe80c19": {
+   "util_4": 1.15,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT8",
+   "member": "WEB",
+   "xyz": [
+    3000.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-965eab8e3b1adc40961685b3": {
+   "util_4": 0.98,
+   "demand_kN": 6.23,
+   "case": "service ULS on bearers",
+   "panel": "NFT9",
+   "member": "WEB",
+   "xyz": [
+    3600.0,
+    109.5,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-2f86d46c331af1cc2963f63d": {
+   "util_4": 0.98,
+   "demand_kN": 6.23,
+   "case": "service ULS on bearers",
+   "panel": "NFT9",
+   "member": "WEB",
+   "xyz": [
+    3600.0,
+    109.5,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-53c69947cd0e7530b37803f4": {
+   "util_4": 1.16,
+   "demand_kN": 7.38,
+   "case": "service ULS on bearers",
+   "panel": "NFT9",
+   "member": "WEB",
+   "xyz": [
+    3600.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-a4453b81453eebcd737c3152": {
+   "util_4": 1.21,
+   "demand_kN": 7.38,
+   "case": "service ULS on bearers",
+   "panel": "NFT9",
+   "member": "WEB",
+   "xyz": [
+    3600.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-080bd849889428bea4756d41": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT9",
+   "member": "WEB",
+   "xyz": [
+    3600.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-319c04982e40fc5237991b31": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT9",
+   "member": "WEB",
+   "xyz": [
+    3600.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-2c11eb4996b0000cf55f35f0": {
+   "util_4": 0.94,
+   "demand_kN": 5.7,
+   "case": "service ULS on bearers",
+   "panel": "NFT9",
+   "member": "WEB",
+   "xyz": [
+    3600.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-3966c201fb0344063840d909": {
+   "util_4": 1.21,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT9",
+   "member": "WEB",
+   "xyz": [
+    3600.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-87931bba35e697a674874f06": {
+   "util_4": 1.15,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT9",
+   "member": "WEB",
+   "xyz": [
+    3600.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-6159f442c6ab0cc18f93f865": {
+   "util_4": 1.15,
+   "demand_kN": 7.34,
+   "case": "service ULS on bearers",
+   "panel": "NFT10",
+   "member": "WEB",
+   "xyz": [
+    4200.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-ef02679dfcb02039b819a59b": {
+   "util_4": 1.21,
+   "demand_kN": 7.34,
+   "case": "service ULS on bearers",
+   "panel": "NFT10",
+   "member": "WEB",
+   "xyz": [
+    4200.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-b2503b72d7614ed8bef1c51e": {
+   "util_4": 0.91,
+   "demand_kN": 5.78,
+   "case": "service ULS on bearers",
+   "panel": "NFT10",
+   "member": "WEB",
+   "xyz": [
+    4200.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-c83c646adbeabb4be501d698": {
+   "util_4": 0.95,
+   "demand_kN": 5.78,
+   "case": "service ULS on bearers",
+   "panel": "NFT10",
+   "member": "WEB",
+   "xyz": [
+    4200.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-d5220b0815546c44a2e214c8": {
+   "util_4": 0.95,
+   "demand_kN": 5.74,
+   "case": "service ULS on bearers",
+   "panel": "NFT10",
+   "member": "WEB",
+   "xyz": [
+    4200.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-ea5bd12755cad0227670b5fe": {
+   "util_4": 0.9,
+   "demand_kN": 5.74,
+   "case": "service ULS on bearers",
+   "panel": "NFT10",
+   "member": "WEB",
+   "xyz": [
+    4200.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-7681f08a61ac8c6a42aa2d09": {
+   "util_4": 1.2,
+   "demand_kN": 7.31,
+   "case": "service ULS on bearers",
+   "panel": "NFT10",
+   "member": "WEB",
+   "xyz": [
+    4200.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-38dad91b85348b2c20141c66": {
+   "util_4": 1.15,
+   "demand_kN": 7.31,
+   "case": "service ULS on bearers",
+   "panel": "NFT10",
+   "member": "WEB",
+   "xyz": [
+    4200.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-c192a4dedb80199a129578ea": {
+   "util_4": 1.15,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT11",
+   "member": "WEB",
+   "xyz": [
+    4800.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-1e8c34a6820cb101eb965c07": {
+   "util_4": 1.2,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT11",
+   "member": "WEB",
+   "xyz": [
+    4800.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-bc51a9fbadd613aaccf159aa": {
+   "util_4": 0.91,
+   "demand_kN": 5.8,
+   "case": "service ULS on bearers",
+   "panel": "NFT11",
+   "member": "WEB",
+   "xyz": [
+    4800.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-d625b31dec410907c080e5eb": {
+   "util_4": 0.96,
+   "demand_kN": 5.8,
+   "case": "service ULS on bearers",
+   "panel": "NFT11",
+   "member": "WEB",
+   "xyz": [
+    4800.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-658ebf5fe076d89310352c05": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT11",
+   "member": "WEB",
+   "xyz": [
+    4800.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-4f125485670d147b37d469c9": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT11",
+   "member": "WEB",
+   "xyz": [
+    4800.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-acbd578f12aabfdd2c827f31": {
+   "util_4": 1.2,
+   "demand_kN": 7.29,
+   "case": "service ULS on bearers",
+   "panel": "NFT11",
+   "member": "WEB",
+   "xyz": [
+    4800.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-0cb1ae7a50f6880e89a986dc": {
+   "util_4": 1.14,
+   "demand_kN": 7.29,
+   "case": "service ULS on bearers",
+   "panel": "NFT11",
+   "member": "WEB",
+   "xyz": [
+    4800.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-27818b23bca7c8ee1746ddc0": {
+   "util_4": 1.0,
+   "demand_kN": 6.34,
+   "case": "service ULS on bearers",
+   "panel": "NFT12",
+   "member": "WEB",
+   "xyz": [
+    5400.0,
+    109.5,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-53dbf60bf8ac5e0cadef6ca9": {
+   "util_4": 1.0,
+   "demand_kN": 6.34,
+   "case": "service ULS on bearers",
+   "panel": "NFT12",
+   "member": "WEB",
+   "xyz": [
+    5400.0,
+    109.5,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-d03cd2148eb4996213b19788": {
+   "util_4": 1.16,
+   "demand_kN": 7.38,
+   "case": "service ULS on bearers",
+   "panel": "NFT12",
+   "member": "WEB",
+   "xyz": [
+    5400.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-2276a9ed98d9248c3e57b26a": {
+   "util_4": 1.22,
+   "demand_kN": 7.38,
+   "case": "service ULS on bearers",
+   "panel": "NFT12",
+   "member": "WEB",
+   "xyz": [
+    5400.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-db7b38df36f16147dcafacbd": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT12",
+   "member": "WEB",
+   "xyz": [
+    5400.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-947f27e09629d8a21252a210": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT12",
+   "member": "WEB",
+   "xyz": [
+    5400.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-f2fc4245118a1ea0bcc59e5c": {
+   "util_4": 0.94,
+   "demand_kN": 5.69,
+   "case": "service ULS on bearers",
+   "panel": "NFT12",
+   "member": "WEB",
+   "xyz": [
+    5400.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-aadfbcbfd3138c224e522a20": {
+   "util_4": 1.21,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT12",
+   "member": "WEB",
+   "xyz": [
+    5400.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-3b232d06344a697f7add7dc0": {
+   "util_4": 1.15,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT12",
+   "member": "WEB",
+   "xyz": [
+    5400.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-7b96fe8861866f9e7bcb88b9": {
+   "util_4": 1.21,
+   "demand_kN": 7.73,
+   "case": "service ULS on bearers",
+   "panel": "NFT13",
+   "member": "WEB",
+   "xyz": [
+    6000.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-45ccddb9ea9da424bbc846a7": {
+   "util_4": 1.27,
+   "demand_kN": 7.73,
+   "case": "service ULS on bearers",
+   "panel": "NFT13",
+   "member": "WEB",
+   "xyz": [
+    6000.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-f327879ec12164a8f77903be": {
+   "util_4": 0.95,
+   "demand_kN": 6.07,
+   "case": "service ULS on bearers",
+   "panel": "NFT13",
+   "member": "WEB",
+   "xyz": [
+    6000.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-0ccb7f2d819b986fb724fe24": {
+   "util_4": 1.0,
+   "demand_kN": 6.07,
+   "case": "service ULS on bearers",
+   "panel": "NFT13",
+   "member": "WEB",
+   "xyz": [
+    6000.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-d59b087dd32763f2f80fb836": {
+   "util_4": 1.0,
+   "demand_kN": 6.05,
+   "case": "service ULS on bearers",
+   "panel": "NFT13",
+   "member": "WEB",
+   "xyz": [
+    6000.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-02a46b934bb0f097121e3724": {
+   "util_4": 0.95,
+   "demand_kN": 6.05,
+   "case": "service ULS on bearers",
+   "panel": "NFT13",
+   "member": "WEB",
+   "xyz": [
+    6000.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-5484c5937dca78a26dfbf856": {
+   "util_4": 1.26,
+   "demand_kN": 7.68,
+   "case": "service ULS on bearers",
+   "panel": "NFT13",
+   "member": "WEB",
+   "xyz": [
+    6000.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-cba4defad243ae8c1bfd62a4": {
+   "util_4": 1.21,
+   "demand_kN": 7.68,
+   "case": "service ULS on bearers",
+   "panel": "NFT13",
+   "member": "WEB",
+   "xyz": [
+    6000.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-a5b8c46c5a2c2710c37ab38a": {
+   "util_4": 0.92,
+   "demand_kN": 5.84,
+   "case": "service ULS on bearers",
+   "panel": "NFT13",
+   "member": "WEB",
+   "xyz": [
+    6000.0,
+    3190.5,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-e3775886905341b5a59331a7": {
+   "util_4": 0.92,
+   "demand_kN": 5.84,
+   "case": "service ULS on bearers",
+   "panel": "NFT13",
+   "member": "WEB",
+   "xyz": [
+    6000.0,
+    3190.5,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-ec036e66ef4e8bd5951473b7": {
+   "util_4": 0.96,
+   "demand_kN": 6.14,
+   "case": "service ULS on bearers",
+   "panel": "NFT14",
+   "member": "WEB",
+   "xyz": [
+    6600.0,
+    109.5,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-f170500f3e07245a6166a7c1": {
+   "util_4": 0.96,
+   "demand_kN": 6.14,
+   "case": "service ULS on bearers",
+   "panel": "NFT14",
+   "member": "WEB",
+   "xyz": [
+    6600.0,
+    109.5,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-8c4405b5fc5a1055a3bd1637": {
+   "util_4": 1.16,
+   "demand_kN": 7.37,
+   "case": "service ULS on bearers",
+   "panel": "NFT14",
+   "member": "WEB",
+   "xyz": [
+    6600.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-71d172470a1600c0d8c49422": {
+   "util_4": 1.21,
+   "demand_kN": 7.37,
+   "case": "service ULS on bearers",
+   "panel": "NFT14",
+   "member": "WEB",
+   "xyz": [
+    6600.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-3c9b3c8e3e479a0da112d001": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT14",
+   "member": "WEB",
+   "xyz": [
+    6600.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-7ac607a2adb1fdbe30af3db3": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT14",
+   "member": "WEB",
+   "xyz": [
+    6600.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-4906c111f502f29f9c5c6b34": {
+   "util_4": 0.94,
+   "demand_kN": 5.7,
+   "case": "service ULS on bearers",
+   "panel": "NFT14",
+   "member": "WEB",
+   "xyz": [
+    6600.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-88922cbbbc7a8b647d2217a1": {
+   "util_4": 1.21,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT14",
+   "member": "WEB",
+   "xyz": [
+    6600.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-41bc5c92dddd006bf7db35fa": {
+   "util_4": 1.15,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT14",
+   "member": "WEB",
+   "xyz": [
+    6600.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-b40898032bce039ab81b5140": {
+   "util_4": 1.15,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT15",
+   "member": "WEB",
+   "xyz": [
+    7200.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-129c53c8ecca282e8f022121": {
+   "util_4": 1.21,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT15",
+   "member": "WEB",
+   "xyz": [
+    7200.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-304c9af26337392dd555d044": {
+   "util_4": 0.91,
+   "demand_kN": 5.8,
+   "case": "service ULS on bearers",
+   "panel": "NFT15",
+   "member": "WEB",
+   "xyz": [
+    7200.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-a5a93c3fe81f8430012ce16f": {
+   "util_4": 0.96,
+   "demand_kN": 5.8,
+   "case": "service ULS on bearers",
+   "panel": "NFT15",
+   "member": "WEB",
+   "xyz": [
+    7200.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-5db18bc39e51c90b7654f9d3": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT15",
+   "member": "WEB",
+   "xyz": [
+    7200.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-4c754a26543b266265ab8b41": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT15",
+   "member": "WEB",
+   "xyz": [
+    7200.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-fd2e99b696e1a83c6702e723": {
+   "util_4": 1.2,
+   "demand_kN": 7.29,
+   "case": "service ULS on bearers",
+   "panel": "NFT15",
+   "member": "WEB",
+   "xyz": [
+    7200.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-40d9aa506c340aad53feeeb4": {
+   "util_4": 1.14,
+   "demand_kN": 7.29,
+   "case": "service ULS on bearers",
+   "panel": "NFT15",
+   "member": "WEB",
+   "xyz": [
+    7200.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-a135a8629cc346fbab4c0565": {
+   "util_4": 1.15,
+   "demand_kN": 7.34,
+   "case": "service ULS on bearers",
+   "panel": "NFT16",
+   "member": "WEB",
+   "xyz": [
+    7800.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-f06ba0f63b1a0309cb396719": {
+   "util_4": 1.21,
+   "demand_kN": 7.34,
+   "case": "service ULS on bearers",
+   "panel": "NFT16",
+   "member": "WEB",
+   "xyz": [
+    7800.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-ef36406534d6accb7fbe0277": {
+   "util_4": 0.91,
+   "demand_kN": 5.78,
+   "case": "service ULS on bearers",
+   "panel": "NFT16",
+   "member": "WEB",
+   "xyz": [
+    7800.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-832a32b71688a41f05fa8cc2": {
+   "util_4": 0.95,
+   "demand_kN": 5.78,
+   "case": "service ULS on bearers",
+   "panel": "NFT16",
+   "member": "WEB",
+   "xyz": [
+    7800.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-86518f07ba3c76a57b66ef6d": {
+   "util_4": 0.95,
+   "demand_kN": 5.74,
+   "case": "service ULS on bearers",
+   "panel": "NFT16",
+   "member": "WEB",
+   "xyz": [
+    7800.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-2c092cb621e42e011b716927": {
+   "util_4": 0.9,
+   "demand_kN": 5.74,
+   "case": "service ULS on bearers",
+   "panel": "NFT16",
+   "member": "WEB",
+   "xyz": [
+    7800.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-a7919cd1fecf3a195dbd7c98": {
+   "util_4": 1.2,
+   "demand_kN": 7.31,
+   "case": "service ULS on bearers",
+   "panel": "NFT16",
+   "member": "WEB",
+   "xyz": [
+    7800.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-02e622a75fa6e36aed28c89d": {
+   "util_4": 1.15,
+   "demand_kN": 7.31,
+   "case": "service ULS on bearers",
+   "panel": "NFT16",
+   "member": "WEB",
+   "xyz": [
+    7800.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-df91ba3d81ae7673bf50f5e4": {
+   "util_4": 0.99,
+   "demand_kN": 6.34,
+   "case": "service ULS on bearers",
+   "panel": "NFT17",
+   "member": "WEB",
+   "xyz": [
+    8400.0,
+    109.5,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-c0b06e5a435eefa5c7b10fe1": {
+   "util_4": 0.99,
+   "demand_kN": 6.34,
+   "case": "service ULS on bearers",
+   "panel": "NFT17",
+   "member": "WEB",
+   "xyz": [
+    8400.0,
+    109.5,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-a3b3f2dd99a0cd88307e0e64": {
+   "util_4": 1.16,
+   "demand_kN": 7.39,
+   "case": "service ULS on bearers",
+   "panel": "NFT17",
+   "member": "WEB",
+   "xyz": [
+    8400.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-ee23d07ba6e8f255f8d96635": {
+   "util_4": 1.22,
+   "demand_kN": 7.39,
+   "case": "service ULS on bearers",
+   "panel": "NFT17",
+   "member": "WEB",
+   "xyz": [
+    8400.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-df7cb325d2d5dbfdbaa1af57": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT17",
+   "member": "WEB",
+   "xyz": [
+    8400.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-2829d4eb478ff64d0d6a116e": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT17",
+   "member": "WEB",
+   "xyz": [
+    8400.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-86f4a46aebb0cff22609579e": {
+   "util_4": 0.94,
+   "demand_kN": 5.69,
+   "case": "service ULS on bearers",
+   "panel": "NFT17",
+   "member": "WEB",
+   "xyz": [
+    8400.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-a18f66ec6cd36a96da26c6b8": {
+   "util_4": 1.21,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT17",
+   "member": "WEB",
+   "xyz": [
+    8400.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-f9aa769b6d74d859f4c137ab": {
+   "util_4": 1.15,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT17",
+   "member": "WEB",
+   "xyz": [
+    8400.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-f1521de9430b42af1f96115b": {
+   "util_4": 1.15,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT18",
+   "member": "WEB",
+   "xyz": [
+    9000.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-b322c876322016021b7e1edd": {
+   "util_4": 1.21,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT18",
+   "member": "WEB",
+   "xyz": [
+    9000.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-4ac33e9092e4d3b59915710e": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT18",
+   "member": "WEB",
+   "xyz": [
+    9000.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-ac119856a02e5c54a4af8a75": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT18",
+   "member": "WEB",
+   "xyz": [
+    9000.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-6c625cf781ba7bed6546aa0e": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT18",
+   "member": "WEB",
+   "xyz": [
+    9000.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-93d2308e929523e8e03be98d": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT18",
+   "member": "WEB",
+   "xyz": [
+    9000.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-3cd1da46327f67d5a8a9d139": {
+   "util_4": 1.21,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT18",
+   "member": "WEB",
+   "xyz": [
+    9000.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-412e58f7d29844a2fc4aba43": {
+   "util_4": 1.15,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT18",
+   "member": "WEB",
+   "xyz": [
+    9000.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-31adbbcefe52c79b0065eec0": {
+   "util_4": 1.15,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT19",
+   "member": "WEB",
+   "xyz": [
+    9600.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-5b60475ac210c7a88c936234": {
+   "util_4": 1.21,
+   "demand_kN": 7.32,
+   "case": "service ULS on bearers",
+   "panel": "NFT19",
+   "member": "WEB",
+   "xyz": [
+    9600.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-6823c756d84ac5538f6c1540": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT19",
+   "member": "WEB",
+   "xyz": [
+    9600.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-3242e3e6663e4fbea7dbbafe": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT19",
+   "member": "WEB",
+   "xyz": [
+    9600.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-599ce5b81018d958d10c60f2": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT19",
+   "member": "WEB",
+   "xyz": [
+    9600.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-c23ecc40515fec1f97b44ea1": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT19",
+   "member": "WEB",
+   "xyz": [
+    9600.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-0321470e7fc692a595a9a3c4": {
+   "util_4": 1.21,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT19",
+   "member": "WEB",
+   "xyz": [
+    9600.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-648a0758d44ab4fa4ded5111": {
+   "util_4": 1.15,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT19",
+   "member": "WEB",
+   "xyz": [
+    9600.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-133a0de5932288f866336956": {
+   "util_4": 0.97,
+   "demand_kN": 6.21,
+   "case": "service ULS on bearers",
+   "panel": "NFT20",
+   "member": "WEB",
+   "xyz": [
+    10200.0,
+    109.5,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-9ff828164811c736aff18846": {
+   "util_4": 0.97,
+   "demand_kN": 6.21,
+   "case": "service ULS on bearers",
+   "panel": "NFT20",
+   "member": "WEB",
+   "xyz": [
+    10200.0,
+    109.5,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-f1f6aba2d4205d9e30e9bb93": {
+   "util_4": 1.16,
+   "demand_kN": 7.38,
+   "case": "service ULS on bearers",
+   "panel": "NFT20",
+   "member": "WEB",
+   "xyz": [
+    10200.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-ef437631301fd970211b9c98": {
+   "util_4": 1.21,
+   "demand_kN": 7.38,
+   "case": "service ULS on bearers",
+   "panel": "NFT20",
+   "member": "WEB",
+   "xyz": [
+    10200.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-12f1775ad171fc11bdb4f058": {
+   "util_4": 0.9,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT20",
+   "member": "WEB",
+   "xyz": [
+    10200.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-471b75c94117d6f944217048": {
+   "util_4": 0.95,
+   "demand_kN": 5.76,
+   "case": "service ULS on bearers",
+   "panel": "NFT20",
+   "member": "WEB",
+   "xyz": [
+    10200.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-c24015b4f9e3a842b2ea5b3d": {
+   "util_4": 0.94,
+   "demand_kN": 5.7,
+   "case": "service ULS on bearers",
+   "panel": "NFT20",
+   "member": "WEB",
+   "xyz": [
+    10200.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-150a4c9dbff7c092e44b77f9": {
+   "util_4": 1.21,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT20",
+   "member": "WEB",
+   "xyz": [
+    10200.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-509761ff5e79492f6e717a7d": {
+   "util_4": 1.15,
+   "demand_kN": 7.33,
+   "case": "service ULS on bearers",
+   "panel": "NFT20",
+   "member": "WEB",
+   "xyz": [
+    10200.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-7bf7bb709a375f407a8da846": {
+   "util_4": 1.15,
+   "demand_kN": 7.34,
+   "case": "service ULS on bearers",
+   "panel": "NFT21",
+   "member": "WEB",
+   "xyz": [
+    10800.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-4f15e6b5b73bd8aaa7f11533": {
+   "util_4": 1.21,
+   "demand_kN": 7.34,
+   "case": "service ULS on bearers",
+   "panel": "NFT21",
+   "member": "WEB",
+   "xyz": [
+    10800.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-98a1b4c8666fad517af651d1": {
+   "util_4": 0.91,
+   "demand_kN": 5.79,
+   "case": "service ULS on bearers",
+   "panel": "NFT21",
+   "member": "WEB",
+   "xyz": [
+    10800.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-d1308808e47c000becb237d1": {
+   "util_4": 0.95,
+   "demand_kN": 5.79,
+   "case": "service ULS on bearers",
+   "panel": "NFT21",
+   "member": "WEB",
+   "xyz": [
+    10800.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-e563df76d055635f67540c7d": {
+   "util_4": 0.95,
+   "demand_kN": 5.74,
+   "case": "service ULS on bearers",
+   "panel": "NFT21",
+   "member": "WEB",
+   "xyz": [
+    10800.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-e6cb7b81316f4269ef0b9e80": {
+   "util_4": 0.9,
+   "demand_kN": 5.74,
+   "case": "service ULS on bearers",
+   "panel": "NFT21",
+   "member": "WEB",
+   "xyz": [
+    10800.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-ef439f1689caaafdae1028d1": {
+   "util_4": 1.2,
+   "demand_kN": 7.29,
+   "case": "service ULS on bearers",
+   "panel": "NFT21",
+   "member": "WEB",
+   "xyz": [
+    10800.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-8b93ecc173828b7c028ad095": {
+   "util_4": 1.14,
+   "demand_kN": 7.29,
+   "case": "service ULS on bearers",
+   "panel": "NFT21",
+   "member": "WEB",
+   "xyz": [
+    10800.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-c48901466c6712d760cc125b": {
+   "util_4": 1.04,
+   "demand_kN": 6.62,
+   "case": "service ULS on bearers",
+   "panel": "NFT22",
+   "member": "WEB",
+   "xyz": [
+    11400.0,
+    109.5,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-83b9081c3e1b3dd6c547833c": {
+   "util_4": 1.04,
+   "demand_kN": 6.62,
+   "case": "service ULS on bearers",
+   "panel": "NFT22",
+   "member": "WEB",
+   "xyz": [
+    11400.0,
+    109.5,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-c650e9312884514475c13b0d": {
+   "util_4": 1.22,
+   "demand_kN": 7.77,
+   "case": "service ULS on bearers",
+   "panel": "NFT22",
+   "member": "WEB",
+   "xyz": [
+    11400.0,
+    325.6,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-829ed251783d3c80dc96be0e": {
+   "util_4": 1.28,
+   "demand_kN": 7.77,
+   "case": "service ULS on bearers",
+   "panel": "NFT22",
+   "member": "WEB",
+   "xyz": [
+    11400.0,
+    164.3,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-7ecec09cebadfc7072156b99": {
+   "util_4": 0.97,
+   "demand_kN": 6.16,
+   "case": "service ULS on bearers",
+   "panel": "NFT22",
+   "member": "WEB",
+   "xyz": [
+    11400.0,
+    2921.9,
+    -21.3
+   ],
+   "source": "service"
+  },
+  "J-2d126a4c1e85728ce271fd2f": {
+   "util_4": 1.01,
+   "demand_kN": 6.16,
+   "case": "service ULS on bearers",
+   "panel": "NFT22",
+   "member": "WEB",
+   "xyz": [
+    11400.0,
+    2760.6,
+    -280.3
+   ],
+   "source": "service"
+  },
+  "J-3510c1326dac9bfe6d9e3267": {
+   "util_4": 1.01,
+   "demand_kN": 6.11,
+   "case": "service ULS on bearers",
+   "panel": "NFT22",
+   "member": "WEB",
+   "xyz": [
+    11400.0,
+    377.6,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-8876a013cc614e6a1beb25b7": {
+   "util_4": 0.96,
+   "demand_kN": 6.11,
+   "case": "service ULS on bearers",
+   "panel": "NFT22",
+   "member": "WEB",
+   "xyz": [
+    11400.0,
+    538.9,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-ab8ccddfaf63cd81f4b7721c": {
+   "util_4": 1.27,
+   "demand_kN": 7.73,
+   "case": "service ULS on bearers",
+   "panel": "NFT22",
+   "member": "WEB",
+   "xyz": [
+    11400.0,
+    2973.9,
+    -20.5
+   ],
+   "source": "service"
+  },
+  "J-e75e59a379bad43ffaa8e38b": {
+   "util_4": 1.21,
+   "demand_kN": 7.73,
+   "case": "service ULS on bearers",
+   "panel": "NFT22",
+   "member": "WEB",
+   "xyz": [
+    11400.0,
+    3135.2,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-5168016e0a4a73a19ad00cff": {
+   "util_4": 0.93,
+   "demand_kN": 5.93,
+   "case": "service ULS on bearers",
+   "panel": "NFT22",
+   "member": "WEB",
+   "xyz": [
+    11400.0,
+    3190.5,
+    -279.5
+   ],
+   "source": "service"
+  },
+  "J-e4ddadc6231bd5069bedb5c5": {
+   "util_4": 0.93,
+   "demand_kN": 5.93,
+   "case": "service ULS on bearers",
+   "panel": "NFT22",
+   "member": "WEB",
+   "xyz": [
+    11400.0,
+    3190.5,
+    -20.5
+   ],
+   "source": "service"
+  }
+ }
+}

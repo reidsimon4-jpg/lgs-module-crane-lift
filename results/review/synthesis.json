@@ -1,0 +1,175 @@
+{
+ "verdict": "Not yet. The Rev C numbers are real. I re-ran the committed code and got exactly the reported result: no member above 0.91, no joint above 0.83, and 117 ties. The overall frame model also holds up well. But the pass depends on seven things that the stated details, or the basis itself, do not support. Checked by the basis's own rules, each one takes part of the frame over capacity:\n\n1. **Strap fit-up.** At each lift point the vertical hanger and the V-straps share the load according to how the bolts happen to sit in their oversize holes. A misfit of about 1.2 mm in the hangers, or about 3 mm in the V-straps, is enough to fail members and joints.\n2. **Tilt.** The basis lets the module hang up to 2 degrees out of level. At 2 degrees the end-wall stud bases reach 1.11, and a wall tie carries 3.64 kN against a 3.54 kN capacity.\n3. **Cradle and foot plates.** Their end screws are over capacity (up to 1.45), and several plates cannot be built where they are modelled.\n4. **Lifting head.** It is assumed to pass no vertical load into the roof, but its slotted bolts can grip. If they do, the roof rim reaches 1.45.\n5. **Twist length.** Member strengths use an unexplained 1200 mm twist length. With the stated buckling length instead, four members fail (up to 1.61).\n6. **Notches and holes.** The notches and holes Framer cuts in the steel are ignored. A cautious check of the most loaded chord at a notch gives about 1.13.\n7. **Brace screws.** The wall brace screws sit 3 to 7 mm from the brace ends, mostly below the code minimum, and the checks never test this.\n\nEach needs a design change, or a stated and justified assumption, and then a re-run before anyone can say the design passes its own basis. The other findings do not change this verdict, but they must be closed before an engineer signs. They are: how the centre of gravity is measured, set-down supports, the temporary straps, the rig itself, the marriage line, and several details that cannot be built as drawn.",
+ "blocking": [
+  {
+   "title": "The load split between the hanger and the V-straps at each lift point is set by bolt fit-up, not by the analysis",
+   "why": "At each lifting head, the vertical hanger pair and one or two V-strap pairs meet on one pin. How they share the load cannot be found from statics: it depends on their stiffness and on how the bolts sit. Every strap end is 2 x M12 in 14 mm holes (run_connectors.py uses hole = 14.0; the config labels say '2 x M12 8.8 bolts each end'). No tensioner, fitted bolt or fit-up procedure is specified. The model assumes a perfect fit.\n\nI re-ran the committed code with the misfit applied at the factored level:\n- Hangers 1.0 mm long: 0.98 members / 0.85 joints.\n- Hangers 2.4 mm long: members 1.44 (3 over: W1 and W4 bottom tracks, NFT2) and joints 1.11 (10 over).\n- V-straps 3.0 mm long: members 1.12, joints 1.02. The hanger pair carries 23.95 kN instead of 13.40 kN, which puts the cradle base fold at about 1.05.\n- If either strap set goes slack, up to 2.5 to 3.1.\n\nThe repo's own A1 run (no V-straps) gives 1.91. H5 measures the drops above the pin, so it cannot see this split. The basis rejects a rigid lifting frame (R6) for the same reason; here the problem sits inside each lift point.\n\nTwo reviewers found this independently. The recompute reviewer's '0.5-2 mm' figures were applied in the unfactored solve and then multiplied by 2.433, so they overstate the problem. The real limits at the factored level are about 1.2 mm (hangers long) and 2.5 to 3 mm (V-straps long). Both are well inside the bolt-hole clearance.",
+   "fix": "Make each lift point determinate: a single strap path, or the straps joined through an equalising plate or rocker so that geometry fixes the share. Otherwise use fitted or close-tolerance bolts, plus a tensioning procedure with measured strap tension.\n\nIn every case:\n- Add fit-up bound cases (hanger only, V-straps only, and plus or minus the specified tolerance), solved at the factored level.\n- Check members, joints, ties, the cradle base, the foot screws and the head pin for these cases.\n- Add strap-share measurement to H4 and H5.",
+   "lenses": [
+    "Frame modelling and load path",
+    "Independent re-computation"
+   ]
+  },
+  {
+   "title": "A 2-degree hang angle, which the basis allows, overloads the end walls; no design case puts a net sideways load on the module",
+   "why": "The basis allows a hang angle of up to 2 degrees. With a determinate cascade, any mismatch between the pick point and the centre of gravity makes the module hang tilted. Gravity then has a component along the floor, which has to be carried up through the end walls to the heads. R1-R7 are vertical only, and L1-L4 are self-cancelling sets at the heads, so no design case tests this load path.\n\nI re-ran this independently on the committed code. Drop shares were fixed by the cascade, gravity and drop forces were resolved in the module's axes, and the support reactions came out at about 0:\n- 2 degree roll: end-wall stud-base joints at 1.11 (W11 at x = 44, 3.94 kN on 3.54 kN) and 1.10 (W5). The wall-bottom-track tie carries 3.64 kN against a 3.54 kN T2 capacity.\n- 1.5 degree roll: 0.84.\n- 2 degree pitch: the NFT4 top chord reaches 1.00. This is partly a modelling artefact; it drops to 0.66 with the bridging modelled as a member.\n\nThe reviewer also found a 2.5 degree roll at 1.44. Still not included:\n- wind on the lightest unit (about 0.7 degrees more);\n- slew and tag-line loads;\n- the plus or minus 10 % skew combined with tilt (R7d plus 2 degrees of roll gives 1.43 to 1.50, still over after adding end-wall screws);\n- 10 to 17 more links that would then need ties.",
+   "fix": "- Add pitch and roll tilt cases at the stated hang limit (including the corner combinations), plus wind and slew, to the design envelope. Solve them with the rig shares fixed and no rebalancing.\n- Then either strengthen (for example 4 screws at the W5 and W11 stud and brace bases and a stronger end-wall bottom-track tie), or tighten the limit and measure it (about 1 degree of roll including wind and slew).\n- Decide whether the plus or minus 10 % skew is a robustness check or a design allowance. If it is an allowance, combine it with tilt.\n- Regenerate the tie schedule from the new envelope.\n\nThis fix also depends on the centre-of-gravity procedure (should-fix item), so that the hang limit can actually be held on the first lift.",
+   "lenses": [
+    "Load cases, factors and rigging"
+   ]
+  },
+  {
+   "title": "Cradle and foot-plate screws are over capacity at single stations, and several plates cannot be built where they are modelled",
+   "why": "The plates are modelled as stiff panels that share nodes with the rim chords every 100 mm, so the load enters at the plate ends. run_connectors.py then adds the force up over 3 stations (24 screws) or the whole plate (56 screws), so the peak stations are never checked.\n\nChecked station by station against the 4 screws actually there (6.37 kN), 6 of the 22 plates are over:\n- VFOOT_N2a: 9.22 kN (1.45)\n- VFOOT_N3b: 1.44\n- VFOOT_N1a: 1.16\n- VFOOT_N4b: 1.11\n- STIR_N4: 1.07\n- STIR_N1: 1.06\n\nconnectors.md reports 0.51 and 0.17 for these plates. If the plates are modelled as point stirrups instead (no plate stiffening), the frame itself reaches 1.00 / 1.01.\n\nGeometry problems:\n- Floor trusses are at 600 mm centres and 89 mm wide, leaving only 511 mm clear on the rim's inner face. Every 600 mm cradle and foot plate runs into truss ends on that face.\n- The end V-strap feet at x = 60 and 11,940 sit 60 mm from the module end. run_lift.py:50-51 silently slides the plate inwards to 25-625 but leaves the strap at 60, where the end truss fills the inner face.\n- Foot plates are modelled with the 2.5 mm cradle properties, but the connector sheet specifies 2.0 mm.\n- The temporary foot plates are labelled 'bolted' but checked as screwed.\n\nFour reviewers raised parts of this.",
+   "fix": "- Re-lay the plates between truss ends: 490 mm or shorter, with each V-foot centred in a truss bay. The buildability reviewer's V1 layout kept the frame at 0.94 / 0.90.\n- Model the plate screws (or bolts, with slip) as springs.\n- Check every station, or each end screw group, against its own force, with proper end distance.\n- Use the correct plate thickness.\n- Decide whether the temporary feet are screwed or bolted, and check that choice.\n- Make the code stop with an error when a plate would run past the module end, instead of shifting it.",
+   "lenses": [
+    "Frame modelling and load path",
+    "Capacity code",
+    "Buildability and detailing",
+    "Independent re-computation"
+   ]
+  },
+  {
+   "title": "The lifting head is assumed to carry no vertical load, but the stated slotted-bolt detail can grip",
+   "why": "The head bracket is modelled with an axial area of 0.01 mm2 (guide.A in revC_design.json). That means frictionless vertical slots. The stated detail is cheeks fixed to both roof-rim chords through vertical slots. run_lift.py:74 says 'screwed' and run_connectors.py:118 says '2 x M12 at each chord'. Clamped bolts or screws carry vertical force by friction.\n\nI re-ran the committed code with the slots locked:\n- NFT24 roof-rim bottom chord: 1.45 (NFT25: 1.02).\n- Joints: 0.99.\n- Links needing ties: 117 -> 152.\n- Hanger pair force: 13.40 -> 4.57 kN.\n\nThe frame reviewer also found the T2 ties at 6.96 kN against 3.54 kN. Two reviewers raised this.",
+   "fix": "Detail a head that physically cannot carry vertical load. Options:\n- a lateral guide with running clearance;\n- shouldered bolts or sleeves longer than the clamped thickness;\n- slots longer than the strap stretch plus tolerance, with the gap checked before each lift.\n\nOtherwise quantify the friction share and design the roof rim, track links and ties for it. Include the head in the H4 proof test, with the guide load measured.",
+   "lenses": [
+    "Frame modelling and load path",
+    "Buildability and detailing"
+   ]
+  },
+  {
+   "title": "Member compression capacities rest on an undocumented 1200 mm twist length",
+   "why": "liftcase.py:99 (committed) sets the twist length to max(L_in, min(L_out, 1200)). DESIGN_BASIS section 5 defines only the in-plane and out-of-plane lengths, and 1200 mm matches no restraint position.\n\nI re-ran the committed code with the twist length equal to the stated out-of-plane length. Four members fail:\n- end roof-truss top chords NFT46: 1.61 and NFT26: 1.57;\n- NFT4 top chord (the governing member): 1.20;\n- W7 stud: 1.19.\n\nWith twist restrained at every joint, the maximum is 0.68. So the reported 0.91 cannot be derived from the stated basis. Lateral buckling in minor-axis bending with the lips in compression is not coded either. It is harmless at 1200 mm or less, but not at 2.7 to 3.1 m.",
+   "fix": "State and justify the twist restraint in DESIGN_BASIS. For example: at every panel point where web screws pass through both chord flanges (with a stiffness check), and at nogging spacing for studs. Otherwise add bridging or blocking so the stated lengths work. Use the same twist length in the major-axis lateral buckling check, and code the minor-axis lips-in-compression check.",
+   "lenses": [
+    "Capacity code"
+   ]
+  },
+  {
+   "title": "The lip notches and service holes Framer cuts in the members are not in any capacity",
+   "why": "Every member is checked as a plain C89 with no holes. framed.json lists:\n- 2396 lip notches, including 896 on top chords and 988 on bottom chords at the web joints;\n- 2290 swages;\n- 100 web notches;\n- 59 service holes, including in W7-AC and W9-AC, the two most compressed studs.\n\nA lip notch removes the flange's edge stiffener exactly at the chord panel points.\n\nI made a cautious effective-width estimate at the design's own buckling stress (fn 159.5 MPa for NFT4). It gives about 11.7 kN at the notch against 13.2 kN in the governing NFT4 top chord. That is 1.13 from axial force alone; the plain section has 17.6 kN. The swaged web end in the notch helps, so the real loss is smaller, but no check covers it. If the twist restraint in the previous item is justified, the same estimate gives 0.87.",
+   "fix": "Choose one approach and state it in DESIGN_BASIS:\n- adopt the Framer or roll-former test basis for notched chords, swaged-web joints and studs with holes;\n- check the notched and holed sections (AS/NZS 4600 or AISI provisions for members with holes, or a finite-strip / DSM check of the notched section);\n- forbid service holes in lift-critical members.",
+   "lenses": [
+    "Capacity code"
+   ]
+  },
+  {
+   "title": "Wall brace-end screws sit below the code minimum end distance, and end tear-out is never checked",
+   "why": "framed.json places the dimple (screw) of every wall diagonal brace 2.8 to 7.4 mm from the member end. 66 of the 88 brace joint ends are below 1.5d = 7.3 mm, the AS/NZS 4600 / AISI minimum. Truss webs are at 9.1 to 11 mm (804 joint ends below 2d).\n\nas4600.screw_tearout_design exists but is never called. With its form (0.60 t e fu), the W7 brace-end joint goes from 0.54 to about 1.43, and W9 to about 1.06. With the AISI J6 end-rupture form, 20 brace-end joints exceed 1.0. The braces are in tension during the lift (up to 1.91 kN factored). Truss webs lose about 11 % (worst joint about 0.94, still a pass).",
+   "fix": "- Confirm Framer's real distance from the dimple to the cut edge at the brace ends.\n- Require at least 1.5d (preferably 3d, as the research basis asks) in the line of force for every lift-path screw.\n- Add an end-rupture check to the joint, link and connector checks.\n- Move or add screws at the brace ends.",
+   "lenses": [
+    "Capacity code"
+   ]
+  }
+ ],
+ "should_fix": [
+  {
+   "title": "Stud bases near the lift lines pass only with bearing credit; there is no seating tolerance and no crippling check",
+   "why": "The basis allows bearing credit for a stud standing square on a plate, but nothing makes sure the stud is seated. Without the credit, 6 south-wall stud-base joints are at 1.04 to 1.82 (W7 at x = 4202: 6.45 kN on 2 screws). Two reviewers got identical numbers. No web crippling check exists anywhere; an estimate gives 0.38, so it does not govern.",
+   "fix": "Add a hold point limiting the stud end gap (for example 1 mm or less, inspected) within about 600 mm of the lift lines and V-strap feet. Otherwise give those stud bases screws for the full compression. Add web crippling plus bending checks at the bearing points."
+  },
+  {
+   "title": "Centre-of-gravity control: H1 has no CoG limit, and weighing in the rig cannot measure the CoG",
+   "why": "With a determinate cascade, the drop loads are fixed by the rig geometry. Load shackles on the drops give the total mass but not the CoG; a CoG error shows only as tilt, and the 15 % rule in H5 can only catch a rig fault. Weighing on ground load cells would give the CoG, but H1 does not say how to weigh.\n\nThe 1.05 factor covers only about 93 mm across and about 165 mm along the module, and H1 sets no limit. At the DNV minimum CoG envelope, a first lift reaches joint utilisations of about 1.3 to 1.45 (tilt up to 8.7 degrees). The mass distribution is not checked: a floor-heavy case puts the W1 and W4 bottom tracks at 0.97. Framer's wall type is 12 mm GRC, but the mass model uses 0.42 mm steel cladding (about 0.85 t more, moving the CoG south).",
+   "fix": "- Specify how the CoG is measured: ground load cells, or a just-clear lift with an inclinometer, then lower and re-set.\n- Add a CoG limit to H1 (for example south drops 9.73 kN or less and north drops 7.00 kN or less at 6.5 t).\n- Add a hang-angle stop rule to H5.\n- Correct the cladding in the mass model.\n- State the analysed mass distribution and the lifting conditions (no loose contents)."
+  },
+  {
+   "title": "The temporary north V-straps and other lift-critical parts are missing from the design basis and hold points",
+   "why": "DESIGN_BASIS does not mention V-straps at all. The 4 temporary north legs are needed: A2 gives NFT2 at 1.21, and a clean re-run gives R7b 1.21 and a first-lift case 1.33. They are labelled 'removed after set-down', and nothing requires them to be fitted before every lift. A2 is not a clean ablation: it also drops the floor-truss 6-screw rules and uses 3 link screws instead of 4. Plane bracing (A6 is close to a mechanism) and bridging (A4: 1.06) are essential too. The temporary inner legs pass through the ceiling and floor planes, and on module 2 they cannot be removed at all.",
+   "fix": "Describe every lift part in DESIGN_BASIS section 2. Add a pre-lift inspection hold point: temporary straps fitted and bolted, plane braces tensioned, bridging and ties in place. Write the removal method and the access it needs. Regenerate A2 cleanly. Consider permanent straps, or internal removable bracing."
+  },
+  {
+   "title": "Landing, storage and in-service supports are not specified",
+   "why": "Set-down runs with one-way supports (static factor):\n- Corner blocks: fail by about 5 times.\n- The 8 cradle positions alone: pass only if level within about 4 mm; one support 5 mm low gives 1.82.\n- Continuous bearers with a 10 mm low zone: fail.\n- Piers at 1.8 m or closer, or level bearers: pass.\n\nThe permanent 2.5 mm cradle bases stay under the rim, so unless packers are fitted the module sits on 8 points. The repo's own piers layout fails in service (1.11 / 1.18, links 1.62).",
+   "fix": "Put a support rule on the lift drawing and the lift plan:\n- continuous bearers or piers at 1.8 m or closer, levelled and packed;\n- never on corners or the lift points alone;\n- do not slacken the slings until every support is packed.\n\nAdd set-down cases to the analysis, specify packers between the cradles, and require the same supports for transport."
+  },
+  {
+   "title": "The rigging interface and the cascade beams are not designed or certified",
+   "why": "Working load limits are fine: the 1.12 t static drop uses 56 % of a 2 t round sling and about 35 % of a 3.2 t shackle. But the shackle / pin / sling arrangement is unclear, and either reading breaks the research rules. Either the sling ends up on a 19 mm shackle pin inside a 27 mm jaw, or 3 mm cheeks plus straps act as a lug thinner than the 20.3 mm minimum. The seven cascade beams have no design, proof test, rating or hook-load statement. The needed pick-point resolution (about 34 mm per degree) is not stated.",
+   "fix": "Draw the head / shackle / sling interface. Add a hold point that the cascade is designed, certified to AS 4991, proof tested and rated. State the planning hook load and a pick-point adjustment resolution of plus or minus 25 mm or better."
+  },
+  {
+   "title": "Truss-end screws and T1 ties cannot be installed as drawn",
+   "why": "The 4 bottom screws at each truss end have only about 14 mm of tool access, and the rim's own web joints sit behind most truss ends. The model credits 12 screws per end where 8 are drawn. A check of both forces on the same 4 screws peaks at 0.57, so the truss ends pass only if all the screws can be placed; 5 groups would fail with only half placed. The T1 flat-plate ties have no free face at 82 places: under wall tracks, under the rim where it bears, and under cradle bases.",
+   "fix": "Replace both with folded cleats on each side of every truss end, which also gives T1 a place to go. Check the cleats for the combined force (up to 3.64 kN per chord group, factored). If the bottom screws really cannot be placed, this becomes a failure and must be resolved before sign-off."
+  },
+  {
+   "title": "The specified 6-screw joints do not fit around the Framer dimple",
+   "why": "At the code minimum edge distance, an inclined web joint fits only 2 screws per face if the dimple screw is kept; end verticals fit more. With 4 screws at the inclined-web joints, the worst joint is 0.82, so this is a re-specification, not a failure. Extra screw heads would also stand proud under the plates and straps.",
+   "fix": "- Specify 4 screws at inclined webs and 6 only at end verticals.\n- Set a minimum end distance of 1.5d.\n- Draw a jig screw pattern for each joint type.\n- Use wafer-head screws under plates and straps."
+  },
+  {
+   "title": "Marriage-line hardware and the second module's sequence are not worked out",
+   "why": "The outer cheeks, strap bolts and M20 pin nuts stand 15 to 24 mm proud of the north face, and module 2 mirrors them. No marriage gap is defined. Module 1's north heads must come off before module 2 arrives. Module 2's marriage-side nuts cannot be reached after set-down.",
+   "fix": "Define the gap and the module-to-module connection. Use flush hardware, or hardware removable from inside, or offset the lift lines. Put the sequence into the lift plan."
+  },
+  {
+   "title": "The south heads clash with the gutter, fascia and roof sheeting",
+   "why": "At the 4 lift lines, the head cheeks and nuts sit on the fascia and gutter line, and the box passes through the eave. The gutters are part of the lifted mass, so they are fitted before the lift.",
+   "fix": "Make the heads removable with a site patch, or stand the gutter off past them. State the pin height above the finished roof and the shackle clearance."
+  },
+  {
+   "title": "The floor bridging sits on the truss panel point, and its end anchorage is not a real anchor",
+   "why": "The bridging line at y = 1650 lands on the mid-span panel-point joints. The 6.93 kN anchorage force goes into end trusses and end walls, which are not stiff out of plane. The bridging is essential (A4: 1.06).",
+   "fix": "Move the line about 90 mm off the panel point. Anchor it into the floor X-bracing crossing, and check that load path."
+  },
+  {
+   "title": "The rim chords are assumed fully restrained sideways at every truss link",
+   "why": "A probe of the frame gives about 95 to 182 N/mm per restraint point. The AISC Appendix 6 bracing requirement is about 92 to 224 N/mm, so the restraint is only about equal to the demand. The restraint forces are not checked, apart from the 2.5 % bridging check.",
+   "fix": "Run an elastic buckling (geometric stiffness) analysis of the full model, or stiffen the plane bracing. Check the bracing strength and stiffness for the restraint forces of all compressed chords."
+  },
+  {
+   "title": "Member shear, minor-axis bending basis and material values",
+   "why": "Member shear and bending plus shear are not checked (0.35 and 0.43 by the reviewer's check; they do not govern). The 0.363 kNm minor-axis moment needs a stated basis: DSM at phi 0.80 gives 0.323, the effective width method about 0.46. The lips-in-compression distortional check is missing. The G450 lift parts use full fy and fu, while the research basis says 0.9 fy and 0.9 fu; all rows still pass.",
+   "fix": "Add the shear checks and the distortional check. State the basis for minor-axis bending and for the material values."
+  },
+  {
+   "title": "Connector-sheet details: bolt tear-out, pin bearing and sideways allowance",
+   "why": "Three reviewers raised parts of this; all rows still pass.\n- Tear-out: the inner bolt's end distance should be 33 mm, not the 40 mm pitch (utilisation 0.22 -> 0.25 and 0.19 -> 0.21).\n- Pin bearing adds the cheeks and the straps together. The cheeks alone give 77.8 kN, so the utilisation is 0.32 instead of 0.22.\n- Sideways allowance: 10.5 % is used at the head box, but L1-L4 and the head-to-roof-rim bolt check use 5 % of the average drop (W/8). That makes the south heads about 16 % low; at 10.5 % the head bolts go from 3.2 to about 6.7 kN against 20.8 kN.",
+   "fix": "- Use end distance = pitch - hole radius for inner bolts.\n- Check each ply on the pin with its own force.\n- Use one sideways fraction, applied to each drop's own force.\n- Settle whether the strap hangs on the pin or on 2 x M12, and check the strap end there."
+  },
+  {
+   "title": "Factor statements, case labels and rig wording",
+   "why": "- The 1.03 weight factor is applied twice (1.061 in effect on the weighed mass). Load shackles at plus or minus 1 % of full scale may not support 1.03 on a sum of 8 readings.\n- The DNV comparison is not like for like: adding DNV's consequence factor to DAF 1.5 gives 2.74 against 2.433. Lift-point utilisations would scale to 0.67 at most, and rim joints to about 0.94.\n- R7c 'one end high' is really an inner/outer pattern after balancing; I checked this by hand against the log.\n- The fallback sentence allowing a rigid frame with measured leg loads within plus or minus 10 % has not been checked.",
+   "fix": "State the factor basis once. Rename R7c, or replace it with pitch cases. Delete the rigid-frame fallback sentence, or check it."
+  },
+  {
+   "title": "Documentation and QA errors",
+   "why": "- DESIGN_BASIS says '21 floor trusses + 2 end trusses'; there are 21 in total.\n- The '7 kN/mm' link stiffness holds only for 41 mm links; across the model it ranges from 1.4 to 55.7 kN/mm (the results are not sensitive to it).\n- The as4600.py header cites analysis/tests/test_as4600.py, which does not exist, so no capacity function has a unit test.",
+   "fix": "Correct the text. Add capacity unit tests using the capacity reviewer's hand values."
+  },
+  {
+   "title": "Minor detailing clashes",
+   "why": "- Plane-bracing strap ends and tensioners sit under wall tracks and head boxes.\n- T3 seam ties sit under the hanger straps.\n- Foot plates S2b and S3a run 150 mm under the door.\n- Straps under cladding and board joints need detailing rules.",
+   "fix": "Follow the buildability reviewer's fixes: move strap anchors off the lift lines, through-bolt or reuse the hanger as the T3 tie, use the shorter plate layout, and use wafer heads and packing rules."
+  }
+ ],
+ "notes": [
+  "Code state. All checks here used the committed HEAD e1631e6, extracted to <home>/AppData/Local/Temp/claude/e779ede6ae5bcc20/240dc1af-6f85-4fbd-ae6d-ded96ca243c4/scratchpad/review_synthesis/head/. Its analysis code matches fc0546c/0ffaff8 apart from labels. During the synthesis the live working tree had uncommitted edits to liftcase.py, as4600.py, framemodel.py and run_lift.py. They set the default twist length to the joint spacing, add notch, shear and end-rupture checks, and add Rev D A-frame lift points. No result file reflects these edits and they were not reviewed. The twist-length change clears blocking item 5 only with the justification asked for there.",
+  "No finding was dropped: every reviewer finding I checked held up. Two figures were corrected:\n- The recompute reviewer's fit-up magnitudes are too high by a factor of 2.433, because c_fitup.py scales the misfit with the loads. The factored-level limits are about 1.2 mm (hangers long) and 2.5 to 3 mm (V-straps long).\n- The buildability reviewer's '8-12 screws, 1.0-1.5' at the end V-feet counts 2 stations where the model has 3 (x = 25, 60, 125), so that number is uncertain. The finding still stands on the geometry and on the per-station forces.",
+  "Severity changes:\n- Raised to blocking: twist length, Framer notches and holes, brace end distance, head slots, cradle and foot plates.\n- Lowered to should-fix: stud bearing credit (the basis explicitly allows it; a hold point is missing); centre of gravity, temporary straps, set-down supports and the rig (gaps in the basis or plan rather than failures under it); 6-screw patterns (passes at 0.82 with 4 screws); truss-end screw access (should-fix only while the bottom screws can still be placed).",
+  "The global model is robust (frame reviewer). Joint fixity, link stiffness x0.2 / x5, the cradle stations, plane-brace stiffness and foot-plate thickness each move the maximum utilisations by 0.03 or less. The supports are statically determinate (reactions 0). Ignored moments are negligible: 0.3 N.m or less at joints and 21 N.m or less at links. Among the 2407 near pairs there are no missing or spurious connections.",
+  "The governing member (NFT4 top chord, 0.91) is driven by the 120 kg joinery lump placed on one mid-span node, and by the bridging being modelled only as a buckling length. With the bridging as a member it drops to 0.64. The 2 degree pitch result of 1.00 is the same artefact.",
+  "The strap tension-only loop decides which straps are slack at rated load and never re-admits them. That is fine for proportional loading. Misfit, friction and tilt cases must be solved at the factored level, which is how the checks here were run.",
+  "Confirmed correct by reviewers:\n- capacity formulas (phiNc at 600 mm 29.23 kN, phiMy 0.363 kNm, one screw 1.77 kN, M12 bearing 10.13 / 5.21 kN);\n- section properties and the axis mapping;\n- the factor stack of 2.433;\n- R4 matches a true cascade to within 0.1 kN;\n- weight 63.74 kN, CoG, and the south/north share of 0.5814;\n- head equilibrium;\n- the floor-truss end web force of 8.4 kN (hand statics with concentric joints under-predicts it by about 33 %);\n- strap capacities and rigging working load limits.",
+  "Small items, all noted:\n- the joint check ignores end moments (0.834 -> 0.835);\n- the log line 'links over 1.0 in shear: 2' is really a pull-out case;\n- tension uses gross area with no shear-lag factor;\n- the hanger pair is assumed to split evenly between faces;\n- about 100 kg of finishes are booked on the 3.122 m strip, which is within the rating;\n- the head bracket is booked at 3 kg (more likely 6-10 kg);\n- a check of the north rim on its own gives 32 % more web force but still passes (0.70);\n- the head position tolerance and minimum drop length belong on the lift plan.",
+  "Transport is outside the scope, but it will probably govern wall racking and the support layout: a 0.5 g lateral case is roughly 5 to 10 times the 2 degree roll effect. Say so in the basis.",
+  "Scratch scripts for this synthesis: <home>/AppData/Local/Temp/claude/e779ede6ae5bcc20/240dc1af-6f85-4fbd-ae6d-ded96ca243c4/scratchpad/review_synthesis/work/ (common.py, repro.py, variants.py, tilt.py, stations.py). They run only against the extracted HEAD copy; no repository file was changed."
+ ],
+ "verified": [
+  "Reproduced the committed Rev C envelope from HEAD e1631e6 in scratch: max member 0.910 (NFT4 top chord), max joint 0.834, 0 over, 117 ties.",
+  "Strap misfit at the factored level (my own implementation):\n- hangers 1.0 mm long: 0.98 / 0.85;\n- hangers 2.4 mm long: 1.44 (3 over) / 1.11 (10 over);\n- V-straps 2.4 mm long: 0.91 / 0.90, hanger pair 21.18 kN;\n- V-straps 3.0 mm long: 1.12 / 1.02, hanger pair 23.95 kN.\nThis matches the frame reviewer. The recompute script applies the misfit in the unfactored solve and then multiplies by 2.433.",
+  "Tilt (my own implementation, support reactions about 2e-5 N):\n- 2 degree roll: joints 1.11 (W11 stud base, 3.94 kN on 3.54 kN) and 1.10 (W5); wall-bottom-track tie 3.64 / 3.57 kN against 3.54 kN;\n- 1.5 degree roll: 0.84 / 0.82;\n- 2 degree pitch: NFT4 at 1.00.",
+  "Head slots locked (guide A = 600 mm2): NFT24 bottom chord 1.45, NFT25 1.02, joints 0.99, ties 152, hanger pair 4.57 kN.",
+  "Twist length. The committed liftcase.py:99 has the 1200 mm cap. With the twist length equal to L_out, 4 members fail (1.61, 1.57, 1.20, 1.19). With the twist length equal to L_in the maximum is 0.68.",
+  "Per-station plate screws: 6 of 22 plates are over 6.37 kN. Worst is VFOOT_N2a at x = 3600, 9.22 kN (1.45, R7b). connectors.md reports 0.51 / 0.17.",
+  "Lip-notch effective-width estimate for NFT4 at fn 159.5 MPa: 11.7 kN against 13.2 kN (1.13 axial). With twist restrained at joints: 0.71 axial / 0.87 with bending.",
+  "framed.json:\n- operation counts: 2396 lip notches, 2290 swages, 100 web notches, 59 service holes (W7-AC and W9-AC have holes at 295.5 mm);\n- brace screw positions 2.8 to 7.4 mm from the member end (66 below 7.3 mm);\n- truss web screws at least 9.1 mm from the end (804 below 9.7 mm);\n- wall type WT-ILO-EXT-RS-GRC12, while mass_model.json uses steel cladding at 5.7 kg/m2.",
+  "Geometry:\n- 21 floor trusses in total (end trusses at x 44.5 and 11955.5, the rest at 600 mm centres), 89 mm wide, leaving 511 mm clear;\n- cradles span 600 mm across truss centrelines (e.g. 600-1200);\n- the VFOOT_S1a and N1a plates run 25-625 with the strap at 60 (run_lift.py:50-51 shifts only the plate);\n- VFOOT_N2a (3000-3600) sits on two truss ends;\n- foot plates use the 2.5 mm stirrup properties.",
+  "Config and code facts:\n- guide.A = 0.01;\n- strap labels say 2 x M12; run_connectors.py uses 14 mm holes;\n- the plate screw check pools 24 / 56 screws;\n- the head is described as screwed (run_lift.py:74) but as 2 x M12 (run_connectors.py:118);\n- L1-L4 apply 0.05 x W/8 at every head (run_lift.py:220), against 10.5 % at the head box (run_connectors.py:109);\n- tear-out uses e = 30 + 40 mm (line 56) and pin bearing is summed (line 113);\n- screw_tearout_design is never called;\n- test_as4600.py does not exist.",
+  "Ablations and service:\n- A2 differs from the design beyond the temporary legs (no floor-truss 6-screw rules, 3 link screws);\n- A2 NFT2 1.21, A1 1.91, A4 1.06, A6 7 members over;\n- service.json: piers 1.11 / 1.18 / 1.62, bearer 0.93 / 0.88 / 0.93;\n- run_service.py keeps the permanent cradles.",
+  "The R7c balancing residual of (-0.19, +0.65, -0.65, +0.19) x 10 % of W/8, worked by hand, matches the log row (S1 9.2, S2 9.8, S3 8.7, S4 9.4).",
+  "DESIGN_BASIS:\n- does not mention V-straps or temporary parts;\n- the truss count is wrong;\n- H1 has no CoG limit;\n- the 1.05 CoG factor covers about 93 mm across the module."
+ ]
+}

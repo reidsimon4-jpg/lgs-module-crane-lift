@@ -1,0 +1,11 @@
+revD_final               members>1   0 (max 0.97)  joints>1   0 (max 0.88)  link shear max 0.58  ties 205
+A1_framed_screws         members>1   0 (max 0.97)  joints>1 265 (max 16.43)  link shear max 1.30  ties 205
+A2_no_gussets            members>1   0 (max 0.97)  joints>1  45 (max 1.88)  link shear max 0.58  ties 205
+A3_no_bridging           members>1   1 (max 1.17)  joints>1   0 (max 0.88)  link shear max 0.57  ties 203
+A4_no_plane_bracing      members>1  10 (max 2.10)  joints>1   8 (max 5.19)  link shear max 1.86  ties 252
+A5_seat_between_joints   members>1  15 (max 3.50)  joints>1  25 (max 3.59)  link shear max 2.64  ties 186
+A6_north_trusses_095     members>1   6 (max 1.24)  joints>1  17 (max 1.12)  link shear max 0.56  ties 206
+A7_single_inner_hanger   members>1   0 (max 0.98)  joints>1   0 (max 0.92)  link shear max 0.56  ties 201
+B0_frame_only            members>1  20 (max 2.04)  joints>1 334 (max 19.17)  link shear max 2.05  ties 274
+S1_lining_credit         members>1   0 (max 0.97)  joints>1   0 (max 0.88)  link shear max 0.58  ties 205
+S2_twist_length_out      members>1   9 (max 2.19)  joints>1   0 (max 0.88)  link shear max 0.58  ties 205

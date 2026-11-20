@@ -1,0 +1,84 @@
+{
+ "frame_kg": 1267.45,
+ "members": 1194,
+ "panels": 57,
+ "components": 209,
+ "component_rows": [
+  {
+   "code": "COMP-LIFT_BR",
+   "item": "BR floor truss bridging - C89 0.95 nogging at mid-span",
+   "qty": 13.47,
+   "unit": "kg",
+   "count": 20
+  },
+  {
+   "code": "COMP-LIFT_FC",
+   "item": "FC cradle - folded 2.5 mm G450 U, 600 long, 95 inside, wraps under the floor edge truss",
+   "qty": 66.41,
+   "unit": "kg",
+   "count": 8
+  },
+  {
+   "code": "COMP-LIFT_FP",
+   "item": "FP foot plate pair - 2.0 mm G450, 600 x 300, both faces of the floor edge truss",
+   "qty": 56.52,
+   "unit": "kg",
+   "count": 10
+  },
+  {
+   "code": "COMP-LIFT_FP_TEMP",
+   "item": "FP-T foot plate pair, TEMPORARY lift kit - bolted, removed after set-down",
+   "qty": 22.61,
+   "unit": "kg",
+   "count": 4
+  },
+  {
+   "code": "COMP-LIFT_HEAD",
+   "item": "LH lifting head - folded 3 mm box, M20 8.8 pin + sleeve",
+   "qty": 25.43,
+   "unit": "kg",
+   "count": 8
+  },
+  {
+   "code": "COMP-LIFT_HS",
+   "item": "HS hanger strap pair - 50 x 1.5 G450, 2 x M12 each end",
+   "qty": 32.31,
+   "unit": "kg",
+   "count": 8
+  },
+  {
+   "code": "COMP-LIFT_PB",
+   "item": "PB floor / roof plane bracing strap - 30 x 1.0 G300 with tensioner",
+   "qty": 19.51,
+   "unit": "kg",
+   "count": 20
+  },
+  {
+   "code": "COMP-LIFT_TIE",
+   "item": "T1-T3 tie plate - 30-40 x 0.8-1.0 G300 strap across a joint, 2 + 2 screws",
+   "qty": 5.51,
+   "unit": "kg",
+   "count": 117
+  },
+  {
+   "code": "COMP-LIFT_VS",
+   "item": "VS V-strap pair - 50 x 1.2 G450, 2 x M12 each end",
+   "qty": 33.26,
+   "unit": "kg",
+   "count": 10
+  },
+  {
+   "code": "COMP-LIFT_VS_TEMP",
+   "item": "VS-T V-strap pair, TEMPORARY lift kit - removed after set-down",
+   "qty": 13.69,
+   "unit": "kg",
+   "count": 4
+  }
+ ],
+ "component_kg": 288.7,
+ "permanent_kg": 252.4,
+ "temporary_kg": 36.3,
+ "ifc": "model\\engineered\\lift_module_frame_and_parts.ifc",
+ "ifc_bytes": 2510560,
+ "project_with_parts_sha256": "046a3ae89835a737ba609d935a51f0411e2886745a7b561d09d7d4ccbcf14371"
+}

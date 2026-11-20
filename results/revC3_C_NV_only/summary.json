@@ -1,0 +1,1107 @@
+{
+ "meta": {
+  "config": "Rev C-3 variant C_NV_only",
+  "W_N": 63743.22499999988,
+  "rated_kg": 6500.0,
+  "itemised_kg": 4634.925116279954,
+  "cg": [
+   5976.707206233628,
+   1403.3679528236682,
+   1236.9499372476384
+  ],
+  "factor": 2.4333750000000003,
+  "factors": {
+   "weight": 1.03,
+   "cog": 1.05,
+   "dynamic": 1.5,
+   "load": 1.5
+  },
+  "member_steel": "G450",
+  "connection_steel": "connections fu 412.5",
+  "lift_points": {
+   "S1": {
+    "node": 2898,
+    "xyz": [
+     900.0,
+     44.5,
+     3150.0
+    ]
+   },
+   "S2": {
+    "node": 2899,
+    "xyz": [
+     4500.0,
+     44.5,
+     3150.0
+    ]
+   },
+   "S3": {
+    "node": 2900,
+    "xyz": [
+     7500.0,
+     44.5,
+     3150.0
+    ]
+   },
+   "S4": {
+    "node": 2901,
+    "xyz": [
+     11100.0,
+     44.5,
+     3150.0
+    ]
+   },
+   "N1": {
+    "node": 2902,
+    "xyz": [
+     900.0,
+     3255.5,
+     3150.0
+    ]
+   },
+   "N2": {
+    "node": 2903,
+    "xyz": [
+     4500.0,
+     3255.5,
+     3150.0
+    ]
+   },
+   "N3": {
+    "node": 2904,
+    "xyz": [
+     7500.0,
+     3255.5,
+     3150.0
+    ]
+   },
+   "N4": {
+    "node": 2905,
+    "xyz": [
+     11100.0,
+     3255.5,
+     3150.0
+    ]
+   }
+  }
+ },
+ "cases": {
+  "R1_rigid": {
+   "label": "Rigid lifting frame, 8 slings of exact equal length and no stretch",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 9349.416971348723,
+    "S2": 9409.034533152228,
+    "S3": 8484.97039228912,
+    "S4": 9524.21118206844,
+    "N1": 7844.935016664137,
+    "N2": 5736.986685580411,
+    "N3": 5745.328214126047,
+    "N4": 7648.342005277168
+   },
+   "sum_R": 63743.225000506274,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 3,
+   "joints_over": 22,
+   "links_over": 9,
+   "max_member": 1.8535565426036853,
+   "max_joint": 2.04833531966929,
+   "max_link": 1.9221634634044653,
+   "sag_mm": -2.48916929366413,
+   "hog_mm": -0.08872814730278568,
+   "design": true,
+   "slack_straps": []
+  },
+  "R4_equalised": {
+   "label": "Equalising rig (beam cascade): four equal sling forces on each side, sides by statics",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9258.895749541985,
+    "S2": 9211.610469480338,
+    "S3": 9172.206069428965,
+    "S4": 9124.920789367316,
+    "N1": 6810.885460632955,
+    "N2": 6763.600180571308,
+    "N3": 6724.1957805199345,
+    "N4": 6676.910500458286
+   },
+   "sum_R": 63743.22500000109,
+   "unbalance": 4.500148861552589e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 3,
+   "joints_over": 25,
+   "links_over": 12,
+   "max_member": 1.9468242242383544,
+   "max_joint": 2.0676373338526672,
+   "max_link": 1.864530711212719,
+   "sag_mm": -3.2326323826270285,
+   "hog_mm": 1.5648329386162627,
+   "design": true,
+   "slack_straps": [
+    "VSTR_N1b",
+    "VSTR_N4a"
+   ]
+  },
+  "R7a_outer_high": {
+   "label": "Equalising rig with 10 % skew (outer high): friction and geometry errors in the rig",
+   "rig": "forces",
+   "reactions": {
+    "S1": 10055.68606204198,
+    "S2": 8414.820156980337,
+    "S3": 8375.415756928964,
+    "S4": 9921.711101867313,
+    "N1": 7607.6757731329535,
+    "N2": 5966.80986807131,
+    "N3": 5927.405468019938,
+    "N4": 7473.700812958288
+   },
+   "sum_R": 63743.22500000108,
+   "unbalance": 1.3413389751804061e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 2,
+   "joints_over": 23,
+   "links_over": 10,
+   "max_member": 1.766011913575697,
+   "max_joint": 2.0477709679330927,
+   "max_link": 1.758794944520209,
+   "sag_mm": -2.4736711824985744,
+   "hog_mm": 0.41323459045766187,
+   "design": true,
+   "slack_straps": []
+  },
+  "R7b_inner_high": {
+   "label": "Equalising rig with 10 % skew (inner high): friction and geometry errors in the rig",
+   "rig": "forces",
+   "reactions": {
+    "S1": 8462.105437041982,
+    "S2": 10008.400781980334,
+    "S3": 9968.99638192896,
+    "S4": 8328.130476867316,
+    "N1": 6014.095148132957,
+    "N2": 7560.390493071307,
+    "N3": 7520.986093019935,
+    "N4": 5880.120187958291
+   },
+   "sum_R": 63743.22500000108,
+   "unbalance": 8.734966286283452e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 5,
+   "joints_over": 39,
+   "links_over": 16,
+   "max_member": 2.210619978101877,
+   "max_joint": 2.3405496421884266,
+   "max_link": 3.1041721071353736,
+   "sag_mm": -4.519726387298681,
+   "hog_mm": 3.904347032282722,
+   "design": true,
+   "slack_straps": [
+    "VSTR_N1b",
+    "VSTR_N4a"
+   ]
+  },
+  "R7c_one_end_high": {
+   "label": "Equalising rig with 10 % skew (one end high): friction and geometry errors in the rig",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9106.642823586568,
+    "S2": 9729.270417728741,
+    "S3": 8654.546121180556,
+    "S4": 9277.17371532273,
+    "N1": 6658.632534677542,
+    "N2": 7281.260128819715,
+    "N3": 6206.535832271529,
+    "N4": 6829.163426413703
+   },
+   "sum_R": 63743.22500000108,
+   "unbalance": 6.686857886961661e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 3,
+   "joints_over": 24,
+   "links_over": 12,
+   "max_member": 1.9573339813715291,
+   "max_joint": 2.1437528607537173,
+   "max_link": 2.064261709500877,
+   "sag_mm": -3.3910106755455356,
+   "hog_mm": 1.7660405728270523,
+   "design": true,
+   "slack_straps": [
+    "VSTR_N1b",
+    "VSTR_N4a"
+   ]
+  },
+  "R7d_twist": {
+   "label": "Equalising rig with 10 % skew (twist): friction and geometry errors in the rig",
+   "rig": "forces",
+   "reactions": {
+    "S1": 10055.686062041983,
+    "S2": 10008.400781980336,
+    "S3": 8375.415756928965,
+    "S4": 8328.130476867316,
+    "N1": 6014.0951481329585,
+    "N2": 5966.80986807131,
+    "N3": 7520.986093019934,
+    "N4": 7473.7008129582855
+   },
+   "sum_R": 63743.22500000109,
+   "unbalance": 0.000115113547508372,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 29,
+   "links_over": 14,
+   "max_member": 2.0547853849970954,
+   "max_joint": 2.0480215277310463,
+   "max_link": 2.2507441361486067,
+   "sag_mm": -5.58682482647651,
+   "hog_mm": 5.470181292165136,
+   "design": true,
+   "slack_straps": [
+    "VSTR_N1b",
+    "VSTR_N2b"
+   ]
+  },
+  "R2_springs": {
+   "label": "Rigid frame with elastic slings",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9347.266519705901,
+    "S2": 9270.095993454066,
+    "S3": 8805.735436982653,
+    "S4": 9344.535137145507,
+    "N1": 7427.277040942206,
+    "N2": 6144.735596554408,
+    "N3": 6121.201374791235,
+    "N4": 7282.377907989166
+   },
+   "sum_R": 63743.22500756515,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 2,
+   "joints_over": 22,
+   "links_over": 10,
+   "max_member": 1.8353911787199269,
+   "max_joint": 2.0388063896009214,
+   "max_link": 1.8798364675679406,
+   "sag_mm": -2.7191084363042797,
+   "hog_mm": 0.8594354075908162,
+   "design": true,
+   "slack_straps": []
+  },
+  "R6_short_S1": {
+   "label": "Rigid frame with elastic slings, sling S1 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 12680.851254596892,
+    "S2": 6169.612857787219,
+    "S3": 8330.922118131439,
+    "S4": 9586.246822022644,
+    "N1": 6423.5832059198665,
+    "N2": 5790.065303957158,
+    "N3": 6329.105102592056,
+    "N4": 8432.838345589775
+   },
+   "sum_R": 63743.225010597045,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 7,
+   "joints_over": 47,
+   "links_over": 18,
+   "max_member": 2.364331731951891,
+   "max_joint": 2.749457387689683,
+   "max_link": 2.5329200713886473,
+   "sag_mm": -4.242963242997128,
+   "hog_mm": 5.956082662484841,
+   "design": false,
+   "slack_straps": [
+    "VSTR_N1b",
+    "VSTR_N2b"
+   ]
+  },
+  "R6_short_S2": {
+   "label": "Rigid frame with elastic slings, sling S2 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 6245.724633198043,
+    "S2": 15540.38534498103,
+    "S3": 5963.285669942409,
+    "S4": 9018.237436641411,
+    "N1": 7470.46824047916,
+    "N2": 6157.194564892587,
+    "N3": 6110.60617037438,
+    "N4": 7237.322947515834
+   },
+   "sum_R": 63743.225008024856,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 11,
+   "joints_over": 45,
+   "links_over": 29,
+   "max_member": 3.697369452900845,
+   "max_joint": 3.4174086923886176,
+   "max_link": 3.149518745917936,
+   "sag_mm": -3.3224426314817688,
+   "hog_mm": 3.7848359483256857,
+   "design": false,
+   "slack_straps": []
+  },
+  "R6_short_S3": {
+   "label": "Rigid frame with elastic slings, sling S3 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 8872.56424431027,
+    "S2": 6427.6462265005875,
+    "S3": 15370.917552507064,
+    "S4": 6096.505052846869,
+    "N1": 7424.092071480699,
+    "N2": 6143.310311345015,
+    "N3": 6123.804047096619,
+    "N4": 7284.385499319805
+   },
+   "sum_R": 63743.22500540693,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 10,
+   "joints_over": 64,
+   "links_over": 26,
+   "max_member": 3.8786152082851686,
+   "max_joint": 3.48375105228208,
+   "max_link": 3.4523253976113417,
+   "sag_mm": -3.852475304594704,
+   "hog_mm": 3.8823266297229972,
+   "design": false,
+   "slack_straps": []
+  },
+  "R6_short_S4": {
+   "label": "Rigid frame with elastic slings, sling S4 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9587.59676088851,
+    "S2": 8942.752246265536,
+    "S3": 5557.7518662912,
+    "S4": 12679.532188099342,
+    "N1": 8534.904750574578,
+    "N2": 6345.692394075236,
+    "N3": 5781.680149222266,
+    "N4": 6313.314644797772
+   },
+   "sum_R": 63743.22500021444,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 6,
+   "joints_over": 55,
+   "links_over": 21,
+   "max_member": 2.3967956726264115,
+   "max_joint": 2.877579944727657,
+   "max_link": 3.859674806001422,
+   "sag_mm": -4.3945608850646245,
+   "hog_mm": 5.697565990924248,
+   "design": false,
+   "slack_straps": [
+    "VSTR_N3a",
+    "VSTR_N4a"
+   ]
+  },
+  "R6_short_N1": {
+   "label": "Rigid frame with elastic slings, sling N1 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 8394.08770893344,
+    "S2": 9307.083065073519,
+    "S3": 8802.897825721142,
+    "S4": 10263.564505196004,
+    "N1": 10255.323967658764,
+    "N2": 3310.4072882549267,
+    "N3": 5940.3715878966495,
+    "N4": 7469.489056164354
+   },
+   "sum_R": 63743.2250048988,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 7,
+   "joints_over": 43,
+   "links_over": 16,
+   "max_member": 1.870493064659622,
+   "max_joint": 2.176272257706248,
+   "max_link": 2.115029092461549,
+   "sag_mm": -4.209949912304581,
+   "hog_mm": 7.5621521480759055,
+   "design": false,
+   "slack_straps": [
+    "VSTR_N2a"
+   ]
+  },
+  "R6_short_N2": {
+   "label": "Rigid frame with elastic slings, sling N2 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9173.465717540777,
+    "S2": 9279.876141826764,
+    "S3": 8803.633212997438,
+    "S4": 9510.657996520842,
+    "N1": 5157.763792643001,
+    "N2": 11752.794273584646,
+    "N3": 2746.6555434971524,
+    "N4": 7318.378315680514
+   },
+   "sum_R": 63743.22499429114,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 9,
+   "joints_over": 43,
+   "links_over": 12,
+   "max_member": 1.9301443330608876,
+   "max_joint": 2.0646961876178467,
+   "max_link": 4.087753375413553,
+   "sag_mm": -3.623187783161296,
+   "hog_mm": 6.732972801413894,
+   "design": false,
+   "slack_straps": [
+    "VSTR_N1b",
+    "VSTR_N3a",
+    "VSTR_N4a",
+    "HANG_N3"
+   ]
+  },
+  "R6_short_N3": {
+   "label": "Rigid frame with elastic slings, sling N3 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9524.71343078728,
+    "S2": 9261.518918005451,
+    "S3": 8808.404800601957,
+    "S4": 9172.995921033811,
+    "N1": 7455.601141865489,
+    "N2": 2752.1419899614066,
+    "N3": 11770.993715797551,
+    "N4": 4996.855078572805
+   },
+   "sum_R": 63743.22499662575,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 7,
+   "joints_over": 45,
+   "links_over": 13,
+   "max_member": 1.9263150949715437,
+   "max_joint": 2.012166977345973,
+   "max_link": 4.091917632267233,
+   "sag_mm": -4.088731513180253,
+   "hog_mm": 6.726069245989795,
+   "design": false,
+   "slack_straps": [
+    "VSTR_N1b",
+    "VSTR_N2b",
+    "VSTR_N4a",
+    "HANG_N2"
+   ]
+  },
+  "R6_short_N4": {
+   "label": "Rigid frame with elastic slings, sling N4 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 10300.45951569018,
+    "S2": 9231.044802207063,
+    "S3": 8807.830434656935,
+    "S4": 8428.298349089362,
+    "N1": 7616.088864089902,
+    "N2": 5966.64811740582,
+    "N3": 3281.5136152394957,
+    "N4": 10111.341305544982
+   },
+   "sum_R": 63743.22500392374,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 8,
+   "joints_over": 38,
+   "links_over": 12,
+   "max_member": 1.8297346199649296,
+   "max_joint": 2.0746413897736797,
+   "max_link": 1.9785238990937375,
+   "sag_mm": -4.359833987730076,
+   "hog_mm": 7.656098955335305,
+   "design": false,
+   "slack_straps": [
+    "VSTR_N3b"
+   ]
+  },
+  "L1_squeeze_y": {
+   "label": "Equalising rig, slings lean inwards across the module (5 % of the sling force sideways at every head)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9258.895749541985,
+    "S2": 9211.610469480338,
+    "S3": 9172.206069428965,
+    "S4": 9124.920789367316,
+    "N1": 6810.885460632955,
+    "N2": 6763.600180571308,
+    "N3": 6724.1957805199345,
+    "N4": 6676.910500458286
+   },
+   "sum_R": 63743.22500000109,
+   "unbalance": 0.0013500118711817777,
+   "factor": 2.4333750000000003,
+   "members_over": 5,
+   "joints_over": 24,
+   "links_over": 20,
+   "max_member": 1.9509545930253611,
+   "max_joint": 2.0698835059223883,
+   "max_link": 2.650282972728128,
+   "sag_mm": -3.2677711749071547,
+   "hog_mm": 1.6276308353996454,
+   "design": true,
+   "slack_straps": [
+    "VSTR_N1b",
+    "VSTR_N4a"
+   ]
+  },
+  "L2_spread_y": {
+   "label": "Equalising rig, slings lean outwards across the module (5 % of the sling force sideways at every head)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9258.895749541985,
+    "S2": 9211.610469480338,
+    "S3": 9172.206069428965,
+    "S4": 9124.920789367316,
+    "N1": 6810.885460632955,
+    "N2": 6763.600180571308,
+    "N3": 6724.1957805199345,
+    "N4": 6676.910500458286
+   },
+   "sum_R": 63743.22500000109,
+   "unbalance": 0.0013605309122795006,
+   "factor": 2.4333750000000003,
+   "members_over": 3,
+   "joints_over": 25,
+   "links_over": 12,
+   "max_member": 1.9426942777818537,
+   "max_joint": 2.0653911618930705,
+   "max_link": 1.845468864275417,
+   "sag_mm": -3.19749359093155,
+   "hog_mm": 1.5020350414886727,
+   "design": true,
+   "slack_straps": [
+    "VSTR_N1b",
+    "VSTR_N4a"
+   ]
+  },
+  "L3_squeeze_x": {
+   "label": "Equalising rig, slings lean inwards along the module (5 % of the sling force sideways at every head)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9258.895749541985,
+    "S2": 9211.610469480338,
+    "S3": 9172.206069428965,
+    "S4": 9124.920789367316,
+    "N1": 6810.885460632955,
+    "N2": 6763.600180571308,
+    "N3": 6724.1957805199345,
+    "N4": 6676.910500458286
+   },
+   "sum_R": 63743.22500000109,
+   "unbalance": 4.217188688926399e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 2,
+   "joints_over": 23,
+   "links_over": 12,
+   "max_member": 1.9348910028519877,
+   "max_joint": 2.047651008852583,
+   "max_link": 1.8572733631394582,
+   "sag_mm": -3.119399680732099,
+   "hog_mm": 1.3544199542886677,
+   "design": true,
+   "slack_straps": [
+    "VSTR_N1b",
+    "VSTR_N4a"
+   ]
+  },
+  "L4_spread_x": {
+   "label": "Equalising rig, slings lean outwards along the module (5 % of the sling force sideways at every head)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9258.895749541985,
+    "S2": 9211.610469480338,
+    "S3": 9172.206069428965,
+    "S4": 9124.920789367316,
+    "N1": 6810.885460632955,
+    "N2": 6763.600180571308,
+    "N3": 6724.1957805199345,
+    "N4": 6676.910500458286
+   },
+   "sum_R": 63743.22500000109,
+   "unbalance": 4.786174940818455e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 4,
+   "joints_over": 26,
+   "links_over": 12,
+   "max_member": 1.9587622415550048,
+   "max_joint": 2.087623658866664,
+   "max_link": 1.9433519810005948,
+   "sag_mm": -3.3458650845136377,
+   "hog_mm": 1.7752459229431339,
+   "design": true,
+   "slack_straps": [
+    "VSTR_N1b",
+    "VSTR_N4a"
+   ]
+  }
+ },
+ "envelope": {
+  "members_over": 9,
+  "joints_over": 47,
+  "links_over": 27,
+  "links_tie": 164,
+  "max_member": 2.210619978101877,
+  "max_joint": 2.3405496421884266,
+  "added": {
+   "HANG_S1": {
+    "N_max": 24326.387131961023,
+    "N_min": 20453.874042980402,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point S1"
+   },
+   "STIR_S1": {
+    "N_max": -271.5079710033975,
+    "N_min": -429.4339097092349,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point S1"
+   },
+   "GUIDE_S1": {
+    "N_max": 32.78629138678841,
+    "N_min": 27.471337768711706,
+    "V": 974.5823769115884,
+    "M": 166166.29526342667,
+    "type": "GUIDE",
+    "role": "lifting head guide on the roof rim (sideways restraint only), lift point S1"
+   },
+   "HANG_S2": {
+    "N_max": 24207.98829725328,
+    "N_min": 20335.710432750024,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point S2"
+   },
+   "STIR_S2": {
+    "N_max": 662.5174852199383,
+    "N_min": -474.5931232929077,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point S2"
+   },
+   "GUIDE_S2": {
+    "N_max": 36.51354890618126,
+    "N_min": 30.571605666144542,
+    "V": 969.4448133790644,
+    "M": 165290.3406811311,
+    "type": "GUIDE",
+    "role": "lifting head guide on the roof rim (sideways restraint only), lift point S2"
+   },
+   "HANG_S3": {
+    "N_max": 24111.08565006503,
+    "N_min": 20238.96765998801,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point S3"
+   },
+   "STIR_S3": {
+    "N_max": -46.29852550024231,
+    "N_min": -695.5450905038298,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point S3"
+   },
+   "GUIDE_S3": {
+    "N_max": 37.08995973550948,
+    "N_min": 30.716638812148137,
+    "V": 969.4448133398453,
+    "M": 165290.3406744431,
+    "type": "GUIDE",
+    "role": "lifting head guide on the roof rim (sideways restraint only), lift point S3"
+   },
+   "HANG_S4": {
+    "N_max": 24000.603441896517,
+    "N_min": 20128.009723112616,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point S4"
+   },
+   "STIR_S4": {
+    "N_max": -177.13016287057187,
+    "N_min": -375.93447275461045,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point S4"
+   },
+   "GUIDE_S4": {
+    "N_max": 32.50942222678732,
+    "N_min": 27.250049084838555,
+    "V": 971.1814578994571,
+    "M": 165586.43857185548,
+    "type": "GUIDE",
+    "role": "lifting head guide on the roof rim (sideways restraint only), lift point S4"
+   },
+   "HANG_N1": {
+    "N_max": 16695.888999252526,
+    "N_min": 14398.459880556771,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point N1"
+   },
+   "STIR_N1": {
+    "N_max": -8213.734340702496,
+    "N_min": -9336.531626638924,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point N1"
+   },
+   "GUIDE_N1": {
+    "N_max": 20.781282308383826,
+    "N_min": 18.29050277076233,
+    "V": 973.1931952956687,
+    "M": 165929.43979791296,
+    "type": "GUIDE",
+    "role": "lifting head guide on the roof rim (sideways restraint only), lift point N1"
+   },
+   "VSTR_N1b": {
+    "N_max": 2646.2231442477546,
+    "N_min": -0.00024164398424774203,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point N1"
+   },
+   "VFOOT_N1b": {
+    "N_max": 354.59393050094707,
+    "N_min": -2213.5798630201057,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks at the foot of the inclined strap, lift point N1"
+   },
+   "HANG_N2": {
+    "N_max": 7894.298923224499,
+    "N_min": 5733.09876982606,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point N2"
+   },
+   "STIR_N2": {
+    "N_max": -3928.7165782306106,
+    "N_min": -4513.925347361724,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point N2"
+   },
+   "GUIDE_N2": {
+    "N_max": 10.385340332169198,
+    "N_min": 9.21927526240774,
+    "V": 2957.3346602803445,
+    "M": 504225.55957781477,
+    "type": "GUIDE",
+    "role": "lifting head guide on the roof rim (sideways restraint only), lift point N2"
+   },
+   "VSTR_N2a": {
+    "N_max": 9661.853132258051,
+    "N_min": 2910.491068239238,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point N2"
+   },
+   "VFOOT_N2a": {
+    "N_max": -2500.193672027434,
+    "N_min": -8426.45112559208,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks at the foot of the inclined strap, lift point N2"
+   },
+   "VSTR_N2b": {
+    "N_max": 3664.0316686052147,
+    "N_min": -6.188824976556038e-05,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point N2"
+   },
+   "VFOOT_N2b": {
+    "N_max": 145.83550801724164,
+    "N_min": -891.2798170259033,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks at the foot of the inclined strap, lift point N2"
+   },
+   "HANG_N3": {
+    "N_max": 7892.7105175735405,
+    "N_min": 6543.731406064053,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point N3"
+   },
+   "STIR_N3": {
+    "N_max": -3924.3202627697337,
+    "N_min": -4493.241743573861,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point N3"
+   },
+   "GUIDE_N3": {
+    "N_max": 10.373407636849457,
+    "N_min": 9.0196180098879,
+    "V": 2375.309857590186,
+    "M": 404990.3307191246,
+    "type": "GUIDE",
+    "role": "lifting head guide on the roof rim (sideways restraint only), lift point N3"
+   },
+   "VSTR_N3a": {
+    "N_max": 7022.914046436409,
+    "N_min": 1916.0863277070332,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point N3"
+   },
+   "VFOOT_N3a": {
+    "N_max": -414.7449925976855,
+    "N_min": -1714.7730987543525,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks at the foot of the inclined strap, lift point N3"
+   },
+   "VSTR_N3b": {
+    "N_max": 9646.785490615639,
+    "N_min": 3064.199050689415,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point N3"
+   },
+   "VFOOT_N3b": {
+    "N_max": -2635.6642338837396,
+    "N_min": -8429.54942866333,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks at the foot of the inclined strap, lift point N3"
+   },
+   "HANG_N4": {
+    "N_max": 17401.228294830984,
+    "N_min": 14072.685354756679,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point N4"
+   },
+   "STIR_N4": {
+    "N_max": -8470.287882797711,
+    "N_min": -9600.431338005292,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point N4"
+   },
+   "GUIDE_N4": {
+    "N_max": 21.14750696012372,
+    "N_min": 18.11087852653783,
+    "V": 970.7049549669154,
+    "M": 165505.1948218613,
+    "type": "GUIDE",
+    "role": "lifting head guide on the roof rim (sideways restraint only), lift point N4"
+   },
+   "VSTR_N4a": {
+    "N_max": 2580.287335341697,
+    "N_min": -0.0002322224416763444,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point N4"
+   },
+   "VFOOT_N4a": {
+    "N_max": 358.5230736742573,
+    "N_min": -2146.543642305355,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks at the foot of the inclined strap, lift point N4"
+   },
+   "FDIA_0a": {
+    "N_max": 89.3161460287069,
+    "N_min": -443.75584061330716,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_0b": {
+    "N_max": -377.0326104781901,
+    "N_min": -1008.4721293477257,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_1a": {
+    "N_max": 742.8257416903556,
+    "N_min": -171.43647975441638,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_1b": {
+    "N_max": -36.25243999060282,
+    "N_min": -927.4655762804126,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_2a": {
+    "N_max": 625.2413368886328,
+    "N_min": -214.3083990124193,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_2b": {
+    "N_max": -128.9638131313192,
+    "N_min": -890.5537964287013,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_3a": {
+    "N_max": 730.2080295402405,
+    "N_min": -118.56264341690171,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_3b": {
+    "N_max": 13.108366199465365,
+    "N_min": -947.0824482564457,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_4a": {
+    "N_max": 176.535037384922,
+    "N_min": -366.5068233618013,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_4b": {
+    "N_max": -298.61766094244825,
+    "N_min": -916.5967155918203,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_0a": {
+    "N_max": 1619.6848648430337,
+    "N_min": -2152.459221633295,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_0b": {
+    "N_max": 1572.0373497337703,
+    "N_min": -2187.9677404104164,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_1a": {
+    "N_max": 2235.8513518200766,
+    "N_min": -2376.8292798118555,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_1b": {
+    "N_max": 2193.8653742921597,
+    "N_min": -2422.6933845206513,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_2a": {
+    "N_max": 2792.0636500007276,
+    "N_min": -2609.962622569775,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_2b": {
+    "N_max": 2736.240582414748,
+    "N_min": -2663.800622264666,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_3a": {
+    "N_max": 2071.2902175091945,
+    "N_min": -2096.555405501209,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_3b": {
+    "N_max": 2008.8437471981604,
+    "N_min": -2165.439344309689,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_4a": {
+    "N_max": 2226.503276336004,
+    "N_min": -2791.9041748487657,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_4b": {
+    "N_max": 2193.352754542818,
+    "N_min": -2812.0036319426827,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 50 x 1.0 steel strap (tension-only pair modelled as half area both ways)"
+   }
+  },
+  "framed_steel_kg": 1267.4500618060995,
+  "added_kg": 150.01489447384594
+ }
+}

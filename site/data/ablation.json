@@ -1,0 +1,134 @@
+[
+ {
+  "id": "revD_final",
+  "name": "Rev D design (all measures)",
+  "members_over": 0,
+  "joints_over": 0,
+  "links_over": 0,
+  "ties": 205,
+  "max_member": 0.97,
+  "max_joint": 0.88,
+  "max_link_shear": 0.58
+ },
+ {
+  "id": "A1_framed_screws",
+  "name": "ABLATION: no added screws or gussets (joints as framed, 2 screws)",
+  "members_over": 0,
+  "joints_over": 265,
+  "links_over": 4,
+  "ties": 205,
+  "max_member": 0.97,
+  "max_joint": 16.43,
+  "max_link_shear": 1.3
+ },
+ {
+  "id": "A2_no_gussets",
+  "name": "ABLATION: 4-screw joints but no joint gussets near the lift points",
+  "members_over": 0,
+  "joints_over": 45,
+  "links_over": 0,
+  "ties": 205,
+  "max_member": 0.97,
+  "max_joint": 1.88,
+  "max_link_shear": 0.58
+ },
+ {
+  "id": "A3_no_bridging",
+  "name": "ABLATION: no bridging line at truss mid-span (floor and roof)",
+  "members_over": 1,
+  "joints_over": 0,
+  "links_over": 0,
+  "ties": 203,
+  "max_member": 1.17,
+  "max_joint": 0.88,
+  "max_link_shear": 0.57
+ },
+ {
+  "id": "A4_no_plane_bracing",
+  "name": "ABLATION: no floor and roof plane strap bracing",
+  "members_over": 10,
+  "joints_over": 8,
+  "links_over": 14,
+  "ties": 252,
+  "max_member": 2.1,
+  "max_joint": 5.19,
+  "max_link_shear": 1.86
+ },
+ {
+  "id": "A5_seat_between_joints",
+  "name": "ABLATION: lift points half a truss panel off the joint pairs, so the cradles bear between truss joints",
+  "members_over": 15,
+  "joints_over": 25,
+  "links_over": 14,
+  "ties": 186,
+  "max_member": 3.5,
+  "max_joint": 3.59,
+  "max_link_shear": 2.64
+ },
+ {
+  "id": "A6_north_trusses_095",
+  "name": "ABLATION: north edge trusses left at 0.95 mm (not 1.15 mm)",
+  "members_over": 6,
+  "joints_over": 17,
+  "links_over": 0,
+  "ties": 206,
+  "max_member": 1.24,
+  "max_joint": 1.12,
+  "max_link_shear": 0.56
+ },
+ {
+  "id": "A7_single_inner_hanger",
+  "name": "ABLATION: one hanger strap on the inside face at the north lift points (twists the edge truss)",
+  "members_over": 0,
+  "joints_over": 0,
+  "links_over": 0,
+  "ties": 201,
+  "max_member": 0.98,
+  "max_joint": 0.92,
+  "max_link_shear": 0.56
+ },
+ {
+  "id": "A8_edge_trusses_100",
+  "name": "ABLATION: the three edge trusses at 1.00 mm (the thickest TRUECORE G550 listed in Indonesia), not 1.15 mm",
+  "members_over": 3,
+  "joints_over": 8,
+  "links_over": 0,
+  "ties": 206,
+  "max_member": 1.19,
+  "max_joint": 1.05,
+  "max_link_shear": 0.57
+ },
+ {
+  "id": "B0_frame_only",
+  "name": "BEFORE: Framer frame as framed (2 screws per joint), no lift parts, slings straight onto the floor edge truss bottom chords at the same 8 points",
+  "members_over": 20,
+  "joints_over": 334,
+  "links_over": 23,
+  "ties": 274,
+  "max_member": 2.04,
+  "max_joint": 19.17,
+  "max_link_shear": 2.05
+ },
+ {
+  "id": "S1_lining_credit",
+  "name": "SENSITIVITY: lining and flooring credited as restraint",
+  "members_over": 0,
+  "joints_over": 0,
+  "links_over": 0,
+  "ties": 205,
+  "max_member": 0.97,
+  "max_joint": 0.88,
+  "max_link_shear": 0.58
+ },
+ {
+  "id": "S2_twist_length_out",
+  "name": "SENSITIVITY: twist buckling length = out-of-plane length (no credit for joint screws)",
+  "members_over": 9,
+  "joints_over": 0,
+  "links_over": 0,
+  "ties": 205,
+  "max_member": 2.19,
+  "max_joint": 0.88,
+  "max_link_shear": 0.58
+ }
+]

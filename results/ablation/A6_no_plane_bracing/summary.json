@@ -1,0 +1,2459 @@
+{
+ "meta": {
+  "config": "ABLATION: design without the floor and roof plane strap bracing",
+  "W_N": 63743.22499999967,
+  "rated_kg": 6500.0,
+  "itemised_kg": 4777.245655298138,
+  "cg": [
+   5977.401138658934,
+   1386.1778256969967,
+   1194.4782134740396
+  ],
+  "factor": 2.4333750000000003,
+  "factors": {
+   "weight": 1.03,
+   "cog": 1.05,
+   "dynamic": 1.5,
+   "load": 1.5
+  },
+  "member_steel": "G450",
+  "connection_steel": "connections fu 412.5",
+  "lift_points": {
+   "S1": {
+    "node": 3138,
+    "xyz": [
+     900.0,
+     44.5,
+     3150.0
+    ]
+   },
+   "S2": {
+    "node": 3139,
+    "xyz": [
+     4500.0,
+     44.5,
+     3150.0
+    ]
+   },
+   "S3": {
+    "node": 3140,
+    "xyz": [
+     7500.0,
+     44.5,
+     3150.0
+    ]
+   },
+   "S4": {
+    "node": 3141,
+    "xyz": [
+     11100.0,
+     44.5,
+     3150.0
+    ]
+   },
+   "N1": {
+    "node": 3142,
+    "xyz": [
+     900.0,
+     3255.5,
+     3150.0
+    ]
+   },
+   "N2": {
+    "node": 3143,
+    "xyz": [
+     4500.0,
+     3255.5,
+     3150.0
+    ]
+   },
+   "N3": {
+    "node": 3144,
+    "xyz": [
+     7500.0,
+     3255.5,
+     3150.0
+    ]
+   },
+   "N4": {
+    "node": 3145,
+    "xyz": [
+     11100.0,
+     3255.5,
+     3150.0
+    ]
+   }
+  }
+ },
+ "cases": {
+  "R1_rigid": {
+   "label": "Rigid lifting frame, 8 slings of exact equal length and no stretch",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 9502.355358748015,
+    "S2": 9253.207506747194,
+    "S3": 8971.710268077592,
+    "S4": 9381.610071886096,
+    "N1": 6912.462654701031,
+    "N2": 6437.567137895304,
+    "N3": 6456.266239697556,
+    "N4": 6828.045763887196
+   },
+   "sum_R": 63743.225001639985,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.9285767204959836,
+   "max_joint": 0.8052862087809366,
+   "max_link": 0.7924303033994499,
+   "sag_mm": -2.0003897185009385,
+   "hog_mm": -0.19008929162521399,
+   "design": true,
+   "slack_straps": []
+  },
+  "R4_equalised": {
+   "label": "Equalising rig (beam cascade): four equal sling forces on each side, sides by statics",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9342.212607647842,
+    "S2": 9296.336037482151,
+    "S3": 9258.105562344073,
+    "S4": 9212.228992178383,
+    "N1": 6723.577257821449,
+    "N2": 6677.700687655758,
+    "N3": 6639.470212517681,
+    "N4": 6593.59364235199
+   },
+   "sum_R": 63743.22499999933,
+   "unbalance": 0.00011011361948476406,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 1,
+   "max_member": 0.9280711833181439,
+   "max_joint": 0.8099563921665438,
+   "max_link": 1.012254225192932,
+   "sag_mm": -16.170524411383546,
+   "hog_mm": 5.560718866640649,
+   "design": true,
+   "slack_straps": []
+  },
+  "R7a_outer_high": {
+   "label": "Equalising rig with 10 % skew (outer high): friction and geometry errors in the rig",
+   "rig": "forces",
+   "reactions": {
+    "S1": 10139.002920147841,
+    "S2": 8499.545724982156,
+    "S3": 8461.315249844078,
+    "S4": 10009.019304678375,
+    "N1": 7520.367570321448,
+    "N2": 5880.910375155763,
+    "N3": 5842.679900017685,
+    "N4": 7390.383954851983
+   },
+   "sum_R": 63743.22499999933,
+   "unbalance": 0.00011392985652491916,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 1,
+   "max_member": 0.9284495096426717,
+   "max_joint": 0.815607435340109,
+   "max_link": 1.0231260044053887,
+   "sag_mm": -15.388524360072616,
+   "hog_mm": 6.501047417606962,
+   "design": true,
+   "slack_straps": []
+  },
+  "R7b_inner_high": {
+   "label": "Equalising rig with 10 % skew (inner high): friction and geometry errors in the rig",
+   "rig": "forces",
+   "reactions": {
+    "S1": 8545.422295147851,
+    "S2": 10093.126349982147,
+    "S3": 10054.89587484407,
+    "S4": 8415.438679678382,
+    "N1": 5926.786945321459,
+    "N2": 7474.491000155755,
+    "N3": 7436.260525017676,
+    "N4": 5796.803329851989
+   },
+   "sum_R": 63743.22499999933,
+   "unbalance": 0.00010630749784468208,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 1,
+   "max_member": 0.927692857909928,
+   "max_joint": 0.8043053488180744,
+   "max_link": 1.0013844037720536,
+   "sag_mm": -17.097971544621835,
+   "hog_mm": 4.6205626161670725,
+   "design": true,
+   "slack_straps": []
+  },
+  "R7c_one_end_high": {
+   "label": "Equalising rig with 10 % skew (one end high): friction and geometry errors in the rig",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9189.959681692435,
+    "S2": 9813.995985730558,
+    "S3": 8740.445614095668,
+    "S4": 9364.48191813379,
+    "N1": 6571.3243318660425,
+    "N2": 7195.360635904164,
+    "N3": 6121.810264269275,
+    "N4": 6745.846568307397
+   },
+   "sum_R": 63743.22499999933,
+   "unbalance": 0.00010865416788874427,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 1,
+   "max_member": 0.9280227940461213,
+   "max_joint": 0.8111711669582975,
+   "max_link": 1.0108909893788316,
+   "sag_mm": -15.955584545300054,
+   "hog_mm": 5.481050698173931,
+   "design": true,
+   "slack_straps": []
+  },
+  "R7d_twist": {
+   "label": "Equalising rig with 10 % skew (twist): friction and geometry errors in the rig",
+   "rig": "forces",
+   "reactions": {
+    "S1": 10139.002920147841,
+    "S2": 10093.126349982147,
+    "S3": 8461.315249844078,
+    "S4": 8415.438679678384,
+    "N1": 5926.786945321456,
+    "N2": 5880.910375155763,
+    "N3": 7436.260525017677,
+    "N4": 7390.383954851983
+   },
+   "sum_R": 63743.22499999933,
+   "unbalance": 0.0037612393734889338,
+   "factor": 2.4333750000000003,
+   "members_over": 7,
+   "joints_over": 8,
+   "links_over": 42,
+   "max_member": 1.186283399770066,
+   "max_joint": 12.945286631608319,
+   "max_link": 28.46977691591892,
+   "sag_mm": -198.56877740345138,
+   "hog_mm": 491.6389595505939,
+   "design": true,
+   "slack_straps": [
+    "VSTR_N2b"
+   ]
+  },
+  "R2_springs": {
+   "label": "Rigid frame with elastic slings",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9445.645485633124,
+    "S2": 9254.12763587445,
+    "S3": 9130.467618734347,
+    "S4": 9278.642420659227,
+    "N1": 6853.209748282724,
+    "N2": 6505.815517741233,
+    "N3": 6499.26106712433,
+    "N4": 6776.055458143235
+   },
+   "sum_R": 63743.22495219267,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.9285490252492303,
+   "max_joint": 0.8045005495381204,
+   "max_link": 0.7933768876628418,
+   "sag_mm": -2.1101926972814864,
+   "hog_mm": 0.5485443638716352,
+   "design": true,
+   "slack_straps": []
+  },
+  "R6_short_S1": {
+   "label": "Rigid frame with elastic slings, sling S1 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 12394.382259913473,
+    "S2": 5039.9623358340405,
+    "S3": 8547.975831790653,
+    "S4": 11126.562800891474,
+    "N1": 6838.238191598795,
+    "N2": 6499.295747315243,
+    "N3": 6507.340764192497,
+    "N4": 6789.467052513605
+   },
+   "sum_R": 63743.22498404978,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 10,
+   "links_over": 0,
+   "max_member": 0.9725755023390261,
+   "max_joint": 1.1891830061990567,
+   "max_link": 0.7811912680649359,
+   "sag_mm": -4.1773494343958575,
+   "hog_mm": 7.179095209069904,
+   "design": false,
+   "slack_straps": []
+  },
+  "R6_short_S2": {
+   "label": "Rigid frame with elastic slings, sling S2 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 5372.292398012794,
+    "S2": 17548.364538686063,
+    "S3": 5470.162188544233,
+    "S4": 8718.06407091794,
+    "N1": 6852.7914136812615,
+    "N2": 6503.59941100295,
+    "N3": 6499.880841271225,
+    "N4": 6778.070141344786
+   },
+   "sum_R": 63743.22500346125,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 2,
+   "joints_over": 37,
+   "links_over": 2,
+   "max_member": 1.5801095410869501,
+   "max_joint": 1.8901199553069234,
+   "max_link": 2.6072614499695748,
+   "sag_mm": -2.63514680500653,
+   "hog_mm": 3.2871383268036407,
+   "design": false,
+   "slack_straps": [
+    "VSTR_S1b",
+    "VSTR_S3a"
+   ]
+  },
+  "R6_short_S3": {
+   "label": "Rigid frame with elastic slings, sling S3 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 8849.413405947504,
+    "S2": 5474.086866642911,
+    "S3": 17743.025056314294,
+    "S4": 5042.35784861109,
+    "N1": 6855.849295391696,
+    "N2": 6506.805304611285,
+    "N3": 6496.809339086735,
+    "N4": 6774.87786620262
+   },
+   "sum_R": 63743.22498280813,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 4,
+   "joints_over": 39,
+   "links_over": 5,
+   "max_member": 1.454589855090029,
+   "max_joint": 2.040562354513941,
+   "max_link": 3.696134171699379,
+   "sag_mm": -3.225361131670296,
+   "hog_mm": 3.236290668984631,
+   "design": false,
+   "slack_straps": [
+    "VSTR_S2b",
+    "VSTR_S4a"
+   ]
+  },
+  "R6_short_S4": {
+   "label": "Rigid frame with elastic slings, sling S4 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 11293.565867845258,
+    "S2": 8726.13524621704,
+    "S3": 4817.28595050069,
+    "S4": 12271.896087422812,
+    "N1": 6866.4265636678665,
+    "N2": 6513.701651547631,
+    "N3": 6492.748828640988,
+    "N4": 6761.464763258059
+   },
+   "sum_R": 63743.22495910034,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 2,
+   "joints_over": 12,
+   "links_over": 0,
+   "max_member": 1.0105528012516611,
+   "max_joint": 1.447422656303317,
+   "max_link": 0.7922626466794587,
+   "sag_mm": -4.234570297321851,
+   "hog_mm": 7.195879605789906,
+   "design": false,
+   "slack_straps": []
+  },
+  "R6_short_N1": {
+   "label": "Rigid frame with elastic slings, sling N1 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9430.953856948567,
+    "S2": 9253.04807633085,
+    "S3": 9133.291743063986,
+    "S4": 9291.589421834728,
+    "N1": 8635.061234571207,
+    "N2": 3554.820863909028,
+    "N3": 6901.620035362851,
+    "N4": 7542.839703771927
+   },
+   "sum_R": 63743.22493579314,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 1,
+   "joints_over": 0,
+   "links_over": 2,
+   "max_member": 1.144319164048642,
+   "max_joint": 0.8073649266033992,
+   "max_link": 1.4546840600510387,
+   "sag_mm": -3.057018367478819,
+   "hog_mm": 9.031875052170683,
+   "design": false,
+   "slack_straps": [
+    "VSTR_N2a"
+   ]
+  },
+  "R6_short_N2": {
+   "label": "Rigid frame with elastic slings, sling N2 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9444.29566514195,
+    "S2": 9252.287393627365,
+    "S3": 9130.720429261035,
+    "S4": 9281.579714675563,
+    "N1": 4151.694256760149,
+    "N2": 12708.107128129363,
+    "N3": 2789.6325595289077,
+    "N4": 6984.907853791568
+   },
+   "sum_R": 63743.2250009159,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 3,
+   "joints_over": 4,
+   "links_over": 2,
+   "max_member": 1.4928939806447186,
+   "max_joint": 1.047926555792042,
+   "max_link": 2.091584292075771,
+   "sag_mm": -2.8551795682516783,
+   "hog_mm": 6.123473784910532,
+   "design": false,
+   "slack_straps": [
+    "HANG_N1",
+    "VSTR_N3a",
+    "HANG_N3"
+   ]
+  },
+  "R6_short_N3": {
+   "label": "Rigid frame with elastic slings, sling N3 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9448.495025108008,
+    "S2": 9254.266724204028,
+    "S3": 9128.730742301354,
+    "S4": 9277.390688154726,
+    "N1": 7051.69120616124,
+    "N2": 2823.9368653748284,
+    "N3": 12680.4161036519,
+    "N4": 4078.2976578793273
+   },
+   "sum_R": 63743.22501283541,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 3,
+   "joints_over": 4,
+   "links_over": 2,
+   "max_member": 1.5268154533236742,
+   "max_joint": 1.0519699738544208,
+   "max_link": 1.9659638470285519,
+   "sag_mm": -3.4363179145794156,
+   "hog_mm": 6.1237457183430735,
+   "design": false,
+   "slack_straps": [
+    "VSTR_N2b",
+    "HANG_N4",
+    "HANG_N2"
+   ]
+  },
+  "R6_short_N4": {
+   "label": "Rigid frame with elastic slings, sling N4 short by 10 mm",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9458.74316250679,
+    "S2": 9256.713867586146,
+    "S3": 9129.061998390955,
+    "S4": 9264.364148775032,
+    "N1": 7615.853378950569,
+    "N2": 6914.229930435816,
+    "N3": 3549.2318712512347,
+    "N4": 8555.026625005103
+   },
+   "sum_R": 63743.224982901644,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 1,
+   "joints_over": 0,
+   "links_over": 2,
+   "max_member": 1.1370783814850642,
+   "max_joint": 0.8102082896078003,
+   "max_link": 1.4709378219292446,
+   "sag_mm": -3.655070010265252,
+   "hog_mm": 9.064231089057632,
+   "design": false,
+   "slack_straps": [
+    "VSTR_N3b"
+   ]
+  },
+  "L1_squeeze_y": {
+   "label": "Equalising rig, slings lean inwards across the module (5 % of the sling force sideways at every head)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9342.212607647842,
+    "S2": 9296.336037482151,
+    "S3": 9258.105562344073,
+    "S4": 9212.228992178383,
+    "N1": 6723.577257821449,
+    "N2": 6677.700687655758,
+    "N3": 6639.470212517681,
+    "N4": 6593.59364235199
+   },
+   "sum_R": 63743.22499999933,
+   "unbalance": 0.00011079827072535409,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 1,
+   "max_member": 0.927994352981584,
+   "max_joint": 0.8080519663215614,
+   "max_link": 1.0134334359910704,
+   "sag_mm": -16.184301732603856,
+   "hog_mm": 5.565631650559368,
+   "design": true,
+   "slack_straps": []
+  },
+  "L2_spread_y": {
+   "label": "Equalising rig, slings lean outwards across the module (5 % of the sling force sideways at every head)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9342.212607647842,
+    "S2": 9296.336037482151,
+    "S3": 9258.105562344073,
+    "S4": 9212.228992178383,
+    "N1": 6723.577257821449,
+    "N2": 6677.700687655758,
+    "N3": 6639.470212517681,
+    "N4": 6593.59364235199
+   },
+   "sum_R": 63743.22499999933,
+   "unbalance": 0.0001094086373996106,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 1,
+   "max_member": 0.9281480136845139,
+   "max_joint": 0.8118608177943027,
+   "max_link": 1.0110750145865226,
+   "sag_mm": -16.156747092023874,
+   "hog_mm": 5.555806083123695,
+   "design": true,
+   "slack_straps": []
+  },
+  "L3_squeeze_x": {
+   "label": "Equalising rig, slings lean inwards along the module (5 % of the sling force sideways at every head)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9342.212607647842,
+    "S2": 9296.336037482151,
+    "S3": 9258.105562344073,
+    "S4": 9212.228992178383,
+    "N1": 6723.577257821449,
+    "N2": 6677.700687655758,
+    "N3": 6639.470212517681,
+    "N4": 6593.59364235199
+   },
+   "sum_R": 63743.22499999933,
+   "unbalance": 0.00011041287689295132,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 1,
+   "max_member": 0.9278948091706848,
+   "max_joint": 0.803511709957208,
+   "max_link": 1.0135069505683922,
+   "sag_mm": -16.06770935909704,
+   "hog_mm": 5.655531574294696,
+   "design": true,
+   "slack_straps": []
+  },
+  "L4_spread_x": {
+   "label": "Equalising rig, slings lean outwards along the module (5 % of the sling force sideways at every head)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9342.212607647842,
+    "S2": 9296.336037482151,
+    "S3": 9258.105562344073,
+    "S4": 9212.228992178383,
+    "N1": 6723.577257821449,
+    "N2": 6677.700687655758,
+    "N3": 6639.470212517681,
+    "N4": 6593.59364235199
+   },
+   "sum_R": 63743.22499999933,
+   "unbalance": 0.00010980311617458938,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 1,
+   "max_member": 0.928247557650378,
+   "max_joint": 0.8164010744067837,
+   "max_link": 1.0110015531207623,
+   "sag_mm": -16.27483608982121,
+   "hog_mm": 5.4659061591845,
+   "design": true,
+   "slack_straps": []
+  }
+ },
+ "envelope": {
+  "members_over": 7,
+  "joints_over": 8,
+  "links_over": 42,
+  "links_tie": 153,
+  "max_member": 1.186283399770066,
+  "max_joint": 12.945286631608319,
+  "added": {
+   "HANG_S1": {
+    "N_max": 10110.786974703813,
+    "N_min": 8816.316102149882,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point S1"
+   },
+   "STIR_S1": {
+    "N_max": -2909.9712989106647,
+    "N_min": -3393.572887230142,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point S1"
+   },
+   "STIR_S1_B": {
+    "N_max": 1827.5100525485998,
+    "N_min": -1154.2840704882103,
+    "V": 1820.9060677947878,
+    "M": 493002.2147736751,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S1"
+   },
+   "STIR_S1_T": {
+    "N_max": 948.6646935971324,
+    "N_min": -1791.1962238871688,
+    "V": 2655.4110631385033,
+    "M": 642906.9704903071,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S1"
+   },
+   "STIR_S1_L": {
+    "N_max": 1117.8905527947331,
+    "N_min": 833.9561445909242,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S1"
+   },
+   "STIR_S1_R": {
+    "N_max": 994.1283745519315,
+    "N_min": 547.9988389853679,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S1"
+   },
+   "STIR_S1_D1": {
+    "N_max": 1566.789883898166,
+    "N_min": 1256.7063628230196,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S1"
+   },
+   "STIR_S1_D2": {
+    "N_max": 816.3538709170701,
+    "N_min": 527.5919857028168,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S1"
+   },
+   "STIR_S1_D3": {
+    "N_max": -2133.7848049266718,
+    "N_min": -2675.322360324838,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S1"
+   },
+   "STIR_S1_D4": {
+    "N_max": -1792.6050334316403,
+    "N_min": -1904.4545835119354,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S1"
+   },
+   "GUIDE_S1": {
+    "N_max": 17.57354882167111,
+    "N_min": -0.028403682686207275,
+    "V": 4275.673059806967,
+    "M": 1106294.341628444,
+    "type": "GUIDE",
+    "role": "lifting head bracket on the roof rim (sideways restraint only), lift point S1"
+   },
+   "VSTR_S1a": {
+    "N_max": 6848.908487996623,
+    "N_min": 6108.149485031338,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point S1"
+   },
+   "VFOOT_S1a": {
+    "N_max": -683.9485748183316,
+    "N_min": -944.8600239381252,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1a_B": {
+    "N_max": 1236.5858342782462,
+    "N_min": 10.427304675351124,
+    "V": 4492.542891226892,
+    "M": 409863.7456157987,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1a_T": {
+    "N_max": 113.9544787707092,
+    "N_min": -2142.223508961395,
+    "V": 2799.4946416051457,
+    "M": 255131.958586471,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1a_L": {
+    "N_max": 392.23355440945545,
+    "N_min": 178.34575844726456,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1a_R": {
+    "N_max": 289.0323039614562,
+    "N_min": 269.9348934818793,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1a_D1": {
+    "N_max": -922.7089003668038,
+    "N_min": -979.7089526497098,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1a_D2": {
+    "N_max": 1686.062173830863,
+    "N_min": 390.888686216385,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1a_D3": {
+    "N_max": 151.51994981503896,
+    "N_min": -53.80440286030953,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1a_D4": {
+    "N_max": -1032.372665475762,
+    "N_min": -2252.6657038970307,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VSTR_S1b": {
+    "N_max": 8733.292613682244,
+    "N_min": 5369.102503456639,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point S1"
+   },
+   "VFOOT_S1b": {
+    "N_max": -2195.4579051104397,
+    "N_min": -3212.765112903079,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1b_B": {
+    "N_max": 2308.0809646924745,
+    "N_min": -2479.458237643231,
+    "V": 1513.4101417194993,
+    "M": 356462.029349575,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1b_T": {
+    "N_max": 2876.904183324179,
+    "N_min": -2047.9066483236352,
+    "V": 1067.5252100141188,
+    "M": 480404.26799033984,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1b_L": {
+    "N_max": 321.3236564829165,
+    "N_min": 225.40518373271362,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1b_R": {
+    "N_max": -73.14754394858545,
+    "N_min": -1150.3418971150652,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1b_D1": {
+    "N_max": 957.4532097400519,
+    "N_min": -98.95600229789387,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1b_D2": {
+    "N_max": 1434.6078208802355,
+    "N_min": 186.95597641632236,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1b_D3": {
+    "N_max": -906.7690786201395,
+    "N_min": -2323.8359223370558,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "VFOOT_S1b_D4": {
+    "N_max": -961.7789148046993,
+    "N_min": -2533.636660516911,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S1"
+   },
+   "HANG_S2": {
+    "N_max": 9622.450704749828,
+    "N_min": 8532.345156632671,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point S2"
+   },
+   "STIR_S2": {
+    "N_max": -2523.023587538418,
+    "N_min": -2749.323791212875,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point S2"
+   },
+   "STIR_S2_B": {
+    "N_max": 257.77796079289556,
+    "N_min": -3589.0360485801525,
+    "V": 1525.725560021952,
+    "M": 177776.38034416438,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S2"
+   },
+   "STIR_S2_T": {
+    "N_max": 2957.956563158574,
+    "N_min": 420.113853054717,
+    "V": 2945.009913639651,
+    "M": 380162.1605741687,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S2"
+   },
+   "STIR_S2_L": {
+    "N_max": 1030.6395803029393,
+    "N_min": 234.6369091475859,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S2"
+   },
+   "STIR_S2_R": {
+    "N_max": 43.90829975398097,
+    "N_min": -364.0919398260249,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S2"
+   },
+   "STIR_S2_D1": {
+    "N_max": 1556.6306381219663,
+    "N_min": 1018.3862181812598,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S2"
+   },
+   "STIR_S2_D2": {
+    "N_max": 1515.9621053277947,
+    "N_min": 906.2974585362214,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S2"
+   },
+   "STIR_S2_D3": {
+    "N_max": -2181.812109382555,
+    "N_min": -2916.303600708282,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S2"
+   },
+   "STIR_S2_D4": {
+    "N_max": -2307.120700964162,
+    "N_min": -2952.0678417402955,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S2"
+   },
+   "GUIDE_S2": {
+    "N_max": 17.0114928589501,
+    "N_min": -0.14604945906273484,
+    "V": 1219.3270370595455,
+    "M": 207895.2598186523,
+    "type": "GUIDE",
+    "role": "lifting head bracket on the roof rim (sideways restraint only), lift point S2"
+   },
+   "VSTR_S2a": {
+    "N_max": 8866.20767402633,
+    "N_min": 5915.234940807784,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point S2"
+   },
+   "VFOOT_S2a": {
+    "N_max": -2081.5548589022046,
+    "N_min": -2685.5391546203373,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2a_B": {
+    "N_max": 1654.5064854956593,
+    "N_min": -5066.136069629165,
+    "V": 871.22016435878,
+    "M": 207219.03078668835,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2a_T": {
+    "N_max": 3706.6321081118263,
+    "N_min": -237.45387811376986,
+    "V": 1037.8741462987907,
+    "M": 227235.76387085154,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2a_L": {
+    "N_max": -572.4922168597561,
+    "N_min": -1314.0973621173384,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2a_R": {
+    "N_max": 962.9342443313695,
+    "N_min": 241.90620724131728,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2a_D1": {
+    "N_max": 1729.9880786326426,
+    "N_min": 831.1053176527912,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2a_D2": {
+    "N_max": 1288.0085865273954,
+    "N_min": -119.13269271136055,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2a_D3": {
+    "N_max": -1315.804395174936,
+    "N_min": -3467.7695052447966,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2a_D4": {
+    "N_max": -1007.3815512652432,
+    "N_min": -3121.853529297538,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VSTR_S2b": {
+    "N_max": 8848.112515720237,
+    "N_min": 6297.206099996879,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point S2"
+   },
+   "VFOOT_S2b": {
+    "N_max": -1397.1600696533649,
+    "N_min": -1988.9055805969517,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2b_B": {
+    "N_max": 963.0887995283244,
+    "N_min": -4872.155983847313,
+    "V": 1632.5701887645725,
+    "M": 122714.806676322,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2b_T": {
+    "N_max": 4169.508659408266,
+    "N_min": 62.953009836635644,
+    "V": 1103.3703265011625,
+    "M": 220168.0894627605,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2b_L": {
+    "N_max": 180.9885056197933,
+    "N_min": -574.7813674274399,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2b_R": {
+    "N_max": -732.6231026272189,
+    "N_min": -1363.2635202765578,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2b_D1": {
+    "N_max": 359.13814348806244,
+    "N_min": -388.26573321104183,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2b_D2": {
+    "N_max": 1116.6553944335128,
+    "N_min": 519.5260282985109,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2b_D3": {
+    "N_max": -1007.2085409671862,
+    "N_min": -2039.6232696048132,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "VFOOT_S2b_D4": {
+    "N_max": -1333.2579255654516,
+    "N_min": -2464.355417317881,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S2"
+   },
+   "HANG_S3": {
+    "N_max": 9326.652228649878,
+    "N_min": 8190.417872227425,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point S3"
+   },
+   "STIR_S3": {
+    "N_max": -2579.33417215791,
+    "N_min": -2822.932991019303,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point S3"
+   },
+   "STIR_S3_B": {
+    "N_max": -122.53044659927347,
+    "N_min": -4202.086893914741,
+    "V": 1213.6157278685234,
+    "M": 219275.0831942139,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S3"
+   },
+   "STIR_S3_T": {
+    "N_max": 2541.5783342186382,
+    "N_min": -49.46665452430315,
+    "V": 1230.4433932887102,
+    "M": 139814.54015845587,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S3"
+   },
+   "STIR_S3_L": {
+    "N_max": 160.9942902290414,
+    "N_min": -129.7753855050964,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S3"
+   },
+   "STIR_S3_R": {
+    "N_max": 870.4082826040263,
+    "N_min": 56.656315880153485,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S3"
+   },
+   "STIR_S3_D1": {
+    "N_max": 1217.939514261679,
+    "N_min": 811.7190475041186,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S3"
+   },
+   "STIR_S3_D2": {
+    "N_max": 1777.2094726942858,
+    "N_min": 1130.391387185383,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S3"
+   },
+   "STIR_S3_D3": {
+    "N_max": -1997.8559190985827,
+    "N_min": -2817.197612585925,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S3"
+   },
+   "STIR_S3_D4": {
+    "N_max": -1914.3735400082696,
+    "N_min": -2807.993055862638,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S3"
+   },
+   "GUIDE_S3": {
+    "N_max": 16.498392057715524,
+    "N_min": -0.16172281514271522,
+    "V": 1044.3911482431508,
+    "M": 178068.69077545736,
+    "type": "GUIDE",
+    "role": "lifting head bracket on the roof rim (sideways restraint only), lift point S3"
+   },
+   "VSTR_S3a": {
+    "N_max": 7249.024734490984,
+    "N_min": 3884.2447874955724,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point S3"
+   },
+   "VFOOT_S3a": {
+    "N_max": -1115.757124003755,
+    "N_min": -2309.2750266751127,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3a_B": {
+    "N_max": 1072.5252929678752,
+    "N_min": -3830.2697618236916,
+    "V": 1429.4173959827167,
+    "M": 135658.69567438605,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3a_T": {
+    "N_max": 2094.8285853377765,
+    "N_min": -1023.4295904317969,
+    "V": 1300.3452697498199,
+    "M": 140033.9991266184,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3a_L": {
+    "N_max": -453.5872616100816,
+    "N_min": -1363.301736064175,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3a_R": {
+    "N_max": 308.1224705870972,
+    "N_min": -268.8102229107155,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3a_D1": {
+    "N_max": 1213.5856813765793,
+    "N_min": 362.83758643202634,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3a_D2": {
+    "N_max": 109.89560226856436,
+    "N_min": -544.2219654152811,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3a_D3": {
+    "N_max": -929.6248913826504,
+    "N_min": -2312.391435462967,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3a_D4": {
+    "N_max": -515.0271642861891,
+    "N_min": -1123.4550233438551,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VSTR_S3b": {
+    "N_max": 8670.368506725086,
+    "N_min": 5303.25325817571,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point S3"
+   },
+   "VFOOT_S3b": {
+    "N_max": -2203.1642822217486,
+    "N_min": -3061.9200319837473,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3b_B": {
+    "N_max": 1604.2591097667687,
+    "N_min": -4894.373220356889,
+    "V": 1568.0972013701678,
+    "M": 190220.82121206095,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3b_T": {
+    "N_max": 3562.0626753127913,
+    "N_min": -243.93523086364408,
+    "V": 1066.0206882825573,
+    "M": 210103.91044022943,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3b_L": {
+    "N_max": 909.9076505278762,
+    "N_min": 196.72629650717016,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3b_R": {
+    "N_max": -517.354807613802,
+    "N_min": -1238.818516884743,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3b_D1": {
+    "N_max": 1481.6612862516183,
+    "N_min": 42.88531861339871,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3b_D2": {
+    "N_max": 1612.7180849834901,
+    "N_min": 758.5526369115208,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3b_D3": {
+    "N_max": -641.2198785917512,
+    "N_min": -2679.8550400722033,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "VFOOT_S3b_D4": {
+    "N_max": -1211.6623678759336,
+    "N_min": -3336.119337848802,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S3"
+   },
+   "HANG_S4": {
+    "N_max": 9889.841793250758,
+    "N_min": 8526.07507767941,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point S4"
+   },
+   "STIR_S4": {
+    "N_max": -2767.826182336024,
+    "N_min": -3309.606722785905,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point S4"
+   },
+   "STIR_S4_B": {
+    "N_max": 1144.5717434592107,
+    "N_min": -1354.989615673648,
+    "V": 911.1331293134448,
+    "M": 311490.4938876343,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S4"
+   },
+   "STIR_S4_T": {
+    "N_max": 1048.0262293552023,
+    "N_min": -1124.9410535054706,
+    "V": 4401.770354225828,
+    "M": 933451.0005613319,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S4"
+   },
+   "STIR_S4_L": {
+    "N_max": 928.04563813399,
+    "N_min": 451.92915541233685,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S4"
+   },
+   "STIR_S4_R": {
+    "N_max": 729.1145798542309,
+    "N_min": 459.86745564684423,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S4"
+   },
+   "STIR_S4_D1": {
+    "N_max": 1051.6752999439088,
+    "N_min": 789.9195607904112,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S4"
+   },
+   "STIR_S4_D2": {
+    "N_max": 1196.36428296654,
+    "N_min": 953.1600479468773,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S4"
+   },
+   "STIR_S4_D3": {
+    "N_max": -1903.5781493731952,
+    "N_min": -1999.064184701889,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S4"
+   },
+   "STIR_S4_D4": {
+    "N_max": -1789.4292626277793,
+    "N_min": -2324.738323171685,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point S4"
+   },
+   "GUIDE_S4": {
+    "N_max": 17.138506405748288,
+    "N_min": -0.027067237424812738,
+    "V": 4285.787010159122,
+    "M": 1113680.8219560694,
+    "type": "GUIDE",
+    "role": "lifting head bracket on the roof rim (sideways restraint only), lift point S4"
+   },
+   "VSTR_S4a": {
+    "N_max": 8595.11672458976,
+    "N_min": 5406.886565122012,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point S4"
+   },
+   "VFOOT_S4a": {
+    "N_max": -2230.9587675659504,
+    "N_min": -2987.685809949241,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4a_B": {
+    "N_max": 2168.285750083922,
+    "N_min": -2957.798937875808,
+    "V": 1332.6568711921836,
+    "M": 536612.4190262089,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4a_T": {
+    "N_max": 3175.069338688392,
+    "N_min": -1773.1811108046797,
+    "V": 2890.1375712222502,
+    "M": 345718.7704063855,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4a_L": {
+    "N_max": -126.64128004279381,
+    "N_min": -1222.189023673225,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4a_R": {
+    "N_max": 259.6831642535906,
+    "N_min": 152.36631834850377,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4a_D1": {
+    "N_max": 1527.4128862982707,
+    "N_min": 225.61403967552704,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4a_D2": {
+    "N_max": 1108.4180956914174,
+    "N_min": -224.94513563005123,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4a_D3": {
+    "N_max": -1036.0466087054758,
+    "N_min": -2652.4825535402524,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4a_D4": {
+    "N_max": -779.8809320107428,
+    "N_min": -2507.4787229670105,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VSTR_S4b": {
+    "N_max": 6684.387875735271,
+    "N_min": 5879.386727030332,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point S4"
+   },
+   "VFOOT_S4b": {
+    "N_max": -509.139500467462,
+    "N_min": -716.9896665097689,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4b_B": {
+    "N_max": 783.6028359321313,
+    "N_min": -235.1111145376975,
+    "V": 4245.8431247826775,
+    "M": 311590.91421598726,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4b_T": {
+    "N_max": 13.558351404090683,
+    "N_min": -1616.1404211748163,
+    "V": 3460.713348970892,
+    "M": 250404.80363364032,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4b_L": {
+    "N_max": 70.16042201132167,
+    "N_min": 52.725544067113375,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4b_R": {
+    "N_max": 460.9191239139535,
+    "N_min": 261.38904504816657,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4b_D1": {
+    "N_max": 1277.1775260228803,
+    "N_min": 136.9058990923859,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4b_D2": {
+    "N_max": -595.5925652018324,
+    "N_min": -741.2617820133196,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4b_D3": {
+    "N_max": -778.8482185187281,
+    "N_min": -1831.2169451317861,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "VFOOT_S4b_D4": {
+    "N_max": 110.61411286433983,
+    "N_min": -68.1176411155358,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point S4"
+   },
+   "HANG_N1": {
+    "N_max": 13413.476902599963,
+    "N_min": 6832.967586493435,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point N1"
+   },
+   "STIR_N1": {
+    "N_max": -4140.728851388884,
+    "N_min": -6295.250004013468,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point N1"
+   },
+   "STIR_N1_B": {
+    "N_max": 6063.4864991789245,
+    "N_min": -3171.3521377620777,
+    "V": 2129.199581399403,
+    "M": 294274.25879297993,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N1"
+   },
+   "STIR_N1_T": {
+    "N_max": 3937.196928509002,
+    "N_min": -6343.024773034074,
+    "V": 2876.603324520743,
+    "M": 689183.41061851,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N1"
+   },
+   "STIR_N1_L": {
+    "N_max": 1373.0072889709827,
+    "N_min": 173.0726072543596,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N1"
+   },
+   "STIR_N1_R": {
+    "N_max": 1555.2167804438554,
+    "N_min": 241.49418564304352,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N1"
+   },
+   "STIR_N1_D1": {
+    "N_max": 1250.112027967949,
+    "N_min": -387.5483988475505,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N1"
+   },
+   "STIR_N1_D2": {
+    "N_max": 331.1465586501662,
+    "N_min": -861.7954407178628,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N1"
+   },
+   "STIR_N1_D3": {
+    "N_max": -1431.202999925737,
+    "N_min": -3039.8992499915917,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N1"
+   },
+   "STIR_N1_D4": {
+    "N_max": -718.5406393425758,
+    "N_min": -2496.8156692741077,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N1"
+   },
+   "GUIDE_N1": {
+    "N_max": 20.517246099270547,
+    "N_min": 0.30952826358905616,
+    "V": 4257.520035660568,
+    "M": 1101249.6038936016,
+    "type": "GUIDE",
+    "role": "lifting head bracket on the roof rim (sideways restraint only), lift point N1"
+   },
+   "VSTR_N1a": {
+    "N_max": 7658.728692516024,
+    "N_min": 4866.650492703469,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point N1"
+   },
+   "VFOOT_N1a": {
+    "N_max": -322.3730281631062,
+    "N_min": -866.0204719711661,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point N1"
+   },
+   "VFOOT_N1a_B": {
+    "N_max": 2947.575505848335,
+    "N_min": -941.777778564099,
+    "V": 4233.119147572805,
+    "M": 241722.71336986648,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N1"
+   },
+   "VFOOT_N1a_T": {
+    "N_max": 396.21764278089825,
+    "N_min": -4122.008173594609,
+    "V": 2885.845868038514,
+    "M": 422769.8501632976,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N1"
+   },
+   "VFOOT_N1a_L": {
+    "N_max": 554.0481545262332,
+    "N_min": -150.58436058560292,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N1"
+   },
+   "VFOOT_N1a_R": {
+    "N_max": 872.9171029649211,
+    "N_min": 607.3425119075943,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N1"
+   },
+   "VFOOT_N1a_D1": {
+    "N_max": -770.026806804164,
+    "N_min": -957.4663030493742,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N1"
+   },
+   "VFOOT_N1a_D2": {
+    "N_max": 4056.675422760989,
+    "N_min": -915.398955691881,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N1"
+   },
+   "VFOOT_N1a_D3": {
+    "N_max": 392.1550835911495,
+    "N_min": -104.10233345412438,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N1"
+   },
+   "VFOOT_N1a_D4": {
+    "N_max": 408.0950291588589,
+    "N_min": -4575.776360881337,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N1"
+   },
+   "HANG_N2": {
+    "N_max": 7543.8716489849685,
+    "N_min": 6325.698028277247,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point N2"
+   },
+   "STIR_N2": {
+    "N_max": -3218.3238156903894,
+    "N_min": -3574.975011276807,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point N2"
+   },
+   "STIR_N2_B": {
+    "N_max": 1528.747315733832,
+    "N_min": -3905.647473202684,
+    "V": 1254.2113134375688,
+    "M": 156696.5637071214,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N2"
+   },
+   "STIR_N2_T": {
+    "N_max": 1207.4914702912447,
+    "N_min": -1979.1343016401183,
+    "V": 4187.119469862438,
+    "M": 340227.2949104777,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N2"
+   },
+   "STIR_N2_L": {
+    "N_max": 2563.8152607647658,
+    "N_min": 1005.1892753455436,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N2"
+   },
+   "STIR_N2_R": {
+    "N_max": 1118.2622757447039,
+    "N_min": 795.7970337982716,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N2"
+   },
+   "STIR_N2_D1": {
+    "N_max": 233.97310795212707,
+    "N_min": -1239.5795624508664,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N2"
+   },
+   "STIR_N2_D2": {
+    "N_max": -277.68058546683943,
+    "N_min": -662.0800950413345,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N2"
+   },
+   "STIR_N2_D3": {
+    "N_max": -196.2270849050372,
+    "N_min": -1519.8039691863207,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N2"
+   },
+   "STIR_N2_D4": {
+    "N_max": -978.8741156289127,
+    "N_min": -1625.5454475564964,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N2"
+   },
+   "GUIDE_N2": {
+    "N_max": 12.37352686585024,
+    "N_min": 0.18745988503887517,
+    "V": 2721.4811257164465,
+    "M": 464012.5319363765,
+    "type": "GUIDE",
+    "role": "lifting head bracket on the roof rim (sideways restraint only), lift point N2"
+   },
+   "VSTR_N2a": {
+    "N_max": 9166.753759200026,
+    "N_min": 3154.6764717208903,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point N2"
+   },
+   "VFOOT_N2a": {
+    "N_max": -1083.5703803611466,
+    "N_min": -2835.4023125056506,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2a_B": {
+    "N_max": 1634.8902376737565,
+    "N_min": -9584.666053925017,
+    "V": 2319.2762322314707,
+    "M": 238639.00484292558,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2a_T": {
+    "N_max": 6675.975720029321,
+    "N_min": -1876.8170780476103,
+    "V": 600.9592381597033,
+    "M": 260327.59706528953,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2a_L": {
+    "N_max": 928.3695387628187,
+    "N_min": 722.3039777889819,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2a_R": {
+    "N_max": 2649.980400990822,
+    "N_min": 851.8480933338582,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2a_D1": {
+    "N_max": 1682.4818812422182,
+    "N_min": 593.5523703485965,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2a_D2": {
+    "N_max": 1927.4274982949485,
+    "N_min": 577.3546600903156,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2a_D3": {
+    "N_max": -950.8831037061153,
+    "N_min": -2932.6270093986195,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2a_D4": {
+    "N_max": -1239.6760629675125,
+    "N_min": -3448.871347608224,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VSTR_N2b": {
+    "N_max": 4219.049727003763,
+    "N_min": -1.6578019059858438e-05,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point N2"
+   },
+   "VFOOT_N2b": {
+    "N_max": 246.03089659752513,
+    "N_min": -1337.5258720874708,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2b_B": {
+    "N_max": -925.5528780058966,
+    "N_min": -4575.293318796134,
+    "V": 559.046269713196,
+    "M": 129587.17027016688,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2b_T": {
+    "N_max": 2017.767593565681,
+    "N_min": -904.331430161792,
+    "V": 3182.0072902702464,
+    "M": 261886.32319318916,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2b_L": {
+    "N_max": 1084.4944306561708,
+    "N_min": 754.2621297284514,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2b_R": {
+    "N_max": 913.8101969805207,
+    "N_min": 671.7635061165267,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2b_D1": {
+    "N_max": 1011.4177147042326,
+    "N_min": 214.99316359708374,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2b_D2": {
+    "N_max": 618.5341960674069,
+    "N_min": -1619.4216517765253,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2b_D3": {
+    "N_max": -1321.8762299937225,
+    "N_min": -1806.2688144275237,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "VFOOT_N2b_D4": {
+    "N_max": 1105.236012785332,
+    "N_min": -1493.630906446582,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N2"
+   },
+   "HANG_N3": {
+    "N_max": 7536.020559599566,
+    "N_min": 6517.928753887612,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point N3"
+   },
+   "STIR_N3": {
+    "N_max": -3145.712742136209,
+    "N_min": -3574.447620268979,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point N3"
+   },
+   "STIR_N3_B": {
+    "N_max": 1573.1820461411626,
+    "N_min": -3853.3763769869543,
+    "V": 1064.0171900949836,
+    "M": 217347.83614037422,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N3"
+   },
+   "STIR_N3_T": {
+    "N_max": 1161.6406787593937,
+    "N_min": -2020.5817271748692,
+    "V": 2474.7627144563908,
+    "M": 176840.50298168836,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N3"
+   },
+   "STIR_N3_L": {
+    "N_max": 1136.6682722046744,
+    "N_min": 799.7616990429601,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N3"
+   },
+   "STIR_N3_R": {
+    "N_max": 2524.2070698031475,
+    "N_min": 1019.9133212764965,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N3"
+   },
+   "STIR_N3_D1": {
+    "N_max": -338.38633546727823,
+    "N_min": -809.3144365593084,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N3"
+   },
+   "STIR_N3_D2": {
+    "N_max": 228.67254544511167,
+    "N_min": -1256.090368536508,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N3"
+   },
+   "STIR_N3_D3": {
+    "N_max": -978.7543265648204,
+    "N_min": -1633.2550205780858,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N3"
+   },
+   "STIR_N3_D4": {
+    "N_max": -521.7473823685212,
+    "N_min": -1769.991709774811,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N3"
+   },
+   "GUIDE_N3": {
+    "N_max": 12.370328492705491,
+    "N_min": 0.17789366504465193,
+    "V": 2076.2865642474226,
+    "M": 354006.859204179,
+    "type": "GUIDE",
+    "role": "lifting head bracket on the roof rim (sideways restraint only), lift point N3"
+   },
+   "VSTR_N3a": {
+    "N_max": 7161.984264913549,
+    "N_min": 2450.411018643221,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point N3"
+   },
+   "VFOOT_N3a": {
+    "N_max": -345.6787948867328,
+    "N_min": -2161.5806011877007,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3a_B": {
+    "N_max": -1618.76875020875,
+    "N_min": -6270.4145263305845,
+    "V": 1636.2440896762405,
+    "M": 184834.88219910624,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3a_T": {
+    "N_max": 4074.2379314832638,
+    "N_min": 258.3230859113666,
+    "V": 847.6557986550825,
+    "M": 108982.18419813395,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3a_L": {
+    "N_max": 913.8101969805207,
+    "N_min": 671.7635061165267,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3a_R": {
+    "N_max": 1410.9835593524037,
+    "N_min": 970.3064022702014,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3a_D1": {
+    "N_max": 1878.0069911704495,
+    "N_min": -341.9982899764715,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3a_D2": {
+    "N_max": 1016.3683408755325,
+    "N_min": 213.19860205582788,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3a_D3": {
+    "N_max": -377.6043303162148,
+    "N_min": -3031.5032342903737,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3a_D4": {
+    "N_max": -1625.2105467663423,
+    "N_min": -2421.279942450858,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VSTR_N3b": {
+    "N_max": 9166.315548508359,
+    "N_min": 3177.997114665602,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point N3"
+   },
+   "VFOOT_N3b": {
+    "N_max": -1076.1784600774572,
+    "N_min": -2822.158764263684,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3b_B": {
+    "N_max": 1596.0908152366023,
+    "N_min": -9542.855975887125,
+    "V": 1386.0692527300416,
+    "M": 262089.55291909794,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3b_T": {
+    "N_max": 6625.979865552949,
+    "N_min": -1857.478857665676,
+    "V": 938.9014929807635,
+    "M": 241174.32207958607,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3b_L": {
+    "N_max": 2608.810507839548,
+    "N_min": 877.6183836259421,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3b_R": {
+    "N_max": 937.0014217811105,
+    "N_min": 718.6343375915975,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3b_D1": {
+    "N_max": 1662.8256117908845,
+    "N_min": 353.1358075889759,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3b_D2": {
+    "N_max": 1671.2233449983937,
+    "N_min": 599.2195567540163,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3b_D3": {
+    "N_max": -1257.1775662043542,
+    "N_min": -3440.200417996749,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "VFOOT_N3b_D4": {
+    "N_max": -962.1781392525066,
+    "N_min": -2914.2830146322694,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N3"
+   },
+   "HANG_N4": {
+    "N_max": 13116.97637252983,
+    "N_min": 6628.968260956434,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "hanger strap pair, lift point N4"
+   },
+   "STIR_N4": {
+    "N_max": -4161.568089197406,
+    "N_min": -6246.118863126222,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "stirrup cheeks under the floor rim, lift point N4"
+   },
+   "STIR_N4_B": {
+    "N_max": 5947.001823431502,
+    "N_min": -3256.209310760931,
+    "V": 1223.3885867116664,
+    "M": 338704.876728879,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N4"
+   },
+   "STIR_N4_T": {
+    "N_max": 3978.8832079671115,
+    "N_min": -6333.03104197519,
+    "V": 2611.836054328774,
+    "M": 390292.62132907397,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N4"
+   },
+   "STIR_N4_L": {
+    "N_max": 1550.498149307986,
+    "N_min": 248.03244701183533,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N4"
+   },
+   "STIR_N4_R": {
+    "N_max": 1026.2878755207091,
+    "N_min": -188.37447619185787,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N4"
+   },
+   "STIR_N4_D1": {
+    "N_max": 334.9362213113338,
+    "N_min": -874.38439488619,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N4"
+   },
+   "STIR_N4_D2": {
+    "N_max": 917.9682923142217,
+    "N_min": -705.0335871351124,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N4"
+   },
+   "STIR_N4_D3": {
+    "N_max": -728.7008605292743,
+    "N_min": -2503.3703250025424,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N4"
+   },
+   "STIR_N4_D4": {
+    "N_max": -1251.7103131236547,
+    "N_min": -2847.6241808804425,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "stirrup cheeks under the floor rim, lift point N4"
+   },
+   "GUIDE_N4": {
+    "N_max": 20.1855725756981,
+    "N_min": 0.32419109391636125,
+    "V": 4091.1705644461777,
+    "M": 1063260.1192528117,
+    "type": "GUIDE",
+    "role": "lifting head bracket on the roof rim (sideways restraint only), lift point N4"
+   },
+   "VSTR_N4b": {
+    "N_max": 7543.286634892495,
+    "N_min": 4846.607786140025,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "V-STRAP",
+    "role": "inclined hanger strap pair, lift point N4"
+   },
+   "VFOOT_N4b": {
+    "N_max": -325.3909243826622,
+    "N_min": -843.2719342381547,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STIRRUP",
+    "role": "foot plates of the inclined strap, lift point N4"
+   },
+   "VFOOT_N4b_B": {
+    "N_max": 2803.0529686063196,
+    "N_min": -1101.2855150319858,
+    "V": 4298.08593200544,
+    "M": 396448.4085527201,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N4"
+   },
+   "VFOOT_N4b_T": {
+    "N_max": 538.6186179943842,
+    "N_min": -3978.2144488715708,
+    "V": 5015.295564006788,
+    "M": 288183.472208705,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N4"
+   },
+   "VFOOT_N4b_L": {
+    "N_max": 634.5998437574893,
+    "N_min": 362.3426188443562,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N4"
+   },
+   "VFOOT_N4b_R": {
+    "N_max": 560.5718668848289,
+    "N_min": -138.07771065240365,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N4"
+   },
+   "VFOOT_N4b_D1": {
+    "N_max": 3840.4173174779107,
+    "N_min": -1168.7048515255256,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N4"
+   },
+   "VFOOT_N4b_D2": {
+    "N_max": -668.4062790923676,
+    "N_min": -768.8605680666859,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N4"
+   },
+   "VFOOT_N4b_D3": {
+    "N_max": 622.9353986048577,
+    "N_min": -4398.328765551706,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N4"
+   },
+   "VFOOT_N4b_D4": {
+    "N_max": 369.4604924252769,
+    "N_min": -178.33014327742126,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE",
+    "role": "foot plates of the inclined strap, lift point N4"
+   }
+  },
+  "framed_steel_kg": 1267.4500618060995,
+  "added_kg": 292.3354334920142
+ }
+}

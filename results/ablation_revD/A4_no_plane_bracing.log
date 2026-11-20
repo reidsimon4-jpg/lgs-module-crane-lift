@@ -1,0 +1,64 @@
+model: 3169 nodes, 4871 elements, 622 links, 2210 joints; built in 0.6s
+  - joints from engine: 2210; loose dimples paired here (not validated by the engine): 0
+  - added-member ends attached to framed members: 112
+  - truss-end reaction ties added: 168
+  - inter-panel links created: 622; pairs within tolerance with no rule (not connected): 952
+  - nodes where every member was pinned: 28 (one member made continuous there to avoid a mechanism)
+itemised 4597 kg -> rated 6500 kg (x1.414); W = 63.74 kN; CoG [5977, 1387, 1233]; factor 2.433
+R1_rigid       R(kN) S1:  9.4 S2:  9.5 S3:  8.7 S4:  9.5 N1:  7.6 N2:  5.8 N3:  5.7 N4:  7.6 | sumR/W 1.0000 | mem>1   0 (max 0.86) jnt>1   0 (max 0.85) link shear>1   0 (max 0.54) | dz -2.8/-0.7 mm
+R4_equalised   R(kN) S1:  9.3 S2:  9.3 S3:  9.3 S4:  9.2 N1:  6.7 N2:  6.7 N3:  6.6 N4:  6.6 | sumR/W 1.0000 | mem>1   0 (max 0.87) jnt>1   0 (max 0.84) link shear>1   0 (max 0.54) | dz -21.1/+4.7 mm
+T1_roll_S      R(kN) S1:  9.0 S2:  9.0 S3:  8.9 S4:  8.9 N1:  7.0 N2:  7.0 N3:  6.9 N4:  6.9 | sumR/W 1.0000 | mem>1  10 (max 2.10) jnt>1   8 (max 5.19) link shear>1  13 (max 1.86) | dz -14.4/+2.6 mm
+T2_roll_N      R(kN) S1:  9.7 S2:  9.7 S3:  9.5 S4:  9.5 N1:  6.4 N2:  6.4 N3:  6.3 N4:  6.3 | sumR/W 1.0000 | mem>1   9 (max 2.10) jnt>1   8 (max 5.18) link shear>1  13 (max 1.85) | dz -15.8/+3.3 mm
+T3_pitch_W     R(kN) S1:  9.2 S2:  9.2 S3:  9.4 S4:  9.4 N1:  6.6 N2:  6.6 N3:  6.7 N4:  6.7 | sumR/W 1.0000 | mem>1   0 (max 0.88) jnt>1   0 (max 0.84) link shear>1   0 (max 0.53) | dz -11.8/+1.4 mm
+T4_pitch_E     R(kN) S1:  9.5 S2:  9.5 S3:  9.0 S4:  9.0 N1:  6.8 N2:  6.8 N3:  6.5 N4:  6.5 | sumR/W 1.0000 | mem>1   0 (max 0.87) jnt>1   0 (max 0.87) link shear>1   0 (max 0.55) | dz -18.4/+3.2 mm
+T5_SW          R(kN) S1:  9.0 S2:  9.0 S3:  9.1 S4:  9.1 N1:  6.8 N2:  6.8 N3:  6.9 N4:  6.9 | sumR/W 1.0000 | mem>1   7 (max 1.59) jnt>1   8 (max 3.84) link shear>1   6 (max 1.32) | dz -14.2/+2.1 mm
+T6_SE          R(kN) S1:  9.2 S2:  9.2 S3:  8.8 S4:  8.8 N1:  7.0 N2:  7.0 N3:  6.7 N4:  6.7 | sumR/W 1.0000 | mem>1   7 (max 1.47) jnt>1   8 (max 3.70) link shear>1   6 (max 1.33) | dz -15.0/+2.5 mm
+T7_NW          R(kN) S1:  9.4 S2:  9.4 S3:  9.6 S4:  9.6 N1:  6.4 N2:  6.4 N3:  6.5 N4:  6.5 | sumR/W 1.0000 | mem>1   7 (max 1.49) jnt>1   8 (max 3.57) link shear>1   6 (max 1.29) | dz -11.4/+1.6 mm
+T8_NE          R(kN) S1:  9.7 S2:  9.7 S3:  9.3 S4:  9.3 N1:  6.6 N2:  6.6 N3:  6.3 N4:  6.3 | sumR/W 1.0000 | mem>1   8 (max 1.57) jnt>1   8 (max 3.96) link shear>1   6 (max 1.32) | dz -19.8/+4.4 mm
+R2_springs     R(kN) S1:  9.4 S2:  9.4 S3:  9.0 S4:  9.3 N1:  7.5 N2:  5.9 N3:  5.9 N4:  7.4 | sumR/W 1.0000 | mem>1   0 (max 0.85) jnt>1   0 (max 0.85) link shear>1   0 (max 0.54) | dz -3.1/+0.4 mm
+L1_squeeze_y   R(kN) S1:  9.3 S2:  9.3 S3:  9.3 S4:  9.2 N1:  6.7 N2:  6.7 N3:  6.6 N4:  6.6 | sumR/W 1.0000 | mem>1   0 (max 0.87) jnt>1   1 (max 1.60) link shear>1   0 (max 0.54) | dz -21.1/+4.7 mm
+L2_spread_y    R(kN) S1:  9.3 S2:  9.3 S3:  9.3 S4:  9.2 N1:  6.7 N2:  6.7 N3:  6.6 N4:  6.6 | sumR/W 1.0000 | mem>1   0 (max 0.87) jnt>1   1 (max 1.59) link shear>1   0 (max 0.54) | dz -21.2/+4.7 mm
+L3_squeeze_x   R(kN) S1:  9.3 S2:  9.3 S3:  9.3 S4:  9.2 N1:  6.7 N2:  6.7 N3:  6.6 N4:  6.6 | sumR/W 1.0000 | mem>1   0 (max 0.86) jnt>1   0 (max 0.83) link shear>1   0 (max 0.53) | dz -22.6/+5.4 mm
+L4_spread_x    R(kN) S1:  9.3 S2:  9.3 S3:  9.3 S4:  9.2 N1:  6.7 N2:  6.7 N3:  6.6 N4:  6.6 | sumR/W 1.0000 | mem>1   0 (max 0.88) jnt>1   0 (max 0.84) link shear>1   0 (max 0.54) | dz -19.7/+4.0 mm
+
+ENVELOPE over design cases, factor 2.433:
+ members over 1.0: 10 of 1194
+   W4     TOP TRACK     wall        x=  11475 util 2.10 N=  -5.6 kN Min=0.005 Mout=0.372 kNm Lin=210 Lout=210 [T2_roll_N] bending + shear
+   W1     TOP TRACK     wall        x=    525 util 2.10 N=   5.4 kN Min=0.024 Mout=0.371 kNm Lin=210 Lout=210 [T1_roll_S] bending + shear
+   W6     TOP TRACK     wall        x=    450 util 2.07 N=  -5.5 kN Min=0.004 Mout=0.365 kNm Lin=225 Lout=225 [T1_roll_S] bending + shear
+   W10    TOP TRACK     wall        x=  11550 util 2.06 N=   5.3 kN Min=0.029 Mout=0.364 kNm Lin=225 Lout=225 [T2_roll_N] bending + shear
+   W1     BOTTOM TRACK  wall        x=    525 util 1.74 N=  -4.4 kN Min=0.019 Mout=0.307 kNm Lin=210 Lout=210 [T1_roll_S] bending + shear
+   W4     BOTTOM TRACK  wall        x=  11475 util 1.71 N=   4.6 kN Min=0.006 Mout=0.302 kNm Lin=210 Lout=210 [T2_roll_N] bending + shear
+   W10    BOTTOM TRACK  wall        x=  11550 util 1.70 N=  -4.4 kN Min=0.027 Mout=0.301 kNm Lin=225 Lout=225 [T2_roll_N] bending + shear
+   W6     BOTTOM TRACK  wall        x=    450 util 1.67 N=   4.4 kN Min=0.014 Mout=0.296 kNm Lin=225 Lout=225 [T1_roll_S] bending + shear
+   NFT1   TOP CHORD     rim_truss   x=   6000 util 1.13 N=  13.3 kN Min=0.365 Mout=0.391 kNm Lin=275 Lout=277 [T2_roll_N] tension + bending
+   NFT25  BOTTOM CHORD  roof_rim    x=   6000 util 1.07 N= -13.1 kN Min=0.172 Mout=0.591 kNm Lin=382 Lout=600 [T1_roll_S] lip-notch section, compression
+   W7     BOTTOM TRACK  wall        x=   2700 util 0.99 N=   0.1 kN Min=0.315 Mout=0.166 kNm Lin=277 Lout=277 [T2_roll_N] tension + bending
+   NFT2   TOP CHORD     rim_truss   x=   6000 util 0.98 N=  16.4 kN Min=0.257 Mout=0.446 kNm Lin=390 Lout=600 [T1_roll_S] tension + bending
+ joints over 1.0: 8 of 2210
+   by member: {('wall', 'TOP TRACK'): 4, ('wall', 'BOTTOM TRACK'): 4}
+   W6     TOP TRACK     wall        x=     20 y=    44 z=  2680 demand 18.37 kN cap 3.54 util 5.19 [T1_roll_S]
+   W10    TOP TRACK     wall        x=  11980 y=    44 z=  2680 demand 18.33 kN cap 3.54 util 5.18 [T2_roll_N]
+   W10    BOTTOM TRACK  wall        x=  11980 y=    44 z=    20 demand 15.15 kN cap 3.54 util 4.28 [T2_roll_N]
+   W6     BOTTOM TRACK  wall        x=     20 y=    44 z=    20 demand 14.90 kN cap 3.54 util 4.21 [T1_roll_S]
+   W4     TOP TRACK     wall        x=  11980 y=  3256 z=  2680 demand 18.73 kN cap 6.37 util 2.94 [T2_roll_N]
+   W1     TOP TRACK     wall        x=     20 y=  3256 z=  2680 demand 18.62 kN cap 6.37 util 2.92 [T1_roll_S]
+   W1     BOTTOM TRACK  wall        x=     20 y=  3256 z=    20 demand 15.43 kN cap 6.37 util 2.42 [T1_roll_S]
+   W4     BOTTOM TRACK  wall        x=  11980 y=  3256 z=    20 demand 15.17 kN cap 6.37 util 2.38 [T2_roll_N]
+   NFT1   WEB           rim_truss   x=    516 y=    44 z=  -280 demand  6.76 kN cap 7.66 util 0.88 [T8_NE]
+   NFT1   WEB           rim_truss   x=  10659 y=    44 z=  -280 demand  6.70 kN cap 7.66 util 0.87 [T2_roll_N]
+ links over 1.0 in shear: 14 of 622; links in tension that need a positive tie (tie checked in run_connectors): 252
+   over: 14 wall panel to wall panel (seam studs, corner studs, stacked tracks) max util 1.86
+   tie : 66 wall panel to wall panel (seam studs, corner studs, stacked tracks) max tension 17.35 kN
+   tie : 22 wall bottom track on floor rim / end floor truss max tension 5.70 kN
+   tie : 45 wall top track under roof rim / end roof truss max tension 3.77 kN
+   tie : 54 floor truss chord end to floor rim chord max tension 1.00 kN
+   tie : 65 roof truss chord end to roof rim chord max tension 1.35 kN
+ added parts (factored envelope):
+   GUIDE        n=  8 tension   0.04 kN compression   0.00 kN shear  1.13 kN moment 0.194 kNm
+   CRADLE       n=  8 tension   0.33 kN compression   0.00 kN shear 11.83 kN moment 0.347 kNm
+   CRADLE SEAT  n= 16 tension  -6.78 kN compression  11.81 kN shear  0.32 kN moment 0.007 kNm
+   STRAP        n=  8 tension  23.51 kN compression   0.00 kN shear  0.00 kN moment 0.000 kNm
+   BRIDGING     n= 40 tension   0.17 kN compression   0.05 kN shear  0.00 kN moment 0.000 kNm
+ framed steel 1302 kg, added parts (as modelled) 77 kg
+ largest link shear utilisation: 1.86

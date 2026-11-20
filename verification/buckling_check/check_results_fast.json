@@ -1,0 +1,788 @@
+{
+ "checks": {
+  "plain_channel_selftest": {
+   "e_num": 14.117647058823529,
+   "e_exact": 14.117647058823529,
+   "Cw_num": 50196078.43137257,
+   "Cw_exact": 50196078.431372546
+  },
+  "section_props": [
+   {
+    "t": 0.75,
+    "corners": "sharp",
+    "mine_numeric": {
+     "A": 135.0,
+     "Ix": 172332.125,
+     "Iy": 26622.410091145834,
+     "J": 25.3125,
+     "Cw": 41960332.76941304,
+     "xc_from_web": 11.278472222222222,
+     "x0_shear_centre_to_centroid": 28.4114569474045
+    },
+    "diff_pct": {
+     "A": 0.0,
+     "Ix": -1.4506871537367516e-05,
+     "Iy": -3.4236506962770363e-07,
+     "J": 0.0,
+     "Cw": -6.600074065055139e-06,
+     "xc_from_web": -1.970322023314708e-05,
+     "x0_shear_centre_to_centroid": 1.074424134106522e-05
+    },
+    "mine_closed_form": {
+     "A": 135.0,
+     "Ix": 172332.125,
+     "Iy": 26622.410091145837,
+     "J": 25.3125,
+     "Cw": 41960332.769413054,
+     "xc_from_web": 11.278472222222222,
+     "x0_shear_centre_to_centroid": 28.411456947404503
+    },
+    "closed_vs_theirs_pct": {
+     "A": 0.0,
+     "Ix": -1.4506871537367516e-05,
+     "Iy": -3.423650918321641e-07,
+     "J": 0.0,
+     "Cw": -6.60007409836183e-06,
+     "xc_from_web": -1.970322023314708e-05,
+     "x0_shear_centre_to_centroid": 1.0744241318860759e-05
+    }
+   },
+   {
+    "t": 0.95,
+    "corners": "sharp",
+    "mine_numeric": {
+     "A": 170.24,
+     "Ix": 216188.77001666668,
+     "Iy": 33145.94329785854,
+     "J": 51.21386666666666,
+     "Cw": 51897755.90618664,
+     "xc_from_web": 11.18529575892857,
+     "x0_shear_centre_to_centroid": 28.189667002856897
+    },
+    "diff_pct": {
+     "A": 0.0,
+     "Ix": 1.3869052173376417e-05,
+     "Iy": -9.949508772422178e-06,
+     "J": 6.508653926928787e-06,
+     "Cw": 7.888228092944871e-06,
+     "xc_from_web": 3.791648894857502e-05,
+     "x0_shear_centre_to_centroid": 1.0632062807935938e-05
+    },
+    "mine_closed_form": {
+     "A": 170.23999999999998,
+     "Ix": 216188.77001666665,
+     "Iy": 33145.94329785853,
+     "J": 51.21386666666666,
+     "Cw": 51897755.90618662,
+     "xc_from_web": 11.185295758928572,
+     "x0_shear_centre_to_centroid": 28.189667002856893
+    },
+    "closed_vs_theirs_pct": {
+     "A": 2.220446049250313e-14,
+     "Ix": 1.3869052195580878e-05,
+     "Iy": -9.949508750217717e-06,
+     "J": 6.508653926928787e-06,
+     "Cw": 7.888228137353792e-06,
+     "xc_from_web": 3.791648892637056e-05,
+     "x0_shear_centre_to_centroid": 1.0632062830140399e-05
+    }
+   },
+   {
+    "t": 1.15,
+    "corners": "sharp",
+    "mine_numeric": {
+     "A": 205.15999999999997,
+     "Ix": 259175.65409999999,
+     "Iy": 39434.555278472995,
+     "J": 90.44136666666664,
+     "Cw": 61336450.91195031,
+     "xc_from_web": 11.092180493273544,
+     "x0_shear_centre_to_centroid": 27.967990303522267
+    },
+    "diff_pct": {
+     "A": 2.220446049250313e-14,
+     "Ix": 1.7709996802395267e-05,
+     "Iy": 1.1973070246362738e-05,
+     "J": 3.685629135219415e-06,
+     "Cw": -1.4867999387213615e-06,
+     "xc_from_web": -4.447038548516247e-06,
+     "x0_shear_centre_to_centroid": -1.085248757526358e-06
+    },
+    "mine_closed_form": {
+     "A": 205.16,
+     "Ix": 259175.65409999996,
+     "Iy": 39434.555278472995,
+     "J": 90.44136666666667,
+     "Cw": 61336450.91195034,
+     "xc_from_web": 11.092180493273544,
+     "x0_shear_centre_to_centroid": 27.96799030352227
+    },
+    "closed_vs_theirs_pct": {
+     "A": 0.0,
+     "Ix": 1.7709996802395267e-05,
+     "Iy": 1.1973070246362738e-05,
+     "J": 3.6856291130149543e-06,
+     "Cw": -1.4867999831302825e-06,
+     "xc_from_web": -4.447038548516247e-06,
+     "x0_shear_centre_to_centroid": -1.0852487686285883e-06
+    }
+   },
+   {
+    "t": 0.75,
+    "corners": "rounded",
+    "mine_numeric": {
+     "A": 131.9412047025581,
+     "Ix": 166271.66162170318,
+     "Iy": 25348.664214297205,
+     "J": 24.738975881729647,
+     "Cw": 39683149.32349473,
+     "xc_from_web": 11.108157537966827,
+     "x0_shear_centre_to_centroid": 28.149450473714197
+    },
+    "diff_pct": {
+     "A": 0.0002996012070433096,
+     "Ix": 0.0005643645391240071,
+     "Iy": 0.0008512705086616279,
+     "J": 0.00034002325219884,
+     "Cw": 0.0010600885071765376,
+     "xc_from_web": 0.00020221205088155614,
+     "x0_shear_centre_to_centroid": 0.0001759405067192077
+    }
+   },
+   {
+    "t": 0.95,
+    "corners": "rounded",
+    "mine_numeric": {
+     "A": 166.2023902073767,
+     "Ix": 208219.10067750816,
+     "Iy": 31477.721928289735,
+     "J": 49.999219054052496,
+     "Cw": 48926135.50148173,
+     "xc_from_web": 11.006989889309413,
+     "x0_shear_centre_to_centroid": 27.91266856000168
+    },
+    "diff_pct": {
+     "A": 0.00036689762556996186,
+     "Ix": 0.0005759906213764765,
+     "Iy": 0.000883392104733538,
+     "J": 0.0003418972350788252,
+     "Cw": 0.001133338066838796,
+     "xc_from_web": 0.0002735597187886185,
+     "x0_shear_centre_to_centroid": 0.00018428907364587133
+    }
+   },
+   {
+    "t": 1.15,
+    "corners": "rounded",
+    "mine_numeric": {
+     "A": 200.07488697569127,
+     "Ix": 249176.2615260681,
+     "Iy": 37350.00350969446,
+     "J": 88.1996793417839,
+     "Cw": 57636859.09965719,
+     "xc_from_web": 10.905809197294312,
+     "x0_shear_centre_to_centroid": 27.67565391655681
+    },
+    "diff_pct": {
+     "A": 0.00035637871373950247,
+     "Ix": 0.0006174239562284356,
+     "Iy": 0.0009276848004668992,
+     "J": 0.00036355938988208436,
+     "Cw": 0.0011987126876888965,
+     "xc_from_web": 0.00028244310101843695,
+     "x0_shear_centre_to_centroid": 0.00020264541302772443
+    }
+   }
+  ],
+  "local_hand": [
+   {
+    "t": 0.75,
+    "web_k4": 52.22280471912728,
+    "web_k6_97": 90.9982372230793,
+    "web_k23_9": 312.0312581967855,
+    "flange_k4": 293.114340491227,
+    "lip_k0_43": 587.7327312530275,
+    "lip_k1_277_fixed_free": 1745.4295297909678,
+    "flange_gradient_k": 12.76939979008744,
+    "flange_gradient_stress": 935.723549485073,
+    "expected_axial_interaction": 67.46067800591166,
+    "expected_major_interaction": 316.6446434087247,
+    "implied_k": {
+     "axial_web": 5.52057672027727,
+     "major_web": 24.910802991083397,
+     "major_flange": 4.4382407145955955,
+     "minor_web_comp_web": 5.62068624193391,
+     "minor_lips_comp_lip": 0.6285515343214043,
+     "minor_lips_comp_flange": 11.723984552379328
+    },
+    "their_f_local": {
+     "axial": 72.075,
+     "bend_major": 325.228,
+     "bend_minor_web_comp": 73.382,
+     "bend_minor_lips_comp": 859.117
+    },
+    "ratio_axial_to_interaction": 1.0684001722260186,
+    "ratio_major_to_interaction": 1.0271072218335175
+   },
+   {
+    "t": 0.95,
+    "web_k4": 84.16966215484689,
+    "web_k6_97": 146.6656363048207,
+    "web_k23_9": 502.9137313752101,
+    "flange_k4": 475.37668735815106,
+    "lip_k0_43": 965.2370718746776,
+    "lip_k1_277_fixed_free": 2866.529629730147,
+    "flange_gradient_k": 12.743483333155764,
+    "flange_gradient_stress": 1514.4887230798493,
+    "expected_axial_interaction": 108.80339667635675,
+    "expected_major_interaction": 513.7382788699808,
+    "implied_k": {
+     "axial_web": 5.511296922477755,
+     "major_web": 24.832747886699682,
+     "major_flange": 4.396858440021188,
+     "minor_web_comp_web": 5.615514995539069,
+     "minor_lips_comp_lip": 0.6190706380966515,
+     "minor_lips_comp_flange": 11.693051316612255
+    },
+    "their_f_local": {
+     "axial": 115.971,
+     "bend_major": 522.541,
+     "bend_minor_web_comp": 118.164,
+     "bend_minor_lips_comp": 1389.651
+    },
+    "ratio_axial_to_interaction": 1.0658766503858679,
+    "ratio_major_to_interaction": 1.017134641299032
+   },
+   {
+    "t": 1.15,
+    "web_k4": 123.90226427845967,
+    "web_k6_97": 215.899695505216,
+    "web_k23_9": 740.3160290637965,
+    "flange_k4": 704.1866546849222,
+    "lip_k0_43": 1448.2095928165115,
+    "lip_k1_277_fixed_free": 4300.845697736478,
+    "flange_gradient_k": 12.717457400771803,
+    "flange_gradient_stress": 2238.8659457868757,
+    "expected_axial_interaction": 160.2744065949167,
+    "expected_major_interaction": 761.303499089901,
+    "implied_k": {
+     "axial_web": 5.498624290423417,
+     "major_web": 24.68455292412048,
+     "major_flange": 4.343268904135179,
+     "minor_web_comp_web": 5.609001611448514,
+     "minor_lips_comp_lip": 0.6077363348272702,
+     "minor_lips_comp_flange": 11.626536722232068
+    },
+    "their_f_local": {
+     "axial": 170.323,
+     "bend_major": 764.618,
+     "bend_minor_web_comp": 173.742,
+     "bend_minor_lips_comp": 2046.813
+    },
+    "ratio_axial_to_interaction": 1.0626961822449947,
+    "ratio_major_to_interaction": 1.0043537182136446
+   }
+  ],
+  "distortional_closed_form": [
+   {
+    "t": 0.75,
+    "axial": {
+     "fsm": 153.243,
+     "lau_hancock": 162.91545724872128,
+     "lh_ratio": 1.0631184279133226,
+     "lh_lambda": 382.6183049563098,
+     "lh_kphi": 83.60347494667384,
+     "lh_kphi_negative": false,
+     "schafer": 160.14303036525348,
+     "sp_ratio": 1.0450267246481306,
+     "sp_Lcr": 355.8478753087974,
+     "fsm_half_wave": 364.76
+    },
+    "bend_major": {
+     "fsm": 271.719,
+     "lau_hancock": 268.8139763334988,
+     "lh_ratio": 0.9893087208973196,
+     "lh_lambda": 321.7423610482135,
+     "lh_kphi": 269.77016873612024,
+     "lh_kphi_negative": false,
+     "schafer": 258.4477093381324,
+     "sp_ratio": 0.9511580321513491,
+     "sp_Lcr": 321.60654331121845,
+     "fsm_half_wave": 341.93
+    }
+   },
+   {
+    "t": 0.95,
+    "axial": {
+     "fsm": 201.111,
+     "lau_hancock": 214.46526642317824,
+     "lh_ratio": 1.066402466414956,
+     "lh_lambda": 336.4922059885892,
+     "lh_kphi": 169.65961364667686,
+     "lh_kphi_negative": false,
+     "schafer": 208.28632560754738,
+     "sp_ratio": 1.035678434335006,
+     "sp_Lcr": 313.18743975534977,
+     "fsm_half_wave": 320.06
+    },
+    "bend_major": {
+     "fsm": 354.069,
+     "lau_hancock": 352.18878639787937,
+     "lh_ratio": 0.9946896971999225,
+     "lh_lambda": 282.9550897766191,
+     "lh_kphi": 560.1278368244498,
+     "lh_kphi_negative": false,
+     "schafer": 338.71911291359095,
+     "sp_ratio": 0.9566471871685771,
+     "sp_Lcr": 283.08645285976024,
+     "fsm_half_wave": 299.95
+    }
+   },
+   {
+    "t": 1.15,
+    "axial": {
+     "fsm": 252.226,
+     "lau_hancock": 269.3347688691441,
+     "lh_ratio": 1.0678311072972022,
+     "lh_lambda": 302.8057624306814,
+     "lh_kphi": 298.4699060313624,
+     "lh_kphi_negative": false,
+     "schafer": 259.0561092509001,
+     "sp_ratio": 1.0270793227141535,
+     "sp_Lcr": 282.0876532881089,
+     "fsm_half_wave": 287.41
+    },
+    "bend_major": {
+     "fsm": 440.975,
+     "lau_hancock": 440.0927308725431,
+     "lh_ratio": 0.9979992763139477,
+     "lh_lambda": 254.62828014612785,
+     "lh_kphi": 1009.4953666138837,
+     "lh_kphi_negative": false,
+     "schafer": 424.5041545475542,
+     "sp_ratio": 0.9626490266966476,
+     "sp_Lcr": 255.016525606733,
+     "fsm_half_wave": 269.2
+    }
+   }
+  ],
+  "pycufsm_backend": "pure-python assembler (stock failed: TypeError)",
+  "shs_benchmark": {
+   "k": 3.995353489095214,
+   "half_wave": 99.99262083149485
+  },
+  "own_fsm": [
+   {
+    "t": 0.95,
+    "corners": "sharp",
+    "action": "axial",
+    "mesh": "12/6/3 (+5 per corner)",
+    "nodes": 31,
+    "minima": [
+     {
+      "half_wave": 69.12567757255785,
+      "stress": 115.97412084181254,
+      "cls": "local",
+      "junction": 0.013734825613492143,
+      "web_junction": 0.0022158344109544236,
+      "max_at": "web",
+      "plate_max": {
+       "lip": 0.05416994153005749,
+       "flange": 0.12218420608169883,
+       "web": 1.0
+      }
+     },
+     {
+      "half_wave": 320.23793841480375,
+      "stress": 201.27665591610082,
+      "cls": "distortional",
+      "junction": 0.9601007439324208,
+      "web_junction": 0.06937412732330081,
+      "max_at": "lip tip",
+      "plate_max": {
+       "lip": 1.0,
+       "flange": 0.9601007439324208,
+       "web": 0.6933472758750702
+      }
+     }
+    ],
+    "their_f_local": 115.971,
+    "their_f_dist": 201.111,
+    "curve_end_stress": 122.63385015074503,
+    "curve_min": 115.98086737151394,
+    "my_f_local": 115.97412084181254,
+    "my_half_wave_local": 69.12567757255785,
+    "local_diff_pct": -0.0026909812205322403,
+    "my_f_dist": 201.27665591610082,
+    "my_half_wave_dist": 320.23793841480375,
+    "dist_diff_pct": -0.08230259755999114,
+    "dist_presence_agrees": true,
+    "n_minima": 2
+   },
+   {
+    "t": 0.95,
+    "corners": "sharp",
+    "action": "bend_major",
+    "mesh": "12/6/3 (+5 per corner)",
+    "nodes": 31,
+    "minima": [
+     {
+      "half_wave": 46.45278709025375,
+      "stress": 522.6120805131366,
+      "cls": "local",
+      "junction": 0.04906222209764158,
+      "web_junction": 0.004894152605032944,
+      "max_at": "web",
+      "plate_max": {
+       "lip": 0.4566223746005801,
+       "flange": 0.8237749759643956,
+       "web": 1.0
+      }
+     },
+     {
+      "half_wave": 300.1198798131426,
+      "stress": 354.37173369066676,
+      "cls": "distortional",
+      "junction": 0.9589261263065785,
+      "web_junction": 0.05229854401766536,
+      "max_at": "lip tip",
+      "plate_max": {
+       "lip": 1.0,
+       "flange": 0.9589261263065785,
+       "web": 0.3162404346464536
+      }
+     }
+    ],
+    "their_f_local": 522.541,
+    "their_f_dist": 354.069,
+    "curve_end_stress": 238.577346421529,
+    "curve_min": 238.577346421529,
+    "my_f_local": 522.6120805131366,
+    "my_half_wave_local": 46.45278709025375,
+    "local_diff_pct": -0.013601008431862738,
+    "my_f_dist": 354.37173369066676,
+    "my_half_wave_dist": 300.1198798131426,
+    "dist_diff_pct": -0.08542828388535817,
+    "dist_presence_agrees": true,
+    "n_minima": 2
+   },
+   {
+    "t": 0.95,
+    "corners": "sharp",
+    "action": "bend_minor_web_comp",
+    "mesh": "12/6/3 (+5 per corner)",
+    "nodes": 31,
+    "minima": [
+     {
+      "half_wave": 68.30834682321333,
+      "stress": 118.16643321539944,
+      "cls": "local",
+      "junction": 0.008241704938442595,
+      "web_junction": 0.001955799324795294,
+      "max_at": "web",
+      "plate_max": {
+       "lip": 0.036245609114584576,
+       "flange": 0.10196863247036804,
+       "web": 1.0
+      }
+     }
+    ],
+    "their_f_local": 118.164,
+    "their_f_dist": null,
+    "curve_end_stress": 1965.9824844048221,
+    "curve_min": 118.21573655620345,
+    "my_f_local": 118.16643321539944,
+    "my_half_wave_local": 68.30834682321333,
+    "local_diff_pct": -0.002059142628940691,
+    "dist_presence_agrees": true,
+    "n_minima": 1
+   },
+   {
+    "t": 0.95,
+    "corners": "sharp",
+    "action": "bend_minor_lips_comp",
+    "mesh": "12/6/3 (+5 per corner)",
+    "nodes": 31,
+    "minima": [
+     {
+      "half_wave": 32.450772810720395,
+      "stress": 1389.8896166565419,
+      "cls": "local",
+      "junction": 0.031321873552587656,
+      "web_junction": 0.001871746341354452,
+      "max_at": "lip tip",
+      "plate_max": {
+       "lip": 1.0,
+       "flange": 0.860747263047976,
+       "web": 0.061082529417432974
+      }
+     },
+     {
+      "half_wave": 329.81076124293105,
+      "stress": 417.4143934608053,
+      "cls": "distortional",
+      "junction": 0.9579433175951918,
+      "web_junction": 0.046828646374070415,
+      "max_at": "lip tip",
+      "plate_max": {
+       "lip": 0.9999999993918106,
+       "flange": 0.9579433170123028,
+       "web": 0.3869459677136502
+      }
+     }
+    ],
+    "their_f_local": 1389.651,
+    "their_f_dist": 417.072,
+    "curve_end_stress": 365.6032900305718,
+    "curve_min": 365.6032900305718,
+    "my_f_local": 1389.8896166565419,
+    "my_half_wave_local": 32.450772810720395,
+    "local_diff_pct": -0.017168029294001297,
+    "my_f_dist": 417.4143934608053,
+    "my_half_wave_dist": 329.81076124293105,
+    "dist_diff_pct": -0.08202722909635973,
+    "dist_presence_agrees": true,
+    "n_minima": 2
+   }
+  ],
+  "own_fsm_fine": [
+   {
+    "action": "axial",
+    "minima": [
+     {
+      "half_wave": 69.12837174180572,
+      "stress": 115.96905106696039,
+      "cls": "local",
+      "junction": 0.013825514669602579,
+      "web_junction": 0.002229211202084041,
+      "max_at": "web",
+      "plate_max": {
+       "lip": 0.05415659335694466,
+       "flange": 0.12521439496461872,
+       "web": 1.0
+      }
+     },
+     {
+      "half_wave": 319.98266769519813,
+      "stress": 201.03426085186572,
+      "cls": "distortional",
+      "junction": 0.9601032197617865,
+      "web_junction": 0.06937376369210749,
+      "max_at": "lip tip",
+      "plate_max": {
+       "lip": 0.999999999308624,
+       "flange": 0.9601032191021122,
+       "web": 0.6933760845620021
+      }
+     }
+    ]
+   },
+   {
+    "action": "bend_major",
+    "minima": [
+     {
+      "half_wave": 46.45826302566856,
+      "stress": 522.5098667813791,
+      "cls": "local",
+      "junction": 0.0495507688173542,
+      "web_junction": 0.00493613018073314,
+      "max_at": "web",
+      "plate_max": {
+       "lip": 0.4565306334467706,
+       "flange": 0.8240505256036459,
+       "web": 1.0
+      }
+     },
+     {
+      "half_wave": 299.87339052631194,
+      "stress": 353.9280263771227,
+      "cls": "distortional",
+      "junction": 0.958915025582877,
+      "web_junction": 0.05234945110113013,
+      "max_at": "lip tip",
+      "plate_max": {
+       "lip": 1.0,
+       "flange": 0.958915025582877,
+       "web": 0.31676819065016715
+      }
+     }
+    ]
+   },
+   {
+    "action": "bend_minor_web_comp",
+    "minima": [
+     {
+      "half_wave": 68.30938681444043,
+      "stress": 118.1626739390403,
+      "cls": "local",
+      "junction": 0.008293410519390296,
+      "web_junction": 0.0019663545406469244,
+      "max_at": "web",
+      "plate_max": {
+       "lip": 0.036231805139625956,
+       "flange": 0.101899653716072,
+       "web": 1.0
+      }
+     }
+    ]
+   },
+   {
+    "action": "bend_minor_lips_comp",
+    "minima": [
+     {
+      "half_wave": 32.45807557413696,
+      "stress": 1389.5588992561018,
+      "cls": "local",
+      "junction": 0.03172091090302892,
+      "web_junction": 0.0019044283281161873,
+      "max_at": "lip tip",
+      "plate_max": {
+       "lip": 0.9999997340988024,
+       "flange": 0.8659633290471356,
+       "web": 0.06003254915869971
+      }
+     },
+     {
+      "half_wave": 329.55464429892436,
+      "stress": 416.91352883644595,
+      "cls": "distortional",
+      "junction": 0.9579335577567637,
+      "web_junction": 0.046871406668337896,
+      "max_at": "lip tip",
+      "plate_max": {
+       "lip": 1.0,
+       "flange": 0.9579335577567637,
+       "web": 0.386928621427888
+      }
+     }
+    ]
+   }
+  ],
+  "reference_table": [
+   {
+    "action": "axial",
+    "t": 0.95,
+    "reference": 201.8,
+    "theirs": 201.111,
+    "mine": 201.27665591610082
+   },
+   {
+    "action": "axial",
+    "t": 1.15,
+    "reference": 253.2,
+    "theirs": 252.226,
+    "mine": null
+   },
+   {
+    "action": "bend_major",
+    "t": 0.95,
+    "reference": 350.6,
+    "theirs": 354.069,
+    "mine": 354.37173369066676
+   },
+   {
+    "action": "bend_major",
+    "t": 1.15,
+    "reference": 435.4,
+    "theirs": 440.975,
+    "mine": null
+   }
+  ],
+  "minor_axis_convention": [
+   {
+    "t": 0.75,
+    "action": "bend_minor_web_comp",
+    "web_stress": 100.0,
+    "lip_stress": -230.27522935779822,
+    "max_compressive": 100.0,
+    "min": -230.27522935779822,
+    "my_outer_factor": 1.0332491841635367,
+    "their_outer_factor": 1.03325,
+    "my_Mcr_local_kNm": 0.17321545496731658,
+    "their_resultant_local": 0.173215,
+    "f_local": 73.382
+   },
+   {
+    "t": 0.75,
+    "action": "bend_minor_lips_comp",
+    "web_stress": -43.426294820717104,
+    "lip_stress": 100.0,
+    "max_compressive": 100.0,
+    "min": -43.42629482071712,
+    "my_outer_factor": 1.0144388887403406,
+    "their_outer_factor": 1.01444,
+    "my_Mcr_local_kNm": 0.880647657156499,
+    "their_resultant_local": 0.880648,
+    "f_local": 859.117
+   },
+   {
+    "t": 0.95,
+    "action": "bend_minor_web_comp",
+    "web_stress": 100.0,
+    "lip_stress": -231.2384473197782,
+    "max_compressive": 100.0,
+    "min": -231.2384473197782,
+    "my_outer_factor": 1.0424664676050996,
+    "their_outer_factor": 1.04247,
+    "my_Mcr_local_kNm": 0.35016125887612015,
+    "their_resultant_local": 0.35016,
+    "f_local": 118.164
+   },
+   {
+    "t": 0.95,
+    "action": "bend_minor_lips_comp",
+    "web_stress": -43.24540367705834,
+    "lip_stress": 100.0,
+    "max_compressive": 100.0,
+    "min": -43.24540367705835,
+    "my_outer_factor": 1.0183647953432127,
+    "their_outer_factor": 1.01836,
+    "my_Mcr_local_kNm": 1.7808552079505375,
+    "their_resultant_local": 1.78086,
+    "f_local": 1389.651
+   },
+   {
+    "t": 1.15,
+    "action": "bend_minor_web_comp",
+    "web_stress": 100.0,
+    "lip_stress": -232.21601489757924,
+    "max_compressive": 100.0,
+    "min": -232.21601489757924,
+    "my_outer_factor": 1.0518383198279804,
+    "their_outer_factor": 1.05184,
+    "my_Mcr_local_kNm": 0.6176818441917049,
+    "their_resultant_local": 0.617681,
+    "f_local": 173.742
+   },
+   {
+    "t": 1.15,
+    "action": "bend_minor_lips_comp",
+    "web_stress": -43.063352044907774,
+    "lip_stress": 100.0,
+    "max_compressive": 100.0,
+    "min": -43.06335204490776,
+    "my_outer_factor": 1.0223233181616884,
+    "their_outer_factor": 1.02232,
+    "my_Mcr_local_kNm": 3.133617749441834,
+    "their_resultant_local": 3.13362,
+    "f_local": 2046.813
+   }
+  ],
+  "json_consistency": {
+   "worst_resultant_pct": 0.04095996079014341,
+   "worst_factor_pct": 0.0005515201258132763,
+   "worst_outer_pct": 0.0009069454644627939
+  }
+ },
+ "worst": {
+  "props_numeric": 0.0011987126876888965,
+  "props_closed": 3.791648892637056e-05,
+  "dist_lh": 6.783110729720221,
+  "dist_sp": 4.884196784865091,
+  "fsm_local": 0.017168029294001297,
+  "fsm_dist": 0.08542828388535817,
+  "json_resultant": 0.04095996079014341,
+  "json_factor": 0.0005515201258132763,
+  "json_outer": 0.0009069454644627939
+ }
+}

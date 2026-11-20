@@ -1,0 +1,351 @@
+{
+ "G_kN": 46.7595607507356,
+ "Q_kN": 121.75799999999997,
+ "itemised_kg": 4768.148220925168,
+ "layouts": {
+  "piers": {
+   "ULS1": {
+    "members_over": 1,
+    "joints_over": 6,
+    "links_over_shear": 2,
+    "max_member": 1.1114673490636389,
+    "max_joint": 1.1813390684575613,
+    "max_link_shear": 1.6199830347823918,
+    "worst_members": [
+     [
+      "NFT2",
+      "BOTTOM CHORD",
+      1.11,
+      "compression + bending (DSM local-global,"
+     ],
+     [
+      "NFT1",
+      "BOTTOM CHORD",
+      0.94,
+      "compression + bending (DSM local-global,"
+     ],
+     [
+      "NFT4",
+      "BOTTOM CHORD",
+      0.93,
+      "tension + bending"
+     ],
+     [
+      "NFT19",
+      "BOTTOM CHORD",
+      0.92,
+      "tension + bending"
+     ],
+     [
+      "NFT7",
+      "BOTTOM CHORD",
+      0.92,
+      "tension + bending"
+     ],
+     [
+      "NFT22",
+      "BOTTOM CHORD",
+      0.87,
+      "tension + bending"
+     ]
+    ],
+    "worst_joints": [
+     [
+      "NFT13",
+      "WEB",
+      1.18,
+      11.29
+     ],
+     [
+      "NFT13",
+      "WEB",
+      1.18,
+      11.29
+     ],
+     [
+      "NFT13",
+      "WEB",
+      1.05,
+      10.04
+     ],
+     [
+      "NFT13",
+      "WEB",
+      1.05,
+      10.04
+     ],
+     [
+      "NFT1",
+      "WEB",
+      1.0,
+      6.37
+     ],
+     [
+      "NFT1",
+      "WEB",
+      1.0,
+      6.37
+     ]
+    ]
+   },
+   "ULS2": {
+    "members_over": 0,
+    "joints_over": 0,
+    "links_over_shear": 0,
+    "max_member": 0.2538855508246356,
+    "max_joint": 0.27045786601656246,
+    "max_link_shear": 0.39750190301566385,
+    "worst_members": [
+     [
+      "NFT25",
+      "BOTTOM CHORD",
+      0.25,
+      "compression + bending (DSM local-global,"
+     ],
+     [
+      "W6",
+      "BOTTOM TRACK",
+      0.24,
+      "compression + bending (EWM local-global,"
+     ],
+     [
+      "NFT23",
+      "BOTTOM CHORD",
+      0.24,
+      "tension + bending"
+     ],
+     [
+      "W10",
+      "BOTTOM TRACK",
+      0.24,
+      "compression + bending (EWM local-global,"
+     ],
+     [
+      "NFT4",
+      "TOP CHORD",
+      0.23,
+      "compression + bending (DSM local-global,"
+     ],
+     [
+      "NFT4",
+      "BOTTOM CHORD",
+      0.23,
+      "compression + bending (DSM local-global,"
+     ]
+    ],
+    "worst_joints": [
+     [
+      "NFT26",
+      "WEB",
+      0.27,
+      0.96
+     ],
+     [
+      "NFT26",
+      "WEB",
+      0.27,
+      0.96
+     ],
+     [
+      "NFT26",
+      "WEB",
+      0.27,
+      0.95
+     ],
+     [
+      "NFT26",
+      "WEB",
+      0.27,
+      0.95
+     ],
+     [
+      "NFT46",
+      "WEB",
+      0.26,
+      0.92
+     ],
+     [
+      "NFT46",
+      "WEB",
+      0.26,
+      0.92
+     ]
+    ]
+   },
+   "floor_truss_relative_sag_SLS_mm": -2.8,
+   "max_settlement_mm": -2.9
+  },
+  "bearer": {
+   "ULS1": {
+    "members_over": 0,
+    "joints_over": 0,
+    "links_over_shear": 0,
+    "max_member": 0.9261245647151337,
+    "max_joint": 0.87529501726676,
+    "max_link_shear": 0.9286896825087916,
+    "worst_members": [
+     [
+      "NFT4",
+      "BOTTOM CHORD",
+      0.93,
+      "tension + bending"
+     ],
+     [
+      "NFT13",
+      "BOTTOM CHORD",
+      0.88,
+      "tension + bending"
+     ],
+     [
+      "NFT22",
+      "BOTTOM CHORD",
+      0.86,
+      "tension + bending"
+     ],
+     [
+      "NFT14",
+      "BOTTOM CHORD",
+      0.85,
+      "tension + bending"
+     ],
+     [
+      "NFT12",
+      "BOTTOM CHORD",
+      0.85,
+      "tension + bending"
+     ],
+     [
+      "NFT20",
+      "BOTTOM CHORD",
+      0.85,
+      "tension + bending"
+     ]
+    ],
+    "worst_joints": [
+     [
+      "NFT4",
+      "WEB",
+      0.88,
+      8.37
+     ],
+     [
+      "NFT4",
+      "WEB",
+      0.88,
+      8.37
+     ],
+     [
+      "NFT4",
+      "WEB",
+      0.87,
+      8.31
+     ],
+     [
+      "NFT4",
+      "WEB",
+      0.87,
+      8.31
+     ],
+     [
+      "NFT22",
+      "WEB",
+      0.81,
+      7.75
+     ],
+     [
+      "NFT22",
+      "WEB",
+      0.81,
+      7.75
+     ]
+    ]
+   },
+   "ULS2": {
+    "members_over": 0,
+    "joints_over": 0,
+    "links_over_shear": 0,
+    "max_member": 0.2532887692127171,
+    "max_joint": 0.27248201363215097,
+    "max_link_shear": 0.2311468491765522,
+    "worst_members": [
+     [
+      "NFT25",
+      "BOTTOM CHORD",
+      0.25,
+      "compression + bending (DSM local-global,"
+     ],
+     [
+      "NFT23",
+      "BOTTOM CHORD",
+      0.24,
+      "tension + bending"
+     ],
+     [
+      "NFT4",
+      "TOP CHORD",
+      0.23,
+      "compression + bending (DSM local-global,"
+     ],
+     [
+      "W6",
+      "BOTTOM TRACK",
+      0.23,
+      "compression + bending (EWM local-global,"
+     ],
+     [
+      "W10",
+      "BOTTOM TRACK",
+      0.23,
+      "compression + bending (EWM local-global,"
+     ],
+     [
+      "NFT4",
+      "BOTTOM CHORD",
+      0.23,
+      "compression + bending (DSM local-global,"
+     ]
+    ],
+    "worst_joints": [
+     [
+      "NFT26",
+      "WEB",
+      0.27,
+      0.96
+     ],
+     [
+      "NFT26",
+      "WEB",
+      0.27,
+      0.96
+     ],
+     [
+      "NFT26",
+      "WEB",
+      0.27,
+      0.96
+     ],
+     [
+      "NFT26",
+      "WEB",
+      0.27,
+      0.96
+     ],
+     [
+      "NFT46",
+      "WEB",
+      0.26,
+      0.93
+     ],
+     [
+      "NFT46",
+      "WEB",
+      0.26,
+      0.93
+     ]
+    ]
+   },
+   "floor_truss_relative_sag_SLS_mm": -2.8,
+   "max_settlement_mm": -2.9
+  }
+ }
+}

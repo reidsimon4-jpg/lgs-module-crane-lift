@@ -1,0 +1,68 @@
+model: 3106 nodes, 5042 elements, 524 links, 2210 joints; built in 1.1s
+  - joints from engine: 2210; loose dimples paired here (not validated by the engine): 0
+  - added-member ends attached to framed members: 586
+  - truss-end reaction ties added: 168
+  - inter-panel links created: 524; pairs within tolerance with no rule (not connected): 2193
+  - nodes where every member was pinned: 28 (one member made continuous there to avoid a mechanism)
+itemised 4768 kg -> rated 6500 kg (x1.363); W = 63.74 kN; CoG [5977, 1370, 1206]; factor 2.433
+R1_rigid       R(kN) S1:  9.5 S2:  9.3 S3:  9.0 S4:  9.5 N1:  7.5 N2:  5.7 N3:  5.8 N4:  7.3 | sumR/W 1.0000 | mem>1   0 (max 0.92) jnt>1   0 (max 0.82) lnk>1   0 (max 0.94) | dz -2.0/-0.3 mm
+R4_equalised   R(kN) S1:  9.4 S2:  9.4 S3:  9.3 S4:  9.3 N1:  6.6 N2:  6.6 N3:  6.6 N4:  6.5 | sumR/W 1.0000 | mem>1   0 (max 0.92) jnt>1   0 (max 0.82) lnk>1   0 (max 0.96) | dz -3.3/+3.4 mm
+R7a_outer_high R(kN) S1: 10.2 S2:  8.6 S3:  8.5 S4: 10.1 N1:  7.4 N2:  5.8 N3:  5.8 N4:  7.3 | sumR/W 1.0000 | mem>1   0 (max 0.92) jnt>1   0 (max 0.82) lnk>1   0 (max 0.94) | dz -2.0/+0.0 mm
+R7b_inner_high R(kN) S1:  8.6 S2: 10.2 S3: 10.1 S4:  8.5 N1:  5.8 N2:  7.4 N3:  7.4 N4:  5.7 | sumR/W 1.0000 | mem>1   1 (max 1.21) jnt>1   2 (max 1.00) lnk>1   2 (max 1.38) | dz -4.6/+7.0 mm
+R7c_one_end_high R(kN) S1:  9.3 S2:  9.9 S3:  8.8 S4:  9.4 N1:  6.5 N2:  7.1 N3:  6.0 N4:  6.7 | sumR/W 1.0000 | mem>1   0 (max 0.93) jnt>1   0 (max 0.85) lnk>1   0 (max 0.95) | dz -3.0/+3.3 mm
+R7d_twist      R(kN) S1: 10.2 S2: 10.2 S3:  8.5 S4:  8.5 N1:  5.8 N2:  5.8 N3:  7.4 N4:  7.3 | sumR/W 1.0000 | mem>1   3 (max 1.14) jnt>1   0 (max 0.98) lnk>1   2 (max 2.01) | dz -9.4/+17.0 mm
+R2_springs     R(kN) S1:  9.5 S2:  9.3 S3:  9.2 S4:  9.4 N1:  7.4 N2:  5.9 N3:  5.9 N4:  7.2 | sumR/W 1.0000 | mem>1   0 (max 0.92) jnt>1   0 (max 0.82) lnk>1   0 (max 0.95) | dz -2.3/+0.5 mm
+R6_short_S1    R(kN) S1: 12.8 S2:  5.2 S3:  8.6 S4: 10.9 N1:  6.9 N2:  6.1 N3:  5.6 N4:  7.7 | sumR/W 1.0000 | mem>1   1 (max 1.04) jnt>1   9 (max 1.26) lnk>1   0 (max 0.94) | dz -4.1/+6.9 mm
+R6_short_S2    R(kN) S1:  5.4 S2: 17.6 S3:  5.5 S4:  8.8 N1:  7.3 N2:  5.9 N3:  5.8 N4:  7.3 | sumR/W 1.0000 | mem>1   2 (max 1.58) jnt>1  39 (max 1.89) lnk>1   2 (max 2.60) | dz -2.8/+3.2 mm
+R6_short_S3    R(kN) S1:  8.8 S2:  5.5 S3: 17.8 S4:  5.2 N1:  7.5 N2:  5.8 N3:  5.9 N4:  7.1 | sumR/W 1.0000 | mem>1   4 (max 1.48) jnt>1  39 (max 2.07) lnk>1   6 (max 3.57) | dz -3.4/+3.2 mm
+R6_short_S4    R(kN) S1: 11.0 S2:  8.7 S3:  5.0 S4: 12.8 N1:  7.9 N2:  5.6 N3:  6.1 N4:  6.7 | sumR/W 1.0000 | mem>1   2 (max 1.09) jnt>1  14 (max 1.54) lnk>1   0 (max 0.94) | dz -4.3/+6.8 mm
+R6_short_N1    R(kN) S1:  9.0 S2:  9.3 S3:  9.3 S4:  9.9 N1:  9.1 N2:  3.7 N3:  6.5 N4:  7.1 | sumR/W 1.0000 | mem>1   3 (max 1.36) jnt>1   0 (max 0.96) lnk>1   2 (max 2.03) | dz -3.1/+8.1 mm
+R6_short_N2    R(kN) S1:  9.8 S2:  9.4 S3:  9.2 S4:  9.1 N1:  5.2 N2: 10.3 N3:  3.0 N4:  7.8 | sumR/W 1.0000 | mem>1   2 (max 1.81) jnt>1   6 (max 1.13) lnk>1   1 (max 1.12) | dz -3.2/+6.5 mm
+R6_short_N3    R(kN) S1:  9.2 S2:  9.3 S3:  9.3 S4:  9.7 N1:  8.0 N2:  3.0 N3: 10.3 N4:  5.1 | sumR/W 1.0000 | mem>1   2 (max 1.81) jnt>1   6 (max 1.15) lnk>1   1 (max 1.20) | dz -3.5/+6.4 mm
+R6_short_N4    R(kN) S1: 10.0 S2:  9.4 S3:  9.1 S4:  8.9 N1:  7.2 N2:  6.4 N3:  3.7 N4:  8.9 | sumR/W 1.0000 | mem>1   2 (max 1.32) jnt>1   0 (max 0.94) lnk>1   2 (max 1.93) | dz -3.6/+8.3 mm
+L1_squeeze_y   R(kN) S1:  9.4 S2:  9.4 S3:  9.3 S4:  9.3 N1:  6.6 N2:  6.6 N3:  6.6 N4:  6.5 | sumR/W 1.0000 | mem>1   0 (max 0.92) jnt>1   0 (max 0.82) lnk>1   0 (max 0.96) | dz -3.3/+3.4 mm
+L2_spread_y    R(kN) S1:  9.4 S2:  9.4 S3:  9.3 S4:  9.3 N1:  6.6 N2:  6.6 N3:  6.6 N4:  6.5 | sumR/W 1.0000 | mem>1   0 (max 0.92) jnt>1   0 (max 0.82) lnk>1   0 (max 0.96) | dz -3.3/+3.4 mm
+L3_squeeze_x   R(kN) S1:  9.4 S2:  9.4 S3:  9.3 S4:  9.3 N1:  6.6 N2:  6.6 N3:  6.6 N4:  6.5 | sumR/W 1.0000 | mem>1   0 (max 0.92) jnt>1   0 (max 0.83) lnk>1   0 (max 0.96) | dz -3.2/+3.1 mm
+L4_spread_x    R(kN) S1:  9.4 S2:  9.4 S3:  9.3 S4:  9.3 N1:  6.6 N2:  6.6 N3:  6.6 N4:  6.5 | sumR/W 1.0000 | mem>1   0 (max 0.92) jnt>1   0 (max 0.83) lnk>1   0 (max 0.96) | dz -3.4/+3.6 mm
+
+ENVELOPE over design cases, factor 2.433:
+ members over 1.0: 3 of 1194
+   NFT2   BOTTOM CHORD  rim_truss   x=   6000 util 1.21 N= -18.7 kN Min=0.196 Mout=0.019 kNm Lin=382 Lout=600 [R7b_inner_high] compression + bending (DSM loc
+   NFT25  BOTTOM CHORD  roof_rim    x=   6000 util 1.13 N= -15.7 kN Min=0.201 Mout=0.029 kNm Lin=382 Lout=600 [R7d_twist] compression + bending (DSM loc
+   NFT2   TOP CHORD     rim_truss   x=   6000 util 1.03 N= -21.6 kN Min=0.101 Mout=0.000 kNm Lin=390 Lout=600 [R7d_twist] compression + bending (DSM loc
+   W1     TOP TRACK     wall        x=    525 util 0.96 N=   1.8 kN Min=0.337 Mout=0.003 kNm Lin=350 Lout=350 [R7d_twist] tension + bending
+   NFT4   TOP CHORD     floor_truss x=    600 util 0.92 N= -13.3 kN Min=0.058 Mout=0.000 kNm Lin=381 Lout=1561 [R7a_outer_high] compression + bending (DSM loc
+   W2     NOGGIN        wall        x=   4500 util 0.79 N=   0.0 kN Min=0.289 Mout=0.000 kNm Lin=109 Lout=259 [R7d_twist] tension + bending
+   W4     BOTTOM TRACK  wall        x=  11475 util 0.79 N=   0.4 kN Min=0.284 Mout=0.001 kNm Lin=350 Lout=350 [R7d_twist] tension + bending
+   W1     BOTTOM TRACK  wall        x=    525 util 0.74 N=  -1.3 kN Min=0.254 Mout=0.010 kNm Lin=350 Lout=350 [R7d_twist] compression + bending (DSM loc
+   W4     TOP TRACK     wall        x=  11475 util 0.67 N=   1.6 kN Min=0.235 Mout=0.001 kNm Lin=350 Lout=350 [R7b_inner_high] tension + bending
+   W1     STUD          wall        x=    602 util 0.67 N=  -6.9 kN Min=0.079 Mout=0.001 kNm Lin=635 Lout=2659 [R7d_twist] compression + bending (DSM loc
+   W2     STUD          wall        x=   4520 util 0.63 N=  -1.7 kN Min=0.184 Mout=0.000 kNm Lin=1331 Lout=2659 [R7d_twist] compression + bending (DSM loc
+   W10    BOTTOM TRACK  wall        x=  11550 util 0.62 N=  -0.7 kN Min=0.214 Mout=0.007 kNm Lin=300 Lout=300 [R7b_inner_high] compression + bending (EWM loc
+ joints over 1.0: 2 of 2210
+   by member: {('roof_rim', 'WEB'): 2}
+   NFT25  WEB           roof_rim    x=   7790 y=  3256 z=  2980 demand  6.38 kN cap 6.37 util 1.00 [R7b_inner_high]
+   NFT25  WEB           roof_rim    x=   7955 y=  3256 z=  2720 demand  6.38 kN cap 6.37 util 1.00 [R7b_inner_high]
+   NFT25  WEB           roof_rim    x=   4210 y=  3256 z=  2979 demand  6.35 kN cap 6.37 util 1.00 [R7b_inner_high]
+   NFT25  WEB           roof_rim    x=   4044 y=  3256 z=  2720 demand  6.35 kN cap 6.37 util 1.00 [R7b_inner_high]
+   NFT25  WEB           roof_rim    x=    682 y=  3256 z=  2979 demand  6.27 kN cap 6.37 util 0.98 [R7d_twist]
+   NFT25  WEB           roof_rim    x=    516 y=  3256 z=  2720 demand  6.27 kN cap 6.37 util 0.98 [R7d_twist]
+   NFT25  WEB           roof_rim    x=   8231 y=  3256 z=  2980 demand  5.69 kN cap 6.37 util 0.89 [R7b_inner_high]
+   NFT25  WEB           roof_rim    x=   8396 y=  3256 z=  2720 demand  5.69 kN cap 6.37 util 0.89 [R7b_inner_high]
+   NFT25  WEB           roof_rim    x=   3769 y=  3256 z=  2979 demand  5.66 kN cap 6.37 util 0.89 [R7b_inner_high]
+   NFT25  WEB           roof_rim    x=   3603 y=  3256 z=  2720 demand  5.66 kN cap 6.37 util 0.89 [R7b_inner_high]
+ links over 1.0 in shear: 3 of 524; links in tension that need a positive tie: 120
+   over: 3 wall bottom track on floor rim / end floor truss max util 0.24
+   tie : 17 wall panel to wall panel (seam studs, corner studs, stacked tracks) max tension 0.43 kN
+   tie : 17 wall top track under roof rim / end roof truss max tension 1.54 kN
+   tie : 6 wall bottom track on floor rim / end floor truss max tension 3.26 kN
+   tie : 29 floor truss chord end to floor rim chord max tension 1.59 kN
+   tie : 51 roof truss chord end to roof rim chord max tension 1.05 kN
+ added parts (factored envelope):
+   STRAP        n=  8 tension  17.87 kN compression   0.00 kN shear  0.00 kN moment 0.000 kNm
+   STIRRUP      n= 18 tension   0.12 kN compression   7.93 kN shear  0.00 kN moment 0.000 kNm
+   CRADLE       n=144 tension  15.05 kN compression  15.36 kN shear  3.87 kN moment 0.307 kNm
+   GUIDE        n=  8 tension   0.03 kN compression   0.00 kN shear  2.75 kN moment 0.469 kNm
+   V-STRAP      n= 10 tension  10.59 kN compression   0.00 kN shear  0.00 kN moment 0.000 kNm
+   PLANE BRACE  n= 20 tension   0.92 kN compression   1.28 kN shear  0.00 kN moment 0.000 kNm
+ framed steel 1267 kg, added parts (as modelled) 283 kg
