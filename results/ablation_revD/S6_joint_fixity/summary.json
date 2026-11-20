@@ -1,0 +1,2605 @@
+{
+ "meta": {
+  "config": "SENSITIVITY: truss and wall joints partly fixed in plane (fixity 0.3 instead of pinned)",
+  "W_N": 63743.224999999766,
+  "rated_kg": 6500.0,
+  "itemised_kg": 4653.796311147386,
+  "cg": [
+   5976.801658088709,
+   1391.881444787261,
+   1236.116515727165
+  ],
+  "factor": 2.4333750000000003,
+  "factors": {
+   "weight": 1.03,
+   "cog": 1.05,
+   "dynamic": 1.5,
+   "load": 1.5
+  },
+  "member_steel": "G450",
+  "connection_steel": "connections fu 412.5",
+  "lift_points": {
+   "S1": {
+    "node": 2945,
+    "xyz": [
+     928.5,
+     44.5,
+     3150.0
+    ]
+   },
+   "S2": {
+    "node": 2951,
+    "xyz": [
+     4456.5,
+     44.5,
+     3150.0
+    ]
+   },
+   "S3": {
+    "node": 2957,
+    "xyz": [
+     7543.5,
+     44.5,
+     3150.0
+    ]
+   },
+   "S4": {
+    "node": 2963,
+    "xyz": [
+     11071.5,
+     44.5,
+     3150.0
+    ]
+   },
+   "N1": {
+    "node": 2969,
+    "xyz": [
+     928.5,
+     3255.5,
+     3150.0
+    ]
+   },
+   "N2": {
+    "node": 2975,
+    "xyz": [
+     4456.5,
+     3255.5,
+     3150.0
+    ]
+   },
+   "N3": {
+    "node": 2981,
+    "xyz": [
+     7543.5,
+     3255.5,
+     3150.0
+    ]
+   },
+   "N4": {
+    "node": 2987,
+    "xyz": [
+     11071.5,
+     3255.5,
+     3150.0
+    ]
+   }
+  }
+ },
+ "cases": {
+  "R1_rigid": {
+   "label": "Rigid lifting frame, 8 slings of exact equal length and no stretch",
+   "rig": "rigid",
+   "reactions": {
+    "S1": 9310.441297111081,
+    "S2": 9650.36388208168,
+    "S3": 8555.014691445387,
+    "S4": 9479.837829486163,
+    "N1": 7667.5329754650265,
+    "N2": 5769.5597263944255,
+    "N3": 5770.981623957419,
+    "N4": 7539.492974526931
+   },
+   "sum_R": 63743.22500046811,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8162175150579497,
+   "max_joint": 0.791258174438512,
+   "max_link": 0.5107662316505768,
+   "sag_mm": -2.306382959517621,
+   "hog_mm": -0.3946718123158496,
+   "design": true,
+   "slack_straps": []
+  },
+  "R4_equalised": {
+   "label": "Equalising rig (beam cascade): four equal sling forces on each side, sides by statics",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9315.629256266542,
+    "S2": 9269.218939102,
+    "S3": 9228.609911583024,
+    "S4": 9182.199594418482,
+    "N1": 6753.606655581387,
+    "N2": 6707.196338416843,
+    "N3": 6666.587310897868,
+    "N4": 6620.176993733325
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 2.4104756448650733e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8174133378521815,
+   "max_joint": 0.7833597386168076,
+   "max_link": 0.5113687705754278,
+   "sag_mm": -3.3475435866903656,
+   "hog_mm": 2.782535376230122,
+   "design": true,
+   "slack_straps": []
+  },
+  "T1_roll_S": {
+   "label": "Cascade picks off the CoG: module rolls down to the south by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8979.768083872274,
+    "S2": 8979.768083872274,
+    "S3": 8854.679763701017,
+    "S4": 8854.679763701017,
+    "N1": 7067.809679965536,
+    "N2": 7067.809679965536,
+    "N3": 6969.354972460907,
+    "N4": 6969.354972460907
+   },
+   "sum_R": 63743.22499999945,
+   "unbalance": 2.6092169719049707e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8194962202990506,
+   "max_joint": 0.8103265045910393,
+   "max_link": 0.5016661211367203,
+   "sag_mm": -3.6841824095926525,
+   "hog_mm": 4.127185176464983,
+   "design": true,
+   "slack_straps": []
+  },
+  "T2_roll_N": {
+   "label": "Cascade picks off the CoG: module rolls down to the north by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9647.801948458722,
+    "S2": 9647.801948458722,
+    "S3": 9513.407905338036,
+    "S4": 9513.407905338036,
+    "N1": 6399.775815379088,
+    "N2": 6399.775815379088,
+    "N3": 6310.626830823888,
+    "N4": 6310.626830823888
+   },
+   "sum_R": 63743.22499999946,
+   "unbalance": 3.2655247196089476e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8949302990684102,
+   "max_joint": 0.8245756542039935,
+   "max_link": 0.5514616800149286,
+   "sag_mm": -3.103959879743989,
+   "hog_mm": 1.5250128070140243,
+   "design": true,
+   "slack_straps": []
+  },
+  "T3_pitch_W": {
+   "label": "Cascade picks off the CoG: module pitches down at the west end by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9126.89323285867,
+    "S2": 9126.89323285867,
+    "S3": 9370.935617826352,
+    "S4": 9370.935617826352,
+    "N1": 6598.671469604723,
+    "N2": 6598.671469604723,
+    "N3": 6775.112179709989,
+    "N4": 6775.112179709989
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.8577747141534928e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8124126417500572,
+   "max_joint": 0.8010618576584654,
+   "max_link": 0.5059030363787685,
+   "sag_mm": -4.16061982185442,
+   "hog_mm": 4.1119547545191395,
+   "design": true,
+   "slack_straps": []
+  },
+  "T4_pitch_E": {
+   "label": "Cascade picks off the CoG: module pitches down at the east end by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9500.676799472321,
+    "S2": 9500.676799472321,
+    "S3": 8997.1520512127,
+    "S4": 8997.1520512127,
+    "N1": 6868.914025739902,
+    "N2": 6868.914025739902,
+    "N3": 6504.869623574809,
+    "N4": 6504.869623574809
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.3438547284749802e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8307985342900696,
+   "max_joint": 0.7660979430859346,
+   "max_link": 0.5169268894101133,
+   "sag_mm": -4.430494402030644,
+   "hog_mm": 2.5620179581986373,
+   "design": true,
+   "slack_straps": []
+  },
+  "T5_SW": {
+   "label": "Cascade picks off the CoG: module tilts down to the south-west by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8948.798147490019,
+    "S2": 8948.798147490019,
+    "S3": 9079.949497384363,
+    "S4": 9079.949497384363,
+    "N1": 6871.081997019299,
+    "N2": 6871.081997019299,
+    "N3": 6971.782858106054,
+    "N4": 6971.782858106054
+   },
+   "sum_R": 63743.22499999946,
+   "unbalance": 6.4827981987036765e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.791120985361896,
+   "max_joint": 0.8112815437689397,
+   "max_link": 0.49905823715239844,
+   "sag_mm": -4.153060571591001,
+   "hog_mm": 4.537167152079746,
+   "design": true,
+   "slack_straps": []
+  },
+  "T6_SE": {
+   "label": "Cascade picks off the CoG: module tilts down to the south-east by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9206.400609129641,
+    "S2": 9206.400609129641,
+    "S3": 8822.34703574474,
+    "S4": 8822.34703574474,
+    "N1": 7068.874774036659,
+    "N2": 7068.874774036659,
+    "N3": 6773.990081088694,
+    "N4": 6773.990081088694
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 2.9276739041961264e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8010381381929214,
+   "max_joint": 0.8244732123532091,
+   "max_link": 0.4867003129472109,
+   "sag_mm": -4.101217778949554,
+   "hog_mm": 3.4375527074341905,
+   "design": true,
+   "slack_straps": []
+  },
+  "T7_NW": {
+   "label": "Cascade picks off the CoG: module tilts down to the north-west by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9414.466990192366,
+    "S2": 9414.466990192366,
+    "S3": 9552.443066303302,
+    "S4": 9552.443066303302,
+    "N1": 6405.4131543169515,
+    "N2": 6405.4131543169515,
+    "N3": 6499.289289187117,
+    "N4": 6499.289289187117
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 3.450408075877931e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.862560069948592,
+   "max_joint": 0.8278667224768904,
+   "max_link": 0.5356740508495177,
+   "sag_mm": -3.7186940944663625,
+   "hog_mm": 2.81578363923626,
+   "design": true,
+   "slack_straps": []
+  },
+  "T8_NE": {
+   "label": "Cascade picks off the CoG: module tilts down to the north-east by 2 deg (net sideways load on the module)",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9685.474317849961,
+    "S2": 9685.474317849961,
+    "S3": 9281.435738645705,
+    "S4": 9281.435738645705,
+    "N1": 6589.801065316337,
+    "N2": 6589.801065316337,
+    "N3": 6314.90137818773,
+    "N4": 6314.90137818773
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.3583869076683186e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8820455800979586,
+   "max_joint": 0.775766241432289,
+   "max_link": 0.5438314188445353,
+   "sag_mm": -3.4469291156501125,
+   "hog_mm": 1.7699992707882937,
+   "design": true,
+   "slack_straps": []
+  },
+  "R2_springs": {
+   "label": "Rigid frame with elastic slings",
+   "rig": "springs",
+   "reactions": {
+    "S1": 9338.148999349743,
+    "S2": 9410.474592860726,
+    "S3": 8941.417620690521,
+    "S4": 9305.616466771642,
+    "N1": 7488.631802425264,
+    "N2": 5950.1867281477325,
+    "N3": 5930.376708468687,
+    "N4": 7378.372073060961
+   },
+   "sum_R": 63743.22499177528,
+   "unbalance": 0.0,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8177911310246594,
+   "max_joint": 0.784249041538099,
+   "max_link": 0.5114130914332189,
+   "sag_mm": -2.5426877651355415,
+   "hog_mm": 0.6159066619007287,
+   "design": true,
+   "slack_straps": []
+  },
+  "L1_squeeze_y": {
+   "label": "Equalising rig, slings lean in across the module (3.5 % of the larger drop force on each beam, equal and opposite)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9315.629256266542,
+    "S2": 9269.218939102,
+    "S3": 9228.609911583024,
+    "S4": 9182.199594418482,
+    "N1": 6753.606655581387,
+    "N2": 6707.196338416843,
+    "N3": 6666.587310897868,
+    "N4": 6620.176993733325
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.3977501680528803e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8175235534636811,
+   "max_joint": 0.7833862037493958,
+   "max_link": 0.5113957828549507,
+   "sag_mm": -3.347017303817693,
+   "hog_mm": 2.782348821270509,
+   "design": true,
+   "slack_straps": []
+  },
+  "L2_spread_y": {
+   "label": "Equalising rig, slings lean out across the module (3.5 % of the larger drop force on each beam, equal and opposite)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9315.629256266542,
+    "S2": 9269.218939102,
+    "S3": 9228.609911583024,
+    "S4": 9182.199594418482,
+    "N1": 6753.606655581387,
+    "N2": 6707.196338416843,
+    "N3": 6666.587310897868,
+    "N4": 6620.176993733325
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 3.5236607800470665e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8173031224572597,
+   "max_joint": 0.7833332734873126,
+   "max_link": 0.5113417582969542,
+   "sag_mm": -3.348069869540875,
+   "hog_mm": 2.7827219312178832,
+   "design": true,
+   "slack_straps": []
+  },
+  "L3_squeeze_x": {
+   "label": "Equalising rig, slings lean in along the module (3.5 % of the larger drop force on each beam, equal and opposite)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9315.629256266542,
+    "S2": 9269.218939102,
+    "S3": 9228.609911583024,
+    "S4": 9182.199594418482,
+    "N1": 6753.606655581387,
+    "N2": 6707.196338416843,
+    "N3": 6666.587310897868,
+    "N4": 6620.176993733325
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 2.421578756184317e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8102088629553217,
+   "max_joint": 0.7752264560212084,
+   "max_link": 0.5069734903767613,
+   "sag_mm": -3.3429056557063137,
+   "hog_mm": 2.8140149693266356,
+   "design": true,
+   "slack_straps": []
+  },
+  "L4_spread_x": {
+   "label": "Equalising rig, slings lean out along the module (3.5 % of the larger drop force on each beam, equal and opposite)",
+   "rig": "forces",
+   "reactions": {
+    "S1": 9315.629256266542,
+    "S2": 9269.218939102,
+    "S3": 9228.609911583024,
+    "S4": 9182.199594418482,
+    "N1": 6753.606655581387,
+    "N2": 6707.196338416843,
+    "N3": 6666.587310897868,
+    "N4": 6620.176993733325
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 2.398644937784411e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8246182425660646,
+   "max_joint": 0.7914930224645728,
+   "max_link": 0.5157640507751433,
+   "sag_mm": -3.3521815176940524,
+   "hog_mm": 2.7510557831187477,
+   "design": true,
+   "slack_straps": []
+  },
+  "T1+L1": {
+   "label": "Cascade picks off the CoG: module rolls down to the south by 2 deg (net sideways load on the module) - and slings lean in across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8979.768083872274,
+    "S2": 8979.768083872274,
+    "S3": 8854.679763701017,
+    "S4": 8854.679763701017,
+    "N1": 7067.809679965536,
+    "N2": 7067.809679965536,
+    "N3": 6969.354972460907,
+    "N4": 6969.354972460907
+   },
+   "sum_R": 63743.22499999945,
+   "unbalance": 2.7138402401760686e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.819545266979354,
+   "max_joint": 0.8100441973796538,
+   "max_link": 0.5016818344813668,
+   "sag_mm": -3.6836754367734876,
+   "hog_mm": 4.1269335046967734,
+   "design": true,
+   "slack_straps": []
+  },
+  "T1+L2": {
+   "label": "Cascade picks off the CoG: module rolls down to the south by 2 deg (net sideways load on the module) - and slings lean out across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8979.768083872274,
+    "S2": 8979.768083872274,
+    "S3": 8854.679763701017,
+    "S4": 8854.679763701017,
+    "N1": 7067.809679965536,
+    "N2": 7067.809679965536,
+    "N3": 6969.354972460907,
+    "N4": 6969.354972460907
+   },
+   "sum_R": 63743.22499999945,
+   "unbalance": 2.5045972506632097e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8194471737379055,
+   "max_joint": 0.810608811856494,
+   "max_link": 0.5016504077914513,
+   "sag_mm": -3.6846893824682567,
+   "hog_mm": 4.127436848183713,
+   "design": true,
+   "slack_straps": []
+  },
+  "T1+L3": {
+   "label": "Cascade picks off the CoG: module rolls down to the south by 2 deg (net sideways load on the module) - and slings lean in along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8979.768083872274,
+    "S2": 8979.768083872274,
+    "S3": 8854.679763701017,
+    "S4": 8854.679763701017,
+    "N1": 7067.809679965536,
+    "N2": 7067.809679965536,
+    "N3": 6969.354972460907,
+    "N4": 6969.354972460907
+   },
+   "sum_R": 63743.22499999945,
+   "unbalance": 2.6052653083752375e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8164354071406558,
+   "max_joint": 0.8267809725916244,
+   "max_link": 0.49719746872292864,
+   "sag_mm": -3.6796145054250307,
+   "hog_mm": 4.160776724933502,
+   "design": true,
+   "slack_straps": []
+  },
+  "T1+L4": {
+   "label": "Cascade picks off the CoG: module rolls down to the south by 2 deg (net sideways load on the module) - and slings lean out along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8979.768083872274,
+    "S2": 8979.768083872274,
+    "S3": 8854.679763701017,
+    "S4": 8854.679763701017,
+    "N1": 7067.809679965536,
+    "N2": 7067.809679965536,
+    "N3": 6969.354972460907,
+    "N4": 6969.354972460907
+   },
+   "sum_R": 63743.22499999945,
+   "unbalance": 2.6130588594242e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8225615503900705,
+   "max_joint": 0.7956044713865706,
+   "max_link": 0.506134773552459,
+   "sag_mm": -3.6887503138312865,
+   "hog_mm": 4.093812883495132,
+   "design": true,
+   "slack_straps": []
+  },
+  "T2+L1": {
+   "label": "Cascade picks off the CoG: module rolls down to the north by 2 deg (net sideways load on the module) - and slings lean in across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9647.801948458722,
+    "S2": 9647.801948458722,
+    "S3": 9513.407905338036,
+    "S4": 9513.407905338036,
+    "N1": 6399.775815379088,
+    "N2": 6399.775815379088,
+    "N3": 6310.626830823888,
+    "N4": 6310.626830823888
+   },
+   "sum_R": 63743.22499999946,
+   "unbalance": 3.150204065605067e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8950446468968063,
+   "max_joint": 0.8247648485311437,
+   "max_link": 0.5514897353516289,
+   "sag_mm": -3.103415191569826,
+   "hog_mm": 1.5250532446618135,
+   "design": true,
+   "slack_straps": []
+  },
+  "T2+L2": {
+   "label": "Cascade picks off the CoG: module rolls down to the north by 2 deg (net sideways load on the module) - and slings lean out across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9647.801948458722,
+    "S2": 9647.801948458722,
+    "S3": 9513.407905338036,
+    "S4": 9513.407905338036,
+    "N1": 6399.775815379088,
+    "N2": 6399.775815379088,
+    "N3": 6310.626830823888,
+    "N4": 6310.626830823888
+   },
+   "sum_R": 63743.22499999946,
+   "unbalance": 3.380874841241166e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.894815951453319,
+   "max_joint": 0.8243864600124388,
+   "max_link": 0.5514336246773345,
+   "sag_mm": -3.104504567896429,
+   "hog_mm": 1.5249723693834467,
+   "design": true,
+   "slack_straps": []
+  },
+  "T2+L3": {
+   "label": "Cascade picks off the CoG: module rolls down to the north by 2 deg (net sideways load on the module) - and slings lean in along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9647.801948458722,
+    "S2": 9647.801948458722,
+    "S3": 9513.407905338036,
+    "S4": 9513.407905338036,
+    "N1": 6399.775815379088,
+    "N2": 6399.775815379088,
+    "N3": 6310.626830823888,
+    "N4": 6310.626830823888
+   },
+   "sum_R": 63743.22499999946,
+   "unbalance": 3.265761552029289e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8874675651725455,
+   "max_joint": 0.8064699217950507,
+   "max_link": 0.5469102393713424,
+   "sag_mm": -3.0992722041296785,
+   "hog_mm": 1.5525835361351024,
+   "design": true,
+   "slack_straps": []
+  },
+  "T2+L4": {
+   "label": "Cascade picks off the CoG: module rolls down to the north by 2 deg (net sideways load on the module) - and slings lean out along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9647.801948458722,
+    "S2": 9647.801948458722,
+    "S3": 9513.407905338036,
+    "S4": 9513.407905338036,
+    "N1": 6399.775815379088,
+    "N2": 6399.775815379088,
+    "N3": 6310.626830823888,
+    "N4": 6310.626830823888
+   },
+   "sum_R": 63743.22499999946,
+   "unbalance": 3.265312625444494e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.9023934452509222,
+   "max_joint": 0.8426813874380985,
+   "max_link": 0.5560131206578921,
+   "sag_mm": -3.1086475553163697,
+   "hog_mm": 1.5173243535512508,
+   "design": true,
+   "slack_straps": []
+  },
+  "T3+L1": {
+   "label": "Cascade picks off the CoG: module pitches down at the west end by 2 deg (net sideways load on the module) - and slings lean in across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9126.89323285867,
+    "S2": 9126.89323285867,
+    "S3": 9370.935617826352,
+    "S4": 9370.935617826352,
+    "N1": 6598.671469604723,
+    "N2": 6598.671469604723,
+    "N3": 6775.112179709989,
+    "N4": 6775.112179709989
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.7493419363745488e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8126560901660034,
+   "max_joint": 0.8010879862657143,
+   "max_link": 0.5059296637239007,
+   "sag_mm": -4.160106544614665,
+   "hog_mm": 4.111404949124235,
+   "design": true,
+   "slack_straps": []
+  },
+  "T3+L2": {
+   "label": "Cascade picks off the CoG: module pitches down at the west end by 2 deg (net sideways load on the module) - and slings lean out across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9126.89323285867,
+    "S2": 9126.89323285867,
+    "S3": 9370.935617826352,
+    "S4": 9370.935617826352,
+    "N1": 6598.671469604723,
+    "N2": 6598.671469604723,
+    "N3": 6775.112179709989,
+    "N4": 6775.112179709989
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.965958836080972e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8121691951722182,
+   "max_joint": 0.8010357290558404,
+   "max_link": 0.5058764090314404,
+   "sag_mm": -4.161133099174593,
+   "hog_mm": 4.112504560034912,
+   "design": true,
+   "slack_straps": []
+  },
+  "T3+L3": {
+   "label": "Cascade picks off the CoG: module pitches down at the west end by 2 deg (net sideways load on the module) - and slings lean in along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9126.89323285867,
+    "S2": 9126.89323285867,
+    "S3": 9370.935617826352,
+    "S4": 9370.935617826352,
+    "N1": 6598.671469604723,
+    "N2": 6598.671469604723,
+    "N3": 6775.112179709989,
+    "N4": 6775.112179709989
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.8587762497190852e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.805380329802505,
+   "max_joint": 0.7929984779074708,
+   "max_link": 0.501596513427221,
+   "sag_mm": -4.155134818351068,
+   "hog_mm": 4.118812543362377,
+   "design": true,
+   "slack_straps": []
+  },
+  "T3+L4": {
+   "label": "Cascade picks off the CoG: module pitches down at the west end by 2 deg (net sideways load on the module) - and slings lean out along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9126.89323285867,
+    "S2": 9126.89323285867,
+    "S3": 9370.935617826352,
+    "S4": 9370.935617826352,
+    "N1": 6598.671469604723,
+    "N2": 6598.671469604723,
+    "N3": 6775.112179709989,
+    "N4": 6775.112179709989
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.8566583094070666e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8194451231223844,
+   "max_joint": 0.8091252385151819,
+   "max_link": 0.5102095593296225,
+   "sag_mm": -4.166104825405355,
+   "hog_mm": 4.105096965784062,
+   "design": true,
+   "slack_straps": []
+  },
+  "T4+L1": {
+   "label": "Cascade picks off the CoG: module pitches down at the east end by 2 deg (net sideways load on the module) - and slings lean in across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9500.676799472321,
+    "S2": 9500.676799472321,
+    "S3": 8997.1520512127,
+    "S4": 8997.1520512127,
+    "N1": 6868.914025739902,
+    "N2": 6868.914025739902,
+    "N3": 6504.869623574809,
+    "N4": 6504.869623574809
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.4525271581078414e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8309109099974573,
+   "max_joint": 0.7661247919512941,
+   "max_link": 0.5169544301283235,
+   "sag_mm": -4.4332677912819545,
+   "hog_mm": 2.5622017486902453,
+   "design": true,
+   "slack_straps": []
+  },
+  "T4+L2": {
+   "label": "Cascade picks off the CoG: module pitches down at the east end by 2 deg (net sideways load on the module) - and slings lean out across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9500.676799472321,
+    "S2": 9500.676799472321,
+    "S3": 8997.1520512127,
+    "S4": 8997.1520512127,
+    "N1": 6868.914025739902,
+    "N2": 6868.914025739902,
+    "N3": 6504.869623574809,
+    "N4": 6504.869623574809
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.235077616001945e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8306861588102666,
+   "max_joint": 0.7660710942270964,
+   "max_link": 0.5168993486921165,
+   "sag_mm": -4.427721012804827,
+   "hog_mm": 2.5618341677196987,
+   "design": true,
+   "slack_straps": []
+  },
+  "T4+L3": {
+   "label": "Cascade picks off the CoG: module pitches down at the east end by 2 deg (net sideways load on the module) - and slings lean in along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9500.676799472321,
+    "S2": 9500.676799472321,
+    "S3": 8997.1520512127,
+    "S4": 8997.1520512127,
+    "N1": 6868.914025739902,
+    "N2": 6868.914025739902,
+    "N3": 6504.869623574809,
+    "N4": 6504.869623574809
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.3385679267230444e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8234507752669936,
+   "max_joint": 0.7579227857324707,
+   "max_link": 0.5124447790838929,
+   "sag_mm": -4.414102895311097,
+   "hog_mm": 2.5665920452933726,
+   "design": true,
+   "slack_straps": []
+  },
+  "T4+L4": {
+   "label": "Cascade picks off the CoG: module pitches down at the east end by 2 deg (net sideways load on the module) - and slings lean out along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9500.676799472321,
+    "S2": 9500.676799472321,
+    "S3": 8997.1520512127,
+    "S4": 8997.1520512127,
+    "N1": 6868.914025739902,
+    "N2": 6868.914025739902,
+    "N3": 6504.869623574809,
+    "N4": 6504.869623574809
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.3489610864780843e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8381467099964834,
+   "max_joint": 0.7742731018560803,
+   "max_link": 0.5214089997354182,
+   "sag_mm": -4.446885908823972,
+   "hog_mm": 2.5574438711221408,
+   "design": true,
+   "slack_straps": []
+  },
+  "T5+L1": {
+   "label": "Cascade picks off the CoG: module tilts down to the south-west by 2 deg (net sideways load on the module) - and slings lean in across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8948.798147490019,
+    "S2": 8948.798147490019,
+    "S3": 9079.949497384363,
+    "S4": 9079.949497384363,
+    "N1": 6871.081997019299,
+    "N2": 6871.081997019299,
+    "N3": 6971.782858106054,
+    "N4": 6971.782858106054
+   },
+   "sum_R": 63743.22499999946,
+   "unbalance": 7.565995474578813e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.7911701108030106,
+   "max_joint": 0.8109932965174493,
+   "max_link": 0.4990741436101847,
+   "sag_mm": -4.152556726912382,
+   "hog_mm": 4.536649595408081,
+   "design": true,
+   "slack_straps": []
+  },
+  "T5+L2": {
+   "label": "Cascade picks off the CoG: module tilts down to the south-west by 2 deg (net sideways load on the module) - and slings lean out across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8948.798147490019,
+    "S2": 8948.798147490019,
+    "S3": 9079.949497384363,
+    "S4": 9079.949497384363,
+    "N1": 6871.081997019299,
+    "N2": 6871.081997019299,
+    "N3": 6971.782858106054,
+    "N4": 6971.782858106054
+   },
+   "sum_R": 63743.22499999946,
+   "unbalance": 5.400759619078599e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.7910718600345364,
+   "max_joint": 0.8115697910112849,
+   "max_link": 0.49904233069591913,
+   "sag_mm": -4.153564416436737,
+   "hog_mm": 4.537684709013516,
+   "design": true,
+   "slack_straps": []
+  },
+  "T5+L3": {
+   "label": "Cascade picks off the CoG: module tilts down to the south-west by 2 deg (net sideways load on the module) - and slings lean in along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8948.798147490019,
+    "S2": 8948.798147490019,
+    "S3": 9079.949497384363,
+    "S4": 9079.949497384363,
+    "N1": 6871.081997019299,
+    "N2": 6871.081997019299,
+    "N3": 6971.782858106054,
+    "N4": 6971.782858106054
+   },
+   "sum_R": 63743.22499999946,
+   "unbalance": 6.479151124949567e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.7897424712884894,
+   "max_joint": 0.8281424665996338,
+   "max_link": 0.49469647965710445,
+   "sag_mm": -4.147835602713844,
+   "hog_mm": 4.544796902903139,
+   "design": true,
+   "slack_straps": []
+  },
+  "T5+L4": {
+   "label": "Cascade picks off the CoG: module tilts down to the south-west by 2 deg (net sideways load on the module) - and slings lean out along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8948.798147490019,
+    "S2": 8948.798147490019,
+    "S3": 9079.949497384363,
+    "S4": 9079.949497384363,
+    "N1": 6871.081997019299,
+    "N2": 6871.081997019299,
+    "N3": 6971.782858106054,
+    "N4": 6971.782858106054
+   },
+   "sum_R": 63743.22499999946,
+   "unbalance": 6.487462087534368e-06,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.7940769769431191,
+   "max_joint": 0.8096570178599988,
+   "max_link": 0.5034199946493817,
+   "sag_mm": -4.1582855405795085,
+   "hog_mm": 4.529537401361425,
+   "design": true,
+   "slack_straps": []
+  },
+  "T6+L1": {
+   "label": "Cascade picks off the CoG: module tilts down to the south-east by 2 deg (net sideways load on the module) - and slings lean in across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9206.400609129641,
+    "S2": 9206.400609129641,
+    "S3": 8822.34703574474,
+    "S4": 8822.34703574474,
+    "N1": 7068.874774036659,
+    "N2": 7068.874774036659,
+    "N3": 6773.990081088694,
+    "N4": 6773.990081088694
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 3.0336279451148584e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8010881197755098,
+   "max_joint": 0.8245837064186724,
+   "max_link": 0.4867270248996527,
+   "sag_mm": -4.104073993033395,
+   "hog_mm": 3.4376543545387417,
+   "design": true,
+   "slack_straps": []
+  },
+  "T6+L2": {
+   "label": "Cascade picks off the CoG: module tilts down to the south-east by 2 deg (net sideways load on the module) - and slings lean out across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9206.400609129641,
+    "S2": 9206.400609129641,
+    "S3": 8822.34703574474,
+    "S4": 8822.34703574474,
+    "N1": 7068.874774036659,
+    "N2": 7068.874774036659,
+    "N3": 6773.990081088694,
+    "N4": 6773.990081088694
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 2.8217661565577146e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8009881567528363,
+   "max_joint": 0.8243627183115368,
+   "max_link": 0.48667360099516027,
+   "sag_mm": -4.098361564926596,
+   "hog_mm": 3.4374510603506034,
+   "design": true,
+   "slack_straps": []
+  },
+  "T6+L3": {
+   "label": "Cascade picks off the CoG: module tilts down to the south-east by 2 deg (net sideways load on the module) - and slings lean in along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9206.400609129641,
+    "S2": 9206.400609129641,
+    "S3": 8822.34703574474,
+    "S4": 8822.34703574474,
+    "N1": 7068.874774036659,
+    "N2": 7068.874774036659,
+    "N3": 6773.990081088694,
+    "N4": 6773.990081088694
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 2.9224146601336543e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.7979435983332149,
+   "max_joint": 0.8160388154093717,
+   "max_link": 0.48235657333233645,
+   "sag_mm": -4.082871582859853,
+   "hog_mm": 3.444224815605292,
+   "design": true,
+   "slack_straps": []
+  },
+  "T6+L4": {
+   "label": "Cascade picks off the CoG: module tilts down to the south-east by 2 deg (net sideways load on the module) - and slings lean out along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9206.400609129641,
+    "S2": 9206.400609129641,
+    "S3": 8822.34703574474,
+    "S4": 8822.34703574474,
+    "N1": 7068.874774036659,
+    "N2": 7068.874774036659,
+    "N3": 6773.990081088694,
+    "N4": 6773.990081088694
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 2.9329356948437635e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8041370701500964,
+   "max_joint": 0.832907609365394,
+   "max_link": 0.49104405256301,
+   "sag_mm": -4.119563975356018,
+   "hog_mm": 3.430880599341163,
+   "design": true,
+   "slack_straps": []
+  },
+  "T7+L1": {
+   "label": "Cascade picks off the CoG: module tilts down to the north-west by 2 deg (net sideways load on the module) - and slings lean in across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9414.466990192366,
+    "S2": 9414.466990192366,
+    "S3": 9552.443066303302,
+    "S4": 9552.443066303302,
+    "N1": 6405.4131543169515,
+    "N2": 6405.4131543169515,
+    "N3": 6499.289289187117,
+    "N4": 6499.289289187117
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 3.3364984119543806e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8626718273780454,
+   "max_joint": 0.8280891733981754,
+   "max_link": 0.5357014905834057,
+   "sag_mm": -3.718164031116345,
+   "hog_mm": 2.815214259003099,
+   "design": true,
+   "slack_straps": []
+  },
+  "T7+L2": {
+   "label": "Cascade picks off the CoG: module tilts down to the north-west by 2 deg (net sideways load on the module) - and slings lean out across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9414.466990192366,
+    "S2": 9414.466990192366,
+    "S3": 9552.443066303302,
+    "S4": 9552.443066303302,
+    "N1": 6405.4131543169515,
+    "N2": 6405.4131543169515,
+    "N3": 6499.289289187117,
+    "N4": 6499.289289187117
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 3.564337930583861e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8624483127241179,
+   "max_joint": 0.8276442715563554,
+   "max_link": 0.5356466111156031,
+   "sag_mm": -3.7192241577745895,
+   "hog_mm": 2.816353019414123,
+   "design": true,
+   "slack_straps": []
+  },
+  "T7+L3": {
+   "label": "Cascade picks off the CoG: module tilts down to the north-west by 2 deg (net sideways load on the module) - and slings lean in along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9414.466990192366,
+    "S2": 9414.466990192366,
+    "S3": 9552.443066303302,
+    "S4": 9552.443066303302,
+    "N1": 6405.4131543169515,
+    "N2": 6405.4131543169515,
+    "N3": 6499.289289187117,
+    "N4": 6499.289289187117
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 3.449656651355326e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8552783580976552,
+   "max_joint": 0.8380371768274707,
+   "max_link": 0.5312322633587139,
+   "sag_mm": -3.7134512004384614,
+   "hog_mm": 2.8233060401636423,
+   "design": true,
+   "slack_straps": []
+  },
+  "T7+L4": {
+   "label": "Cascade picks off the CoG: module tilts down to the north-west by 2 deg (net sideways load on the module) - and slings lean out along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9414.466990192366,
+    "S2": 9414.466990192366,
+    "S3": 9552.443066303302,
+    "S4": 9552.443066303302,
+    "N1": 6405.4131543169515,
+    "N2": 6405.4131543169515,
+    "N3": 6499.289289187117,
+    "N4": 6499.289289187117
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 3.451214433880523e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.869842206512057,
+   "max_joint": 0.8176962685968578,
+   "max_link": 0.5401158383397614,
+   "sag_mm": -3.7239369884660927,
+   "hog_mm": 2.808261238362673,
+   "design": true,
+   "slack_straps": []
+  },
+  "T8+L1": {
+   "label": "Cascade picks off the CoG: module tilts down to the north-east by 2 deg (net sideways load on the module) - and slings lean in across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9685.474317849961,
+    "S2": 9685.474317849961,
+    "S3": 9281.435738645705,
+    "S4": 9281.435738645705,
+    "N1": 6589.801065316337,
+    "N2": 6589.801065316337,
+    "N3": 6314.90137818773,
+    "N4": 6314.90137818773
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.2439610145520419e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.882160205012499,
+   "max_joint": 0.7757936622299986,
+   "max_link": 0.5438595208081108,
+   "sag_mm": -3.448923714232537,
+   "hog_mm": 1.7701855972210931,
+   "design": true,
+   "slack_straps": []
+  },
+  "T8+L2": {
+   "label": "Cascade picks off the CoG: module tilts down to the north-east by 2 deg (net sideways load on the module) - and slings lean out across the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9685.474317849961,
+    "S2": 9685.474317849961,
+    "S3": 9281.435738645705,
+    "S4": 9281.435738645705,
+    "N1": 6589.801065316337,
+    "N2": 6589.801065316337,
+    "N3": 6314.90137818773,
+    "N4": 6314.90137818773
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.4728058886248618e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8819309554060132,
+   "max_joint": 0.7757388206387567,
+   "max_link": 0.5438033168814134,
+   "sag_mm": -3.4449345170766614,
+   "hog_mm": 1.7698129443534556,
+   "design": true,
+   "slack_straps": []
+  },
+  "T8+L3": {
+   "label": "Cascade picks off the CoG: module tilts down to the north-east by 2 deg (net sideways load on the module) - and slings lean in along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9685.474317849961,
+    "S2": 9685.474317849961,
+    "S3": 9281.435738645705,
+    "S4": 9281.435738645705,
+    "N1": 6589.801065316337,
+    "N2": 6589.801065316337,
+    "N3": 6314.90137818773,
+    "N4": 6314.90137818773
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.3601624232251197e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8745539847825505,
+   "max_joint": 0.7782611126117446,
+   "max_link": 0.5392623661598077,
+   "sag_mm": -3.434468599125734,
+   "hog_mm": 1.774686946101225,
+   "design": true,
+   "slack_straps": []
+  },
+  "T8+L4": {
+   "label": "Cascade picks off the CoG: module tilts down to the north-east by 2 deg (net sideways load on the module) - and slings lean out along the module",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9685.474317849961,
+    "S2": 9685.474317849961,
+    "S3": 9281.435738645705,
+    "S4": 9281.435738645705,
+    "N1": 6589.801065316337,
+    "N2": 6589.801065316337,
+    "N3": 6314.90137818773,
+    "N4": 6314.90137818773
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.3566606867243536e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.889537584321654,
+   "max_joint": 0.7856780802246751,
+   "max_link": 0.5484004715291741,
+   "sag_mm": -3.4593896322191005,
+   "hog_mm": 1.76531159549039,
+   "design": true,
+   "slack_straps": []
+  },
+  "TW1_twist": {
+   "label": "Cascade cross beams set 25 mm off their own lines' split in opposite senses (west cross beams set south, east cross beams set north): the module twists",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9188.842803740725,
+    "S2": 9188.842803740725,
+    "S3": 9307.245599827544,
+    "S4": 9307.245599827544,
+    "N1": 6858.734960097084,
+    "N2": 6858.734960097084,
+    "N3": 6516.78913633438,
+    "N4": 6516.78913633438
+   },
+   "sum_R": 63743.22499999947,
+   "unbalance": 1.3647381820192095e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8100300819790852,
+   "max_joint": 0.7889878425468974,
+   "max_link": 0.5066200843085085,
+   "sag_mm": -4.619759255976585,
+   "hog_mm": 2.4687151090460278,
+   "design": true,
+   "slack_straps": []
+  },
+  "TW2_twist": {
+   "label": "Cascade cross beams set 25 mm off their own lines' split in opposite senses (west cross beams set north, east cross beams set south): the module twists",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9438.727228590269,
+    "S2": 9438.727228590269,
+    "S3": 9060.842069211509,
+    "S4": 9060.842069211509,
+    "N1": 6608.8505352475395,
+    "N2": 6608.8505352475395,
+    "N3": 6763.192666950416,
+    "N4": 6763.192666950416
+   },
+   "sum_R": 63743.224999999475,
+   "unbalance": 1.8946861018775962e-05,
+   "factor": 2.4333750000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8294453439280782,
+   "max_joint": 0.7794456662823821,
+   "max_link": 0.5166486729363478,
+   "sag_mm": -4.24174570422236,
+   "hog_mm": 4.037464185946954,
+   "design": true,
+   "slack_straps": []
+  },
+  "CG_NE": {
+   "label": "Centre of gravity 150 mm along and 90 mm across off the design position (NE), cascade set to it",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8464.797801303834,
+    "S2": 8464.797801303834,
+    "S3": 9139.712729543244,
+    "S4": 9139.712729543244,
+    "N1": 6860.067660946839,
+    "N2": 6860.067660946839,
+    "N3": 7407.034308205948,
+    "N4": 7407.034308205948
+   },
+   "sum_R": 63743.22499999973,
+   "unbalance": 4.020981577923521e-06,
+   "factor": 2.3175000000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.7680705581322327,
+   "max_joint": 0.7539283340120676,
+   "max_link": 0.4619762623624164,
+   "sag_mm": -3.491869292174667,
+   "hog_mm": 3.1787956700548845,
+   "design": true,
+   "slack_straps": []
+  },
+  "CG_NE+T": {
+   "label": "Centre of gravity at the NE corner and the module hanging 2 deg toward it",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 8819.468283729866,
+    "S2": 8819.468283729866,
+    "S3": 9254.123452927855,
+    "S4": 9254.123452927855,
+    "N1": 6733.0947978493,
+    "N2": 6733.0947978493,
+    "N3": 7064.9259654928455,
+    "N4": 7064.9259654928455
+   },
+   "sum_R": 63743.22499999973,
+   "unbalance": 1.2862557923654094e-05,
+   "factor": 2.3175000000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8059471706786857,
+   "max_joint": 0.7537568462654957,
+   "max_link": 0.48681608036456975,
+   "sag_mm": -3.5973939444187635,
+   "hog_mm": 1.8663199047297874,
+   "design": true,
+   "slack_straps": []
+  },
+  "CG_NW": {
+   "label": "Centre of gravity 150 mm along and 90 mm across off the design position (NW), cascade set to it",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9263.188301569024,
+    "S2": 9263.188301569024,
+    "S3": 8341.322229278103,
+    "S4": 8341.322229278103,
+    "N1": 7507.10176385626,
+    "N2": 7507.10176385626,
+    "N3": 6760.000205296536,
+    "N4": 6760.000205296536
+   },
+   "sum_R": 63743.224999999846,
+   "unbalance": 1.9055605662288144e-06,
+   "factor": 2.3175000000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.7871751146734391,
+   "max_joint": 0.7577602539387216,
+   "max_link": 0.49905077756669697,
+   "sag_mm": -3.466939246227669,
+   "hog_mm": 2.9907900666305918,
+   "design": true,
+   "slack_straps": []
+  },
+  "CG_NW+T": {
+   "label": "Centre of gravity at the NW corner and the module hanging 2 deg toward it",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9380.889094854329,
+    "S2": 9380.889094854329,
+    "S3": 8692.702641803444,
+    "S4": 8692.702641803444,
+    "N1": 7161.703351242458,
+    "N2": 7161.703351242458,
+    "N3": 6636.31741209969,
+    "N4": 6636.31741209969
+   },
+   "sum_R": 63743.224999999846,
+   "unbalance": 3.1709605536889285e-05,
+   "factor": 2.3175000000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8298523884089664,
+   "max_joint": 0.7843044569049937,
+   "max_link": 0.5227024757248777,
+   "sag_mm": -3.8545584757741596,
+   "hog_mm": 2.6953749735301766,
+   "design": true,
+   "slack_straps": []
+  },
+  "CG_SE": {
+   "label": "Centre of gravity 150 mm along and 90 mm across off the design position (SE), cascade set to it",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9323.868428275235,
+    "S2": 9323.868428275235,
+    "S3": 10067.278742247961,
+    "S4": 10067.278742247961,
+    "N1": 6000.997033975469,
+    "N2": 6000.997033975469,
+    "N3": 6479.468295501234,
+    "N4": 6479.468295501234
+   },
+   "sum_R": 63743.22499999979,
+   "unbalance": 2.2836975404061377e-06,
+   "factor": 2.3175000000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8346320796139662,
+   "max_joint": 0.7875853378864172,
+   "max_link": 0.492719960563459,
+   "sag_mm": -3.0489185075729255,
+   "hog_mm": 2.5181816018584726,
+   "design": true,
+   "slack_straps": []
+  },
+  "CG_SE+T": {
+   "label": "Centre of gravity at the SE corner and the module hanging 2 deg toward it",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9233.502840497813,
+    "S2": 9233.502840497813,
+    "S3": 9688.563124214737,
+    "S4": 9688.563124214737,
+    "N1": 6319.060241081384,
+    "N2": 6319.060241081384,
+    "N3": 6630.486294205965,
+    "N4": 6630.486294205965
+   },
+   "sum_R": 63743.2249999998,
+   "unbalance": 2.8753565857186913e-05,
+   "factor": 2.3175000000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.7872167792185604,
+   "max_joint": 0.76017045490661,
+   "max_link": 0.4584994543235571,
+   "sag_mm": -4.056888516248135,
+   "hog_mm": 3.09535669959447,
+   "design": true,
+   "slack_straps": []
+  },
+  "CG_SW": {
+   "label": "Centre of gravity 150 mm along and 90 mm across off the design position (SW), cascade set to it",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 10203.285533514472,
+    "S2": 10203.285533514472,
+    "S3": 9187.861637008804,
+    "S4": 9187.861637008804,
+    "N1": 6567.0045319109295,
+    "N2": 6567.0045319109295,
+    "N3": 5913.460797565732,
+    "N4": 5913.460797565732
+   },
+   "sum_R": 63743.224999999875,
+   "unbalance": 7.627573722857051e-06,
+   "factor": 2.3175000000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.8533438295734056,
+   "max_joint": 0.7939947622730507,
+   "max_link": 0.5272342162166187,
+   "sag_mm": -3.5767576196761466,
+   "hog_mm": 2.7682298284584927,
+   "design": true,
+   "slack_straps": []
+  },
+  "CG_SW+T": {
+   "label": "Centre of gravity at the SW corner and the module hanging 2 deg toward it",
+   "rig": "tilt",
+   "reactions": {
+    "S1": 9821.279845580548,
+    "S2": 9821.279845580548,
+    "S3": 9100.786119132079,
+    "S4": 9100.786119132079,
+    "N1": 6721.312600516355,
+    "N2": 6721.312600516355,
+    "N3": 6228.233934770951,
+    "N4": 6228.233934770951
+   },
+   "sum_R": 63743.22499999987,
+   "unbalance": 5.295546969819043e-06,
+   "factor": 2.3175000000000003,
+   "members_over": 0,
+   "joints_over": 0,
+   "links_over": 0,
+   "max_member": 0.7899709009092962,
+   "max_joint": 0.8076021954466702,
+   "max_link": 0.4952934076619343,
+   "sag_mm": -4.262382456439129,
+   "hog_mm": 4.367005818998679,
+   "design": true,
+   "slack_straps": []
+  }
+ },
+ "foot_layout": [
+  {
+   "id": "FOOT_S1h",
+   "side": "S",
+   "x_strap": 928.5,
+   "x_head": 928.5,
+   "cradle": [
+    868.3,
+    988.3
+   ],
+   "seats": [
+    899.2,
+    957.8
+   ],
+   "joints": [
+    899.2,
+    957.8
+   ],
+   "strap_gap": 152.0,
+   "cradle_gap": 117.2
+  },
+  {
+   "id": "FOOT_S2h",
+   "side": "S",
+   "x_strap": 4456.5,
+   "x_head": 4456.5,
+   "cradle": [
+    4396.3,
+    4516.3
+   ],
+   "seats": [
+    4427.2,
+    4485.8
+   ],
+   "joints": [
+    4427.2,
+    4485.8
+   ],
+   "strap_gap": 137.0,
+   "cradle_gap": 101.8
+  },
+  {
+   "id": "FOOT_S3h",
+   "side": "S",
+   "x_strap": 7543.5,
+   "x_head": 7543.5,
+   "cradle": [
+    7483.3,
+    7603.3
+   ],
+   "seats": [
+    7514.2,
+    7572.8
+   ],
+   "joints": [
+    7514.2,
+    7572.8
+   ],
+   "strap_gap": 137.0,
+   "cradle_gap": 102.2
+  },
+  {
+   "id": "FOOT_S4h",
+   "side": "S",
+   "x_strap": 11071.5,
+   "x_head": 11071.5,
+   "cradle": [
+    11011.3,
+    11131.3
+   ],
+   "seats": [
+    11042.2,
+    11100.8
+   ],
+   "joints": [
+    11042.2,
+    11100.8
+   ],
+   "strap_gap": 152.0,
+   "cradle_gap": 116.8
+  },
+  {
+   "id": "FOOT_N1h",
+   "side": "N",
+   "x_strap": 928.5,
+   "x_head": 928.5,
+   "cradle": [
+    868.3,
+    988.3
+   ],
+   "seats": [
+    899.2,
+    957.8
+   ],
+   "joints": [
+    899.2,
+    957.8
+   ],
+   "strap_gap": 152.0,
+   "cradle_gap": 117.2
+  },
+  {
+   "id": "FOOT_N2h",
+   "side": "N",
+   "x_strap": 4456.5,
+   "x_head": 4456.5,
+   "cradle": [
+    4396.3,
+    4516.3
+   ],
+   "seats": [
+    4427.2,
+    4485.8
+   ],
+   "joints": [
+    4427.2,
+    4485.8
+   ],
+   "strap_gap": 137.0,
+   "cradle_gap": 101.8
+  },
+  {
+   "id": "FOOT_N3h",
+   "side": "N",
+   "x_strap": 7543.5,
+   "x_head": 7543.5,
+   "cradle": [
+    7483.3,
+    7603.3
+   ],
+   "seats": [
+    7514.2,
+    7572.8
+   ],
+   "joints": [
+    7514.2,
+    7572.8
+   ],
+   "strap_gap": 137.0,
+   "cradle_gap": 102.2
+  },
+  {
+   "id": "FOOT_N4h",
+   "side": "N",
+   "x_strap": 11071.5,
+   "x_head": 11071.5,
+   "cradle": [
+    11011.3,
+    11131.3
+   ],
+   "seats": [
+    11042.2,
+    11100.8
+   ],
+   "joints": [
+    11042.2,
+    11100.8
+   ],
+   "strap_gap": 152.0,
+   "cradle_gap": 116.8
+  }
+ ],
+ "layout_warnings": [],
+ "envelope": {
+  "members_over": 0,
+  "joints_over": 0,
+  "links_over": 0,
+  "links_tie": 195,
+  "max_link_shear": 0.5560131206578921,
+  "max_member": 0.9023934452509222,
+  "max_joint": 0.8426813874380985,
+  "added": {
+   "GUIDE_S1": {
+    "N_max": 23.59109327359486,
+    "N_min": 0.27911529796059054,
+    "V": 1637.0780918644741,
+    "M": 280550.0098229827,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point S1"
+   },
+   "FOOT_S1h_BASE": {
+    "N_max": 325.52528709527263,
+    "N_min": -0.23961946131408335,
+    "V": 11792.406510397142,
+    "M": 345741.6240623287,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point S1"
+   },
+   "FOOT_S1h_SEAT0": {
+    "N_max": -9592.932614903928,
+    "N_min": -11549.743279204218,
+    "V": 318.69798935326276,
+    "M": 6532.136234488009,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S1 - screwed seat at the chord joint x 899 (bearing packer + cheek screws)"
+   },
+   "FOOT_S1h_SEAT1": {
+    "N_max": -9780.014795075422,
+    "N_min": -11775.074285857185,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S1 - bearing-only seat at the chord joint x 958 (packer, no screws)"
+   },
+   "HANG_S1": {
+    "N_max": 23500.28003563706,
+    "N_min": 19505.231783092153,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point S1"
+   },
+   "GUIDE_S2": {
+    "N_max": 23.742301150847137,
+    "N_min": 0.22119229652979,
+    "V": 1637.078133380219,
+    "M": 280335.7751993635,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point S2"
+   },
+   "FOOT_S2h_BASE": {
+    "N_max": 325.5230216787007,
+    "N_min": -0.2396194612432628,
+    "V": 11796.231111977288,
+    "M": 345846.9891195122,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point S2"
+   },
+   "FOOT_S2h_SEAT0": {
+    "N_max": -9588.399989455083,
+    "N_min": -11554.145823204492,
+    "V": 318.69577587111314,
+    "M": 6532.090858908792,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S2 - screwed seat at the chord joint x 4427 (bearing packer + cheek screws)"
+   },
+   "FOOT_S2h_SEAT1": {
+    "N_max": -9775.405933616108,
+    "N_min": -11779.550532982477,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S2 - bearing-only seat at the chord joint x 4486 (packer, no screws)"
+   },
+   "HANG_S2": {
+    "N_max": 23503.77921804468,
+    "N_min": 19501.4699569909,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point S2"
+   },
+   "GUIDE_S3": {
+    "N_max": 23.575893544871796,
+    "N_min": 0.17628928604684208,
+    "V": 1614.2188237695045,
+    "M": 276555.57582112134,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point S3"
+   },
+   "FOOT_S3h_BASE": {
+    "N_max": 312.58228799060225,
+    "N_min": -0.23961946120785255,
+    "V": 11633.07576180529,
+    "M": 341066.92597137816,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point S3"
+   },
+   "FOOT_S3h_SEAT0": {
+    "N_max": -9450.315056331185,
+    "N_min": -11402.226881460136,
+    "V": 299.73838216977197,
+    "M": 6144.044375735075,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S3 - screwed seat at the chord joint x 7514 (bearing packer + cheek screws)"
+   },
+   "FOOT_S3h_SEAT1": {
+    "N_max": -9627.646446320558,
+    "N_min": -11616.14337597115,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S3 - bearing-only seat at the chord joint x 7573 (packer, no screws)"
+   },
+   "HANG_S3": {
+    "N_max": 23188.66239321381,
+    "N_min": 19215.568460728482,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point S3"
+   },
+   "GUIDE_S4": {
+    "N_max": 23.46341309613351,
+    "N_min": 0.25226552382752304,
+    "V": 1614.2188007832929,
+    "M": 276556.5106209025,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point S4"
+   },
+   "FOOT_S4h_BASE": {
+    "N_max": 312.4601272993454,
+    "N_min": -0.2396194612432628,
+    "V": 11629.194154665303,
+    "M": 340959.95768013067,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point S4"
+   },
+   "FOOT_S4h_SEAT0": {
+    "N_max": -9454.87473219511,
+    "N_min": -11397.758701893817,
+    "V": 299.6212546142377,
+    "M": 6141.643492393346,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S4 - screwed seat at the chord joint x 11042 (bearing packer + cheek screws)"
+   },
+   "FOOT_S4h_SEAT1": {
+    "N_max": -9632.279376680173,
+    "N_min": -11611.603655515684,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point S4 - bearing-only seat at the chord joint x 11101 (packer, no screws)"
+   },
+   "HANG_S4": {
+    "N_max": 23185.087956236894,
+    "N_min": 19219.32756752454,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point S4"
+   },
+   "GUIDE_N1": {
+    "N_max": 19.926068888507046,
+    "N_min": 0.32785440340236954,
+    "V": 1361.2441821232958,
+    "M": 233347.67898285986,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point N1"
+   },
+   "FOOT_N1h_BASE": {
+    "N_max": 254.15808248618043,
+    "N_min": -0.23961946188064762,
+    "V": 9286.794535618994,
+    "M": 272309.7816291729,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point N1"
+   },
+   "FOOT_N1h_SEAT0": {
+    "N_max": -6772.024293219294,
+    "N_min": -9092.781869910388,
+    "V": 248.35145168326582,
+    "M": 5090.711679680452,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N1 - screwed seat at the chord joint x 899 (bearing packer + cheek screws)"
+   },
+   "FOOT_N1h_SEAT1": {
+    "N_max": -6904.162885991798,
+    "N_min": -9270.214592194083,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N1 - bearing-only seat at the chord joint x 958 (packer, no screws)"
+   },
+   "HANG_N1": {
+    "N_max": 18525.368154238793,
+    "N_min": 13804.004433663797,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point N1"
+   },
+   "GUIDE_N2": {
+    "N_max": 18.32121399038297,
+    "N_min": 0.29052942531692766,
+    "V": 1361.244182123703,
+    "M": 233290.00645409763,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point N2"
+   },
+   "FOOT_N2h_BASE": {
+    "N_max": 237.51012545859794,
+    "N_min": -0.23961946188064762,
+    "V": 8641.177491025554,
+    "M": 253410.8196610344,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point N2"
+   },
+   "FOOT_N2h_SEAT0": {
+    "N_max": -6767.603397108657,
+    "N_min": -8457.522650168065,
+    "V": 232.70348243780305,
+    "M": 4769.220070998364,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N2 - screwed seat at the chord joint x 4427 (bearing packer + cheek screws)"
+   },
+   "FOOT_N2h_SEAT1": {
+    "N_max": -6899.66804971105,
+    "N_min": -8622.640224343097,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N2 - bearing-only seat at the chord joint x 4486 (packer, no screws)"
+   },
+   "HANG_N2": {
+    "N_max": 17257.031191680624,
+    "N_min": 13800.522153146836,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point N2"
+   },
+   "GUIDE_N3": {
+    "N_max": 18.041264927675183,
+    "N_min": 0.27961862864933423,
+    "V": 1342.2272440711004,
+    "M": 229995.08701375895,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point N3"
+   },
+   "FOOT_N3h_BASE": {
+    "N_max": 228.79854452839706,
+    "N_min": -0.23961946188064762,
+    "V": 8521.296807390154,
+    "M": 249898.54392002468,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point N3"
+   },
+   "FOOT_N3h_SEAT0": {
+    "N_max": -6669.661636774774,
+    "N_min": -8345.894808583638,
+    "V": 219.39740842313975,
+    "M": 4497.213214764298,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N3 - screwed seat at the chord joint x 7514 (bearing packer + cheek screws)"
+   },
+   "FOOT_N3h_SEAT1": {
+    "N_max": -6794.902669715966,
+    "N_min": -8502.58251549002,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N3 - bearing-only seat at the chord joint x 7573 (packer, no screws)"
+   },
+   "HANG_N3": {
+    "N_max": 17025.404725234497,
+    "N_min": 13597.865822105425,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point N3"
+   },
+   "GUIDE_N4": {
+    "N_max": 19.697274170640355,
+    "N_min": 0.3284150067447109,
+    "V": 1342.2272440632216,
+    "M": 230006.184066692,
+    "type": "GUIDE",
+    "role": "lifting head saddle over the roof edge truss, lift point N4"
+   },
+   "FOOT_N4h_BASE": {
+    "N_max": 245.13592980220525,
+    "N_min": -0.23961946188064762,
+    "V": 9126.476222093446,
+    "M": 267612.4550425734,
+    "type": "CRADLE",
+    "role": "cradle under the floor edge truss, lift point N4"
+   },
+   "FOOT_N4h_SEAT0": {
+    "N_max": -6673.993514472813,
+    "N_min": -8941.869650291092,
+    "V": 235.06346476901453,
+    "M": 4818.336404561767,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N4 - screwed seat at the chord joint x 11042 (bearing packer + cheek screws)"
+   },
+   "FOOT_N4h_SEAT1": {
+    "N_max": -6799.303655839869,
+    "N_min": -9109.710359529381,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "CRADLE SEAT",
+    "role": "cradle under the floor edge truss, lift point N4 - bearing-only seat at the chord joint x 11101 (packer, no screws)"
+   },
+   "HANG_N4": {
+    "N_max": 18214.027611673922,
+    "N_min": 13601.219112711076,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "STRAP",
+    "role": "vertical hanger strap pair, lift point N4"
+   },
+   "FDIA_0a": {
+    "N_max": 417.71238472627863,
+    "N_min": -761.7343644697835,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_0b": {
+    "N_max": 425.22974883439844,
+    "N_min": -800.1758374588185,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_1a": {
+    "N_max": 331.96875285447055,
+    "N_min": -644.0132937010519,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_1b": {
+    "N_max": 382.78986143702343,
+    "N_min": -618.2748039531816,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_2a": {
+    "N_max": 134.47277614276277,
+    "N_min": -148.4983391447071,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_2b": {
+    "N_max": 169.33644412955184,
+    "N_min": -111.36157817393524,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_3a": {
+    "N_max": 364.9096220146134,
+    "N_min": -655.5520866132952,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_3b": {
+    "N_max": 391.42448748088043,
+    "N_min": -610.2168442981884,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_4a": {
+    "N_max": 347.2810895416222,
+    "N_min": -760.0145406800577,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FDIA_4b": {
+    "N_max": 480.89872016714116,
+    "N_min": -764.2163861683554,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "floor plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_0a": {
+    "N_max": 558.5627418296449,
+    "N_min": -929.4333040436755,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_0b": {
+    "N_max": 459.2784993751271,
+    "N_min": -890.7429645661741,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_1a": {
+    "N_max": 499.5331261740562,
+    "N_min": -676.0230482553321,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_1b": {
+    "N_max": 524.6141604896845,
+    "N_min": -683.6405565970479,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_2a": {
+    "N_max": 227.824286125107,
+    "N_min": -58.51779065760042,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_2b": {
+    "N_max": 194.03341991057644,
+    "N_min": -96.4449416474344,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_3a": {
+    "N_max": 570.2915525531191,
+    "N_min": -637.5769281237857,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_3b": {
+    "N_max": 467.99448506299336,
+    "N_min": -700.2497300454928,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_4a": {
+    "N_max": 550.285870601409,
+    "N_min": -944.450326653955,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "RDIA_4b": {
+    "N_max": 449.25721295885995,
+    "N_min": -883.7038146986226,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "PLANE BRACE",
+    "role": "roof plane cross-bracing, 30 x 1.0 G300 steel strap (tension-only pair modelled as half area both ways)"
+   },
+   "FBR_0": {
+    "N_max": 102.19058636204363,
+    "N_min": -28.349819832326066,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_1": {
+    "N_max": 101.09562299600954,
+    "N_min": -20.782866528769855,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_2": {
+    "N_max": 108.87641785774937,
+    "N_min": -2.3225390203305856,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_3": {
+    "N_max": 104.75267386664149,
+    "N_min": 12.266838479030195,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_4": {
+    "N_max": 106.79616671283755,
+    "N_min": 29.354758883064022,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_5": {
+    "N_max": 117.74245319690922,
+    "N_min": 35.48888565443014,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_6": {
+    "N_max": 129.85308296495108,
+    "N_min": 38.55889847115385,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_7": {
+    "N_max": 94.11143883567205,
+    "N_min": 25.273263803668932,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_8": {
+    "N_max": 93.32740091952236,
+    "N_min": 20.739945610781863,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_9": {
+    "N_max": 90.82718640460399,
+    "N_min": 17.75997801819613,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_10": {
+    "N_max": 114.92660186532774,
+    "N_min": 17.742898089557144,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_11": {
+    "N_max": 113.78517397278932,
+    "N_min": 21.759148160313433,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_12": {
+    "N_max": 109.09839752736626,
+    "N_min": 26.175050541076637,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_13": {
+    "N_max": 126.81092347410487,
+    "N_min": 37.100167681639725,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_14": {
+    "N_max": 105.3940667167721,
+    "N_min": 33.718801914260006,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_15": {
+    "N_max": 84.98769789044445,
+    "N_min": 32.37886689712839,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_16": {
+    "N_max": 68.42934578690615,
+    "N_min": 34.35912004942612,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_17": {
+    "N_max": 59.094982234371834,
+    "N_min": 38.080617168510365,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_18": {
+    "N_max": 52.95430959723647,
+    "N_min": 28.755012065755903,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "FBR_19": {
+    "N_max": 86.19781772746639,
+    "N_min": -22.429029415975045,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_0": {
+    "N_max": 50.94188196236514,
+    "N_min": 23.196164466663966,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_1": {
+    "N_max": 69.49236992617807,
+    "N_min": 28.380761733732427,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_2": {
+    "N_max": 79.19481496214043,
+    "N_min": 31.802843710404595,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_3": {
+    "N_max": 96.6085618914442,
+    "N_min": 30.823094567025585,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_4": {
+    "N_max": 116.01711997332654,
+    "N_min": 31.73267471834546,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_5": {
+    "N_max": 137.45006672323805,
+    "N_min": 35.66551751468225,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_6": {
+    "N_max": 158.084321211651,
+    "N_min": 40.9634390438502,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_7": {
+    "N_max": 136.58659815194477,
+    "N_min": 30.771508490322518,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_8": {
+    "N_max": 143.45190596298448,
+    "N_min": 30.646382060545566,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_9": {
+    "N_max": 147.70506810255768,
+    "N_min": 29.4884979370531,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_10": {
+    "N_max": 148.73598168783124,
+    "N_min": 29.46620571388676,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_11": {
+    "N_max": 146.85662725843733,
+    "N_min": 31.259508158721797,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_12": {
+    "N_max": 142.9187667519446,
+    "N_min": 32.26698954950233,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_13": {
+    "N_max": 161.72251154412615,
+    "N_min": 42.07337634486186,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_14": {
+    "N_max": 140.6883784075063,
+    "N_min": 36.779514767925605,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_15": {
+    "N_max": 118.62806613312846,
+    "N_min": 33.16657959768825,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_16": {
+    "N_max": 98.3764778090727,
+    "N_min": 32.55403275022131,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_17": {
+    "N_max": 79.83683363355946,
+    "N_min": 33.455509944493976,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_18": {
+    "N_max": 74.26965374277204,
+    "N_min": 29.83681764141652,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   },
+   "RBR_19": {
+    "N_max": 54.64235841594412,
+    "N_min": 23.353231996963295,
+    "V": 0.0,
+    "M": 0.0,
+    "type": "BRIDGING",
+    "role": "C89 0.95 bridging nogging at truss mid-span, 2 screws each end"
+   }
+  },
+  "framed_steel_kg": 1302.2136435669795,
+  "added_kg": 134.12250758039008
+ }
+}

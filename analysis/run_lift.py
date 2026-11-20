@@ -266,7 +266,7 @@ def additions_revd(cfg, proj):
             # hanger points: the head is also held along the module (x); A-frame points: x is left free (the A-frame balances it)
             gpr = dict(A=gd["A"], I_major=gd["I"], I_minor=(gd["I"] if hang_pt else gd["I_free"]), J=(gd["I"] if hang_pt else 1.0), kg_m=gd["kg_m"])
             if not face_inner:
-                mem(f"GUIDE_{tag}", "GUIDE", [x, yw, zrb], [x, yw, zh], gpr, f"lifting head saddle over the roof edge truss, lift point {tag}",
+                mem(f"GUIDE_{tag}", "GUIDE", [x, yw, zrb], [x, yw, zh], gpr, f"lifting head (closed box) over the roof edge truss, lift point {tag}",
                     rigid=True, profile=gd["label"], stations=[zh - zrb],
                     attach={"a": rim("BOTTOM CHORD", "roof_rim"), "mid": [dict(rim("TOP CHORD", "roof_rim"), s=zr - zrb)]})
             else:
@@ -331,9 +331,9 @@ def additions_revd(cfg, proj):
     for dname in ("floor_diaphragm", "roof_diaphragm"):
         dp = cfg.get(dname)
         if not dp: continue
-        xs = dp["x_stations"]; z = dp["z"]; kinds = dp["attach_kinds"]
+        xs = dp["x_stations"]; z = dp["z"]; kinds = dp["attach_kinds"]; yi = dp.get("y_inset", 0.0)
         for i in range(len(xs) - 1):
-            for tg, (ya, yb) in (("a", (ys["S"], ys["N"])), ("b", (ys["N"], ys["S"]))):
+            for tg, (ya, yb) in (("a", (ys["S"] + yi, ys["N"] - yi)), ("b", (ys["N"] - yi, ys["S"] + yi))):
                 att = {"kinds": kinds, "types": ["TOP CHORD"], "tol": 60.0, "snap": 25.0}
                 mem(f"{dname[:1].upper()}DIA_{i}{tg}", "PLANE BRACE", [xs[i], ya, z], [xs[i + 1], yb, z],
                     dict(A=dp["A_eq"], I_major=1.0, I_minor=1.0, J=1.0, kg_m=dp.get("kg_m", 0.4)), dp["label"], pinned=True, profile=dp["label"],
@@ -406,7 +406,7 @@ def _unilateral(B, M, lc, max_iter=12):
     return res, sorted(out)
 
 
-def cascade_forces(M, base_case, pts, ex=0.0, ey=0.0):
+def cascade_forces(M, base_case, pts, ex=0.0, ey=0.0, ey_lines=None):
     """Drop forces of the 1-over-2-over-4 pinned-beam cascade with its pick points set off the true centre of gravity by
     (ex, ey): cross beams picked at y_cg + ey, middle beams at their centres, top beam at x_cg + ex. Returns (forces,
     'up' unit vector in module axes, tilt angle in degrees, CoG). Under such a rig the module hangs tilted so that the CoG
@@ -424,13 +424,31 @@ def cascade_forces(M, base_case, pts, ex=0.0, ey=0.0):
     for k in names:
         i = xl.index(round(xyz[k][0], 1))
         line = W * (fW if i < 2 else 1.0 - fW) / 2.0
-        F[k] = line * (fS if k.startswith("S") else 1.0 - fS)
+        fS_k = fS if ey_lines is None else (yN - (cg[1] + ey + ey_lines[i])) / (yN - yS)   # each cross beam set on its own
+        F[k] = line * (fS_k if k.startswith("S") else 1.0 - fS_k)
     rF = sum(F[k] * xyz[k] for k in names) / W
     u = rF - cg; u /= np.linalg.norm(u)
     return F, u, float(np.degrees(np.arccos(u[2]))), cg
 
 
 # ------------------------------------------------------------------------------------------------ cases
+def shifted_loads(M, case, dx, dy):
+    """The vertical loads of a case reweighted linearly, w' = w (1 + a (x - xg) + b (y - yg)), so that the total is the same and the
+    centre of gravity moves by (dx, dy). Only for small moves (every w' stays positive)."""
+    L = M.loads[case]
+    rows = [(nd, v) for (nd, d), v in L.items() if d == 2]
+    w = np.array([-v for _, v in rows]); X = np.array([M.xyz[nd][0] for nd, _ in rows]); Y = np.array([M.xyz[nd][1] for nd, _ in rows])
+    W_ = w.sum(); xg = (w * X).sum() / W_; yg = (w * Y).sum() / W_
+    dX, dY = X - xg, Y - yg
+    A = np.array([[(w * dX * dX).sum(), (w * dX * dY).sum()], [(w * dX * dY).sum(), (w * dY * dY).sum()]])
+    a_, b_ = np.linalg.solve(A, np.array([W_ * dx, W_ * dy]))
+    fac = 1.0 + a_ * dX + b_ * dY
+    if fac.min() <= 0: raise ValueError("centre-of-gravity move too large for a linear reweighting")
+    out = {k: v for k, v in L.items() if k[1] != 2}
+    for (nd, v), f in zip(rows, fac): out[(nd, 2)] = out.get((nd, 2), 0.0) + v * f
+    return out
+
+
 def balance_forces(f0, xyz, M, case):
     """Smallest change to the wanted sling forces that puts them in equilibrium with the load (sum, and moments about x and y).
     Physically: the hook sits over the centre of gravity, so the set of sling forces always balances the weight."""
@@ -467,7 +485,7 @@ def solve_case(B, pts, case, base_case="G"):
             M.load(lc, pts[k], 2, f)
         LC.hold(M, nodes, "forces")
     elif kind == "tilt":                                              # module hanging tilted under the cascade
-        forces, u, theta, cg = cascade_forces(M, base_case, pts, case.get("ex", 0.0), case.get("ey", 0.0))
+        forces, u, theta, cg = cascade_forces(M, base_case, pts, case.get("ex", 0.0), case.get("ey", 0.0), case.get("ey_lines"))
         M.loads[lc] = {}
         for (nd, d), v in M.loads[base_case].items():
             if d == 2:
@@ -483,6 +501,21 @@ def solve_case(B, pts, case, base_case="G"):
     if case.get("horizontal_frac") and forces:
         dof, fr = case["horizontal_frac"]
         for k, f in forces.items(): M.load(lc, pts[k], dof, fr[k] * f)
+    if case.get("lean") and forces:                                  # drops out of vertical, in balance on every beam of the rig
+        dof, mult, fr = case["lean"]
+        xl = sorted({round(M.xyz[pts[k]][0], 1) for k in names})
+        line = {k: xl.index(round(M.xyz[pts[k]][0], 1)) for k in names}
+        if dof == 1:                                                 # across: the two drops of one cross beam lean opposite ways
+            for i in range(len(xl)):
+                kS = [k for k in names if line[k] == i and k.startswith("S")][0]; kN = [k for k in names if line[k] == i and k.startswith("N")][0]
+                h = fr * max(forces[kS], forces[kN])
+                M.load(lc, pts[kS], 1, mult * h); M.load(lc, pts[kN], 1, -mult * h)
+        else:                                                        # along: the two lines under one middle beam lean opposite ways
+            for (i1, i2) in ((0, 1), (2, 3)):
+                for side in ("S", "N"):
+                    k1 = [k for k in names if line[k] == i1 and k.startswith(side)][0]; k2 = [k for k in names if line[k] == i2 and k.startswith(side)][0]
+                    h = fr * max(forces[k1], forces[k2])
+                    M.load(lc, pts[k1], 0, mult * h); M.load(lc, pts[k2], 0, -mult * h)
     # flat straps carry tension only and cradle bearing pushes only
     res, slack_straps = _unilateral(B, M, lc)
     if kind in ("forces", "tilt"):
@@ -553,6 +586,35 @@ def build_cases(cfg, names, W, cg, xyz):
                                         ("L3_squeeze_x", "slings lean inwards along the module", 0, sgn_x, 1.0), ("L4_spread_x", "slings lean outwards along the module", 0, sgn_x, -1.0)):
             cs.append(dict(id=cid, label=f"Equalising rig, {lab} ({cfg['sideways_fraction'] * 100:.0f} % of the sling force sideways at every head)", rig="forces",
                            forces={k: W / n for k in names}, horizontal=[(k, dof, mult * sg[k] * h) for k in names]))
+    fr = cfg.get("lean_fraction")
+    if fr:                                                           # drops out of vertical (rig geometry), balanced on every beam
+        leans = (("L1_squeeze_y", "slings lean in across the module", 1, 1.0), ("L2_spread_y", "slings lean out across the module", 1, -1.0),
+                 ("L3_squeeze_x", "slings lean in along the module", 0, 1.0), ("L4_spread_x", "slings lean out along the module", 0, -1.0))
+        cs = [c for c in cs if not c["id"].startswith(("L1_", "L2_", "L3_", "L4_"))]
+        for cid, lab, dof, mult in leans:
+            cs.append(dict(id=cid, label=f"Equalising rig, {lab} ({fr * 100:.1f} % of the larger drop force on each beam, equal and opposite)",
+                           rig="forces", forces={k: W / n for k in names}, lean=(dof, mult, fr)))
+        if td and cfg.get("tilt_lean"):
+            for tc in [c for c in cs if c["rig"] == "tilt" and c["id"].startswith("T")]:
+                for cid, lab, dof, mult in leans:
+                    cs.append(dict(id=tc["id"].split("_")[0] + "+" + cid.split("_")[0], label=tc["label"] + " - and " + lab, rig="tilt",
+                                   ex=tc["ex"], ey=tc["ey"], lean=(dof, mult, fr), family="tilt+lean"))
+    tol = cfg.get("pick_tolerance_mm")
+    if tol:                                                          # each cross beam set on its own line's split, within the tolerance
+        for cid, sgn, lab in (("TW1_twist", 1.0, "west cross beams set south, east cross beams set north"),
+                              ("TW2_twist", -1.0, "west cross beams set north, east cross beams set south")):
+            cs.append(dict(id=cid, label=f"Cascade cross beams set {tol:.0f} mm off their own lines' split in opposite senses ({lab}): the module twists",
+                           rig="tilt", ex=0.0, ey=0.0, ey_lines=[sgn * tol, sgn * tol, -sgn * tol, -sgn * tol]))
+    env = cfg.get("cog_envelope")
+    if env:                                                          # CoG at the corners of the H1 limits, modelled; the CoG factor is then 1.0
+        h_ = float(np.mean([xyz[k][2] for k in names])) - float(cg[2]); e_ = h_ * np.tan(np.radians(td or 0.0)) / np.sqrt(2.0)
+        for sx, sy, tag in ((1, 1, "NE"), (-1, 1, "NW"), (1, -1, "SE"), (-1, -1, "SW")):
+            base = f"G_CG_{tag}"
+            cs.append(dict(id=f"CG_{tag}", label=f"Centre of gravity {env['dx']:.0f} mm along and {env['dy']:.0f} mm across off the design position ({tag}), cascade set to it",
+                           rig="tilt", ex=0.0, ey=0.0, base=base, factor_scale=1.0 / cfg["factors"]["cog"], cog_shift=(sx * env["dx"], sy * env["dy"])))
+            if td:
+                cs.append(dict(id=f"CG_{tag}+T", label=f"Centre of gravity at the {tag} corner and the module hanging {td:g} deg toward it",
+                               rig="tilt", ex=-sx * e_, ey=-sy * e_, base=base, factor_scale=1.0 / cfg["factors"]["cog"], cog_shift=(sx * env["dx"], sy * env["dy"])))
     for k in names if cfg.get("slack_cases", True) else []:
         cs.append(dict(id=f"R5_slack_{k}", label=f"Rigid frame, sling {k} slack (accident check, not a design case)", rig="rigid", slack=[k], design=False,
                        factor_scale=cfg.get("slack_factor_scale", 1.0)))
@@ -620,6 +682,15 @@ def extra_fasteners(B, cfg):
     return extra
 
 
+def set_notch_rules(B, cfg, extra=None):
+    """Lip-notch check settings (liftcase.NOTCH): edge credit on or off, and the joints that carry a gusset (10 or more screws).
+    Every run that checks members must call this after building the model, or every notch is checked as bare steel."""
+    extra = extra_fasteners(B, cfg) if extra is None else extra
+    LC.NOTCH["credit"] = cfg.get("notch_credit", True)
+    LC.NOTCH["gussets"] = {jid for jid, j in B.joints.items() if j["fasteners"] + max(0, extra.get(jid, 0)) >= 10}
+    return extra
+
+
 def run(model_dir, cfg, out_dir=None, quiet=False):
     say = (lambda *a, **k: None) if quiet else print
     snap = F.load_snapshot(os.path.join(model_dir, "framed.json")); proj = json.load(open(os.path.join(model_dir, "project.json"), encoding="utf-8"))
@@ -643,14 +714,17 @@ def run(model_dir, cfg, out_dir=None, quiet=False):
     out = {"meta": {"config": cfg.get("name"), "W_N": W, "rated_kg": led["applied_kg"], "itemised_kg": led["itemised_kg"], "cg": led["cg"], "factor": factor,
                     "factors": cfg["factors"], "member_steel": steel.name, "connection_steel": C.CONN_LOW.name,
                     "lift_points": {k: {"node": int(v), "xyz": list(M.xyz[v])} for k, v in pts.items()}}, "cases": {}}
-    extra = extra_fasteners(B, cfg)
+    extra = set_notch_rules(B, cfg)
     cases = build_cases(cfg, names, W, led["cg"], {k: M.xyz[v] for k, v in pts.items()})
+    for c in cases:                                                  # load cases with the centre of gravity moved (linear reweighting)
+        if c.get("cog_shift") and c["base"] not in M.loads:
+            M.loads[c["base"]] = shifted_loads(M, "G", *c["cog_shift"])
     if cfg.get("only_cases"): cases = [c for c in cases if c["id"] in cfg["only_cases"]]      # diagnostics: a subset of the cases
     if cfg.get("only_design"): cases = [c for c in cases if c.get("design", True)]           # ablations: the design cases only
     env_m = {}; env_j = {}; env_l = {}; env_a = {}
     used = sorted({nd for m in B.members.values() if not m.get("added") for _, nd in (m.get("nodes") or [])})
     for case in cases:
-        res, info = solve_case(B, pts, case)
+        res, info = solve_case(B, pts, case, base_case=case.get("base", "G"))
         f = factor * case.get("factor_scale", 1.0)
         mc, jc, lk, af = summarise(B, res, f, steel, extra, cfg.get("lining", False), cfg.get("restraint_lines"), cfg.get("link_screws"))
         u = res["u"]

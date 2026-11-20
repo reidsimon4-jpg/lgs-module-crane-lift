@@ -1,80 +1,80 @@
 [
  {
   "id": "revD_final",
-  "name": "Rev D design (all measures)",
+  "name": "Rev D.1 design (all measures)",
   "members_over": 0,
   "joints_over": 0,
   "links_over": 0,
-  "ties": 205,
-  "max_member": 0.97,
-  "max_joint": 0.88,
-  "max_link_shear": 0.58
+  "ties": 210,
+  "max_member": 0.9,
+  "max_joint": 0.87,
+  "max_link_shear": 0.6
  },
  {
   "id": "A1_framed_screws",
   "name": "ABLATION: no added screws or gussets (joints as framed, 2 screws)",
-  "members_over": 0,
-  "joints_over": 265,
-  "links_over": 4,
-  "ties": 205,
-  "max_member": 0.97,
-  "max_joint": 16.43,
-  "max_link_shear": 1.3
+  "members_over": 4,
+  "joints_over": 269,
+  "links_over": 6,
+  "ties": 210,
+  "max_member": 1.39,
+  "max_joint": 19.23,
+  "max_link_shear": 1.35
  },
  {
   "id": "A2_no_gussets",
   "name": "ABLATION: 4-screw joints but no joint gussets near the lift points",
-  "members_over": 0,
-  "joints_over": 45,
+  "members_over": 4,
+  "joints_over": 46,
   "links_over": 0,
-  "ties": 205,
-  "max_member": 0.97,
-  "max_joint": 1.88,
-  "max_link_shear": 0.58
+  "ties": 210,
+  "max_member": 1.39,
+  "max_joint": 1.8,
+  "max_link_shear": 0.6
  },
  {
   "id": "A3_no_bridging",
   "name": "ABLATION: no bridging line at truss mid-span (floor and roof)",
-  "members_over": 1,
+  "members_over": 0,
   "joints_over": 0,
   "links_over": 0,
-  "ties": 203,
-  "max_member": 1.17,
-  "max_joint": 0.88,
-  "max_link_shear": 0.57
+  "ties": 210,
+  "max_member": 0.9,
+  "max_joint": 0.89,
+  "max_link_shear": 0.6
  },
  {
   "id": "A4_no_plane_bracing",
   "name": "ABLATION: no floor and roof plane strap bracing",
-  "members_over": 10,
+  "members_over": 8,
   "joints_over": 8,
-  "links_over": 14,
-  "ties": 252,
-  "max_member": 2.1,
-  "max_joint": 5.19,
-  "max_link_shear": 1.86
+  "links_over": 2,
+  "ties": 256,
+  "max_member": 1.79,
+  "max_joint": 4.52,
+  "max_link_shear": 1.21
  },
  {
   "id": "A5_seat_between_joints",
   "name": "ABLATION: lift points half a truss panel off the joint pairs, so the cradles bear between truss joints",
-  "members_over": 15,
-  "joints_over": 25,
+  "members_over": 16,
+  "joints_over": 22,
   "links_over": 14,
-  "ties": 186,
-  "max_member": 3.5,
-  "max_joint": 3.59,
-  "max_link_shear": 2.64
+  "ties": 183,
+  "max_member": 3.28,
+  "max_joint": 2.42,
+  "max_link_shear": 2.61
  },
  {
   "id": "A6_north_trusses_095",
   "name": "ABLATION: north edge trusses left at 0.95 mm (not 1.15 mm)",
-  "members_over": 6,
-  "joints_over": 17,
+  "members_over": 3,
+  "joints_over": 18,
   "links_over": 0,
-  "ties": 206,
-  "max_member": 1.24,
-  "max_joint": 1.12,
-  "max_link_shear": 0.56
+  "ties": 209,
+  "max_member": 1.19,
+  "max_joint": 1.14,
+  "max_link_shear": 0.6
  },
  {
   "id": "A7_single_inner_hanger",
@@ -82,30 +82,30 @@
   "members_over": 0,
   "joints_over": 0,
   "links_over": 0,
-  "ties": 201,
-  "max_member": 0.98,
-  "max_joint": 0.92,
-  "max_link_shear": 0.56
+  "ties": 210,
+  "max_member": 0.94,
+  "max_joint": 0.9,
+  "max_link_shear": 0.59
  },
  {
   "id": "A8_edge_trusses_100",
   "name": "ABLATION: the three edge trusses at 1.00 mm (the thickest TRUECORE G550 listed in Indonesia), not 1.15 mm",
   "members_over": 3,
-  "joints_over": 8,
+  "joints_over": 6,
   "links_over": 0,
-  "ties": 206,
-  "max_member": 1.19,
-  "max_joint": 1.05,
-  "max_link_shear": 0.57
+  "ties": 210,
+  "max_member": 1.14,
+  "max_joint": 1.06,
+  "max_link_shear": 0.6
  },
  {
   "id": "B0_frame_only",
   "name": "BEFORE: Framer frame as framed (2 screws per joint), no lift parts, slings straight onto the floor edge truss bottom chords at the same 8 points",
-  "members_over": 20,
+  "members_over": 23,
   "joints_over": 334,
   "links_over": 23,
   "ties": 274,
-  "max_member": 2.04,
+  "max_member": 2.27,
   "max_joint": 19.17,
   "max_link_shear": 2.05
  },
@@ -115,20 +115,64 @@
   "members_over": 0,
   "joints_over": 0,
   "links_over": 0,
-  "ties": 205,
-  "max_member": 0.97,
-  "max_joint": 0.88,
-  "max_link_shear": 0.58
+  "ties": 210,
+  "max_member": 0.9,
+  "max_joint": 0.87,
+  "max_link_shear": 0.6
  },
  {
   "id": "S2_twist_length_out",
   "name": "SENSITIVITY: twist buckling length = out-of-plane length (no credit for joint screws)",
-  "members_over": 9,
+  "members_over": 10,
   "joints_over": 0,
   "links_over": 0,
-  "ties": 205,
-  "max_member": 2.19,
+  "ties": 210,
+  "max_member": 1.76,
+  "max_joint": 0.87,
+  "max_link_shear": 0.6
+ },
+ {
+  "id": "S3_no_notch_credit",
+  "name": "SENSITIVITY: no credit at lip notches for the nested member or the gusset plates (bare lipless section)",
+  "members_over": 13,
+  "joints_over": 0,
+  "links_over": 0,
+  "ties": 210,
+  "max_member": 1.88,
+  "max_joint": 0.87,
+  "max_link_shear": 0.6
+ },
+ {
+  "id": "S4_links_soft",
+  "name": "SENSITIVITY: panel-to-panel links 4 times softer (about 1.7 kN/mm)",
+  "members_over": 0,
+  "joints_over": 0,
+  "links_over": 0,
+  "ties": 196,
+  "max_member": 0.91,
   "max_joint": 0.88,
-  "max_link_shear": 0.58
+  "max_link_shear": 0.62
+ },
+ {
+  "id": "S5_links_stiff",
+  "name": "SENSITIVITY: panel-to-panel links 4 times stiffer (about 28 kN/mm)",
+  "members_over": 0,
+  "joints_over": 0,
+  "links_over": 0,
+  "ties": 204,
+  "max_member": 0.89,
+  "max_joint": 0.86,
+  "max_link_shear": 0.7
+ },
+ {
+  "id": "S6_joint_fixity",
+  "name": "SENSITIVITY: truss and wall joints partly fixed in plane (fixity 0.3 instead of pinned)",
+  "members_over": 0,
+  "joints_over": 0,
+  "links_over": 0,
+  "ties": 195,
+  "max_member": 0.9,
+  "max_joint": 0.84,
+  "max_link_shear": 0.56
  }
 ]

@@ -46,6 +46,17 @@ def strap_tension(b, t, mat, hole=0.0):
     return min(gross, net), dict(gross=gross, net=net)
 
 
+def strap_tension_bolted(b, t, mat, d, hole, n_across=1, phi_net=0.55):
+    """Flat strap with bolts in a line along it (one bolt across the width), bolted to a plate in single shear with washers
+    under head and nut: gross yield 0.90 Ag fy, and the bolted thin-sheet net section (AS/NZS 4600 cl 5.3.3 form,
+    AISI S100 E3.2): Nf = (0.1 + 3 d / s) An fu <= An fu with s = b / n_across, phi 0.55 in single shear."""
+    gross = 0.90 * b * t * mat["fy"]
+    s = b / n_across
+    An = (b - n_across * hole) * t
+    net = phi_net * min(1.0, 0.1 + 3.0 * d / s) * An * mat["fu"]
+    return min(gross, net), dict(gross=gross, net=net, eff=min(1.0, 0.1 + 3.0 * d / s))
+
+
 def plate_bending_strip(t, fy=450.0):
     """Design moment per mm width of a flat plate strip (elastic section, phi 0.90)."""
     return 0.90 * fy * t * t / 6.0

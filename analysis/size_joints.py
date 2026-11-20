@@ -31,14 +31,41 @@ def main():
     for jid, v in r["env_j"].items():
         if v["util"] > a.limit:
             need[jid] = dict(util_4=round(v["util"], 2), demand_kN=round(v["demand"] / 1e3, 2), case=v["case"], panel=v["panel"],
-                             member=B.members[v["member"]]["type"], xyz=[round(float(c), 1) for c in M.xyz[v["node"]]], source="lift")
+                             member=B.members[v["member"]]["type"], xyz=[round(float(c), 1) for c in M.xyz[v["node"]]], source="lift", reason="screws")
     # in service on continuous bearers (1.2 G + 1.5 Q): the same joints at 4 screws
     import run_service as RS
     svc = RS.service_joint_demands(cfg)
     for jid, v in svc.items():
         if v["util"] > a.limit and jid not in need:
-            need[jid] = dict(util_4=round(v["util"], 2), demand_kN=round(v["demand"] / 1e3, 2), case="service ULS on bearers", panel=v["panel"],
-                             member=B.members[v["member"]]["type"] if v.get("member") else "", xyz=[round(float(c), 1) for c in M.xyz[v["node"]]], source="service")
+            need[jid] = dict(util_4=round(v["util"], 2), demand_kN=round(v["demand"] / 1e3, 2), case="service ULS on packers", panel=v["panel"],
+                             member=B.members[v["member"]]["type"] if v.get("member") else "", xyz=[round(float(c), 1) for c in M.xyz[v["node"]]], source="service", reason="screws")
+    # members that still fail at a lip notch without a gusset - in the lift cases, or in service on the packers (hold point H8)
+    # at 1.0 and 1.2 x the dead load (hold point H1) - get gussets at the joints of that notch zone; re-run until nothing changes.
+    # A gusset added for an in-service case is a floor-structure gusset (source "service", reason "lip notch").
+    from liftcalc import notch as NT
+    for it in range(6):
+        cfg2 = copy.deepcopy(cfg); cfg2["gusset_joints"] = sorted(need)
+        with contextlib.redirect_stdout(io.StringIO()):
+            r2 = RL.run(os.path.join(ROOT, "model", "engineered"), cfg2, None)
+            Bs, svc2 = RS.service_checks(cfg2)
+        rows = [(r2["B"], mid, v, v["case"], "notch") for mid, v in r2["env_m"].items()]
+        for lay, chk in svc2.items():
+            for c, (mc, jc, lk) in chk.items():
+                rows += [(Bs, mid, v, f"service {c} on {lay}", "service") for mid, v in mc.items()]
+        added = 0
+        for Bx, mid, v, case, src in rows:
+            if v["util"] <= 1.0 or "lip-notch" not in v.get("mode", ""): continue
+            m = Bx.members[mid]
+            for z0, z1, a_n in NT.notch_zones(m):
+                for p_, j_ in m.get("joints") or []:
+                    if z0 - 10.0 <= p_ <= z1 + 10.0 and j_ not in need:
+                        need[j_] = dict(util_4=None, demand_kN=None, case=case, panel=m["panel"], member=m["type"], reason="lip notch",
+                                        xyz=[round(float(c), 1) for c in Bx.model.xyz[Bx.joints[j_]["node"]]], source=src); added += 1
+        svc_over = sum(1 for chk in svc2.values() for mc, jc, lk in chk.values() for v in mc.values() if v["util"] > 1)
+        svc_j_over = sum(1 for chk in svc2.values() for mc, jc, lk in chk.values() for v in jc.values() if v["util"] > 1)
+        print(f"notch pass {it + 1}: lift members over {sum(1 for v in r2['env_m'].values() if v['util'] > 1)}, joints over "
+              f"{sum(1 for v in r2['env_j'].values() if v['util'] > 1)}; service members over {svc_over}, joints over {svc_j_over}; gussets added {added}")
+        if not added: break
     cfg0["joint_rules"] = [r for r in cfg0.get("joint_rules", []) if r.get("n", 0) < 10]
     cfg0["gusset_joints"] = sorted(need)
     json.dump(cfg0, open(a.config, "w", encoding="utf-8"), indent=1)
@@ -47,8 +74,8 @@ def main():
     json.dump(sched, open(os.path.join(ROOT, "results", "joint_schedule.json"), "w", encoding="utf-8"), indent=1)
     print(f"joints needing a gusset (4-screw utilisation > {a.limit}): {len(need)}")
     print("by panel:", dict(sorted(sched["by_panel"].items(), key=lambda kv: -kv[1])))
-    for jid, v in sorted(need.items(), key=lambda kv: -kv[1]["util_4"])[:15]:
-        print(f"  {v['panel']:6s} {v['member']:14s} at {v['xyz']}  4-screw util {v['util_4']:.2f}  ({v['demand_kN']} kN, {v['case']})")
+    for jid, v in sorted(need.items(), key=lambda kv: -(kv[1]["util_4"] or 0))[:15]:
+        print(f"  {v['panel']:6s} {v['member']:14s} at {v['xyz']}  4-screw util {v['util_4']}  ({v['demand_kN']} kN, {v['case']})")
 
 
 if __name__ == "__main__":

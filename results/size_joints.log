@@ -1,0 +1,19 @@
+notch pass 1: lift members over 0, joints over 0; service members over 1, joints over 0; gussets added 8
+notch pass 2: lift members over 0, joints over 0; service members over 0, joints over 0; gussets added 0
+joints needing a gusset (4-screw utilisation > 0.9): 235
+by panel: {'NFT4': 24, 'NFT1': 19, 'NFT2': 16, 'NFT22': 12, 'NFT10': 10, 'NFT16': 10, 'NFT6': 9, 'NFT9': 9, 'NFT11': 9, 'NFT12': 9, 'NFT14': 9, 'NFT15': 9, 'NFT17': 9, 'NFT20': 9, 'NFT5': 8, 'NFT7': 8, 'NFT8': 8, 'NFT13': 8, 'NFT18': 8, 'NFT19': 8, 'NFT21': 8, 'W4': 7, 'W1': 7, 'W7': 2}
+  NFT1   WEB            at [733.7, 44.5, -20.5]  4-screw util 1.8  (13.79 kN, T2+L4)
+  NFT1   WEB            at [7572.3, 44.5, -280.3]  4-screw util 1.76  (13.49 kN, T2+L3)
+  NFT1   WEB            at [4261.7, 44.5, -20.5]  4-screw util 1.76  (13.48 kN, T2+L3)
+  NFT1   WEB            at [11100.3, 44.5, -280.3]  4-screw util 1.74  (13.31 kN, T2+L4)
+  NFT1   WEB            at [7348.7, 44.5, -20.5]  4-screw util 1.68  (12.86 kN, CG_SE)
+  NFT1   WEB            at [4485.3, 44.5, -280.3]  4-screw util 1.66  (12.74 kN, R1_rigid)
+  NFT1   WEB            at [899.2, 44.5, -279.5]  4-screw util 1.62  (13.79 kN, T2+L4)
+  NFT1   WEB            at [10876.7, 44.5, -20.5]  4-screw util 1.62  (12.43 kN, R1_rigid)
+  NFT1   WEB            at [7737.8, 44.5, -21.3]  4-screw util 1.59  (13.49 kN, T2+L3)
+  NFT1   WEB            at [4427.2, 44.5, -279.5]  4-screw util 1.59  (13.48 kN, T2+L3)
+  NFT1   WEB            at [957.3, 44.5, -280.3]  4-screw util 1.58  (12.09 kN, CG_SW)
+  NFT2   WEB            at [733.7, 3255.5, -20.5]  4-screw util 1.58  (12.08 kN, R1_rigid)
+  NFT1   WEB            at [11265.8, 44.5, -21.3]  4-screw util 1.57  (13.31 kN, T2+L4)
+  NFT2   WEB            at [11100.3, 3255.5, -280.3]  4-screw util 1.54  (11.78 kN, R1_rigid)
+  W4     DIAGONAL BRACE at [11398.5, 3255.5, 2044.9]  4-screw util 1.52  (5.49 kN, T6+L4)

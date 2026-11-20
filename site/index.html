@@ -19,7 +19,7 @@
   --scene-bg:#e6ecf3;--grid-1:#a6b5c6;--grid-2:#c9d3df;
   --badge-bg:#ffe9a8;--badge-text:#4d3000;--badge-line:#d99a1e;
   --u0:#7d93a9;--u1:#2e9b5a;--u2:#e0a52b;--u3:#e8711f;--u4:#d3263b;
-  --frame:#97a4b2;--thick:#3d6da6;--strap:#ef8a22;--head:#f2c230;--plate:#4b5666;--steel:#6d7886;
+  --frame:#97a4b2;--thick:#3d6da6;--gus-lift:#c2408a;--gus-service:#7a5bd1;--gus-notch:#2f8fb8;--strap:#ef8a22;--head:#f2c230;--plate:#4b5666;--steel:#6d7886;
   --tie:#0f9f9f;--force:#1f6fe0;--weight:#7e45d1;
   --rig:#35465c;--sling-slack:#9aa3ad;--sling-load:#e2701c;--select:#0b1220;
   --shadow:0 1px 2px rgba(14,30,50,.06),0 6px 20px rgba(14,30,50,.07);
@@ -33,7 +33,7 @@
     --scene-bg:#0c1828;--grid-1:#2f445d;--grid-2:#1c2c40;
     --badge-bg:#4a3606;--badge-text:#ffe39a;--badge-line:#c78f1a;
     --u0:#8aa0b6;--u1:#3fb06c;--u2:#e8b03a;--u3:#f07f2e;--u4:#ef4458;
-    --frame:#a3afbd;--thick:#86b2e6;--strap:#f39a3d;--head:#f5cd47;--plate:#7a8697;--steel:#9aa5b2;
+    --frame:#a3afbd;--thick:#86b2e6;--gus-lift:#e47bb5;--gus-service:#a58cf0;--gus-notch:#5fb6dc;--strap:#f39a3d;--head:#f5cd47;--plate:#7a8697;--steel:#9aa5b2;
     --tie:#23c0bf;--force:#4f9bff;--weight:#a77bf0;
     --rig:#b3c1d1;--sling-slack:#6f7a86;--sling-load:#f08a3a;--select:#ffffff;
     --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
@@ -46,7 +46,7 @@
   --scene-bg:#0c1828;--grid-1:#2f445d;--grid-2:#1c2c40;
   --badge-bg:#4a3606;--badge-text:#ffe39a;--badge-line:#c78f1a;
   --u0:#8aa0b6;--u1:#3fb06c;--u2:#e8b03a;--u3:#f07f2e;--u4:#ef4458;
-  --frame:#a3afbd;--thick:#86b2e6;--strap:#f39a3d;--head:#f5cd47;--plate:#7a8697;--steel:#9aa5b2;
+  --frame:#a3afbd;--thick:#86b2e6;--gus-lift:#e47bb5;--gus-service:#a58cf0;--gus-notch:#5fb6dc;--strap:#f39a3d;--head:#f5cd47;--plate:#7a8697;--steel:#9aa5b2;
   --tie:#23c0bf;--force:#4f9bff;--weight:#a77bf0;
   --rig:#b3c1d1;--sling-slack:#6f7a86;--sling-load:#f08a3a;--select:#ffffff;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
@@ -111,6 +111,14 @@ button,input,select{font:inherit;color:inherit}
 .vbadge{position:absolute;left:10px;bottom:10px;z-index:2;background:var(--badge-bg);color:var(--badge-text);border:1px solid var(--badge-line);border-radius:8px;padding:4px 8px;font-size:.74rem;font-weight:600;max-width:calc(100% - 20px)}
 .liftcap{position:absolute;left:50%;transform:translateX(-50%);bottom:44px;z-index:2;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-weight:600;font-size:.86rem;box-shadow:var(--shadow);white-space:nowrap}
 .liftcap[hidden]{display:none}
+.tip{position:absolute;z-index:5;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:5px 8px;font-size:.78rem;line-height:1.3;max-width:260px;box-shadow:var(--shadow)}
+.tip[hidden]{display:none}
+.sev{display:inline-block;border-radius:6px;padding:0 6px;font-size:.74rem;font-weight:700;margin-right:6px;vertical-align:1px}
+.sev.blocking{background:var(--u4);color:#fff}
+.sev.fix{background:var(--u2);color:#2b1d00}
+.review-item{border-top:1px solid var(--line);padding:6px 0}
+.review-item summary{cursor:pointer;font-weight:600}
+.review-item p{margin:6px 0 2px;color:var(--muted);font-size:.86rem}
 .info{position:absolute;right:10px;top:54px;width:min(390px,calc(100% - 20px));max-height:calc(100% - 104px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);z-index:4;padding:12px 14px 14px;font-size:.86rem}
 .info[hidden]{display:none}
 @media (max-width:640px){.info{left:8px;right:8px;top:auto;bottom:8px;width:auto;max-height:56%}}
@@ -217,16 +225,16 @@ footer p{margin:4px 0}
 <header class="top">
   <div>
     <h1>Lifting a steel-frame classroom module by crane</h1>
-    <p class="by">Infinity Living Options (ILO) - lift engineering study, Rev D (final design)</p>
+    <p class="by">Infinity Living Options (ILO) - lift engineering study, Rev D.1 (final design)</p>
   </div>
   <p class="badge" role="note">PRELIMINARY - subject to structural engineering. Not for construction.</p>
 </header>
 
-<p class="intro">One classroom module: <b>12.0 m long, 3.3 m wide, about 3.3 m high</b>, framed in 0.95 mm C89 steel sections joined with screws. It is picked up by a crane at <b>8 lift points</b>. This page shows the final <b>Rev D</b> design. Each piece of steel below is coloured by how hard it works during the lift. We call this its <b>utilisation</b>: the force in the part divided by what it can safely carry. <b>1.00</b> means the part is exactly at its design capacity, with all safety factors included. Click any part to see its numbers.</p>
+<p class="intro">One classroom module: <b>12.0 m long, 3.3 m wide, about 3.3 m high</b>, framed in 0.95 mm C89 steel sections joined with screws. It is picked up by a crane at <b>8 lift points</b>. This page shows the final <b>Rev D.1</b> design. Each piece of steel below is coloured by how hard it works during the lift. We call this its <b>utilisation</b>: the force in the part divided by what it can safely carry. <b>1.00</b> means the part is exactly at its design capacity, with all safety factors included. Click any part to see its numbers.</p>
 
 <section class="summary" aria-label="Summary">
   <div class="stat bad"><span class="k">Before (as framed)</span><span class="v" id="s-before">…</span><span class="s" id="s-before-sub">members / joints over capacity</span></div>
-  <div class="stat good"><span class="k">After (Rev D)</span><span class="v" id="s-after">…</span><span class="s" id="s-after-sub">members / joints over capacity</span></div>
+  <div class="stat good"><span class="k">After (Rev D.1)</span><span class="v" id="s-after">…</span><span class="s" id="s-after-sub">members / joints over capacity</span></div>
   <div class="stat"><span class="k">Worst member, after</span><span class="v" id="s-mem">…</span><span class="s" id="s-mem-sub">of design capacity</span></div>
   <div class="stat"><span class="k">Worst joint, after</span><span class="v" id="s-jnt">…</span><span class="s" id="s-jnt-sub">of design capacity</span></div>
   <div class="stat"><span class="k">Rated lift mass</span><span class="v" id="s-rated">…</span><span class="s" id="s-factor">total factor …</span></div>
@@ -244,6 +252,7 @@ footer p{margin:4px 0}
       <button class="btn" id="btn-side" type="button" aria-pressed="false" aria-controls="side">Hide panel</button>
     </div>
     <div class="liftcap" id="liftcap" hidden aria-live="polite"></div>
+    <div class="tip" id="tip" hidden></div>
     <div class="vbadge">PRELIMINARY - subject to structural engineering. Not for construction.</div>
     <div class="info" id="info" hidden role="region" aria-label="Selected part" tabindex="-1">
       <button class="btn x" id="info-close" type="button" aria-label="Close details">×</button>
@@ -262,7 +271,7 @@ footer p{margin:4px 0}
       <fieldset class="ctl">
         <legend>Design</legend>
         <div class="seg" role="group" aria-label="Before or after">
-          <button class="btn" id="btn-after" type="button" aria-pressed="true">After - Rev D</button>
+          <button class="btn" id="btn-after" type="button" aria-pressed="true">After - Rev D.1</button>
           <button class="btn" id="btn-before" type="button" aria-pressed="false">Before - frame as framed</button>
         </div>
         <p class="hint" id="mode-hint"></p>
@@ -338,8 +347,12 @@ footer p{margin:4px 0}
 
 <section class="tables" aria-label="Tables">
   <details class="tbl" open>
-    <summary>What changed from Rev C to Rev D</summary>
+    <summary>What changed from Rev C to Rev D.1</summary>
     <div class="body"><ul class="basis" id="changes"></ul></div>
+  </details>
+  <details class="tbl" id="review-wrap">
+    <summary>Second review (Rev D) and what changed</summary>
+    <div class="body" id="review"></div>
   </details>
   <details class="tbl" open>
     <summary>Key numbers</summary>
@@ -369,7 +382,7 @@ footer p{margin:4px 0}
   <details class="tbl">
     <summary>What each measure does (one taken away at a time)</summary>
     <div class="body">
-      <p>Each row is the full Rev D design run again with one measure taken away, plus the Before frame and two checks that are not part of the design. Counts are over all design cases. "Connections" are the joints between panels, checked in shear; any pull across them is taken by tie plates or truss-end cleats (in Rev D the highest shear use is <span id="abl-link-shear">…</span>).</p>
+      <p>Each row is the full Rev D.1 design run again with one measure taken away, plus the Before frame and some checks that are not part of the design (sensitivity runs). Counts are over all design cases. "Connections" are the joints between panels, checked in shear; any pull across them is taken by tie plates or truss-end cleats (in Rev D.1 the highest shear use is <span id="abl-link-shear">…</span>).</p>
       <div class="table-wrap" id="abl-table"></div>
     </div>
   </details>
@@ -387,10 +400,10 @@ footer p{margin:4px 0}
 </section>
 
 <footer>
-  <p><b>Infinity Living Options (ILO) - lift engineering study, Rev D (final design).</b> PRELIMINARY - subject to structural engineering. Not for construction.</p>
-  <p>This page does not approve the module for lifting. A registered structural engineer must review, adopt and sign the design; the rig must be certified and proof tested; the hold points (weighing with load cells, hang angle stop, landing on continuous bearers and the others listed in "How it works") must be met. The calculations were produced with AI assistance under ILO's direction and have not been checked or certified by a registered engineer.</p>
+  <p><b>Infinity Living Options (ILO) - lift engineering study, Rev D.1 (final design).</b> PRELIMINARY - subject to structural engineering. Not for construction.</p>
+  <p>This page does not approve the module for lifting. A registered structural engineer must review, adopt and sign the design; the rig must be certified and proof tested; the hold points (weighing with load cells, the stop limits during the lift, landing on a packer under every floor-truss end, and the others listed in "How it works") must be met. The calculations were produced with AI assistance under ILO's direction and have not been checked or certified by a registered engineer.</p>
   <p id="drawn-count"></p>
-  <p>Data: data/revD.json (after, Rev D), data/before.json (before: frame only at the Rev D lift points), data/connectors.json, data/ablation.json, data/service.json.</p>
+  <p>Data: data/revD.json (after, Rev D.1), data/before.json (before: frame only at the same lift points), data/connectors.json, data/ablation.json, data/service.json, data/review_revD.json.</p>
 </footer>
 
 <script type="module">
@@ -424,9 +437,11 @@ async function getJSON(path) {
   if (!r.ok) throw new Error(path + ' (HTTP ' + r.status + ')');
   return r.json();
 }
-const D = { after: null, before: null, conn: null, abl: null, svc: null };
+const D = { after: null, before: null, conn: null, abl: null, svc: null, review: null };
 const pBefore = getJSON('data/before.json');
 pBefore.catch(() => {});
+const pReview = getJSON('data/review_revD.json');
+pReview.catch(() => {});
 try {
   [D.after, D.conn, D.abl, D.svc] = await Promise.all(
     ['data/revD.json', 'data/connectors.json', 'data/ablation.json', 'data/service.json'].map(getJSON));
@@ -438,33 +453,57 @@ try {
 /* ------------------------------------------------------------------ plain names */
 const CASE_NAMES = {
   R4_equalised: 'Equalised rig (main case)',
-  T1_roll_S: 'Hanging 2° out of level: south side down',
-  T2_roll_N: 'Hanging 2° out of level: north side down',
-  T3_pitch_W: 'Hanging 2° out of level: west end down',
-  T4_pitch_E: 'Hanging 2° out of level: east end down',
-  T5_SW: 'Hanging 2° out of level: south-west corner down',
-  T6_SE: 'Hanging 2° out of level: south-east corner down',
-  T7_NW: 'Hanging 2° out of level: north-west corner down',
-  T8_NE: 'Hanging 2° out of level: north-east corner down',
+  R1_rigid: 'Rigid frame, equal slings',
+  R2_springs: 'Rigid frame, stretchy slings',
   R7a_outer_high: 'Sling shares 10 % off: more on the end points',
   R7b_inner_high: 'Sling shares 10 % off: more on the inner points',
   R7c_one_end_high: 'Sling shares 10 % off: more on one end',
   R7d_twist: 'Sling shares 10 % off: twist',
-  L1_squeeze_y: 'Slings lean in 5 % across',
-  L2_spread_y: 'Slings lean out 5 % across',
-  L3_squeeze_x: 'Slings lean in 5 % along',
-  L4_spread_x: 'Slings lean out 5 % along',
-  /* (names are plain; whether a case is design or information comes from the data) */
-  R1_rigid: 'Rigid frame, equal slings',
-  R2_springs: 'Rigid frame, stretchy slings',
 };
+const TILT_DIR = { T1: 'south side down', T2: 'north side down', T3: 'west end down', T4: 'east end down',
+  T5: 'south-west corner down', T6: 'south-east corner down', T7: 'north-west corner down', T8: 'north-east corner down' };
+const LEAN_DIR = { L1: 'slings lean in across', L2: 'slings lean out across', L3: 'slings lean in along', L4: 'slings lean out along' };
+const CG_DIR = { NE: 'north-east', NW: 'north-west', SE: 'south-east', SW: 'south-west' };
+/* numbers in the case names (degrees, per cent, mm) are read from the case labels in the data */
+const caseLabel = id => String(((D.after && D.after.cases[id]) || (D.before && D.before.cases[id]) || {}).label || '');
+const numIn = (txt, re, dflt = '') => { const m = String(txt).match(re); return m ? m[1] : dflt; };
+const cap1 = t => (t ? t[0].toUpperCase() + t.slice(1) : t);
+function tiltTxt(t, id) { return `Hanging ${numIn(caseLabel(id), /by ([\d.]+) ?deg/, '2')}° out of level: ${TILT_DIR[t] || t}`; }
 function caseName(id) {
   if (!id) return '–';
   if (CASE_NAMES[id]) return CASE_NAMES[id];
-  let m = id.match(/^R6_short_([SN]\d)$/); if (m) return `Rigid frame, sling ${m[1]} 10 mm short`;
-  m = id.match(/^R5_slack_([SN]\d)$/); if (m) return `Rigid frame, sling ${m[1]} slack (accident)`;
+  let m;
+  if ((m = id.match(/^(T\d)[^+]*\+(L\d)/))) return `${tiltTxt(m[1], id)}, and ${LEAN_DIR[m[2]] || m[2]}`;
+  if ((m = id.match(/^(T\d)_/))) return tiltTxt(m[1], id);
+  if ((m = id.match(/^(L\d)_/))) { const p = numIn(caseLabel(id), /([\d.]+) ?%/); return `${cap1(LEAN_DIR[m[1]] || m[1])}${p ? ` (${p} %)` : ''}`; }
+  if ((m = id.match(/^TW(\d)/))) {
+    const lab = caseLabel(id), mm = numIn(lab, /set (\d+) ?mm/);
+    const dir = /west cross beams set south/.test(lab) ? ': west beams to the south, east beams to the north' : /west cross beams set north/.test(lab) ? ': west beams to the north, east beams to the south' : '';
+    return `Twist ${m[1]}, cross beams set ${mm ? mm + ' mm ' : ''}off${dir}`;
+  }
+  if ((m = id.match(/^CG_([NS][EW])(\+T)?$/))) {
+    const dir = CG_DIR[m[1]] || m[1], lab = caseLabel('CG_' + m[1]);
+    const along = numIn(lab, /(\d+) ?mm along/), across = numIn(lab, /(\d+) ?mm across/);
+    if (m[2]) return `Centre of gravity at the ${dir} corner of its envelope, hanging ${numIn(caseLabel(id), /([\d.]+) ?deg/, '2')}° toward it`;
+    return `Centre of gravity moved to the ${dir}${along ? ` (${along} mm along, ${across} mm across)` : ''}`;
+  }
+  if ((m = id.match(/^R6_short_([SN]\d)$/))) return `Rigid frame, sling ${m[1]} 10 mm short`;
+  if ((m = id.match(/^R5_slack_([SN]\d)$/))) return `Rigid frame, sling ${m[1]} slack (accident)`;
   return id;
 }
+/* case families for the case picker */
+function caseFamily(id, data) {
+  if (data && data.cases[id] && !data.cases[id].design) return 'info';
+  if (/^T\d[^+]*\+L\d/.test(id)) return 'tiltlean';
+  if (/^T\d_/.test(id)) return 'tilt';
+  if (/^L\d_/.test(id)) return 'lean';
+  if (/^TW\d/.test(id)) return 'twist';
+  if (/^CG_/.test(id)) return 'cog';
+  return 'rig';
+}
+const FAMILY_ORDER = ['rig', 'tilt', 'lean', 'tiltlean', 'twist', 'cog', 'info'];
+const FAMILY_NAMES = { rig: 'Rig', tilt: 'Tilt (module hanging out of level)', lean: 'Lean (slings out of vertical)', tiltlean: 'Tilt + lean',
+  twist: 'Twist (cross beams set off)', cog: 'Centre of gravity envelope', info: 'Information only (not design)' };
 const WALL_NAMES = {
   EW1: 'South wall', EW2: 'East end wall (x = 12 m)', EW4: 'West end wall (x = 0)',
   EW3A: 'North side, east short wall', EW3B: 'North side, post at 7.5 m',
@@ -486,7 +525,7 @@ const RULE_PLAIN = {
   'wall top track under roof rim / end roof truss': 'Wall top plate under the roof edge truss',
 };
 const ABL_NAMES = {
-  revD_final: 'Rev D design (all measures)',
+  revD_final: 'Rev D.1 design (all measures)',
   A1_framed_screws: 'No added screws or gussets (joints as framed, 2 screws)',
   A2_no_gussets: '4-screw joints but no joint gussets near the lift points',
   A3_no_bridging: 'No bridging lines (floor and roof)',
@@ -494,10 +533,19 @@ const ABL_NAMES = {
   A5_seat_between_joints: 'Lift points half a truss panel off the joint pairs (cradles bearing between truss joints)',
   A6_north_trusses_095: 'North edge trusses left at 0.95 mm',
   A7_single_inner_hanger: 'One hanger strap on the inside face only (north)',
+  A8_edge_trusses_100: 'The three edge trusses at 1.00 mm instead of 1.15 mm',
   B0_frame_only: 'Before: frame as framed, no lifting parts',
   S1_lining_credit: 'Check only: linings and floor sheet counted as bracing',
   S2_twist_length_out: 'Check only: no credit for joint screws holding members against twisting',
 };
+/* plain name for an ablation row; rows not in the list above use the name in the file */
+function ablPlain(r) {
+  if (ABL_NAMES[r.id]) return ABL_NAMES[r.id];
+  const n = String(r.name || r.id);
+  const m = n.match(/^(ABLATION|SENSITIVITY|BEFORE):\s*(.*)$/i);
+  if (!m) return cap1(n);
+  return (/^SENSITIVITY$/i.test(m[1]) ? 'Check only: ' : /^BEFORE$/i.test(m[1]) ? 'Before: ' : '') + (/^SENSITIVITY$/i.test(m[1]) || /^BEFORE$/i.test(m[1]) ? m[2] : cap1(m[2]));
+}
 function memberTitle(m) {
   const t = TYPE_NAMES[m.type] || String(m.type || '').toLowerCase();
   const x = fx(Math.min(m.a[0], m.b[0]) / 1000, 2);
@@ -513,9 +561,11 @@ function memberTitle(m) {
 function modePlain(mode) {
   if (!mode) return '–';
   let t = mode.includes('compression') ? 'Squeezed and bent, buckling checked (compression + bending)'
-    : mode.startsWith('tension') ? 'Pulled and bent (tension + bending)'
-    : mode.startsWith('bending + shear') ? 'Bent and sheared (bending + shear)' : mode;
-  if (mode.includes('lip-notch')) t += ', where the lip is notched';
+    : mode.includes('tension') ? 'Pulled and bent (tension + bending)'
+    : mode.includes('bending + shear') ? 'Bent and sheared (bending + shear)' : mode;
+  const nm = mode.match(/lip-notch section \(a (\d+) ?mm\)/);
+  if (nm) t += `, checked as the lipless section at a lip notch (a = ${nm[1]} mm)`;
+  else if (mode.includes('lip-notch')) t += ', checked as the lipless section at a lip notch';
   if (mode.includes('web hole')) t += ', at a hole in the web';
   return t;
 }
@@ -578,7 +628,7 @@ const act = () => (S.mode === 'after' ? D.after : D.before);
 
 /* ------------------------------------------------------------------ colours */
 const COL = {};
-const TOKENS = ['scene-bg', 'grid-1', 'grid-2', 'u0', 'u1', 'u2', 'u3', 'u4', 'frame', 'thick', 'strap', 'head', 'plate', 'steel', 'tie', 'force', 'weight', 'rig', 'sling-slack', 'sling-load', 'select', 'sky', 'muted'];
+const TOKENS = ['scene-bg', 'grid-1', 'grid-2', 'u0', 'u1', 'u2', 'u3', 'u4', 'frame', 'thick', 'gus-lift', 'gus-service', 'gus-notch', 'strap', 'head', 'plate', 'steel', 'tie', 'force', 'weight', 'rig', 'sling-slack', 'sling-load', 'select', 'sky', 'muted'];
 function readTheme() {
   const cs = getComputedStyle(document.documentElement);
   for (const t of TOKENS) { const v = cs.getPropertyValue('--' + t).trim() || '#888888'; (COL[t] || (COL[t] = new THREE.Color())).set(v); }
@@ -815,10 +865,13 @@ class Batch {
     this.mesh.instanceColor.needsUpdate = true;
   }
 }
-const TYPE_COL = { hanger: 'strap', vstrap: 'strap', brace: 'strap', head: 'head', cradle: 'plate', bridging: 'plate', gusset: 'plate' };
+const TYPE_COL = { hanger: 'strap', vstrap: 'strap', brace: 'strap', head: 'head', cradle: 'plate', bridging: 'plate', cleat: 'steel' };
+/* joint gussets are always coloured by what they are for (lift or floor in service), in every colour mode */
+const GUS_COL = { lift: 'gus-lift', service: 'gus-service', notch: 'gus-notch' };
 function partCol(part, fixed) {
   let c;
   if (fixed) c = COL[fixed];
+  else if (part.cat === 'gusset') c = COL[GUS_COL[part.g && part.g.source] || 'gus-lift'];
   else if (S.colour === 'type') c = COL[TYPE_COL[part.cat]] || COL.plate;
   else c = utilCol(CONN_MAX[part.cat]);
   if (S.focus && !(S.focus.parts || []).includes(part.cat)) c = faded(c);
@@ -833,38 +886,49 @@ const BT = {
   pin: new Batch(GEO.cyl, mat()),
   eye: new Batch(GEO.torus, mat()),
   gusset: new Batch(GEO.box, mat()),
+  cleat: new Batch(GEO.box, mat()),
 };
 const parts = [];
 function mkPart(cat, id, members, o = {}) { const p = { cat, id, members, ...o }; parts.push(p); members.forEach(m => drawn.add(m.id)); return p; }
 
-/* straps: one on each face, just outside the cradle cheeks */
-const STRAP_OFF = 0.053;
+/* hanger straps: 50 x 2.5 mm, one on each face, outside the head and cradle cheeks. At the cradle each strap runs on
+   past the M16 bearing bolts down to its own two bolts below them (drawn to the description; the model line stops at -300). */
+const STRAP_OFF = 0.053, STRAP_LOW_Z = -435;
 function placeStrap(o, m, side) {
-  endPt(_P, m.a, m.d_a); endPt(_Q, m.b, m.d_b);
+  const low = m.type === 'STRAP';
+  const a = low && m.a[2] < m.b[2] && m.a[2] < 0 ? [m.a[0], m.a[1], Math.min(m.a[2], STRAP_LOW_Z)] : m.a;
+  const b = low && m.b[2] < m.a[2] && m.b[2] < 0 ? [m.b[0], m.b[1], Math.min(m.b[2], STRAP_LOW_Z)] : m.b;
+  endPt(_P, a, m.d_a); endPt(_Q, b, m.d_b);
   _N.fromArray(m.nrm).normalize().multiplyScalar(STRAP_OFF * side);
   _P.add(_N); _Q.add(_N);
   return boxMatrix(o, _P, _Q, _N.fromArray(m.nrm).normalize(), 0.003, 0.05);
 }
-/* lifting head: a saddle over the roof edge truss with no fasteners, keyed along the module by a stop block;
-   M20 pin with a free-turning 40 mm sleeve; the round sling eye goes straight over the sleeve (no shackle at the head) */
+/* lifting head: a closed box with an open top. Two 3 mm cheeks (120 x 480) on the faces of the roof edge truss, seated on
+   pads clear of the joint screws, joined above the truss by two 3 mm end plates; edge protectors on the cheek tops; M20 pin
+   with a free-turning 40 mm sleeve; the round sling eye goes down through the open top onto the sleeve; no fasteners;
+   a stop block keys it along the module. */
+const HC_Y = 0.0495, HC_Z0 = 2.72, HC_H = 0.48, HC_L = 0.12, TRUSS_TOP = 2.9985, PIN_Z = 3.15;
 function headBase(m) {
   const k = defK(), d = avgD(m) || [0, 0, 0];
   return [m.b[0] * MM + d[0] * k, m.b[1] * MM + d[1] * k, S.explode + d[2] * k];
 }
-function placeHead(o, m, piece, side = 1) {
+function placeHead(o, m, piece, side = 1, off = 0) {
   const [x, y, dz] = headBase(m);
   switch (piece) {
-    case 'cheek': return o.makeScale(0.16, 0.006, 0.5).setPosition(x, y + side * 0.058, 2.95 + dz);
-    case 'seat': return o.makeScale(0.16, 0.122, 0.006).setPosition(x, y, 3.006 + dz);
-    case 'pin': return o.makeScale(0.011, 0.15, 0.011).setPosition(x, y, 3.15 + dz);
-    case 'sleeve': return o.makeScale(0.02, 0.04, 0.02).setPosition(x, y, 3.15 + dz);
-    case 'stop': return o.makeScale(0.05, 0.09, 0.05).setPosition(x + side * 0.108, y, 3.024 + dz);
-    default: return o.makeScale(0.047, 0.047, 0.047).setPosition(x, y, 3.18 + dz);
+    case 'cheek': return o.makeScale(HC_L, 0.004, HC_H).setPosition(x, y + side * HC_Y, HC_Z0 + HC_H / 2 + dz);
+    case 'end': { const h = HC_Z0 + HC_H - TRUSS_TOP; return o.makeScale(0.004, 2 * HC_Y - 0.004, h).setPosition(x + side * (HC_L / 2 - 0.002), y, TRUSS_TOP + h / 2 + dz); }
+    case 'pad': return o.makeScale(0.035, 0.003, 0.035).setPosition(x + off * 0.035, y + side * 0.046, 2.86 + dz);
+    case 'edge': return o.makeScale(HC_L, 0.012, 0.012).setPosition(x, y + side * HC_Y, HC_Z0 + HC_H + 0.006 + dz);
+    case 'pin': return o.makeScale(0.01, 0.118, 0.01).setPosition(x, y, PIN_Z + dz);
+    case 'sleeve': return o.makeScale(0.02, 0.04, 0.02).setPosition(x, y, PIN_Z + dz);
+    case 'stop': return o.makeScale(0.05, 0.09, 0.05).setPosition(x + side * 0.088, y, TRUSS_TOP + 0.025 + dz);
+    default: return o.makeScale(0.047, 0.047, 0.047).setPosition(x, y, PIN_Z + 0.03 + dz);
   }
 }
-/* cradle (foot): two 3 mm cheek plates either side of the floor edge truss bottom chord, joined under the chord by two
-   M16 bearing bolts with 95 mm sleeves, one under each truss joint of the pair, each on a 3 x 40 x 89 bearing packer */
-const CH_Y = 0.049, CH_H = 0.14, CH_Z0 = -0.3385, BOLT_Z = -0.3135, PACK_Z = -0.300;
+/* cradle: two 3 mm cheeks (120 x 200, z -450 to -250) that fit over the joint gusset plates, joined under the chord by two
+   M16 bearing bolts with 92 mm sleeves, one under each truss joint of the pair, each on a 3 x 40 x 89 packer; the strap
+   bolts sit below the bearing bolts; cheeks screwed at the first joint only */
+const CH_Y = 0.048, CH_H = 0.20, CH_Z0 = -0.45, BOLT_Z = -0.3135, PACK_Z = -0.300, SLEEVE_L = 0.092, STRAP_BOLT_Z = [-0.375, -0.415];
 function footBase(f) {
   const k = defK(), d = avgD(f.body) || [0, 0, 0];
   return { dx: d[0] * k, y: f.y + d[1] * k, dz: -S.explode + d[2] * k };
@@ -874,9 +938,10 @@ function placeFoot(o, f, piece, i = 0, side = 1) {
   switch (piece) {
     case 'cheek': return o.makeScale(f.x1 - f.x0, 0.004, CH_H).setPosition((f.x0 + f.x1) / 2 + c.dx, c.y + side * CH_Y, CH_Z0 + CH_H / 2 + c.dz);
     case 'packer': return o.makeScale(0.04, 0.089, 0.003).setPosition(sx, c.y, PACK_Z + c.dz);
-    case 'sleeve': return o.makeScale(0.012, 0.095, 0.012).setPosition(sx, c.y, BOLT_Z + c.dz);
-    case 'bolt': return o.makeScale(0.008, 0.132, 0.008).setPosition(sx, c.y, BOLT_Z + c.dz);
-    default: return o.makeScale(0.0135, 0.012, 0.0135).setPosition(sx, c.y + side * 0.0575, BOLT_Z + c.dz);
+    case 'sleeve': return o.makeScale(0.012, SLEEVE_L, 0.012).setPosition(sx, c.y, BOLT_Z + c.dz);
+    case 'bolt': return o.makeScale(0.008, 0.124, 0.008).setPosition(sx, c.y, BOLT_Z + c.dz);
+    case 'sbolt': return o.makeScale(0.006, 0.124, 0.006).setPosition(f.xs + c.dx, c.y, STRAP_BOLT_Z[i] + c.dz);
+    default: return o.makeScale(0.0135, 0.012, 0.0135).setPosition(sx, c.y + side * (CH_Y + 0.008), BOLT_Z + c.dz);
   }
 }
 function placeScrew(o, f, i, side, off) {
@@ -905,11 +970,14 @@ for (const m of added) {
       title: cat === 'hanger' ? `Hanger strap pair - lift point ${pt}` : `Inclined strap pair - lift point ${pt}` });
     for (const side of [-1, 1]) BT.strap.add({ part, place: o => placeStrap(o, m, side) });
   } else if (m.type === 'GUIDE') {
-    const part = mkPart('head', m.id, [m], { pt, title: `Lifting head (saddle) - lift point ${pt}` });
-    for (const side of [-1, 1]) BT.head.add({ part, place: o => placeHead(o, m, 'cheek', side) });
-    BT.head.add({ part, place: o => placeHead(o, m, 'seat') });
-    /* every head is keyed along the module by a stop block */
-    for (const side of [-1, 1]) BT.head.add({ part, fixed: 'steel', place: o => placeHead(o, m, 'stop', side) });
+    const part = mkPart('head', m.id, [m], { pt, title: `Lifting head (closed box) - lift point ${pt}` });
+    for (const side of [-1, 1]) {
+      BT.head.add({ part, place: o => placeHead(o, m, 'cheek', side) });
+      BT.head.add({ part, place: o => placeHead(o, m, 'end', side) });
+      BT.head.add({ part, fixed: 'steel', place: o => placeHead(o, m, 'edge', side) });
+      BT.head.add({ part, fixed: 'steel', place: o => placeHead(o, m, 'stop', side) });
+      for (const off of [-1, 1]) BT.head.add({ part, fixed: 'steel', place: o => placeHead(o, m, 'pad', side, off) });
+    }
     BT.pin.add({ part, fixed: 'steel', place: o => placeHead(o, m, 'pin') });
     BT.pin.add({ part, fixed: 'steel', place: o => placeHead(o, m, 'sleeve') });
     BT.eye.add({ part, fixed: 'sling-load', place: o => placeHead(o, m, 'eye') });
@@ -937,6 +1005,7 @@ for (const [key, ms] of footMembers) {
     x1: (lay ? lay.cradle[1] : Math.max(body.a[0], body.b[0])) * MM,
     seats: seatMs.map(m => ({ x: m.a[0] * MM, m, screwed: !/bearing-only/i.test(m.role) })),
   };
+  f.xs = (lay && Number.isFinite(lay.x_strap) ? lay.x_strap * MM : (f.x0 + f.x1) / 2);
   const part = mkPart('cradle', key, ms, { pt, foot: f, title: `Cradle under the floor edge truss - lift point ${pt}` });
   for (const side of [-1, 1]) BT.plate.add({ part, place: o => placeFoot(o, f, 'cheek', 0, side) });
   f.seats.forEach((s, i) => {
@@ -946,19 +1015,51 @@ for (const [key, ms] of footMembers) {
     for (const side of [-1, 1]) BT.pin.add({ part, fixed: 'steel', place: o => placeFoot(o, f, 'nut', i, side) });
     if (s.screwed) for (const side of [-1, 1]) for (const off of [-1, 1]) BT.pin.add({ part, fixed: 'steel', place: o => placeScrew(o, f, i, side, off) });
   });
+  STRAP_BOLT_Z.forEach((z, i) => BT.pin.add({ part, fixed: 'steel', place: o => placeFoot(o, f, 'sbolt', i) }));
 }
-/* joint gussets: a 1.5 mm plate on each face of the joint, at the positions listed in the data */
+/* joint gussets: one plate on each face of the joint (or joint pair), 100 mm high and flush with the chord's outer face,
+   at the positions in the data; "source" says what it is for, "reason" why it is needed */
 const GUSSETS = Array.isArray(D.after.gussets) ? D.after.gussets : [];
+function gussetBand(zmm) {
+  if (zmm < 0) return zmm < -150 ? [-298.5, -198.5] : [-101.5, -1.5];
+  if (zmm > 2690) return zmm < 2850 ? [2701.5, 2801.5] : [2898.5, 2998.5];
+  if (zmm < 60) return [1.5, 101.5];
+  if (zmm > 2640) return [2598.5, 2698.5];
+  return [zmm - 50, zmm + 50];
+}
 for (const g of GUSSETS) {
   const p = v3(g.xyz), grp = grpZ(g.xyz[2]), d = nearestD(DISP.after, p.x, p.y, p.z);
   const n = new THREE.Vector3().fromArray(g.nrm).normalize();
-  const u = Math.abs(n.z) > 0.9 ? new THREE.Vector3(1, 0, 0) : new THREE.Vector3(0, 0, 1);
+  const alongX = Math.abs(n.y) > Math.abs(n.x);
+  const [z0, z1] = gussetBand(g.xyz[2]), zc = (z0 + z1) / 2 * MM, h = (z1 - z0) * MM;
   const part = mkPart('gusset', 'GUSSET', [], { g, title: `Joint gusset - ${panelTitle(g.panel)}` });
   for (const side of [-1, 1]) BT.gusset.add({ part, place: o => {
-    pointAt(_P, p, grp, d); _P.addScaledVector(n, side * 0.047);
-    _A.copy(_P).addScaledVector(u, -0.05); _B.copy(_P).addScaledVector(u, 0.05);
-    return boxMatrix(o, _A, _B, n, 0.003, 0.1);
+    pointAt(_P, p, grp, d); _P.addScaledVector(n, side * 0.0453);
+    const dzc = zc - p.z;
+    return alongX ? o.makeScale(0.1, 0.0016, h).setPosition(_P.x, _P.y, _P.z + dzc) : o.makeScale(0.0016, 0.1, h).setPosition(_P.x, _P.y, _P.z + dzc);
   } });
+}
+/* truss-end cleats: a folded angle each side of every truss end, full depth (280 mm); one leg on the inside face of the
+   edge truss, one on the truss end upright. Positions come from the floor and roof trusses in the data. */
+const CLEAT_H = 0.28;
+const cleatCount = { floor: 0, roof: 0 };
+for (const [kind, zc] of [['floor_truss', -0.150], ['roof_truss', 2.850]]) {
+  const tms = D.after.members.filter(m => m.kind === kind);
+  if (!tms.length) continue;
+  const xs = [...new Set(tms.map(m => m.a[0]))].sort((a, b) => a - b);
+  const ys = tms.flatMap(m => [m.a[1], m.b[1]]);
+  const yEnds = [[Math.min(...ys), 1, 'south'], [Math.max(...ys), -1, 'north']];
+  for (const xt of xs) for (const [yf, dirY, endName] of yEnds) for (const s of [-1, 1]) {
+    const xo = xt + s * (44.5 + 50);
+    if (xo < 0 || xo > 12000) continue;
+    const d = nearestD(DISP.after, xt * MM, yf * MM, zc);
+    const grp = zc < 0 ? 'floor' : 'roof';
+    const part = mkPart('cleat', 'CLEAT', [], { title: `Truss-end cleat - ${kind === 'floor_truss' ? 'floor' : 'roof'} truss at x = ${fx(xt / 1000)} m, ${endName} end` });
+    cleatCount[grp]++;
+    const base = new THREE.Vector3(xt * MM, yf * MM, zc);
+    BT.cleat.add({ part, place: o => { pointAt(_P, base, grp, d); return o.makeScale(0.05, 0.003, CLEAT_H).setPosition(_P.x + s * (0.0445 + 0.025), _P.y + dirY * 0.0015, _P.z); } });
+    BT.cleat.add({ part, place: o => { pointAt(_P, base, grp, d); return o.makeScale(0.003, 0.05, CLEAT_H).setPosition(_P.x + s * (0.0445 + 0.0015), _P.y + dirY * 0.025, _P.z); } });
+  }
 }
 for (const b of Object.values(BT)) b.build(partsG);
 
@@ -989,7 +1090,10 @@ function recolourJoints() {
   });
   if (jointMesh.instanceColor) jointMesh.instanceColor.needsUpdate = true;
 }
-const tieItems = D.after.links.filter(l => l.tie).map(l => ({
+/* tie plates are drawn only for the wall joints (T2, T3); truss chord ends that pull are carried by the full-depth cleats */
+const isChordEnd = rule => /chord end to (floor|roof) rim chord/.test(rule);
+const chordEndTies = D.after.links.filter(l => l.tie && isChordEnd(l.rule)).length;
+const tieItems = D.after.links.filter(l => l.tie && !isChordEnd(l.rule)).map(l => ({
   l, da: nearestD(DISP.after, l.a[0] * MM, l.a[1] * MM, l.a[2] * MM), db: nearestD(DISP.after, l.b[0] * MM, l.b[1] * MM, l.b[2] * MM),
 }));
 const tieMesh = new THREE.InstancedMesh(GEO.box, mat(), Math.max(1, tieItems.length));
@@ -1192,7 +1296,7 @@ function recolourRig() {
 
 /* ------------------------------------------------------------------ ground, orientation, section handles */
 const groundLabels = [];
-const GROUND_Z = -0.345;
+const GROUND_Z = -0.455;
 const lineMat = new THREE.LineBasicMaterial({ color: COL.muted.clone(), transparent: true, opacity: 0.7 });
 function buildGround() {
   for (const c of [...groundG.children]) { groundG.remove(c); if (c.isGridHelper) { c.geometry.dispose(); c.material.dispose(); } }
@@ -1301,9 +1405,9 @@ function updateLegend() {
     if (after) {
       h += sw('', 'background:var(--thick)', 'Edge trusses in 1.15 mm: both floor edge trusses and the north roof edge truss');
       h += sw('', 'background:var(--strap)', 'Straps and strap bracing');
-      h += sw('', 'background:var(--head)', 'Lifting heads (saddles)');
-      h += sw('', 'background:var(--plate)', 'Cradles, joint gussets and bridging');
-      h += sw('', 'background:var(--steel)', 'Bolts, pins, packers, stop blocks');
+      h += sw('', 'background:var(--head)', 'Lifting heads (closed boxes)');
+      h += sw('', 'background:var(--plate)', 'Cradles and bridging');
+      h += sw('', 'background:var(--steel)', 'Truss-end cleats, bolts, pins, packers, stop blocks');
       h += sw('', 'background:var(--sling-load)', 'Slings and sling eyes');
     }
   } else {
@@ -1318,7 +1422,13 @@ function updateLegend() {
     h += `<div class="lg-note">1.00 = at design capacity, all safety factors included.${after ? (S.colour === 'case' ? ' Lifting parts and joint dots show their worst design case.' : ' Lifting parts: worst check in the connector table.') : ''}</div>`;
     if (after) h += `<div class="lg-note">Both floor edge trusses and the north roof edge truss are 1.15 mm steel (shown in blue under Part type).</div>`;
   }
-  if (after && S.showTies) h += sw('', 'background:var(--tie)', 'Joint held by a tie plate or truss-end cleat');
+  if (after && GUSSETS.length) {
+    const has = src => GUSSETS.some(g => g.source === src);
+    if (has('lift')) h += sw('', 'background:var(--gus-lift)', 'Joint gusset for the lift');
+    if (has('service')) h += sw('', 'background:var(--gus-service)', 'Joint gusset for the classroom floor in service (needed lifted or not)');
+    if (has('notch')) h += sw('', 'background:var(--gus-notch)', 'Joint gusset at a notched chord');
+  }
+  if (after && S.showTies) h += sw('', 'background:var(--tie)', 'Tie plate on a wall joint (T2, T3)');
   if (S.showJoints && S.colour !== 'type') h += `<div class="lg-note">Dots: joints working at 0.50 or more.</div>`;
   h += `<div class="lg-note"><span class="sw round" style="background:var(--force)"></span>Sling force, 0.1 m of arrow per kN.</div>`;
   $('#legend-body').innerHTML = h;
@@ -1330,7 +1440,7 @@ function showInfo(html) { infoBody.innerHTML = html; infoEl.hidden = false; info
 function hideInfo() { infoEl.hidden = true; S.selected = null; refreshSelection(); requestRender(); }
 $('#info-close').addEventListener('click', hideInfo);
 const row = (k, v) => `<dt>${k}</dt><dd>${v}</dd>`;
-const modeLabel = () => (S.mode === 'after' ? 'After (Rev D)' : 'Before (frame as framed)');
+const modeLabel = () => (S.mode === 'after' ? 'After (Rev D.1)' : 'Before (frame as framed)');
 function connTable(rows) {
   if (!rows.length) return '';
   return `<div class="table-wrap"><table class="mini-table"><thead><tr><th>Check</th><th class="num">Demand</th><th class="num">Capacity</th><th class="num">Use</th></tr></thead><tbody>${
@@ -1352,7 +1462,7 @@ function selectFrame(it) {
   h += row('Buckling length', `${r.L_in ?? '–'} mm in plane, ${r.L_out ?? '–'} mm out of plane`);
   h += row('Length', `${fx(len)} m`);
   h += row('Where', `x ${fx(mid.x)} m, y ${fx(mid.y)} m, z ${fx(mid.z)} m`);
-  if (other) h += row(S.mode === 'after' ? 'Before' : 'After (Rev D)', `${chip(other.util)} worst case: ${esc(caseName(other.case))}`);
+  if (other) h += row(S.mode === 'after' ? 'Before' : 'After (Rev D.1)', `${chip(other.util)} worst case: ${esc(caseName(other.case))}`);
   h += `</dl><p class="small muted">Forces are factored (× ${fx(FACTOR, 3)}) at the worst case. Buckling length is the longest unheld length.</p>`;
   if (r.util_by_case) {
     const data = act();
@@ -1363,19 +1473,26 @@ function selectFrame(it) {
   showInfo(h);
 }
 const PART_TEXT = {
-  hanger: 'A pair of 50 × 1.5 mm straps, one on each face of the edge truss, from the lifting head straight down to one cradle under the floor edge truss at this lift line. All 8 lift points are the same.',
+  hanger: 'A pair of 50 × 2.5 mm straps, one on each face of the edge truss, match-drilled as a pair, from the lifting head straight down to one cradle under the floor edge truss at this lift line. Each strap is checked for 65 % of the load (a 65 / 35 split between the two). No fixings go through a strap anywhere between its end bolts. All 8 lift points are the same.',
   vstrap: 'A pair of inclined straps from the lifting head down to a cradle.',
-  cradle: 'Two 3 mm cheek plates either side of the floor edge truss bottom chord, joined under the chord by two M16 bearing bolts with sleeves, one under each truss joint of the pair. The chord sits on the bolts through 3 mm packers, so the load goes straight into the V of the two truss diagonals and the chord does not bend. The cheeks are screwed at the first joint only; the second joint is bearing only.',
-  head: 'A saddle over the roof edge truss with no fasteners, keyed along the module by a stop block. It only holds the sling sideways and carries no weight into the roof; the weight goes down the hanger straps. The round sling eye goes straight over the free-turning sleeve on the M20 pin, so there is no shackle at the head.',
-  brace: 'Crossed strap in the floor or roof plane. It keeps the floor and roof square so the module cannot twist or rack.',
-  bridging: 'One short C89 nogging in a bridging line at truss mid-span. The line holds the truss top chords sideways so they cannot buckle sideways. No help is taken from the floor sheet or the ceiling.',
-  gusset: 'A 1.5 mm steel plate on each face of this joint, with 3 + 3 screws per face. With the framed screws it is worth 10 screws, so the joint can pass more force from member to member.',
+  cradle: 'Two 3 mm cheek plates (120 × 200 mm) either side of the floor edge truss bottom chord. They fit over the joint gusset plates, which go on first. Two M16 bearing bolts with 92 mm sleeves join the cheeks under the chord, one under each truss joint of the pair; the strap bolts sit below them. The chord sits on the bearing bolts through 3 mm packers, so the load goes straight into the V of the two truss diagonals and the chord does not bend. The cheeks are screwed at the first joint only; the second joint is bearing only. The cradle stands about 150 mm below the edge truss.',
+  head: 'A closed box with an open top: two 3 mm cheeks (120 × 480 mm) on the faces of the roof edge truss, seated on pads clear of the joint screws, joined above the truss by two 3 mm end plates. The round sling eye goes down through the open top onto the free-turning 40 mm sleeve on the M20 pin; edge protectors cover the cheek tops. No fasteners: a stop block keys the box along the module. It only holds the sling sideways and carries no weight into the roof; the weight goes down the hanger straps.',
+  brace: 'Crossed strap in the floor or roof plane. It keeps the floor and roof square so the module cannot twist or rack. Its ends sit on the truss top chords, in from the edges.',
+  bridging: 'One short C89 nogging in a bridging line at truss mid-span, set just off the panel point. The line holds the truss top chords sideways so they cannot buckle sideways. No help is taken from the floor sheet or the ceiling.',
+  gusset: 'One 1.5 mm steel plate on each face of this joint (or joint pair), 100 mm high and flush with the chord\'s outer face, with 3 + 3 screws per face. With the framed screws it is worth 10 screws.',
+  cleat: 'A folded 1.5 mm steel angle on each side of every truss end, full depth (280 mm): one leg on the inside face of the edge truss, one on the truss end upright. It carries the truss end reaction, and the pull at the truss chord ends, so those joints need no tie plates.',
 };
+const GUS_SOURCE = { lift: 'for the lift', service: 'for the 3 kPa classroom floor in service (needed whether or not the module is lifted)', notch: 'for a notched chord' };
+const GUS_REASON = { screws: '4 screws are not enough at this joint', 'lip notch': 'the notched chord is over capacity without a plate' };
+const gusSource = g => GUS_SOURCE[g.source] || String(g.source || '–');
+const gusReason = g => GUS_REASON[g.reason] || String(g.reason || '–');
 const SUFFIX_NAMES = { BASE: 'cradle body (cheeks and bolts)', SEAT0: 'first seat', SEAT1: 'second seat' };
+/* the part description: the connector table text is kept up to date, so it is used before the member's own text */
+const partDesc = part => { const r = connRows(part.cat)[0]; return r ? r.group : (part.members[0] ? part.members[0].profile : ''); };
 function footInfo(f) {
   const L = f.lay;
   let h = '<dl class="kv">';
-  h += row('Cradle', `x ${intf(f.x0 * 1000)} to ${intf(f.x1 * 1000)} mm (${intf((f.x1 - f.x0) * 1000)} mm long, 140 mm high)`);
+  h += row('Cradle', `x ${intf(f.x0 * 1000)} to ${intf(f.x1 * 1000)} mm (${intf((f.x1 - f.x0) * 1000)} mm long, cheeks ${intf(CH_H * 1000)} mm high)`);
   f.seats.forEach((s, i) => { h += row(i ? 'Second seat' : 'First seat', `x ${intf(s.x * 1000)} mm: ${s.screwed ? 'screwed seat (packer + 2 screws per cheek)' : 'bearing only (packer, no screws)'}`); });
   if (L) {
     if (Number.isFinite(L.x_strap)) h += row('Strap', `at x ${fx(L.x_strap, 1)} mm${Number.isFinite(L.x_head) ? `; lifting head at x ${fx(L.x_head, 1)} mm` : ''}`);
@@ -1398,10 +1515,13 @@ function selectPart(part) {
   S.selected = { kind: 'part', part }; refreshSelection();
   const m0 = part.members[0];
   let h = `<h3>${esc(part.title)}</h3>`;
-  h += `<p>${esc(PART_TEXT[part.cat] || '')}${part.cat === 'hanger' && part.north ? ' This is the open north (marriage) side: after set-down this strap pair and the cradle below are unbolted and taken off before the second module comes (they carry nothing in service). Marriage gap at least 15 mm.' : ''}</p>`;
+  h += `<p>${esc(PART_TEXT[part.cat] || '')}${part.cat === 'hanger' && part.north ? ' This is the open north (marriage) side: the marriage gap must be at least 15 mm, and after set-down the strap on the marriage face, the north cradle and the lifting head are taken off (hold point H9).' : ''}</p>`;
   if (part.cat === 'cradle' && part.foot) h += footInfo(part.foot);
-  if (part.cat === 'gusset' && part.g) h += `<dl class="kv">${row('Panel', esc(panelTitle(part.g.panel)))}${row('Where', `x ${fx(part.g.xyz[0] / 1000)} m, y ${fx(part.g.xyz[1] / 1000)} m, z ${fx(part.g.xyz[2] / 1000)} m`)}</dl>`;
-  if (m0) h += `<dl class="kv">${row('Role', esc(m0.role))}${row('Part', esc(m0.profile))}</dl>`;
+  if (part.cat === 'gusset' && part.g) {
+    h += `<dl class="kv">${row('What it is for', esc(cap1(gusSource(part.g))))}${row('Why it is needed', esc(cap1(gusReason(part.g))))}${row('Panel', esc(panelTitle(part.g.panel)))}${row('Where', `x ${fx(part.g.xyz[0] / 1000)} m, y ${fx(part.g.xyz[1] / 1000)} m, z ${fx(part.g.xyz[2] / 1000)} m`)}</dl>`;
+  }
+  const desc = partDesc(part);
+  if (m0 || desc) h += `<dl class="kv">${m0 ? row('Role', esc(m0.role)) : ''}${desc ? row('Part', esc(desc)) : ''}</dl>`;
   if (part.members.length === 1) {
     const m = m0;
     h += `<dl class="kv">${row('Largest pull', `${fx(m.N_max)} kN`)}${row('Smallest', `${fx(m.N_min)} kN`)}${row('Shear', `${fx(m.V)} kN`)}${row('Bending', `${fx(m.Mmax, 3)} kNm`)}${row('Main case', `${fx(m.N_R4_unfactored)} kN, not factored`)}</dl>`;
@@ -1434,9 +1554,7 @@ function selectTie(it, i) {
   const l = it.l, t = tieFor(l.rule);
   const mid = [(l.a[0] + l.b[0]) / 2000, (l.a[1] + l.b[1]) / 2000, (l.a[2] + l.b[2]) / 2000];
   let h = `<h3>${esc(t || 'Tie plate')} - ${esc(RULE_PLAIN[l.rule] || l.rule)}</h3>`;
-  h += t === 'Truss-end cleat'
-    ? '<p>This truss end would be pulled away from the edge truss during the lift. Every truss end has a folded 1.5 mm cleat on each side with 5 + 5 screws, so the cleat takes the pull and its screws work sideways (in shear). No screw is relied on in pull-out.</p><dl class="kv">'
-    : '<p>This joint between two panels would be pulled apart during the lift. A small flat steel plate is screwed across it, so the plate takes the pull and its screws work sideways (in shear). No screw is relied on in pull-out.</p><dl class="kv">';
+  h += '<p>This joint between two wall panels, or between a wall and an edge truss, would be pulled apart during the lift. A small flat steel strap is screwed across it, so the strap takes the pull and its screws work sideways (in shear). No screw is relied on in pull-out.</p><dl class="kv">';
   h += row('Largest pull', `${fx(l.N_max)} kN (factored)`);
   h += row('Shear use', `${chip(l.util)} of what its screws can carry in shear`);
   h += row('Where', `x ${fx(mid[0])} m, y ${fx(mid[1])} m, z ${fx(mid[2])} m`);
@@ -1450,7 +1568,7 @@ function showLiftInfo(pt) {
   const kN = lp.reactions_kN[S.caseId];
   let h = `<h3>Lift point ${pt} - ${pt[0] === 'S' ? 'south' : 'north'} side, x = ${fx(lp.xyz[0] / 1000, 2)} m</h3>`;
   h += `<p class="sub">${S.mode === 'after'
-    ? 'After (Rev D): the sling\'s round eye goes over the free-turning sleeve on the M20 pin inside the head saddle. Below it, a pair of hanger straps runs straight down to one cradle under the floor edge truss.'
+    ? 'After (Rev D.1): the sling\'s round eye goes down through the open top of the head box onto the free-turning sleeve on the M20 pin. Below it, a pair of hanger straps runs straight down to one cradle under the floor edge truss.'
     : 'Before: the sling goes straight onto the floor edge truss bottom chord.'}</p><dl class="kv">`;
   h += row('Sling force', kN == null ? 'not in this file for the chosen case' : `${fx(kN)} kN in "${esc(caseName(S.caseId))}"${isDesign(data, S.caseId) ? '' : ' (information case)'}`);
   if (kN != null) h += row('Factored', `${fx(kN * data.meta.factor)} kN (× ${fx(data.meta.factor, 3)})`);
@@ -1515,6 +1633,29 @@ canvas.addEventListener('pointerup', e => {
   const moved = Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y); downAt = null;
   if (moved < 6) onPick(pick(e.clientX, e.clientY));
 });
+
+/* hover (mouse only): say what a joint gusset is for and why it is needed */
+const tipEl = $('#tip');
+let hoverQueued = false, hoverXY = null;
+function hoverAt(cx, cy) {
+  if (S.mode !== 'after' || !BT.gusset.items.length || !partsG.visible) { tipEl.hidden = true; return; }
+  const h = pick(cx, cy);
+  if (!h || h.object !== BT.gusset.mesh) { tipEl.hidden = true; return; }
+  const g = BT.gusset.items[h.instanceId].part.g;
+  tipEl.innerHTML = `<b>Joint gusset</b> ${esc(gusSource(g))}.<br>${esc(cap1(gusReason(g)))}.`;
+  const r = viewer.getBoundingClientRect();
+  tipEl.style.left = Math.max(4, Math.min(r.width - 270, cx - r.left + 14)) + 'px';
+  tipEl.style.top = Math.max(4, Math.min(r.height - 60, cy - r.top + 14)) + 'px';
+  tipEl.hidden = false;
+}
+canvas.addEventListener('pointermove', e => {
+  if (e.buttons || drag || e.pointerType !== 'mouse') { tipEl.hidden = true; return; }
+  hoverXY = [e.clientX, e.clientY];
+  if (hoverQueued) return;
+  hoverQueued = true;
+  requestAnimationFrame(() => { hoverQueued = false; if (hoverXY) hoverAt(hoverXY[0], hoverXY[1]); });
+});
+canvas.addEventListener('pointerleave', () => { hoverXY = null; tipEl.hidden = true; });
 
 /* ------------------------------------------------------------------ camera flights */
 let fly = null;
@@ -1613,7 +1754,7 @@ function loop(now) {
 /* ------------------------------------------------------------------ mode switch */
 const modeHint = $('#mode-hint');
 const MODE_HINT = {
-  after: 'After (Rev D): the final design with all the lifting parts.',
+  after: 'After (Rev D.1): the final design with all the lifting parts.',
   before: 'Before: the frame exactly as framed (2 screws per joint, 0.95 mm edge trusses), no lifting parts, slings straight onto the floor edge truss bottom chords at the same 8 lift points. It was checked with its own list of cases, shown in the cases table.',
 };
 async function ensureBefore() {
@@ -1652,9 +1793,11 @@ function buildCaseSelect() {
   const data = act(), list = data.main_cases || [];
   if (!list.includes(S.caseId)) S.caseId = list.includes('R4_equalised') ? 'R4_equalised' : list[0];
   const opt = c => `<option value="${esc(c)}"${c === S.caseId ? ' selected' : ''}>${esc(caseName(c))}${isDesign(data, c) ? '' : ' (information only)'}</option>`;
-  const des = list.filter(c => isDesign(data, c)), inf = list.filter(c => !isDesign(data, c));
-  caseSel.innerHTML = (des.length ? `<optgroup label="Design cases">${des.map(opt).join('')}</optgroup>` : '')
-    + (inf.length ? `<optgroup label="Information only (not design)">${inf.map(opt).join('')}</optgroup>` : '');
+  /* grouped by family: rig, tilt, lean, tilt + lean, twist, centre-of-gravity envelope, then the information cases */
+  caseSel.innerHTML = FAMILY_ORDER.map(fam => {
+    const ids = list.filter(c => caseFamily(c, data) === fam);
+    return ids.length ? `<optgroup label="${esc(FAMILY_NAMES[fam])}">${ids.map(opt).join('')}</optgroup>` : '';
+  }).join('');
 }
 buildCaseSelect();
 caseSel.addEventListener('change', () => { S.caseId = caseSel.value; updateMarkers(); if (S.colour === 'case') recolour(); else updateLegend(); requestRender(); });
@@ -1711,81 +1854,108 @@ function abTxt(r) {
   const list = bits.length > 1 ? bits.slice(0, -1).join(', ') + ' and ' + bits[bits.length - 1] : bits[0];
   return `${list} over capacity (${worst})`;
 }
-/* one sentence per ablation run, left out when the run is not in the file */
-const abSent = (id, lead) => { const r = ablById[id]; return r && r.members_over != null ? ` ${lead}: ${abTxt(r)}.` : ''; };
-const tiltCount = Object.keys(D.after.cases).filter(k => /^T\d/.test(k) && isDesign(D.after, k)).length;
+/* ablation runs are found by id, or by words in their name, so renumbered runs still match */
+const abFind = (id, re) => ablById[id] || (re ? D.abl.find(r => re.test(String(r.name || '')) || re.test(String(r.id))) : null) || null;
+const abS = (r, lead) => (r && r.members_over != null ? ` ${lead}: ${abTxt(r)}.` : '');
+const AB_RUNS = {
+  screws: abFind('A1_framed_screws', /no added screws|joints as framed/i),
+  gussets: abFind('A2_no_gussets', /no (joint )?gussets/i),
+  bridging: abFind('A3_no_bridging', /no bridging/i),
+  bracing: abFind('A4_no_plane_bracing', /plane strap bracing|no .*plane .*bracing/i),
+  between: abFind('A5_seat_between_joints', /between truss joints|off the joint pairs/i),
+  north095: abFind('A6_north_trusses_095', /0\.95 mm/i),
+  oneHanger: abFind('A7_single_inner_hanger', /one hanger strap|single inner/i),
+  edge100: abFind('A8_edge_trusses_100', /1\.00 mm/i),
+  lining: abFind('S1_lining_credit', /lining/i),
+  twistLen: abFind('S2_twist_length_out', /twist buckling|no credit for joint screws/i),
+  notch: abFind('S3_no_notch_credit', /notch/i),
+  before: abFind('B0_frame_only', /^BEFORE/i),
+};
+const designIds = Object.keys(D.after.cases).filter(k => isDesign(D.after, k));
+const famCount = fam => designIds.filter(k => caseFamily(k, D.after) === fam).length;
+const leanPct = numIn(caseLabel('L1_squeeze_y'), /([\d.]+) ?%/, '');
+const tiltDeg = numIn(caseLabel('T1_roll_S'), /by ([\d.]+) ?deg/, '2');
+const cgAlong = numIn(caseLabel('CG_NE'), /(\d+) ?mm along/, ''), cgAcross = numIn(caseLabel('CG_NE'), /(\d+) ?mm across/, '');
+const twistMm = numIn(caseLabel('TW1_twist'), /set (\d+) ?mm/, '');
 const thickPanels = [...new Set(D.after.members.filter(m => m.kind !== 'added' && m.t > 1).map(m => m.panel))];
 const boltRow = D.conn.rows.find(r => /bearing bolt bending/i.test(r.item));
 const bearRow = D.conn.rows.find(r => /^bearing under one truss joint/i.test(r.item));
 const tieTop = connRows('tie').sort((p, q) => q.util - p.util)[0];
-const svcBear = D.svc.layouts && D.svc.layouts.bearer && D.svc.layouts.bearer.ULS1;
-const PANEL_KIND = {};
-for (const m of D.after.members) if (m.kind !== 'added') PANEL_KIND[m.panel] = m.kind;
-const floorGussets = GUSSETS.filter(g => PANEL_KIND[g.panel] === 'floor_truss').length;
-const liftGussets = GUSSETS.length - floorGussets;
+const SVC = (D.svc && D.svc.layouts) || {};
+const svcPack = SVC.packers && SVC.packers.ULS1, svcPiers = SVC.piers && SVC.piers.ULS1;
+const gusBy = (k, v) => GUSSETS.filter(g => g[k] === v).length;
+const notchedMembers = D.after.members.filter(m => m.kind !== 'added' && /lip-notch/.test(m.mode || '')).length;
+/* bracing and bridging positions, read from the members */
+const firstBrace = D.after.members.find(m => m.type === 'PLANE BRACE' && m.a[2] < 0);
+const braceInset = firstBrace ? Math.round(Math.min(firstBrace.a[1], firstBrace.b[1]) - 44.5) : null;
+const firstBridge = D.after.members.find(m => m.type === 'BRIDGING' && m.a[2] < 0);
+const ftChord = D.after.members.find(m => m.kind === 'floor_truss' && m.type === 'TOP CHORD');
+const bridgeOff = firstBridge && ftChord ? Math.round(Math.abs(firstBridge.a[1] - (ftChord.a[1] + ftChord.b[1]) / 2)) : null;
 const EVOLUTION = 'Rev D first used A-frames on the south side; they were replaced by vertical hangers because the inclined straps clashed with the truss-end cleats.';
 const CARDS = [
   { key: 'rig', title: 'The rig (spreader-beam cascade)', view: 'rig', focus: { rig: true },
-    what: 'Spreader beams under the crane hook: one top beam, two middle beams, four cross beams and eight vertical slings, one to each lift point. Shackles are used only at the beam ends; at the module, each sling\'s round eye goes straight over the sleeve on the head pin.',
-    does: `Each beam hangs from one pin, so it tips until it balances, like a see-saw. That fixes each sling's share of the weight by simple balance, not by the sling lengths. The pick points are set to the centre of gravity measured with load cells before the first lift. The open north side makes the module heavier on the south side: in the main case each south point carries about ${fx(sAvg, 1)} kN and each north point about ${fx(nAvg, 1)} kN at the rated ${fx(META.rated_kg / 1000, 1)} t. The design also checks the module hanging 2° out of level (${tiltCount} cases); on site the lift stops at 1.5° (hold point H5).`,
-    without: `A rigid lifting frame with eight fixed slings is not allowed. With a rigid frame, one sling 10 mm short loads some joints to ${fx(r6Joint, 1)} times and some members to ${fx(r6Mem, 1)} times their design capacity (cases R6, information only). The cascade must be certified to AS 4991 and proof tested (hold point H7).`,
+    what: 'Spreader beams under the crane hook: one top beam, two middle beams, four cross beams and eight vertical slings, one to each lift point. The drops hang straight down at the same spacing as the heads. Shackles are used only at the beam ends; at the module, each sling\'s round eye goes down into the head box onto the sleeve on the pin.',
+    does: `Each beam hangs from one pin and is free to rotate, so it tips until it balances, like a see-saw. That fixes each sling's share of the weight by simple balance, not by the sling lengths. Each cross beam is set to its own line's split, within 25 mm. The open north side makes the module heavier on the south side: in the main case each south point carries about ${fx(sAvg, 1)} kN and each north point about ${fx(nAvg, 1)} kN at the rated ${fx(META.rated_kg / 1000, 1)} t. The design checks the module hanging ${tiltDeg}° out of level (${famCount('tilt')} cases), the slings leaning${leanPct ? ` ${leanPct} %` : ''} (${famCount('lean')}), both together (${famCount('tiltlean')}), the cross beams set${twistMm ? ` ${twistMm} mm` : ''} off so the module twists (${famCount('twist')}), and the centre of gravity at the corners of its envelope${cgAlong ? ` (${cgAlong} mm along, ${cgAcross} mm across)` : ''}, level and tilted (${famCount('cog')}).`,
+    without: `A rigid lifting frame with eight fixed slings is not allowed. With a rigid frame, one sling 10 mm short loads some joints to ${fx(r6Joint, 1)} times and some members to ${fx(r6Mem, 1)} times their design capacity (cases R6, information only). On site the lift stops if any drop is more than 4 % off its design share, or the module hangs more than 1.5° out of level (hold point H5).`,
     extra: '<div class="btnrow"><button class="btn mini" type="button" data-act="play">Play lift</button></div>' },
-  { key: 'head', title: 'Lifting head (saddle)', view: 'head', focus: { parts: ['head'] },
-    what: 'A folded 3 mm steel saddle that sits over the roof edge truss at each of the 8 lift points, with no fasteners, keyed along the module by a stop block. It carries an M20 lifting pin with a free-turning 40 mm sleeve.',
-    does: 'The hanger straps hang from the head, so the sling pulls on the straps, not on the roof. The saddle only holds the sling sideways; it carries no weight into the roof. The sling\'s round eye goes straight over the sleeve, so there is no shackle at the head.',
+  { key: 'head', title: 'Lifting head (closed box)', view: 'head', focus: { parts: ['head'] },
+    what: 'A closed box with an open top at each of the 8 lift points: two 3 mm cheeks (120 × 480 mm) on the faces of the roof edge truss, joined above the truss by two 3 mm end plates. The cheeks sit on pads clear of the joint screws, and edge protectors cover the cheek tops. An M20 pin with a free-turning 40 mm sleeve crosses the box.',
+    does: 'The round sling eye goes down through the open top onto the sleeve, so there is no shackle at the head. The hanger straps hang from the head, so the sling pulls on the straps, not on the roof. There are no fasteners: the box only holds the sling sideways, and a stop block keys it along the module. It carries no weight into the roof.',
     without: `It is the point the crane connects to, so there is no run without it. Its highest check in the connector table is ${fx(CONN_MAX.head)} of capacity.` },
   { key: 'hanger', title: 'Hanger straps (all 8 lift points)', view: 'hanger', focus: { parts: ['hanger'] },
-    what: 'All 8 lift points are the same: a vertical pair of 50 × 1.5 mm steel straps, one on each face of the edge truss, runs from the head straight down to one cradle under the floor edge truss at the lift line.',
-    does: `The straps carry the lift point's share of the weight from the cradle up to the head. A strap on each face keeps the pull centred on the edge truss, so the truss is not twisted. ${EVOLUTION}`,
-    without: `The hanger straps' highest check is ${fx(CONN_MAX.hanger)} of capacity.${abSent('A7_single_inner_hanger', 'With one strap on the inside face only')} Without any lifting parts (the Before frame, with the slings straight onto the floor edge truss): ${b0Txt()}.` },
-  { key: 'cradle', title: 'Cradles at the truss joints', view: 'cradle', focus: { parts: ['cradle'] },
-    what: 'Under each lift point a cradle sits under the floor edge truss bottom chord, at a pair of truss joints: two 3 mm cheek plates, 120 mm long, joined under the chord by two M16 bolts with sleeves, one under each joint, each with a 3 × 40 × 89 mm bearing packer. The cheeks are screwed at the first joint only; the second joint is bearing only. The cradles sit clear of the truss-end cleats.',
-    does: 'The chord sits on the bolts right under the truss joints, so the load goes straight into the V of the two truss diagonals and the chord does not bend. Click a cradle to see its seats, the push on each seat and its clearances.',
-    without: `${abSent('A5_seat_between_joints', 'With the lift points half a truss panel off the joint pairs, so the cradles bear between the truss joints').trim()}${boltRow ? ` Highest cradle checks: M16 bearing bolt ${fx(boltRow.util)}` : ''}${bearRow ? `, bearing under a truss joint ${fx(bearRow.util)}` : ''}.` },
+    what: 'All 8 lift points are the same: a vertical pair of 50 × 2.5 mm steel straps, one on each face of the edge truss, runs from the head straight down to one cradle under the floor edge truss. The two straps are match-drilled as a pair.',
+    does: `The straps carry the lift point's share of the weight from the cradle up to the head. Each strap is checked for 65 % of the load (a 65 / 35 split), in case the two do not share evenly. No fixings go through a strap anywhere between its end bolts (hold point H3). ${EVOLUTION}`,
+    without: `The hanger straps' highest check is ${fx(CONN_MAX.hanger)} of capacity.${abS(AB_RUNS.oneHanger, 'With one strap on the inside face only')}${AB_RUNS.before ? ` Without any lifting parts (the Before frame, with the slings straight onto the floor edge truss): ${abTxt(AB_RUNS.before)}.` : ''}` },
+  { key: 'cradle', title: 'Cradles at the truss joints', view: 'cradle', focus: { parts: ['cradle', 'gusset'] },
+    what: 'Under each lift point a cradle sits under the floor edge truss bottom chord, at a pair of truss joints: two 3 mm cheeks (120 × 200 mm) that fit over the joint gusset plates (the gussets go on first), joined under the chord by two M16 bolts with 92 mm sleeves, one under each joint, each on a 3 × 40 × 89 mm bearing packer. The strap bolts sit below the bearing bolts. The cradle stands 153 mm below the edge truss.',
+    does: 'The chord sits on the bearing bolts right under the truss joints, so the load goes straight into the V of the two truss diagonals and the chord does not bend. The cheeks are screwed at the first joint only; the second joint is bearing only. The cradles sit clear of the truss-end cleats. Click a cradle to see its seats, the push on each seat and its clearances.',
+    without: `${abS(AB_RUNS.between, 'With the lift points half a truss panel off the joint pairs, so the cradles bear between the truss joints').trim()}${boltRow ? ` Highest cradle checks: M16 bearing bolt ${fx(boltRow.util)}` : ''}${bearRow ? `, bearing under a truss joint ${fx(bearRow.util)}` : ''}. Hold point H4 includes a load test of a complete lift point with both cradle seats.` },
   { key: 'marriage', title: 'The marriage side (north)', view: 'nhanger', focus: { parts: ['hanger', 'cradle', 'head'] },
     what: 'The north side is open: it joins the second module, with short wall piers at the lift lines. The two modules meet north face to north face, and their lift lines fall opposite each other.',
-    does: 'So after set-down, before the second module comes, the 4 north cradles, the marriage-face hanger straps and the heads are unbolted and taken off (they carry nothing in service and are reused). Marriage gap at least 15 mm (hold point).',
-    without: abSent('A7_single_inner_hanger', 'With one strap on the inside face only (nothing on the marriage face)').trim() || 'There was no separate run for this.' },
+    does: 'So after set-down, before the second module comes, the lifting heads, the 4 north cradles and the marriage-face hanger straps are taken off (hold point H9). They carry nothing in service. The marriage gap must be at least 15 mm.',
+    without: abS(AB_RUNS.oneHanger, 'With one strap on the inside face only (nothing on the marriage face)').trim() || 'There was no separate run for this.' },
   { key: 'thick', title: 'Edge trusses in 1.15 mm steel', view: 'thick', focus: { frame: m => m.t > 1 },
     what: `Both floor edge trusses and the north roof edge truss (panels ${thickPanels.join(', ')}) are rolled in 1.15 mm steel instead of 0.95 mm. "Part type" colours show them in blue.`,
     does: 'The edge trusses are the main beams of the lift: they carry the module between the lift points. Thicker steel makes their members and joints stronger.',
-    without: abSent('A6_north_trusses_095', 'With the north edge trusses left at 0.95 mm').trim() || 'There was no separate run for this.' },
+    without: `${abS(AB_RUNS.north095, 'With the north edge trusses left at 0.95 mm')}${abS(AB_RUNS.edge100, 'With all three edge trusses at 1.00 mm')}`.trim() || 'There was no separate run for this.' },
   { key: 'screws', title: 'Joint gussets, screws and cleats', view: 'screws',
-    focus: { frame: m => m.kind === 'rim_truss' || m.kind === 'roof_rim', joints: j => j.screws >= 4, parts: ['gusset'] },
-    what: `Joint gussets: a 1.5 mm plate on each face of a joint, with 3 + 3 screws, worth 10 screws.${GUSSETS.length ? ` There are ${GUSSETS.length}: ${liftGussets} for the lift, at joints near the lift points, and ${floorGussets} for the 3 kPa classroom floor in service, at joints near the ends of the floor trusses.` : ''} 4 screws at the other truss joints, and folded cleats with 5 + 5 screws at every truss end.` +
+    focus: { frame: m => m.kind === 'rim_truss' || m.kind === 'roof_rim', joints: j => j.screws >= 4, parts: ['gusset', 'cleat'] },
+    what: `Joint gussets: one 1.5 mm plate on each face of a joint or joint pair, 100 mm high and flush with the chord's outer face, with 3 + 3 screws per face (worth 10 screws).${GUSSETS.length ? ` There are ${GUSSETS.length}: ${gusBy('source', 'lift')} for the lift and ${gusBy('source', 'service')} for the 3 kPa classroom floor in service (needed whether or not the module is lifted). ${gusBy('reason', 'screws')} are there because 4 screws are not enough, ${gusBy('reason', 'lip notch')} because a notched chord is over capacity without a plate.` : ''} 4 screws at the other truss joints, and a full-depth (280 mm) folded cleat each side of every truss end.` +
       (SCREWS ? ` In all, ${intf(SCREWS.extra)} screws are added to the ${intf(SCREWS.as_framed)} as framed.` : ''),
-    does: 'Every joint passes force from member to member through its screws, and each screw can only take so much. The screws at the truss joints go through both flanges, which also holds the members against twisting.',
-    without: `${abSent('A1_framed_screws', 'With no added screws or gussets (joints as framed)')}${abSent('A2_no_gussets', 'With 4-screw joints but no gussets')}${abSent('S2_twist_length_out', 'If the joint screws were not counted as holding the members against twisting')} So the truss joint screws must go through both flanges (hold point).`.trim() },
-  { key: 'ties', title: 'Tie plates and truss-end cleats', view: 'ties', focus: { ties: true },
-    what: `Small flat steel straps screwed across panel joints that would otherwise pull apart: T2 ties the wall plates to the edge trusses and T3 crosses wall panel seams. At the truss ends the folded cleats do the same job. ${ENV.links_tie} joints are held this way (teal markers).`,
-    does: 'The plate or cleat carries the pull and its screws work sideways (in shear), so no screw is relied on to resist pulling out.',
+    does: 'Every joint passes force from member to member through its screws, and each screw can only take so much. The screws at the truss joints go through both flanges, which also holds the members against twisting. The cleats carry each truss end into the edge truss.',
+    without: `${abS(AB_RUNS.screws, 'With no added screws or gussets (joints as framed)')}${abS(AB_RUNS.gussets, 'With 4-screw joints but no gussets')}${abS(AB_RUNS.twistLen, 'If the joint screws were not counted as holding the members against twisting')} So the truss joint screws must go through both flanges, and the cheek screws need a drill point rated for cheek, gusset and chord together (hold point H3).`.trim() },
+  { key: 'notch', title: 'Lip notches', view: 'home', focus: { frame: m => /lip-notch/.test(m.mode || '') },
+    what: `Where Framer cuts the lips off a member so that a web member or a stud can nest in it, the member is checked as the lipless section at the notch.${notchedMembers ? ` ${notchedMembers} members are governed by that check (highlighted).` : ''}`,
+    does: `The design takes credit for two things: the nested member holds the cut flange edges, and at gusseted joints the plates make the section. Lip notches are checked in service exactly as in the lift; the floor-truss gussets found by that check are listed as "for the floor in service, lip notch"${gusBy('reason', 'lip notch') ? ` (${gusBy('reason', 'lip notch')})` : ''}.`,
+    without: `Without that credit${AB_RUNS.notch ? ` (sensitivity ${AB_RUNS.notch.id.split('_')[0]}): ${abTxt(AB_RUNS.notch)}` : ', members go over (sensitivity S3)'}. So the engineer load-tests a notched chord joint (hold point H4).` },
+  { key: 'ties', title: 'Tie plates and truss-end cleats', view: 'ties', focus: { ties: true, parts: ['cleat'] },
+    what: `Small flat steel straps screwed across wall joints that would otherwise pull apart: T2 ties the wall plates to the edge trusses and T3 crosses wall panel seams. ${tieItems.length} wall joints have them (teal markers). At the truss ends the full-depth cleats carry the pull instead (${chordEndTies} truss chord ends), so there are no tie plates there.`,
+    does: 'The strap or cleat carries the pull and its screws work sideways (in shear), so no screw is relied on to resist pulling out.',
     without: `These joints would rely on screws pulling out of thin steel, which this design does not allow.${tieTop ? ` The highest tie check is ${fx(tieTop.util)} (${shortGroup(tieTop.group)}: ${tieTop.item}).` : ''}` },
   { key: 'bridging', title: 'Bridging and strap bracing', view: 'bridging', focus: { parts: ['bridging', 'brace'] },
-    what: 'A line of short C89 noggings across the floor trusses and another across the roof trusses at mid-span (bridging), and 30 × 1.0 mm steel straps crossed in the floor and roof planes (bracing).',
-    does: 'The bridging holds the truss top chords sideways so they cannot buckle sideways. The bracing makes the floor and roof act as stiff flat plates, so the box cannot twist or go out of square. No help is taken from linings or the floor sheet.',
-    without: `${abSent('A3_no_bridging', 'No bridging')}${abSent('A4_no_plane_bracing', 'No strap bracing')}`.trim() || 'There was no separate run for this.' },
+    what: `A line of short C89 noggings across the floor trusses and another across the roof trusses at mid-span (bridging)${bridgeOff ? `, set ${bridgeOff} mm off the panel point` : ''}, and 30 × 1.0 mm steel straps crossed in the floor and roof planes (bracing)${braceInset ? `, with their ends on the truss top chords ${braceInset} mm in from the edges` : ''}.`,
+    does: 'The bridging holds the truss top chords sideways so they cannot buckle sideways. The bracing makes the floor and roof act as stiff flat plates, so the box cannot twist or go out of square. Its ends sit clear of the wall bottom tracks and the head boxes. No help is taken from linings or the floor sheet.',
+    without: `${abS(AB_RUNS.bridging, 'No bridging')}${abS(AB_RUNS.bracing, 'No strap bracing')}`.trim() || 'There was no separate run for this.' },
   { key: 'rely', title: 'Hold points: what the design depends on', view: 'home', focus: null,
     list: [
-      `H1: weigh the module with load cells and find its centre of gravity before the first lift. The weight × ${META.factors.weight} must not be more than ${fx(META.rated_kg / 1000, 1)} t, and the measured centre of gravity sets the pick points of the rig.`,
+      `H1: weigh the module with load cells (within ±1 %) and find its centre of gravity before the first lift. The weight × ${META.factors.weight} must not be more than ${fx(META.rated_kg / 1000, 1)} t, and the centre of gravity must be within ${cgAcross || '90'} mm across and ${cgAlong || '150'} mm along of its design position (the envelope the design checks). If the mass is more than 1.2 × the itemised mass, the in-service check is run again.`,
       'H2: coil certificates for the lift-critical steel: grade, and measured thickness at least 95 % of nominal.',
-      'H3: screw brand fixed, with a tested shear strength of at least 5.7 kN.',
-      'H4: proof-load test of one complete lift point (cradle, straps and head) before first use.',
-      'H5: hang-angle stop at 1.5°: stop the lift if the module hangs more than 1.5° out of level (the design checks 2°).',
+      'H3: no fixings through the hanger straps between their end bolts; the cheek screws have a drill point rated for cheek, gusset and chord together.',
+      'H4: load tests before first use: a complete lift point including both cradle seats, and a notched chord joint.',
+      'H5: stop the lift if any drop is more than 4 % off its design share, or the module hangs more than 1.5° out of level.',
       'H6: lift conditions on the lift plan: crane on outriggers, no travelling with the load, steady hoisting, tag lines, wind limit.',
-      'H7: the cascade (beams, slings, shackles) is certified to AS 4991 and proof tested.',
-      `Land only on continuous, levelled bearers (within ±2 mm) under both floor edge trusses, never on corners.${svcBear ? ` On continuous bearers the in-service check passes (worst member ${fx(svcBear.max_member)}, worst joint ${fx(svcBear.max_joint)}); on piers at 1.8 m it does not.` : ''}`,
-      'Studs seated on the bottom track: end gap at most 1 mm.',
-      'Marriage gap at least 15 mm.',
-      'Truss joint screws go through both flanges.',
-      `No rigid lifting frame: only the balanced beam cascade. No strength is taken from linings, cladding or the floor sheet${ablById.S1_lining_credit ? ` (counting them would give a worst member of ${fx(ablById.S1_lining_credit.max_member)})` : ''}.`,
+      `H7: the drops are spaced like the heads and hang within 2° of vertical; each cross beam is set to its own line's split within 25 mm; the beams are free to rotate. ${D.conn.rigging && /AS 4991/.test(D.conn.rigging.note || '') ? 'The rig is lifting equipment: certified to AS 4991, proof tested and rated.' : ''}`.trim(),
+      `H8: land and store the module on a packer under every floor-truss end, on both sides, shimmed to full bearing; never on corners.${svcPack ? ` On packers the in-service check passes (worst member ${fx(svcPack.max_member)}, worst joint ${fx(svcPack.max_joint)})${svcPiers ? `; on piers at 1.8 m it does not` : ''}.` : ''}`,
+      'H9: after set-down, take off the lifting heads, the 4 north cradles and the marriage-face straps.',
+      'Studs seated on the bottom track: end gap at most 1 mm. Marriage gap at least 15 mm. Truss joint screws through both flanges.',
+      `No rigid lifting frame: only the balanced beam cascade. No strength is taken from linings, cladding or the floor sheet${AB_RUNS.lining ? ` (counting them would give a worst member of ${fx(AB_RUNS.lining.max_member)})` : ''}.`,
     ] },
 ];
-function b0Txt() { const r = ablById.B0_frame_only || (D.before && { ...D.before.envelope }); return r ? abTxt(r) : 'no result in the file'; }
 const cardsEl = $('#cards');
 cardsEl.innerHTML = CARDS.map((c, i) => `<li class="card" data-i="${i}">
   <button class="card-head" type="button" aria-expanded="false" aria-controls="card-body-${i}"><span class="num">${i + 1}</span><span>${esc(c.title)}</span></button>
   <div class="card-body" id="card-body-${i}" hidden>
-    ${c.list ? `<ul>${c.list.map(t => `<li>${esc(t)}</li>`).join('')}</ul><p class="small muted">These are the hold points and site rules of the Rev D design. The design depends on them.</p>`
+    ${c.list ? `<ul>${c.list.map(t => `<li>${esc(t)}</li>`).join('')}</ul><p class="small muted">These are the hold points and site rules of the Rev D.1 design. The design depends on them.</p>`
       : `<p><b>What it is.</b> ${esc(c.what)}</p><p><b>What it does.</b> ${esc(c.does)}</p><p class="without"><b>Without it.</b> ${esc(c.without)}</p>`}
     ${c.extra || ''}
   </div></li>`).join('');
@@ -1847,17 +2017,32 @@ function buildChanges() {
   const info = Object.keys(D.after.cases).filter(k => !isDesign(D.after, k));
   const items = [
     `<b>Lift points moved</b> onto the middle of a pair of edge-truss joints: x = ${xs} m, on both sides.`,
-    '<b>Lifting heads are saddles</b> that sit over the roof edge truss with no fasteners, each keyed along the module by a stop block. They carry no weight into the roof. The sling eye goes straight over the sleeve on the head pin; shackles are used only at the beam ends.',
-    '<b>All 8 lift points are the same.</b> A vertical pair of hanger straps (2 × 50 × 1.5 mm, one on each face) runs from the saddle head straight down to one 120 mm cradle at the truss joint pair under the lift line.',
+    '<b>Lifting heads are closed boxes</b> with an open top: two 3 mm cheeks (120 × 480 mm) on the faces of the roof edge truss, joined above the truss by two 3 mm end plates, seated on pads clear of the joint screws, with edge protectors on the cheek tops. No fasteners; a stop block keys each head along the module, and it carries no weight into the roof. The round sling eye goes down through the open top onto the 40 mm sleeve on the M20 pin; shackles are used only at the beam ends.',
+    '<b>All 8 lift points are the same.</b> A vertical pair of 50 × 2.5 mm hanger straps (one on each face, match-drilled, each checked for 65 % of the load) runs from the head straight down to one cradle. No fixings go through a strap anywhere between its end bolts.',
     `<b>Why no A-frames.</b> ${EVOLUTION}`,
-    '<b>Cradles at truss joints.</b> Two 3 mm cheek plates under the floor edge truss bottom chord are joined by two M16 bolts with sleeves, one under each joint of a joint pair, each on a 3 mm bearing packer. The load goes straight into the V of the two truss diagonals, so the chord does not bend. The cradles sit clear of the truss-end cleats.',
-    '<b>Marriage side.</b> The modules meet north face to north face with their lift lines opposite each other, so after set-down the 4 north cradles, the marriage-face hanger straps and the heads are unbolted and taken off (they carry nothing in service). Marriage gap at least 15 mm.',
+    '<b>Cradles at truss joints.</b> Two 3 mm cheeks (120 × 200 mm) fit over the joint gusset plates under the floor edge truss, joined by two M16 bearing bolts with 92 mm sleeves, one under each joint of a joint pair; the strap bolts sit below them. The cradle stands 153 mm below the edge truss. The load goes straight into the V of the two truss diagonals, so the chord does not bend, and the cradles sit clear of the truss-end cleats.',
+    `<b>Joint gussets.</b> One plate per joint or joint pair on each face, 100 mm high and flush with the chord's outer face.${GUSSETS.length ? ` ${GUSSETS.length} in all: ${gusBy('source', 'lift')} for the lift and ${gusBy('source', 'service')} for the 3 kPa classroom floor in service (needed whether or not the module is lifted; shown in a different colour).` : ''}${SCREWS ? ` ${intf(SCREWS.extra)} screws are added to the ${intf(SCREWS.as_framed)} as framed.` : ''}`,
+    `<b>Truss-end cleats</b> are full depth (280 mm) at every truss end, and carry the pull at the truss chord ends, so tie plates are now used only on the wall joints (T2, T3).`,
     `<b>Thicker edge trusses.</b> Both floor edge trusses and the north roof edge truss (${thickPanels.join(', ')}) are rolled in 1.15 mm steel.`,
-    `<b>Joints.</b> Joint gussets (worth 10 screws each)${GUSSETS.length ? ` at ${GUSSETS.length} joints: ${liftGussets} for the lift and ${floorGussets} for the 3 kPa classroom floor in service` : ''}. 4 screws at the other truss joints, and truss-end cleats with 5 + 5 screws.${SCREWS ? ` ${intf(SCREWS.extra)} screws are added to the ${intf(SCREWS.as_framed)} as framed.` : ''} Bridging lines and strap bracing stay.`,
+    `<b>Bracing and bridging.</b> The strap bracing ends sit on the truss top chords${braceInset ? ` ${braceInset} mm in from the edges` : ''}, clear of the wall tracks and the head boxes; the bridging lines are set${bridgeOff ? ` ${bridgeOff} mm` : ''} off the panel point.`,
+    '<b>Lip notches.</b> Where a member\'s lips are cut so another member can nest, it is checked as the lipless section, with credit for the nested member and, at gusseted joints, the plates. A notched chord joint is load-tested (hold point H4).',
+    `<b>Load cases.</b> ${designCount(D.after)} design cases: the rig (${famCount('rig')}), tilt (${famCount('tilt')}), lean${leanPct ? ` at ${leanPct} %` : ''} (${famCount('lean')}), tilt + lean (${famCount('tiltlean')}), twist (${famCount('twist')}) and the centre-of-gravity envelope (${famCount('cog')}). ${info.length} cases are information only.`,
+    '<b>Landing.</b> Land and store on a packer under every floor-truss end, on both sides, shimmed to full bearing; never on corners (hold point H8). After set-down the heads, the 4 north cradles and the marriage-face straps come off (hold point H9).',
     '<b>No temporary parts</b> any more.',
-    `<b>Load cases.</b> ${designCount(D.after)} design cases now include the module hanging 2° out of level (${tiltCount} cases). The cases with sling shares 10 % off, a sling short on a rigid rig and a slack sling (${info.length} cases) are information only.`,
   ];
   $('#changes').innerHTML = items.map(t => `<li>${t}</li>`).join('');
+}
+/* the second independent review of Rev D, and how Rev D.1 answers each item (from data/review_revD.json) */
+function buildReview() {
+  const wrap = $('#review-wrap'), R = D.review;
+  if (!R || !Array.isArray(R.items) || !R.items.length) { wrap.hidden = true; return; }
+  wrap.hidden = false;
+  const isBlock = i => /block/i.test(i.severity || '');
+  const nB = R.items.filter(isBlock).length, nF = R.items.length - nB;
+  const item = i => `<details class="review-item"><summary><span class="sev ${isBlock(i) ? 'blocking' : 'fix'}">${esc(isBlock(i) ? 'Blocking' : cap1(i.severity || 'Should fix'))}</span>${esc(i.title)}</summary><p><b>What changed:</b> ${esc(i.action)}</p></details>`;
+  $('#review').innerHTML = `<p>${esc(R.verdict || '')}</p>${R.reviewed ? `<p class="small muted">Reviewed: ${esc(R.reviewed)}</p>` : ''}`
+    + `<p><b>${pl(nB, 'blocking item')}</b> and <b>${nF} should-fix ${nF === 1 ? 'item' : 'items'}</b>. Open an item to see what changed.</p>`
+    + R.items.filter(isBlock).map(item).join('') + R.items.filter(i => !isBlock(i)).map(item).join('');
 }
 function buildKeys() {
   const m = META, e = ENV, rg = D.conn.rigging;
@@ -1869,16 +2054,15 @@ function buildKeys() {
     ['Total factor', fx(m.factor, 3), `weight ${m.factors.weight} × centre of gravity ${m.factors.cog} × dynamic ${m.factors.dynamic} × load ${m.factors.load}`],
     ['Worst member', fx(e.max_member), `of design capacity over all ${designCount(D.after)} design cases; ${pl(e.members_over, 'member')} over`],
     ['Worst joint', fx(e.max_joint), `of design capacity; ${pl(e.joints_over, 'joint')} over`],
-    ['Connections between panels', fx(maxLinkShear), `highest shear use; ${e.links_tie} joints in tension are held by tie plates or cleats`],
+    ['Connections between panels', fx(maxLinkShear), `highest shear use; ${tieItems.length} wall joints have tie plates, ${chordEndTies} truss chord ends are carried by the cleats`],
   ];
   if (top) k.push(['Largest lifting-part check', fx(top.util), `${shortGroup(top.group)}: ${top.item}${next.length ? `; next: ${next.map(r => `${shortGroup(r.group)} ${fx(r.util)}`).join(', ')}` : ''}`]);
-  if (SCREWS) k.push(['Screws added', intf(SCREWS.extra), `at ${intf(SCREWS.joints_upgraded)} of the ${intf(SCREWS.joints)} joints (${intf(SCREWS.as_framed)} screws as framed)${Number.isFinite(SCREWS.gusseted_joints) ? `; ${intf(SCREWS.gusseted_joints)} joints have gussets` : ''}`]);
+  if (SCREWS) k.push(['Screws added', intf(SCREWS.extra), `at ${intf(SCREWS.joints_upgraded)} of the ${intf(SCREWS.joints)} joints (${intf(SCREWS.as_framed)} screws as framed)${GUSSETS.length ? `; ${GUSSETS.length} gussets (${gusBy('source', 'lift')} for the lift, ${gusBy('source', 'service')} for the floor in service)` : ''}`]);
   k.push(['Steel', `${intf(e.framed_steel_kg)} + ${intf(e.added_kg)} kg`, 'frame + lifting parts (as modelled)']);
   k.push(['Largest sling force (static)', `${fx(rg.max_static_drop_kN)} kN`, `${fx(rg.max_static_drop_t)} t, for choosing the slings and shackles`]);
   k.push(['Centre of gravity', `x ${fx(m.cg[0] / 1000)} m, y ${fx(m.cg[1] / 1000)} m`, `height ${fx(m.cg[2] / 1000)} m; y is measured from the south face`]);
   if (Number.isFinite(D.after.scale_to_rated)) k.splice(2, 0, ['Rated / itemised', `${fx(D.after.scale_to_rated, 2)} ×`, 'the rated mass is this many times the itemised mass; the checks scale the itemised layout up to the rated mass']);
-  const sb = D.svc.layouts && D.svc.layouts.bearer && D.svc.layouts.bearer.ULS1, sp = D.svc.layouts && D.svc.layouts.piers && D.svc.layouts.piers.ULS1;
-  if (sb) k.push(['In service', 'Continuous bearers', `passes on continuous bearers (worst member ${fx(sb.max_member)}, joint ${fx(sb.max_joint)})${sp ? `; on piers at 1.8 m it does not (worst member ${fx(sp.max_member)})` : ''}`]);
+  if (svcPack) k.push(['In service', 'On packers', `passes on a packer under every floor-truss end (worst member ${fx(svcPack.max_member)}, joint ${fx(svcPack.max_joint)})${svcPiers ? `; on piers at 1.8 m it does not (worst member ${fx(svcPiers.max_member)})` : ''}`]);
   $('#keys').innerHTML = k.map(([a, b, c]) => `<div class="key"><div class="k">${esc(a)}</div><div class="v">${esc(b)}</div><div class="s">${esc(c)}</div></div>`).join('');
   $('#rigging-note').textContent = 'Rigging: ' + rg.note;
 }
@@ -1901,7 +2085,7 @@ function buildConnTable() {
 }
 function buildCasesTable() {
   const data = act(); const f = data.meta.factor;
-  $('#cases-note').textContent = `Showing: ${S.mode === 'after' ? 'After (Rev D)' : 'Before (frame as framed, checked with its own case list)'} - switch with the Before / After buttons. Sling forces in kN at the rated weight, not factored (factored = × ${fx(f, 3)}). Design cases decide pass or fail. Information cases are shown for the record: sling shares 10 % off, one sling 10 mm short on a rigid rig, one sling slack.`;
+  $('#cases-note').textContent = `Showing: ${S.mode === 'after' ? 'After (Rev D.1)' : 'Before (frame as framed, checked with its own case list)'} - switch with the Before / After buttons. Sling forces in kN at the rated weight, not factored (factored = × ${fx(f, 3)}). Design cases decide pass or fail. Information cases are shown for the record: sling shares 10 % off, one sling 10 mm short on a rigid rig, one sling slack.`;
   const ids = Object.keys(data.cases).sort((a, b) => (isDesign(data, b) - isDesign(data, a)));
   $('#cases-table').innerHTML = `<table><thead><tr><th>Load case</th><th>Type</th>${PTS.map(p => `<th class="num">${p}</th>`).join('')}<th class="num">Total</th><th class="num">Members over</th><th class="num">Joints over</th><th class="num">Worst member</th><th class="num">Worst joint</th></tr></thead><tbody>${
     ids.map(id => { const c = data.cases[id], d = isDesign(data, id); return `<tr class="${d ? '' : 'info-only'}"><td title="${esc(c.label)}">${esc(caseName(id))}<br><small class="muted">${esc(id)}</small></td><td>${d ? 'Design' : 'Information only'}</td>${
@@ -1911,23 +2095,26 @@ function buildCasesTable() {
 function buildAblTable() {
   $('#abl-link-shear').textContent = fx(maxLinkShear);
   $('#abl-table').innerHTML = `<table><thead><tr><th>Run</th><th class="num">Members over</th><th class="num">Joints over</th><th class="num">Connections over (shear)</th><th class="num">Tie plates needed</th><th class="num">Worst member</th><th class="num">Worst joint</th><th class="num">Worst connection</th></tr></thead><tbody>${
-    D.abl.map(r => `<tr class="${r.id === 'revD_final' ? 'hl' : ''}"><td>${esc(ABL_NAMES[r.id] || r.name)}<br><small class="muted">${esc(r.name)}</small></td><td class="num">${r.members_over}</td><td class="num">${r.joints_over}</td><td class="num">${r.links_over}</td><td class="num">${r.ties}</td><td class="num">${chip(r.max_member)}</td><td class="num">${chip(r.max_joint)}</td><td class="num">${chip(r.max_link_shear)}</td></tr>`).join('')
+    D.abl.map(r => `<tr class="${r.id === 'revD_final' ? 'hl' : ''}"><td>${esc(ablPlain(r))}<br><small class="muted">${esc(r.id)}: ${esc(r.name)}</small></td><td class="num">${r.members_over ?? '–'}</td><td class="num">${r.joints_over ?? '–'}</td><td class="num">${r.links_over ?? '–'}</td><td class="num">${r.ties ?? '–'}</td><td class="num">${chip(r.max_member)}</td><td class="num">${chip(r.max_joint)}</td><td class="num">${chip(r.max_link_shear)}</td></tr>`).join('')
   }</tbody></table>`;
 }
 function buildSvcTable() {
-  const L = D.svc.layouts;
-  $('#svc-note').textContent = `A sanity check of the classroom in use, not the full in-service design: 1.2 × dead load + 1.5 × live load (3 kPa classroom floor, 0.25 kPa roof), and 1.35 × dead load alone. Dead load ${fx(D.svc.G_kN, 1)} kN (itemised ${intf(D.svc.itemised_kg)} kg), live load ${fx(D.svc.Q_kN, 1)} kN. The floor sheet restrains the floor truss top chords in service. Not checked: wind, earthquake, transport, foundations, floor sheet, roof sheeting. Landing rule: land only on continuous, levelled bearers (within ±2 mm) under both floor edge trusses, never on corners.`;
-  const LAY = { bearer: 'Continuous bearers under both floor edge trusses', piers: 'Piers under both floor edge trusses at 1.8 m' };
+  const L = D.svc.layouts || {};
+  $('#svc-note').textContent = `A sanity check of the classroom in use, not the full in-service design: 1.2 × dead load + 1.5 × live load (3 kPa classroom floor, 0.25 kPa roof), and 1.35 × dead load alone. Dead load ${fx(D.svc.G_kN, 1)} kN (itemised ${intf(D.svc.itemised_kg)} kg), live load ${fx(D.svc.Q_kN, 1)} kN. The floor sheet restrains the floor truss top chords in service. Lip notches are checked in service exactly as in the lift; the floor-truss gussets that check finds are listed as "for the floor in service, lip notch". Not checked: wind, earthquake, transport, foundations, floor sheet, roof sheeting. Landing rule (hold point H8): a packer under every floor-truss end, on both sides, shimmed to full bearing; never on corners.`;
+  const LAY = { packers: 'A packer under every floor-truss end, both sides (the landing rule)', packers_heavy: 'The same packers, with more dead load', bearer: 'Continuous bearers under both floor edge trusses (for reference)', piers: 'Piers under both floor edge trusses at 1.8 m' };
   const COMB = { ULS1: '1.2 dead + 1.5 live', ULS2: '1.35 dead' };
+  const order = ['packers', 'packers_heavy', 'bearer', 'piers'].filter(k => L[k]).concat(Object.keys(L).filter(k => !['packers', 'packers_heavy', 'bearer', 'piers'].includes(k)));
   let rows = '';
-  for (const lay of ['bearer', 'piers']) {
+  for (const lay of order) {
     const l = L[lay]; if (!l) continue;
+    const mult = Number.isFinite(l.dead_load_multiplier) && l.dead_load_multiplier !== 1 ? ` (dead load × ${fx(l.dead_load_multiplier, 2)})` : '';
+    const name = (LAY[lay] || lay.replace(/_/g, ' ')) + mult;
     for (const c of ['ULS1', 'ULS2']) {
       const r = l[c]; if (!r) continue;
       const pass = r.members_over === 0 && r.joints_over === 0 && r.links_over_shear === 0;
-      rows += `<tr><td>${esc(LAY[lay])}</td><td>${esc(COMB[c])}</td><td class="num">${r.members_over}</td><td class="num">${r.joints_over}</td><td class="num">${r.links_over_shear}</td><td class="num">${chip(r.max_member)}</td><td class="num">${chip(r.max_joint)}</td><td class="num">${chip(r.max_link_shear)}</td><td>${pass ? 'Passes' : '<b>Does not pass as checked</b>'}<br><small class="muted">Worst: ${esc((r.worst_members || []).slice(0, 3).map(w => `${w[0]} ${String(w[1]).toLowerCase()} ${fx(w[2])}`).join(', '))}</small></td></tr>`;
+      rows += `<tr><td>${esc(name)}</td><td>${esc(COMB[c])}</td><td class="num">${r.members_over}</td><td class="num">${r.joints_over}</td><td class="num">${r.links_over_shear}</td><td class="num">${chip(r.max_member)}</td><td class="num">${chip(r.max_joint)}</td><td class="num">${chip(r.max_link_shear)}</td><td>${pass ? 'Passes' : '<b>Does not pass as checked</b>'}<br><small class="muted">Worst: ${esc((r.worst_members || []).slice(0, 3).map(w => `${w[0]} ${String(w[1]).toLowerCase()} ${fx(w[2])}`).join(', '))}</small></td></tr>`;
     }
-    rows += `<tr class="info-only"><td colspan="9">${esc(LAY[lay])}: floor truss sag under dead + 0.7 live ${fx(Math.abs(l.floor_truss_relative_sag_SLS_mm), 1)} mm; largest settlement ${fx(Math.abs(l.max_settlement_mm), 1)} mm.</td></tr>`;
+    rows += `<tr class="info-only"><td colspan="9">${esc(name)}: floor truss sag under dead + 0.7 live ${fx(Math.abs(l.floor_truss_relative_sag_SLS_mm), 1)} mm; largest settlement ${fx(Math.abs(l.max_settlement_mm), 1)} mm.</td></tr>`;
   }
   $('#svc-table').innerHTML = `<table><thead><tr><th>Support</th><th>Load</th><th class="num">Members over</th><th class="num">Joints over</th><th class="num">Connections over</th><th class="num">Worst member</th><th class="num">Worst joint</th><th class="num">Worst connection</th><th>Result</th></tr></thead><tbody>${rows}</tbody></table>`;
 }
@@ -1937,12 +2124,13 @@ function buildBasis() {
     <li><b>Total factor ${fx(m.factor, 3)}</b> = weight ${m.factors.weight} × centre of gravity ${m.factors.cog} × dynamic ${m.factors.dynamic} × load factor ${m.factors.load}, applied to the rated ${fx(m.rated_kg / 1000, 1)} t in every check of every member, joint, connection and lifting part. Weight: an allowance for weighing accuracy. Centre of gravity: an allowance for not knowing it exactly. Dynamic: crane bounce and jerks. Load factor: the usual safety factor on load.</li>
     <li><b>Steel</b> taken as G450 (450 MPa strength) although the coil is likely G550. This is on the safe side. The edge trusses ${esc(thickPanels.join(', '))} are 1.15 mm; the rest of the frame is 0.95 mm.</li>
     <li><b>Screws</b> in the thin steel: strength based on 75 % of the steel's tensile strength (412.5 MPa), as the standard requires for thin high-strength steel. Truss joint screws go through both flanges, and that is counted as holding the members against twisting (a hold point).</li>
-    <li><b>Members</b> checked to AS/NZS 4600:2018 (cold-formed steel), with two methods for buckling (DSM and EWM in the engineering text; the lower result governs), including the places where a lip is notched or the web has a hole.</li>
+    <li><b>Members</b> checked to AS/NZS 4600:2018 (cold-formed steel), with two methods for buckling (DSM and EWM in the engineering text; the lower result governs), including holes in the web. Where a lip is notched the member is checked as the lipless section, with credit for the nested member and, at gusseted joints, the plates.</li>
     <li><b>No help</b> from linings, cladding or the floor sheet in the lift check.</li>
-    <li><b>Load cases:</b> ${designCount(D.after)} design cases decide pass or fail: the equalised rig (main case), a rigid frame with equal and with stretchy slings, the module hanging 2° out of level in ${tiltCount} ways (rolled, pitched and towards each corner), and the slings 5 % out of vertical four ways. ${info} information cases are shown but do not decide pass or fail: sling shares 10 % off, one sling 10 mm short on a rigid rig, and one sling slack.</li>
-    <li><b>Connections between panels</b> are checked in shear. Where a connection is pulled, a tie plate or a truss-end cleat takes the pull, so no screw is relied on in pull-out.</li>
+    <li><b>Load cases:</b> ${designCount(D.after)} design cases decide pass or fail: the rig (equalised, and a rigid frame with equal and with stretchy slings: ${famCount('rig')}), the module hanging ${tiltDeg}° out of level (${famCount('tilt')}), the slings leaning${leanPct ? ` ${leanPct} %` : ''} with the drops within 2° and each beam balanced (${famCount('lean')}), tilt and lean together (${famCount('tiltlean')}), the cross beams set${twistMm ? ` ${twistMm} mm` : ''} off in opposite senses so the module twists (${famCount('twist')}), and the centre of gravity at the corners of its envelope${cgAlong ? ` (${cgAlong} mm along, ${cgAcross} mm across)` : ''}, level and tilted toward that corner (${famCount('cog')}). ${info} information cases are shown but do not decide pass or fail: sling shares 10 % off, one sling 10 mm short on a rigid rig, and one sling slack.</li>
+    <li><b>Connections between panels</b> are checked in shear. Where a wall joint is pulled, a tie plate takes the pull; at the truss chord ends the full-depth cleats do. No screw is relied on in pull-out.</li>
+    <li><b>Joint gussets</b> are always coloured by what they are for: for the lift, or for the classroom floor in service (needed whether or not the module is lifted). Hover over or click one to see why it is needed.</li>
     <li><b>Bent shape</b> on the 3D view: displacements of the main case under the rated weight, not factored, with each member drawn straight between its two moved ends.</li>
-    <li><b>Lifting parts</b> are coloured by the worst check of their part type in the connector table. Bolts, packers, pins, sleeves and stop blocks are drawn to explain the parts; their sizes come from the part descriptions.</li>
+    <li><b>Lifting parts</b> are coloured by the worst check of their part type in the connector table. Bolts, packers, pins, sleeves, pads, edge protectors, stop blocks and cleats are drawn to explain the parts; their sizes come from the part descriptions.</li>
   </ul>`;
 }
 
@@ -1963,6 +2151,8 @@ updateGeometry();
 recolour();
 updateVisibility();
 fillSummary(); buildChanges(); buildKeys(); buildLedger(); buildConnTable(); buildCasesTable(); buildAblTable(); buildSvcTable(); buildBasis();
+$('#review-wrap').hidden = true;
+pReview.then(r => { D.review = r; buildReview(); }).catch(err => { console.warn('review_revD.json not loaded:', err.message); });
 $('#drawn-count').textContent = `Members drawn: ${intf(drawn.size)} of ${intf(D.after.members.length)} in the model (${intf(frameItems.length)} frame members and ${intf(added.length)} lifting-part members; each cradle's body and two seats are drawn as one cradle with its bolts and packers). ${intf(tieItems.length)} joints held by tie plates or cleats, ${intf(D.after.joints.length)} joint dots.`;
 resize();
 { const tp = viewVectors('home'); controls.target.copy(tp[0]); camera.position.copy(tp[1]); controls.update(); }

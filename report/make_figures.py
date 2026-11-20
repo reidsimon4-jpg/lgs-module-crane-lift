@@ -75,14 +75,14 @@ def iso(data, fname, title, parts=True):
                                                                  ("#f0663a", "0.95 - 1.0"), ("#d1242f", "over 1.0"))]
     if parts:
         leg += [Line2D([0], [0], color=PART["STRAP"], lw=3, label="hanger strap pairs (8)"),
-                Line2D([0], [0], color=PART["GUIDE"], lw=3, label="lifting heads (saddles)"), Line2D([0], [0], color=PART["CRADLE"], lw=3, label="cradles at truss joint pairs"),
+                Line2D([0], [0], color=PART["GUIDE"], lw=3, label="lifting heads (closed box)"), Line2D([0], [0], color=PART["CRADLE"], lw=3, label="cradles at truss joint pairs"),
                 Line2D([0], [0], color=PART["PLANE BRACE"], lw=3, label="floor / roof strap bracing"), Line2D([0], [0], color=PART["BRIDGING"], lw=3, label="bridging")]
     ax.legend(handles=leg, loc="upper left", bbox_to_anchor=(0.0, 0.93), fontsize=7, frameon=False, ncol=1)
     fig.subplots_adjust(0, 0, 1, 1)
     save(fig, fname)
 
 
-iso(D, "fig_iso_after.png", f"Rev D, engineered for the lift: utilisation of every member (envelope of the {NDES} design cases, factor 2.433)")
+iso(D, "fig_iso_after.png", f"Rev D.1, engineered for the lift: utilisation of every member (envelope of the {NDES} design cases, factor 2.433)")
 iso(B0, "fig_iso_before.png", "Before: the frame as framed, slings straight onto the floor edge truss (same 8 points, same factors)", parts=False)
 
 
@@ -159,19 +159,21 @@ def rect(ax, x, y, w, h, fc, ec="#333", lw=0.8, a=1.0, z=2):
 
 fig, (a1, a2) = plt.subplots(1, 2, figsize=(10.5, 6.4), dpi=200, gridspec_kw=dict(width_ratios=[1, 1.75]))
 rect(a1, 0, -297, 89, 297, "#e8edf2"); rect(a1, 0, 0, 89, 2700, "#f4f6f8"); rect(a1, 0, 2700, 89, 300, "#e8edf2")
-rect(a1, -3, -410, 3, 160, "#3b4651", z=4); rect(a1, 89, -410, 3, 160, "#3b4651", z=4)                 # cheeks
+rect(a1, -1.5, -297, 1.5, 100, "#9fb3c8", z=4); rect(a1, 89, -297, 1.5, 100, "#9fb3c8", z=4)             # gusset plates
+rect(a1, -4.5, -450, 3, 200, "#3b4651", z=4); rect(a1, 90.5, -450, 3, 200, "#3b4651", z=4)               # cheeks over the gussets
 rect(a1, -8, -320.5, 105, 16, "#555", z=5)                                                              # M16 bearing bolt
 rect(a1, 0, -300, 89, 3, "#8b6f47", z=5)                                                                 # packer
-rect(a1, -4.5, -390, 1.5, 3480, PART["STRAP"], ec=PART["STRAP"], z=6); rect(a1, 92.0, -390, 1.5, 3480, PART["STRAP"], ec=PART["STRAP"], z=6)
-rect(a1, -7, 2720, 3, 430, PART["GUIDE"], ec="#8a6d00", z=6); rect(a1, 93, 2720, 3, 430, PART["GUIDE"], ec="#8a6d00", z=6); rect(a1, -7, 3150, 103, 3, PART["GUIDE"], ec="#8a6d00", z=6)
-a1.add_patch(Circle((44.5, 3100), 10, fc="#555", ec="black", zorder=7)); a1.add_patch(Circle((44.5, 3100), 20, fc="none", ec="#555", lw=1.2, zorder=7))
+rect(a1, -7.0, -420, 2.5, 3560, PART["STRAP"], ec=PART["STRAP"], z=6); rect(a1, 93.5, -420, 2.5, 3560, PART["STRAP"], ec=PART["STRAP"], z=6)
+rect(a1, -10, 2700, 3, 480, PART["GUIDE"], ec="#8a6d00", z=6); rect(a1, 96, 2700, 3, 480, PART["GUIDE"], ec="#8a6d00", z=6)
+rect(a1, -10, 3000, 109, 180, PART["GUIDE"], ec="#8a6d00", a=0.25, z=5)                                    # end plates above the truss (box)
+a1.add_patch(Circle((44.5, 3150), 10, fc="#555", ec="black", zorder=7)); a1.add_patch(Circle((44.5, 3150), 20, fc="none", ec="#555", lw=1.2, zorder=7))
 a1.annotate("", xy=(44.5, 3620), xytext=(44.5, 3125), arrowprops=dict(arrowstyle="-|>", color=NAVY, lw=1.5))
-for z, t in [(3520, "sling from the cascade (vertical, hang within 1.5 deg)"), (3100, "M20 8.8 pin + 40 mm free-turning sleeve;\nround sling eye over the sleeve"),
-             (2860, "saddle head: folded 3 mm box over the roof edge\ntruss, running clearance, NO fasteners -\nholds sideways, carries no weight into the roof"),
-             (1400, "hanger strap pair, one on each face\n(50 x 1.5 G450), 2 x M12 each end,\nfixings through slots only"),
-             (-270, "cradle: two 3 mm cheeks; M16 8.8 bearing bolt\n+ sleeve and 3 mm packer under each truss joint")]:
+for z, t in [(3560, "sling from the cascade (drops within 2 deg of vertical)"), (3150, "M20 8.8 pin + 40 mm sleeve; round sling eye\ndown through the OPEN TOP onto the sleeve"),
+             (2860, "lifting head: closed box (two 3 mm cheeks + two end\nplates above the truss), running clearance, NO\nfasteners - holds sideways, no weight into the roof"),
+             (1400, "hanger strap pair, one on each face\n(50 x 2.5 G450, match-drilled), 2 x M12 each\nend; no fixings through it anywhere"),
+             (-330, "cradle: 3 mm cheeks over the joint gusset plates;\nM16 bearing bolt + sleeve + packer under each\ntruss joint; strap bolts below")]:
     a1.annotate(t, xy=(100, z), xytext=(250, z), fontsize=6.8, va="center", arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.6))
-a1.set_xlim(-150, 1450); a1.set_ylim(-520, 3760); a1.set_aspect("equal"); a1.set_axis_off()
+a1.set_xlim(-150, 1450); a1.set_ylim(-560, 3760); a1.set_aspect("equal"); a1.set_axis_off()
 a1.set_title("Section through a lift point (across the wall)", fontsize=9.5, loc="left", color=INK)
 x0 = D["lift_points"]["S2"]["xyz"][0]
 rect(a2, x0 - 1600, -297, 3200, 297, "#eef2f6", ec="#c9d1d9"); rect(a2, x0 - 1600, 2700, 3200, 300, "#eef2f6", ec="#c9d1d9")
@@ -183,9 +185,9 @@ for xt in [x for x in sorted({round((m["a"][0] + m["b"][0]) / 2) for m in D["mem
 for xs in np.arange(x0 - 1500, x0 + 1501, 600): rect(a2, xs - 20, 0, 41, 2700, "#e6ebf0", ec="#b4bfca", lw=0.4)
 for f in FEET:
     if f["id"] == "FOOT_S2h":
-        rect(a2, f["cradle"][0], -410, f["cradle"][1] - f["cradle"][0], 160, "#3b4651", a=0.5, z=5)
+        rect(a2, f["cradle"][0], -450, f["cradle"][1] - f["cradle"][0], 200, "#3b4651", a=0.5, z=5)
         for s_ in f["seats"]: a2.add_patch(Circle((s_, -312.5), 9, fc="#222", zorder=6))
-        a2.plot([f["x_strap"], x0], [-390, 3150], color=PART["STRAP"], lw=3.0, zorder=6)
+        a2.plot([f["x_strap"], x0], [-420, 3150], color=PART["STRAP"], lw=3.0, zorder=6)
         v = [m for m in D["members"] if m["id"] == "HANG_S2"][0]
         a2.text(x0 + 60, 1300, f"hanger strap pair" + chr(10) + f"{v['N_R4_unfactored']:.1f} kN", fontsize=7.5, color="#b25a10")
         a2.text((f["cradle"][0] + f["cradle"][1]) / 2, -520, f"cradle {f['cradle'][1] - f['cradle'][0]:.0f} long at the truss joint pair" + chr(10) + f"{f['cradle_gap']:.0f} mm clear of the truss-end cleats", ha="center", va="top", fontsize=6.8)
@@ -210,14 +212,15 @@ for m in D["members"]:
         b1.plot([ax_, ax_ + (bx - ax_) * t], [az, az + (bz - az) * t], color="#7b8794", lw=9, solid_capstyle="butt", zorder=2, alpha=0.6)
 xt = min([x for x in {round((m["a"][0] + m["b"][0]) / 2) for m in D["members"] if m["kind"] == "floor_truss" and m["type"] == "TOP CHORD"}], key=lambda x: abs(x - xs))
 rect(b1, xt - 44.5, -297, 89, 297, "#e4e9ef", ec="#9aa5b1", lw=0.6, z=1); b1.text(xt, 30, "floor truss end\n(inside face)", ha="center", fontsize=6.5, color=MUTED)
-rect(b1, c0, -410, c1 - c0, 160, "#3b4651", a=0.35, z=3)
+for s_ in (j1, j2): rect(b1, s_ - 50, -297, 100, 100, "#9fb3c8", ec="#6e8296", lw=0.6, a=0.55, z=2)        # gusset plates (first)
+rect(b1, c0, -450, c1 - c0, 200, "#3b4651", a=0.35, z=3)
 for s in (j1, j2):
     rect(b1, s - 20, -300, 40, 3, "#8b6f47", z=5); b1.add_patch(Circle((s, -312.5), 12.5, fc="#999", ec="#333", zorder=5)); b1.add_patch(Circle((s, -312.5), 8, fc="#222", zorder=6))
     b1.annotate("", xy=(s, -296), xytext=(s, -352), arrowprops=dict(arrowstyle="-|>", color="#d1242f", lw=1.6), zorder=7)
 for dx in (-14, 14): b1.add_patch(Circle((j1 + dx, -278), 2.4, fc="white", ec="#333", lw=0.6, zorder=6))
 k = (D["lift_points"]["S2"]["xyz"][0] - xs) / 3540.0          # 0 for a vertical hanger
-b1.plot([xs, xs + k * 500], [-390, 110], color=PART["STRAP"], lw=5, zorder=4, alpha=0.9)
-for zb in (-385, -345): b1.add_patch(Circle((xs + k * (zb + 390), zb), 6, fc="#e8731a", ec="#333", zorder=6))
+b1.plot([xs, xs + k * 500], [-420, 110], color=PART["STRAP"], lw=5, zorder=4, alpha=0.9)
+for zb in (-410, -370): b1.add_patch(Circle((xs + k * (zb + 420), zb), 6, fc="#e8731a", ec="#333", zorder=6))
 b1.annotate("", xy=(xs + k * 520 + 10, 140), xytext=(xs + k * 380 + 10, 0), arrowprops=dict(arrowstyle="-|>", color=NAVY, lw=1.6))
 b1.text(xs + k * 520 + 25, 120, "hanger pull (to the head)", color=NAVY, fontsize=6.8, va="center")
 b1.annotate("screwed seat\n(2 screws per cheek)", xy=(j1, -325), xytext=(j1 - 75, -500), ha="right", fontsize=6.6, arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.6))
@@ -229,17 +232,19 @@ rect(b1, cx, -270, cl, 200, "#c3ced9", ec="#8795a3", lw=0.6, z=2); b1.text(cx + 
 ce = cx + cl if side_ > 0 else cx
 b1.annotate("", xy=(ce, -215), xytext=(c0 if side_ > 0 else c1, -215), arrowprops=dict(arrowstyle="<->", color="#2f7fc1", lw=0.8), zorder=8)
 b1.text((ce + (c0 if side_ > 0 else c1)) / 2, -205, f"{f['cradle_gap']:.0f} mm clear", ha="center", va="bottom", fontsize=6.5, color="#2f7fc1", zorder=8)
-b1.set_xlim(xl, xr); b1.set_ylim(-560, 180); b1.set_aspect("equal"); b1.set_axis_off()
+b1.set_xlim(xl, xr); b1.set_ylim(-600, 180); b1.set_aspect("equal"); b1.set_axis_off()
 b1.set_title(f"Cradle {f['id'][5:]} (south, x {xs / 1000:.2f} m): elevation along the edge truss", fontsize=9.5, loc="left", color=INK)
 # section across the chord
 rect(b2, -44.5, -297, 89, 0.95 * 2, "#7b8794"); rect(b2, -44.5, -297, 1.9, 38, "#7b8794"); rect(b2, 42.6, -297, 1.9, 38, "#7b8794")
 rect(b2, -44.5, -260, 9, 1.9, "#7b8794"); rect(b2, 35.5, -260, 9, 1.9, "#7b8794")
-rect(b2, -47.5, -410, 3, 160, "#3b4651"); rect(b2, 44.5, -410, 3, 160, "#3b4651")
+rect(b2, -46.0, -297, 1.5, 100, "#9fb3c8"); rect(b2, 44.5, -297, 1.5, 100, "#9fb3c8")
+rect(b2, -49.0, -450, 3, 200, "#3b4651"); rect(b2, 46.0, -450, 3, 200, "#3b4651")
 rect(b2, -44.5, -300, 89, 3, "#8b6f47"); rect(b2, -44.5, -325, 89, 25, "#bbb", ec="#555"); rect(b2, -56, -320.5, 112, 16, "#444", z=3)
-rect(b2, -49.0, -400, 1.5, 400, PART["STRAP"], ec=PART["STRAP"]); rect(b2, 47.5, -400, 1.5, 400, PART["STRAP"], ec=PART["STRAP"])
-for z, t in [(-278, "chord C89 (web down, flanges up)"), (-298.5, "3 mm packer"), (-312.5, "M16 8.8 bolt in a 25 mm sleeve"), (-395, "3 mm cheek each side; hanger strap pair outside")]:
+rect(b2, -51.5, -425, 2.5, 425, PART["STRAP"], ec=PART["STRAP"]); rect(b2, 49.0, -425, 2.5, 425, PART["STRAP"], ec=PART["STRAP"])
+for z, t in [(-278, "chord C89 (web down, flanges up)"), (-240, "1.5 mm gusset plate each face (fitted first)"), (-298.5, "3 mm packer"),
+             (-312.5, "M16 8.8 bolt in a 92 mm sleeve"), (-400, "3 mm cheek each side over the gussets;\nhanger strap pair outside, bolted below")]:
     b2.annotate(t, xy=(50, z), xytext=(80, z), fontsize=6.5, va="center", arrowprops=dict(arrowstyle="-", color=MUTED, lw=0.5))
-b2.set_xlim(-70, 320); b2.set_ylim(-430, -120); b2.set_aspect("equal"); b2.set_axis_off()
+b2.set_xlim(-70, 340); b2.set_ylim(-470, -120); b2.set_aspect("equal"); b2.set_axis_off()
 b2.set_title("Section across the chord", fontsize=9.5, loc="left", color=INK)
 save(fig, "fig_cradle.png")
 
@@ -270,14 +275,17 @@ save(fig, "fig_rig.png")
 
 
 # ------------------------------------------------------------------------------------------------ ablation chart
-names = {"revD_final": "Rev D design", "A1_framed_screws": "joints as framed (2 screws), no gussets", "A2_no_gussets": "4-screw joints, no gussets",
+names = {"revD_final": "Rev D.1 design", "A1_framed_screws": "joints as framed (2 screws), no gussets", "A2_no_gussets": "4-screw joints, no gussets",
          "A3_no_bridging": "no bridging", "A4_no_plane_bracing": "no floor / roof strap bracing", "A5_seat_between_joints": "cradles between truss joints",
          "A6_north_trusses_095": "north edge trusses at 0.95 mm", "A8_edge_trusses_100": "edge trusses at 1.00 mm, not 1.15", "A7_single_inner_hanger": "one inside-face hanger (north)",
-         "B0_frame_only": "Before (as framed, no lift parts)", "S1_lining_credit": "linings counted (sensitivity)", "S2_twist_length_out": "no twist restraint at joints (sensitivity)"}
+         "B0_frame_only": "Before (as framed, no lift parts)", "S1_lining_credit": "linings counted (sensitivity)", "S2_twist_length_out": "no twist restraint at joints (sensitivity)",
+         "S3_no_notch_credit": "no credit at lip notches (sensitivity)", "S4_links_soft": "panel links 4 x softer (sensitivity)",
+         "S5_links_stiff": "panel links 4 x stiffer (sensitivity)", "S6_joint_fixity": "joints partly fixed (sensitivity)"}
 rows = {r["id"]: r for r in AB}
-order = [k for k in ("revD_final", "S1_lining_credit", "A7_single_inner_hanger", "A3_no_bridging", "A8_edge_trusses_100", "A6_north_trusses_095", "A5_seat_between_joints",
-                     "S2_twist_length_out", "A4_no_plane_bracing", "A2_no_gussets", "A1_framed_screws", "B0_frame_only") if k in rows]
-fig, ax = plt.subplots(figsize=(10, 4.2), dpi=200)
+order = [k for k in ("revD_final", "S1_lining_credit", "S4_links_soft", "S5_links_stiff", "S6_joint_fixity", "A7_single_inner_hanger", "A3_no_bridging",
+                     "A8_edge_trusses_100", "A6_north_trusses_095", "A5_seat_between_joints", "S2_twist_length_out", "S3_no_notch_credit", "A4_no_plane_bracing",
+                     "A2_no_gussets", "A1_framed_screws", "B0_frame_only") if k in rows]
+fig, ax = plt.subplots(figsize=(10, 5.2), dpi=200)
 yy = np.arange(len(order))
 mo = [rows[k]["members_over"] for k in order]; jo = [rows[k]["joints_over"] for k in order]
 ax.barh(yy - 0.18, mo, height=0.34, color="#d1242f", label="members over capacity")
@@ -293,20 +301,25 @@ spines(ax); save(fig, "fig_ablation.png")
 
 
 # ------------------------------------------------------------------------------------------------ utilisation by design case
-cases = D["design_cases"]
+allc = D["design_cases"]
+TLc = [c for c in allc if c.startswith("T") and "+" in c]; CGc = [c for c in allc if c.startswith("CG")]
+cases = [c for c in allc if c not in TLc and c not in CGc]
 fig, ax = plt.subplots(figsize=(10, 3.4), dpi=200)
-xx = np.arange(len(cases))
-mm = [D["cases"][c]["max_member"] for c in cases]; jj = [D["cases"][c]["max_joint"] for c in cases]
+labels = [c.split("_")[0] for c in cases] + (["T+L (32)"] if TLc else []) + (["CoG (8)"] if CGc else [])
+mm = [D["cases"][c]["max_member"] for c in cases] + ([max(D["cases"][c]["max_member"] for c in TLc)] if TLc else []) + ([max(D["cases"][c]["max_member"] for c in CGc)] if CGc else [])
+jj = [D["cases"][c]["max_joint"] for c in cases] + ([max(D["cases"][c]["max_joint"] for c in TLc)] if TLc else []) + ([max(D["cases"][c]["max_joint"] for c in CGc)] if CGc else [])
+xx = np.arange(len(labels))
 ax.bar(xx - 0.2, mm, width=0.4, color=NAVY, label="worst member"); ax.bar(xx + 0.2, jj, width=0.4, color="#e3a008", label="worst screwed joint")
 ax.axhline(1.0, color="#d1242f", lw=1.0, ls="--"); ax.text(len(cases) - 0.5, 1.01, "design capacity", color="#d1242f", fontsize=7, ha="right", va="bottom")
-ax.set_xticks(xx); ax.set_xticklabels([c.split("_")[0] for c in cases], fontsize=7.5); ax.set_ylim(0, 1.15); ax.set_ylabel("utilisation (factored)")
+ax.set_xticks(xx); ax.set_xticklabels(labels, fontsize=7, rotation=0); ax.set_ylim(0, 1.15); ax.set_ylabel("utilisation (factored)")
 ax.legend(frameon=False, fontsize=8, loc="lower left", ncol=2)
-ax.set_title(f"Worst member and joint in each of the {len(cases)} design cases (R = rig, T = 2 deg tilt, L = 5 % sideways)", fontsize=10, loc="left", color=INK)
+ax.set_title(f"Worst member and joint in each of the {len(allc)} design cases (R rig, T 2 deg tilt, L 3.5 % lean, TW twist, T+L and CoG families as their worst)", fontsize=9.5, loc="left", color=INK)
 spines(ax); save(fig, "fig_cases.png")
 
 
 # ------------------------------------------------------------------------------------------------ reactions per design case
 pts = ["S1", "S2", "S3", "S4", "N1", "N2", "N3", "N4"]
+cases = [c for c in cases if not c.startswith("TW")] + [c for c in cases if c.startswith("TW")] + CGc[:4]
 fig, ax = plt.subplots(figsize=(10, 3.4), dpi=200)
 w = 0.8 / len(cases); cmap = plt.get_cmap("tab20")
 for i, c in enumerate(cases):

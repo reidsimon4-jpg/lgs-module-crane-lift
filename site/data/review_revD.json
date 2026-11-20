@@ -1,0 +1,106 @@
+{
+ "verdict": "The independent review of Rev D (four AI reviewers, one lens each, then a synthesis that re-ran the checks) found 4 blocking and 16 should-fix items and said 'not yet'. Rev D.1 answers every one of them, as listed; it has not itself been re-reviewed.",
+ "reviewed": "Rev D, commit f4d20e3 (the A-frame variant); the findings apply to the final Rev D except where noted",
+ "items": [
+  {
+   "title": "Cradle joints are credited with gussets that cannot be fitted; with the screws actually there, 18 joints are over capacity",
+   "severity": "blocking",
+   "action": "Every cradle now sits over a real gusset pair: the 1.5 mm plates go on first (one plate per joint pair, 3 + 3 screws per face per joint, wafer heads where the cheek covers them), and the cradle cheeks fit over them (92 mm between the cheeks, sleeves 92 mm). A gusset is credited only where the plate is drawn; all 16 cradle joints are on the gusset list (235 gussets in all: 51 for the lift, 0 for notched chords, 184 for the floor in service)."
+  },
+  {
+   "title": "Lip-notch check uses full-section bending and skips tension; checked with the notched section, the tracks exceed 1.0 and the 1.15 mm edge-truss chords have no margin",
+   "severity": "blocking",
+   "action": "New notch check (analysis/liftcalc/notch.py) at every element end on a notch: the lipless section for axial load, both bending axes and tension, by the Direct Strength Method, with its local buckling from the repository's finite strip solver at the notch length (127 mm at joint pairs). Design credit: the nested member holds the flange edges, and at gusseted joints the two plates form the section; never more than the full section. Without any credit (sensitivity S3): 13 members over (worst 1.88), 0 joints over (worst 0.87) - so hold point H4 adds a load test of a notched chord joint. The wall tracks are now modelled bearing on the edge truss under every stud, which removes the false track bending. Design result: members at most 0.90."
+  },
+  {
+   "title": "Lifting-head sideways check uses a closed box the drawn head does not have; the 3 mm cheeks fail out of plane",
+   "severity": "blocking",
+   "action": "The head is now a closed box: two 3 mm cheeks joined by two 3 mm end plates above the truss, with an open top for the sling. Checked as a box for the 3.5 % lean (0.01); pin bending added (0.79); bearing on the roof truss at 1.6 x the guide force (0.48)."
+  },
+  {
+   "title": "H5 lets the lift continue with drops up to 15 % off share, but a twist of 4-6 % already reaches capacity",
+   "severity": "blocking",
+   "action": "H5 stop is now 4 % of each drop's design share (and 1.5 deg hang). H7: each cross beam is set to its own line's measured south / north split within +-25 mm. Two twist design cases at that tolerance (TW1, TW2) pass: members 0.82, joints 0.82."
+  },
+  {
+   "title": "The drop-lean allowance has three values and is never combined with the 2 deg tilt; L1/L2 are not in equilibrium",
+   "severity": "should fix",
+   "action": "One lean everywhere: drops within 2 deg of vertical (3.5 %) in the frame cases, the 32 tilt-plus-lean cases and the head check. The lean cases are balanced on every beam of the rig (equal and opposite drops), so the model's holds read about zero. Tilt plus lean: members 0.90, joints 0.87."
+  },
+  {
+   "title": "H1 does not control what the design assumes: the CoG envelope corners and the pick-setting accuracy use up the margin",
+   "severity": "should fix",
+   "action": "The CoG envelope is modelled explicitly: the mass reweighted so the CoG sits 150 mm along and 90 mm across off the design position (four corners), the cascade set to it, level and hanging 2 deg toward the corner, CoG factor 1.0 for these cases (the shift is modelled). All pass: members 0.84, joints 0.83. H1 states the accuracy budget: load cells +-1 % of reading, pick setting +-25 mm, inclinometer +-0.1 deg."
+  },
+  {
+   "title": "Four south feet (S1a, S2b, S3a, S4b) do not fit: strap and cheek hit the truss-end cleats, and the M16 bearing bolts are 15-22 mm from the cheek end",
+   "severity": "should fix",
+   "action": "No longer applies: the south A-frames were replaced by vertical hanger pairs (all 8 lift points identical). Every cradle is at least 101.8 mm from the truss-end cleats."
+  },
+  {
+   "title": "Truss-end cleats as drawn do not reach the edge-truss chords",
+   "severity": "should fix",
+   "action": "Cleats are now full depth (280 mm) angles, each side of every truss end: 5 screws into the end vertical and 5 into the edge-truss chords (3 bottom, 2 top). Drawn with both legs in the Framer components."
+  },
+  {
+   "title": "Gusset detail: the 10-screw-equivalent credit has no plate layout, and the drawn plates cannot be installed",
+   "severity": "should fix",
+   "action": "One plate per joint or joint pair, 100 mm high, flush with the chord's outer face (no part above the floor or below the truss), 3 + 3 screws per face per joint at 3d pitch and 1.5d edge distance at least. Drawn in the Framer components; the 10-equivalent credit is used only where a plate is drawn."
+  },
+  {
+   "title": "Lifting-head detailing: the sling cannot reach the sleeve, the head is not seated, and pin bending is not checked",
+   "severity": "should fix",
+   "action": "Open top so the round sling eye reaches the sleeve, cheek tops fitted with edge protectors, pin at the model height (3150 mm), cheeks seated on pads with 8 mm clearance over the joint screw heads, plain-shank M20 pin with its bending checked."
+  },
+  {
+   "title": "Strap-end bolt layouts at the cradle and the head are not drawn, and do not fit where the parts are drawn",
+   "severity": "should fix",
+   "action": "Cradle cheeks are 200 mm high: the bearing bolts sit just under the chord and the strap bolts below them, with the nuts inside the cradle; cheek tear-out below the strap bolt checked (0.59). At the head the strap bolts sit in the box above the truss."
+  },
+  {
+   "title": "Cradle seat crippling uses a formula outside its test basis",
+   "severity": "should fix",
+   "action": "Kept as the working check (0.74) but marked unverified: hold point H4 now includes a load test of the seat on a 1.15 mm chord joint pair with its nested diagonals, both seats."
+  },
+  {
+   "title": "Strap net-section check leaves out the bolted thin-sheet net-section rule",
+   "severity": "should fix",
+   "action": "Applied: (0.1 + 3d/s) An fu with phi 0.55 in single shear with washers. The hanger straps are now 50 x 2.5 mm, checked at a 65 / 35 split between the two straps for fit-up (0.78); pairs are match-drilled."
+  },
+  {
+   "title": "Reported margins sit inside the uncertainty of the link and joint idealisation",
+   "severity": "should fix",
+   "action": "Bounding runs added: links 4 times softer (S4): 0 members over (worst 0.91), 0 joints over (worst 0.88); 4 times stiffer (S5): 0 members over (worst 0.89), 0 joints over (worst 0.86); joints partly fixed (S6): 0 members over (worst 0.90), 0 joints over (worst 0.84)."
+  },
+  {
+   "title": "The in-service check assumes a support and a mass that the hold points do not deliver",
+   "severity": "should fix",
+   "action": "Landing and storage rule: a packer under every floor-truss end on both sides, shimmed to full bearing. Checked on that support: members 0.92, joints 0.90; with the dead load 1.2 times the itemised mass: members 0.96, joints 0.91. H1: if the weighed mass is more than 1.2 x the itemised estimate, re-run the in-service check with it."
+  },
+  {
+   "title": "172 of the 235 gussets are permanent floor structure booked as lift parts, and were sized against an ideal support",
+   "severity": "should fix",
+   "action": "The floor gussets are booked as floor structure (FLOOR_GU) in Framer's BOQ, apart from the lift parts, and sized on the packer support (184); the basis states they are needed whether or not the module is lifted."
+  },
+  {
+   "title": "Framer gauge step: the 1.15 mm trusses exist only in the script, and the release and clash checks cover less than reported",
+   "severity": "should fix",
+   "action": "Same method (Framer 0.7.1 has no per-element gauge): the three trusses are re-gauged after framing and Framer's own tooling rules re-run on them; the report states what Framer's checks cover (the framed panels and their machine files; the run is a test run, not engineer-signed; components are not machine parts). A per-element gauge in Framer is a follow-up."
+  },
+  {
+   "title": "Marriage-face hardware stands 15-30 mm proud, not within 12 mm, and faces the second module's hardware",
+   "severity": "should fix",
+   "action": "H9: after set-down and before the second module, the 8 heads, the 4 north cradles and the marriage-face hanger straps are unbolted and removed (they carry nothing in service and are reused)."
+  },
+  {
+   "title": "Lift straps must stay free between their end bolts",
+   "severity": "should fix",
+   "action": "Detailing rule and H3 inspection: no fixings through lift straps; battens packed out or set past them; linings fixed clear; floor sheet and ceiling notched at the straps; tie plates kept off the strap paths."
+  },
+  {
+   "title": "Plane-bracing strap ends are still under the wall bottom tracks and inside the roof saddles (Rev C finding not answered)",
+   "severity": "should fix",
+   "action": "Moved onto the floor and roof truss top chords, 205 mm in from the edge trusses, at x 44.5, 1200, 4200, 7800, 10800 and 11955.5: clear of the wall tracks, the heads and the lift lines."
+  }
+ ]
+}

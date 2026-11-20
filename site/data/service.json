@@ -1,90 +1,92 @@
 {
- "G_kN": 45.46172809018668,
+ "G_kN": 45.63815159471335,
  "Q_kN": 121.75799999999997,
- "itemised_kg": 4635.8061203557645,
+ "itemised_kg": 4653.796311147386,
+ "gusseted_joints": 235,
  "layouts": {
   "piers": {
+   "dead_load_multiplier": 1.0,
    "ULS1": {
-    "members_over": 3,
-    "joints_over": 9,
+    "members_over": 4,
+    "joints_over": 6,
     "links_over_shear": 2,
-    "max_member": 1.0698843195645182,
-    "max_joint": 2.1403634492020687,
-    "max_link_shear": 1.665553657613796,
+    "max_member": 1.215439359769457,
+    "max_joint": 2.0644834563023373,
+    "max_link_shear": 1.6087941135667854,
     "worst_members": [
+     [
+      "NFT2",
+      "BOTTOM CHORD",
+      1.22,
+      "lip-notch section (a 127 mm), compressio"
+     ],
+     [
+      "NFT1",
+      "BOTTOM CHORD",
+      1.16,
+      "lip-notch section (a 127 mm), compressio"
+     ],
      [
       "NFT13",
       "TOP CHORD",
-      1.07,
+      1.03,
       "bending + shear"
      ],
      [
       "NFT4",
       "BOTTOM CHORD",
-      1.04,
-      "tension + bending"
-     ],
-     [
-      "NFT1",
-      "BOTTOM CHORD",
       1.02,
-      "lip-notch section, compression + bending"
+      "bending + shear"
      ],
      [
       "NFT10",
       "BOTTOM CHORD",
-      0.97,
-      "tension + bending"
-     ],
-     [
-      "NFT2",
-      "BOTTOM CHORD",
-      0.97,
-      "lip-notch section, compression + bending"
+      0.95,
+      "bending + shear"
      ],
      [
       "NFT21",
       "BOTTOM CHORD",
-      0.96,
-      "tension + bending"
+      0.93,
+      "bending + shear"
      ]
     ],
     "worst_joints": [
      [
       "NFT13",
       "WEB",
-      2.14,
-      13.64
+      2.06,
+      13.16
      ],
      [
       "NFT13",
       "WEB",
-      2.14,
-      13.64
+      2.06,
+      13.16
+     ],
+     [
+      "NFT13",
+      "WEB",
+      2.05,
+      13.08
+     ],
+     [
+      "NFT13",
+      "WEB",
+      2.05,
+      13.08
      ],
      [
       "NFT2",
       "WEB",
-      1.2,
-      10.16
-     ],
-     [
-      "NFT1",
-      "WEB",
-      1.06,
-      8.14
+      1.05,
+      8.05
      ],
      [
       "NFT2",
       "WEB",
-      1.04,
-      8.0
-     ],
-     [
-      "NFT1",
-      "WEB",
-      1.03,
-      7.86
+      1.02,
+      7.85
      ]
     ]
    },
@@ -92,83 +94,83 @@
     "members_over": 0,
     "joints_over": 0,
     "links_over_shear": 0,
-    "max_member": 0.3091806743272369,
-    "max_joint": 0.472193686323227,
-    "max_link_shear": 0.45229639926165255,
+    "max_member": 0.27845375066661243,
+    "max_joint": 0.446238221383975,
+    "max_link_shear": 0.4337752564486718,
     "worst_members": [
-     [
-      "NFT4",
-      "TOP CHORD",
-      0.31,
-      "lip-notch section, compression + bending"
-     ],
      [
       "NFT13",
       "TOP CHORD",
-      0.29,
+      0.28,
       "bending + shear"
      ],
      [
       "NFT1",
       "BOTTOM CHORD",
-      0.28,
-      "lip-notch section, compression + bending"
+      0.26,
+      "bending + shear"
      ],
      [
       "NFT4",
       "BOTTOM CHORD",
       0.26,
-      "tension + bending"
-     ],
-     [
-      "NFT2",
-      "TOP CHORD",
-      0.24,
-      "tension + bending"
+      "bending + shear"
      ],
      [
       "NFT23",
       "BOTTOM CHORD",
+      0.24,
+      "lip-notch section (a 116 mm), tension + "
+     ],
+     [
+      "NFT4",
+      "TOP CHORD",
       0.23,
-      "tension + bending"
+      "compression + bending (DSM local-global,"
+     ],
+     [
+      "NFT1",
+      "TOP CHORD",
+      0.21,
+      "bending + shear"
      ]
     ],
     "worst_joints": [
      [
       "NFT13",
       "WEB",
-      0.47,
-      3.01
+      0.45,
+      2.84
      ],
      [
       "NFT13",
       "WEB",
-      0.47,
-      3.01
+      0.45,
+      2.84
      ],
      [
       "NFT23",
       "WEB",
-      0.31,
-      1.87
+      0.28,
+      1.69
      ],
      [
       "NFT23",
-      "WEB",
-      0.29,
-      1.87
-     ],
-     [
-      "NFT2",
       "WEB",
       0.26,
-      2.17
+      1.69
      ],
      [
-      "NFT4",
+      "NFT13",
       "WEB",
-      0.25,
-      1.51
+      0.26,
+      1.68
+     ],
+     [
+      "NFT13",
+      "WEB",
+      0.26,
+      1.68
      ]
     ]
    },
@@ -176,87 +178,88 @@
    "max_settlement_mm": -3.2
   },
   "bearer": {
+   "dead_load_multiplier": 1.0,
    "ULS1": {
     "members_over": 0,
     "joints_over": 0,
     "links_over_shear": 0,
-    "max_member": 0.9485279577691916,
-    "max_joint": 0.8948438564891246,
-    "max_link_shear": 0.7995724129760624,
+    "max_member": 0.9331027483206393,
+    "max_joint": 0.9190378980305726,
+    "max_link_shear": 0.7861890045670556,
     "worst_members": [
      [
       "NFT4",
       "BOTTOM CHORD",
-      0.95,
-      "tension + bending"
-     ],
-     [
-      "NFT4",
-      "TOP CHORD",
-      0.92,
-      "lip-notch section, compression + bending"
+      0.93,
+      "bending + shear"
      ],
      [
       "NFT13",
       "BOTTOM CHORD",
-      0.88,
-      "tension + bending"
+      0.86,
+      "bending + shear"
+     ],
+     [
+      "NFT21",
+      "BOTTOM CHORD",
+      0.85,
+      "bending + shear"
      ],
      [
       "NFT22",
       "BOTTOM CHORD",
-      0.87,
-      "tension + bending"
-     ],
-     [
-      "NFT15",
-      "BOTTOM CHORD",
-      0.86,
-      "tension + bending"
+      0.85,
+      "bending + shear"
      ],
      [
       "NFT11",
       "BOTTOM CHORD",
-      0.86,
-      "tension + bending"
+      0.85,
+      "bending + shear"
+     ],
+     [
+      "NFT5",
+      "BOTTOM CHORD",
+      0.85,
+      "bending + shear"
      ]
     ],
     "worst_joints": [
      [
-      "NFT14",
+      "NFT13",
       "WEB",
-      0.89,
-      5.7
+      0.92,
+      5.86
      ],
      [
-      "NFT9",
+      "NFT13",
       "WEB",
-      0.89,
-      5.7
+      0.92,
+      5.86
      ],
      [
-      "NFT20",
+      "NFT21",
       "WEB",
-      0.89,
-      5.7
+      0.91,
+      5.78
      ],
      [
-      "NFT17",
+      "NFT5",
       "WEB",
-      0.89,
-      5.69
+      0.91,
+      5.78
      ],
      [
-      "NFT6",
+      "NFT16",
       "WEB",
-      0.89,
-      5.69
+      0.91,
+      5.77
      ],
      [
-      "NFT12",
+      "NFT10",
       "WEB",
-      0.89,
-      5.69
+      0.91,
+      5.77
      ]
     ]
    },
@@ -264,83 +267,429 @@
     "members_over": 0,
     "joints_over": 0,
     "links_over_shear": 0,
-    "max_member": 0.3081397182577324,
-    "max_joint": 0.302813173714648,
-    "max_link_shear": 0.2292694720795109,
+    "max_member": 0.23152922504108872,
+    "max_joint": 0.28078505672990345,
+    "max_link_shear": 0.22722752146643585,
     "worst_members": [
      [
       "NFT4",
       "TOP CHORD",
-      0.31,
-      "lip-notch section, compression + bending"
+      0.23,
+      "compression + bending (DSM local-global,"
      ],
      [
       "NFT4",
       "BOTTOM CHORD",
       0.23,
-      "tension + bending"
-     ],
-     [
-      "NFT2",
-      "TOP CHORD",
-      0.22,
-      "tension + bending"
+      "bending + shear"
      ],
      [
       "NFT23",
       "BOTTOM CHORD",
-      0.21,
-      "tension + bending"
+      0.23,
+      "lip-notch section (a 116 mm), tension + "
      ],
      [
       "NFT22",
       "TOP CHORD",
-      0.19,
-      "lip-notch section, compression + bending"
+      0.2,
+      "lip-notch section (a 126 mm), compressio"
      ],
      [
       "NFT25",
       "BOTTOM CHORD",
-      0.17,
-      "lip-notch section, compression + bending"
+      0.16,
+      "lip-notch section (a 127 mm), compressio"
+     ],
+     [
+      "W3",
+      "BOTTOM TRACK",
+      0.16,
+      "lip-notch section (a 88 mm), compression"
      ]
     ],
     "worst_joints": [
      [
       "NFT23",
       "WEB",
+      0.28,
+      1.71
+     ],
+     [
+      "NFT23",
+      "WEB",
+      0.27,
+      1.71
+     ],
+     [
+      "NFT4",
+      "WEB",
+      0.26,
+      1.55
+     ],
+     [
+      "NFT4",
+      "WEB",
+      0.25,
+      1.5
+     ],
+     [
+      "NFT4",
+      "WEB",
+      0.24,
+      1.54
+     ],
+     [
+      "NFT4",
+      "WEB",
+      0.23,
+      1.48
+     ]
+    ]
+   },
+   "floor_truss_relative_sag_SLS_mm": -2.9,
+   "max_settlement_mm": -3.0
+  },
+  "packers": {
+   "dead_load_multiplier": 1.0,
+   "ULS1": {
+    "members_over": 0,
+    "joints_over": 0,
+    "links_over_shear": 0,
+    "max_member": 0.9207778774996066,
+    "max_joint": 0.8997384413300451,
+    "max_link_shear": 0.7997300695010414,
+    "worst_members": [
+     [
+      "NFT4",
+      "BOTTOM CHORD",
+      0.92,
+      "bending + shear"
+     ],
+     [
+      "NFT13",
+      "BOTTOM CHORD",
+      0.87,
+      "bending + shear"
+     ],
+     [
+      "NFT11",
+      "BOTTOM CHORD",
+      0.84,
+      "bending + shear"
+     ],
+     [
+      "NFT13",
+      "TOP CHORD",
+      0.84,
+      "lip-notch section (a 126 mm), compressio"
+     ],
+     [
+      "NFT15",
+      "BOTTOM CHORD",
+      0.84,
+      "bending + shear"
+     ],
+     [
+      "NFT22",
+      "TOP CHORD",
+      0.84,
+      "lip-notch section (a 126 mm), compressio"
+     ]
+    ],
+    "worst_joints": [
+     [
+      "NFT5",
+      "WEB",
+      0.9,
+      5.73
+     ],
+     [
+      "NFT21",
+      "WEB",
+      0.9,
+      5.73
+     ],
+     [
+      "NFT15",
+      "WEB",
+      0.9,
+      5.71
+     ],
+     [
+      "NFT11",
+      "WEB",
+      0.9,
+      5.71
+     ],
+     [
+      "NFT16",
+      "WEB",
+      0.89,
+      5.7
+     ],
+     [
+      "NFT16",
+      "WEB",
+      0.89,
+      5.7
+     ]
+    ]
+   },
+   "ULS2": {
+    "members_over": 0,
+    "joints_over": 0,
+    "links_over_shear": 0,
+    "max_member": 0.23159162024362157,
+    "max_joint": 0.28387016645156354,
+    "max_link_shear": 0.24958513213121872,
+    "worst_members": [
+     [
+      "NFT4",
+      "TOP CHORD",
+      0.23,
+      "compression + bending (DSM local-global,"
+     ],
+     [
+      "NFT23",
+      "BOTTOM CHORD",
+      0.22,
+      "lip-notch section (a 116 mm), tension + "
+     ],
+     [
+      "NFT2",
+      "TOP CHORD",
+      0.22,
+      "compression + bending (EWM local-global,"
+     ],
+     [
+      "NFT4",
+      "BOTTOM CHORD",
+      0.22,
+      "bending + shear"
+     ],
+     [
+      "W3",
+      "BOTTOM TRACK",
+      0.21,
+      "lip-notch section (a 88 mm), compression"
+     ],
+     [
+      "W2",
+      "BOTTOM TRACK",
+      0.21,
+      "lip-notch section (a 88 mm), compression"
+     ]
+    ],
+    "worst_joints": [
+     [
+      "NFT23",
+      "WEB",
+      0.28,
+      1.72
+     ],
+     [
+      "NFT23",
+      "WEB",
+      0.27,
+      1.72
+     ],
+     [
+      "NFT4",
+      "WEB",
+      0.26,
+      1.56
+     ],
+     [
+      "NFT4",
+      "WEB",
+      0.25,
+      1.5
+     ],
+     [
+      "NFT23",
+      "WEB",
+      0.25,
+      1.57
+     ],
+     [
+      "NFT23",
+      "WEB",
+      0.25,
+      1.57
+     ]
+    ]
+   },
+   "floor_truss_relative_sag_SLS_mm": -2.9,
+   "max_settlement_mm": -3.0
+  },
+  "packers_heavy": {
+   "dead_load_multiplier": 1.2,
+   "ULS1": {
+    "members_over": 0,
+    "joints_over": 0,
+    "links_over_shear": 0,
+    "max_member": 0.9596286075561086,
+    "max_joint": 0.9144041550692859,
+    "max_link_shear": 0.8356871058745594,
+    "worst_members": [
+     [
+      "NFT4",
+      "BOTTOM CHORD",
+      0.96,
+      "bending + shear"
+     ],
+     [
+      "NFT13",
+      "BOTTOM CHORD",
+      0.89,
+      "bending + shear"
+     ],
+     [
+      "NFT22",
+      "TOP CHORD",
+      0.87,
+      "lip-notch section (a 126 mm), compressio"
+     ],
+     [
+      "NFT13",
+      "TOP CHORD",
+      0.87,
+      "lip-notch section (a 126 mm), compressio"
+     ],
+     [
+      "NFT22",
+      "BOTTOM CHORD",
+      0.86,
+      "bending + shear"
+     ],
+     [
+      "NFT11",
+      "BOTTOM CHORD",
+      0.86,
+      "bending + shear"
+     ]
+    ],
+    "worst_joints": [
+     [
+      "NFT5",
+      "WEB",
+      0.91,
+      5.83
+     ],
+     [
+      "NFT21",
+      "WEB",
+      0.91,
+      5.82
+     ],
+     [
+      "NFT15",
+      "WEB",
+      0.91,
+      5.8
+     ],
+     [
+      "NFT11",
+      "WEB",
+      0.91,
+      5.79
+     ],
+     [
+      "NFT16",
+      "WEB",
+      0.91,
+      5.78
+     ],
+     [
+      "NFT16",
+      "WEB",
+      0.91,
+      5.78
+     ]
+    ]
+   },
+   "ULS2": {
+    "members_over": 0,
+    "joints_over": 0,
+    "links_over_shear": 0,
+    "max_member": 0.2781109596458137,
+    "max_joint": 0.3406441997420628,
+    "max_link_shear": 0.2995021585575109,
+    "worst_members": [
+     [
+      "NFT4",
+      "TOP CHORD",
+      0.28,
+      "compression + bending (DSM local-global,"
+     ],
+     [
+      "NFT23",
+      "BOTTOM CHORD",
+      0.27,
+      "lip-notch section (a 116 mm), tension + "
+     ],
+     [
+      "NFT2",
+      "TOP CHORD",
+      0.27,
+      "compression + bending (EWM local-global,"
+     ],
+     [
+      "NFT4",
+      "BOTTOM CHORD",
+      0.26,
+      "bending + shear"
+     ],
+     [
+      "W3",
+      "BOTTOM TRACK",
+      0.25,
+      "lip-notch section (a 88 mm), compression"
+     ],
+     [
+      "W2",
+      "BOTTOM TRACK",
+      0.25,
+      "lip-notch section (a 88 mm), compression"
+     ]
+    ],
+    "worst_joints": [
+     [
+      "NFT23",
+      "WEB",
+      0.34,
+      2.07
+     ],
+     [
+      "NFT23",
+      "WEB",
+      0.32,
+      2.07
+     ],
+     [
+      "NFT4",
+      "WEB",
+      0.31,
+      1.87
+     ],
+     [
+      "NFT4",
+      "WEB",
       0.3,
-      1.84
+      1.8
      ],
      [
       "NFT23",
       "WEB",
       0.29,
-      1.84
+      1.88
      ],
      [
-      "NFT4",
+      "NFT23",
       "WEB",
-      0.25,
-      1.52
-     ],
-     [
-      "NFT4",
-      "WEB",
-      0.25,
-      1.52
-     ],
-     [
-      "NFT4",
-      "WEB",
-      0.25,
-      1.51
-     ],
-     [
-      "NFT4",
-      "WEB",
-      0.25,
-      1.51
+      0.29,
+      1.88
      ]
     ]
    },

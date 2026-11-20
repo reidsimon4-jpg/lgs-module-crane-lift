@@ -48,3 +48,29 @@ def test_cradle_seat_bearing_by_hand():
 def test_bearing_bolt_bending_capacity():
     # M16 8.8 shank in bending between the cheeks: phi fy Zp, Zp = d^3 / 6 for a round bar, fy 640 MPa
     assert close(0.90 * 640.0 * 16.0 ** 3 / 6.0, 393216.0, rel=1e-9)
+
+
+def test_lipless_notch_section_by_hand():
+    # reviewers' hand values for the C89 0.95 section with the lips cut away: A 154.0 mm2, Iy 21,170 mm4 (minor axis)
+    from liftcalc import notch as NT
+    b = NT.notched_buckling(0.95, 50.0, False)
+    assert close(b["A"], 154.0, rel=2e-3)
+    assert close(b["Iy"], 21170.0, rel=1e-2)
+    # with the flange edges held the notched section reaches first yield in minor-axis bending (no local buckling loss)
+    cap = NT.notched_capacities(0.95, 450.0, 127.0, 346.0, True)
+    Z_tip = b["bend_minor_lips_comp"]["res"]
+    assert close(cap["phiMy_tips"], 0.90 * 450.0 * Z_tip, rel=1e-6)
+    # without credit the free flange tips buckle first: lower than with the edges held
+    assert NT.notched_capacities(0.95, 450.0, 127.0, 346.0, False)["phiMy_tips"] < cap["phiMy_tips"]
+
+
+def test_gusseted_notch_is_stronger_than_bare_notch():
+    from liftcalc import notch as NT
+    g = NT.gusseted_capacities(1.15, 450.0, 346.0); n = NT.notched_capacities(1.15, 450.0, 127.0, 346.0, True)
+    assert g["phiMy"] > n["phiMy"] and g["phiNc"] > n["phiNc"]
+
+
+def test_bolted_strap_net_section_rule():
+    # (0.1 + 3 d / s) An fu with phi 0.55: M12 across a 50 mm strap gives 0.82; 50 x 2.5 with a 14 mm hole -> 19.48 kN
+    c, d = K.strap_tension_bolted(50.0, 2.5, K.G450, 12.0, 14.0)
+    assert close(d["eff"], 0.82, rel=1e-9) and close(c / 1e3, 19.48, rel=2e-3)

@@ -49,6 +49,22 @@ def _single_inner_hanger(c):
     c["inner_face_sides"] = ["N"]
 
 
+def _no_notch_credit(c):
+    c["notch_credit"] = False
+
+
+def _links_soft(c):
+    c["build_options"]["link_I"] = 50.0
+
+
+def _links_stiff(c):
+    c["build_options"]["link_I"] = 800.0
+
+
+def _joint_fixity(c):
+    c["build_options"]["joint_fixity"] = 0.3
+
+
 def _lining(c):
     c["lining"] = True
 
@@ -68,6 +84,10 @@ VARIANTS = [
     ("A8_edge_trusses_100", "ABLATION: the three edge trusses at 1.00 mm (the thickest TRUECORE G550 listed in Indonesia), not 1.15 mm", _edge_100),
     ("S1_lining_credit", "SENSITIVITY: lining and flooring credited as restraint", _lining),
     ("S2_twist_length_out", "SENSITIVITY: twist buckling length = out-of-plane length (no credit for joint screws)", _twist_out),
+    ("S3_no_notch_credit", "SENSITIVITY: no credit at lip notches for the nested member or the gusset plates (bare lipless section)", _no_notch_credit),
+    ("S4_links_soft", "SENSITIVITY: panel-to-panel links 4 times softer (about 1.7 kN/mm)", _links_soft),
+    ("S5_links_stiff", "SENSITIVITY: panel-to-panel links 4 times stiffer (about 28 kN/mm)", _links_stiff),
+    ("S6_joint_fixity", "SENSITIVITY: truss and wall joints partly fixed in plane (fixity 0.3 instead of pinned)", _joint_fixity),
 ]
 
 
@@ -105,7 +125,7 @@ def main():
     with ProcessPoolExecutor(max_workers=a.jobs) as ex:
         rows = list(ex.map(_run_one, todo))
     d = json.load(open(os.path.join(ROOT, "results", "revD_final", "summary.json"), encoding="utf-8"))["envelope"]
-    design = dict(id="revD_final", name="Rev D design (all measures)", members_over=d["members_over"], joints_over=d["joints_over"], links_over=d["links_over"],
+    design = dict(id="revD_final", name="Rev D.1 design (all measures)", members_over=d["members_over"], joints_over=d["joints_over"], links_over=d["links_over"],
                   ties=d["links_tie"], max_member=round(d["max_member"], 2), max_joint=round(d["max_joint"], 2), max_link_shear=round(d.get("max_link_shear", 0.0), 2))
     old = {}
     p = os.path.join(ROOT, "site", "data", "ablation.json")

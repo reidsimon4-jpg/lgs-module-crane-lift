@@ -215,12 +215,16 @@ class Doc:
             c.drawString(x, y, line); y -= size * 1.18
         c.setFillColor(HexColor("#cbd5e1")); c.setFont("SegL", 13)
         y -= 2 * mm
-        for line in ci["subtitle"].split("\n"):
-            c.drawString(x, y, line); y -= 17
+        from reportlab.lib.utils import simpleSplit
+        for para in ci["subtitle"].split("\n"):                      # wrap to the page width
+            for line in simpleSplit(para, "SegL", 13, W - 2 * self.m) or [""]:
+                c.drawString(x, y, line); y -= 17
         y -= 4 * mm
         cx = x
         for chip, col in ci["chips"]:
             tw = pdfmetrics.stringWidth(chip.upper(), "SegSB", 7.5) + 14
+            if cx > x and cx + tw > W - self.m:                           # next row when the chip would run off the page
+                cx = x; y -= 19
             c.setStrokeColor(HexColor(col)); c.setFillColor(HexColor(col)); c.setLineWidth(0.8)
             c.roundRect(cx, y - 4, tw, 14, 7, 1, 0)
             c.setFont("SegSB", 7.5); c.drawString(cx + 7, y + 0.5, chip.upper()); cx += tw + 6

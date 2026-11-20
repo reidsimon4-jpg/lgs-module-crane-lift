@@ -1,0 +1,42 @@
+{
+ "frame_kg": 1302.22,
+ "members": 1194,
+ "panels": 57,
+ "gauged_panels": {
+  "NFT1": 58,
+  "NFT2": 58,
+  "NFT25": 58
+ },
+ "components": 453,
+ "components_by_def": {
+  "LIFT_HEAD": 8,
+  "LIFT_HS": 8,
+  "LIFT_PB": 20,
+  "LIFT_BR": 40,
+  "LIFT_CR": 8,
+  "LIFT_GU": 41,
+  "FLOOR_GU": 125,
+  "LIFT_CL": 84,
+  "LIFT_TIE": 119
+ },
+ "component_kg": 257.5,
+ "clashes": 0,
+ "clash_kinds": {},
+ "release_ok": true,
+ "release_blockers": 0,
+ "release_blocker_checks": {},
+ "release_blocker_details": [],
+ "regen_warnings": [],
+ "ifc": "model\\engineered\\lift_module_frame_and_parts.ifc",
+ "ifc_bytes": 3273516,
+ "project_with_parts_sha256": "6a0daa96b67ba1350400b4f420753500ce9b2506f4dc642437e95d9276ca943b"
+}
+  COMP-FLOOR_GU   125     36.81 kg  FG floor-truss joint gusset pair (floor structure for the 3 kPa classroom load, needed whe
+  COMP-LIFT_BR     40     26.95 kg  BR truss bridging - C89 0.95 nogging at mid-span, 2 screws each end
+  COMP-LIFT_CL     84     55.39 kg  CL truss-end cleat pair - folded 1.5 mm G450 50 x 50 angle, full depth 280 mm, each side o
+  COMP-LIFT_CR      8     18.54 kg  CR cradle - two 3 mm G450 cheeks 120 x 200 over the joint gusset plates, 2 x M16 8.8 beari
+  COMP-LIFT_GU     41     10.99 kg  GU joint gusset pair (lift) - 1.5 mm G450 plate each face, 100 high, 3 + 3 screws per face
+  COMP-LIFT_HEAD    8     31.35 kg  LH lifting head - closed box: two 3 mm G450 cheeks 120 x 480 over the roof edge truss (no 
+  COMP-LIFT_HS      8     54.16 kg  HS hanger strap pair - 2 x 50 x 2.5 G450, one on each face, match-drilled, 2 x M12 8.8 eac
+  COMP-LIFT_PB     20     17.74 kg  PB floor / roof plane bracing strap - 30 x 1.0 G300 with tensioner
+  COMP-LIFT_TIE   119      5.60 kg  T2-T3 tie plate - 40 x 1.0 / 30 x 0.8 G300 strap on the side face across a joint, 4 + 4 / 

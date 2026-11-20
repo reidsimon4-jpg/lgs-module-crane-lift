@@ -12,8 +12,8 @@ import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import run_lift as RL  # noqa: E402
 
-MAIN_CASES = ["R4_equalised", "R1_rigid", "T1_roll_S", "T2_roll_N", "T3_pitch_W", "T4_pitch_E", "T5_SW", "T6_SE", "T7_NW", "T8_NE",
-              "L1_squeeze_y", "L3_squeeze_x", "R7d_twist"]
+MAIN_CASES = ["R4_equalised", "R1_rigid", "T1_roll_S", "T2_roll_N", "T5_SW", "T6_SE", "L1_squeeze_y", "L3_squeeze_x", "TW1_twist",
+              "T1+L4", "T2+L4", "CG_NW+T", "CG_SE+T", "R7d_twist"]
 
 
 def r3(v):
@@ -69,7 +69,10 @@ def export(model_dir, cfg, out_dir, label):
                   joints_by_screws={str(k): sum(1 for n in final.values() if n == k) for k in sorted(set(final.values()))},
                   gusseted_joints=len(gus),
                   note="a joint at 10 is a gusset: two 1.5 mm plates, 3 + 3 screws per face, plus the framed screws")
-    gussets = [dict(xyz=r3(M.xyz[B.joints[jid]["node"]]), panel=B.joints[jid]["panel"], nrm=[round(float(v), 3) for v in B.members[B.joints[jid]["members"][0]]["nrm"]]) for jid in gus]
+    sched_p = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "results", "joint_schedule.json")
+    sched_ = json.load(open(sched_p, encoding="utf-8"))["joints"] if os.path.exists(sched_p) else {}
+    gussets = [dict(xyz=r3(M.xyz[B.joints[jid]["node"]]), panel=B.joints[jid]["panel"], nrm=[round(float(v), 3) for v in B.members[B.joints[jid]["members"][0]]["nrm"]],
+                    source=sched_.get(jid, {}).get("source", "lift"), reason=sched_.get(jid, {}).get("reason", "screws")) for jid in gus]
     ledger = [dict(item=x["item"], group=x["group"], kg=round(x["kg"], 1), note=x.get("note", "")) for x in r["led"]["ledger"]]
     out = dict(label=label, config=cfg.get("name"), meta=r["out"]["meta"], screws=screws, ledger=ledger, scale_to_rated=r["led"]["factor_to_rated"], envelope={k: v for k, v in r["out"]["envelope"].items() if k != "added"},
                cases={c: {k: v for k, v in r["out"]["cases"][c].items()} for c in r["out"]["cases"]}, main_cases=main,

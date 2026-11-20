@@ -4,9 +4,12 @@ usage: python analysis/run_service.py <model folder> <config.json> <results fold
 
 Same frame model and added parts as the lift run. Loads: G = the itemised finished mass (no rating up), Q = floor live load
 on the floor trusses and roof live load on the roof trusses. Combination 1.2 G + 1.5 Q (AS/NZS 1170.0), and 1.35 G.
-Supports (two layouts, both reported):
-  piers  - the module on piers under both floor rims at no more than 1.8 m: the 8 lift cradles, the 4 corners and 6 more;
-  bearer - the module on continuous bearers under both floor rims (every rim bottom-chord node held vertically).
+Supports (all reported):
+  packers       - the landing and storage rule (hold point H8): a packer under every floor-truss end, both sides, shimmed;
+  packers_heavy - the same with the dead load 1.2 x the itemised mass (hold point H1: a heavier module is re-checked);
+  piers         - the module on piers under both floor rims: the 8 lift cradles, the 4 corners and 6 more (for comparison);
+  bearer        - the module on continuous bearers under both floor rims (every rim bottom-chord node held vertically).
+Lip notches are checked as in the lift run (run_lift.set_notch_rules: edge credit, gusseted joints as composite sections).
 In service the floor truss top chords are restrained by the structural flooring screwed at 300 mm (normal floor design
 practice; the lift check takes no credit for it). Rev D has no temporary parts: every lift part stays (the straps carry
 nothing in service because the lifting heads are free vertically).
@@ -45,14 +48,59 @@ def live_load(B, case, kind, q_kPa, x_extent):
     return led
 
 
+LAYOUT_GMUL = {"piers": 1.0, "bearer": 1.0, "packers": 1.0, "packers_heavy": 1.2}
+
+
+def layout_nodes(B, rimBC, piers, layout):
+    return {"piers": piers, "bearer": rimBC}.get(layout, B.service_packers)
+
+
+def solve_layout(M, nodes, gmul):
+    """ULS1 = 1.2 g G + 1.5 Q, ULS2 = 1.35 g G, SLS = G + 0.7 Q (g = dead load multiplier), supports held vertically."""
+    M.loads["ULS1"] = {k: 1.2 * gmul * M.loads["G"].get(k, 0.0) + 1.5 * M.loads["Q"].get(k, 0.0) for k in set(M.loads["G"]) | set(M.loads["Q"])}
+    M.loads["ULS2"] = {k: 1.35 * gmul * v for k, v in M.loads["G"].items()}
+    M.loads["SLS"] = {k: M.loads["G"].get(k, 0.0) + 0.7 * M.loads["Q"].get(k, 0.0) for k in set(M.loads["G"]) | set(M.loads["Q"])}
+    M.fixed.clear(); M.nspring = []
+    for nd in nodes: M.fix(nd, [2])
+    M.fix(nodes[0], [0, 1]); M.fix(nodes[-1], [1])
+    if hasattr(M, "K"): del M.K
+    return M.solve(["ULS1", "ULS2", "SLS"])
+
+
+def check_layout(B, res, cfg, sv, steel, extra):
+    """Member, joint and link checks of the two in-service ULS cases: {case: (members, joints, links)}."""
+    out = {}
+    for c in ("ULS1", "ULS2"):
+        rs = dict(cfg.get("restraint_lines") or {}); rs.update(sv.get("restraint_lines", {"floor_truss|TOP CHORD": 300.0}))   # flooring screwed at 300 mm
+        out[c] = (LC.check_members(B, res[c], steel, lining=False, restraint=rs),
+                  LC.check_joints(B, res[c], C.CONN_LOW, extra_fasteners=extra),
+                  LC.check_links(B, res[c], C.CONN_LOW, screws_by_rule=cfg.get("link_screws")))
+    return out
+
+
+def service_checks(cfg, model_dir=None, layouts=("packers", "packers_heavy")):
+    """In-service checks for the given support layouts with the config's gussets (used by size_joints.py).
+    Returns (B, {layout: {case: (members, joints, links)}})."""
+    model_dir = model_dir or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model", "engineered")
+    B, M, rimBC, piers, sv, led = build(cfg, model_dir)
+    extra = RL.set_notch_rules(B, cfg)
+    steel = getattr(C, cfg.get("steel", "G450"))
+    out = {}
+    for layout in layouts:
+        res = solve_layout(M, layout_nodes(B, rimBC, piers, layout), LAYOUT_GMUL[layout])
+        out[layout] = check_layout(B, res, cfg, sv, steel, extra)
+    return B, out
+
+
 def service_joint_demands(cfg, model_dir=None):
     """Joint check of the in-service ULS case (1.2 G + 1.5 Q) on continuous bearers, with the config's joint screws.
     Returns {joint id: joint check row} (used by size_joints.py to size the gussets)."""
     model_dir = model_dir or os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model", "engineered")
     B, M, rimBC, piers, sv, led = build(cfg, model_dir)
+    nodes = B.service_packers if cfg.get("service_support", "packers") == "packers" else rimBC
     M.fixed.clear(); M.nspring = []
-    for nd in rimBC: M.fix(nd, [2])
-    M.fix(rimBC[0], [0, 1]); M.fix(rimBC[-1], [1])
+    for nd in nodes: M.fix(nd, [2])
+    M.fix(nodes[0], [0, 1]); M.fix(nodes[-1], [1])
     if hasattr(M, "K"): del M.K
     res = M.solve(["ULS1"])
     return LC.check_joints(B, res["ULS1"], C.CONN_LOW, extra_fasteners=RL.extra_fasteners(B, cfg))
@@ -80,50 +128,30 @@ def build(cfg, model_dir):
     for y in cfg["rim_y"].values():
         for x in sorted(set(list(cfg["lift_lines_x"]) + [30.0, 11970.0] + list(sv.get("extra_pier_x", [2700.0, 6000.0, 9300.0])))):
             piers.append(min(rimBC, key=lambda n: (xyz[n][0] - x) ** 2 + (xyz[n][1] - y) ** 2))
+    packers = []                                                     # the landing rule: a packer under every floor-truss end, both sides
+    for y in cfg["rim_y"].values():
+        for x in RL.truss_x(proj, "F"):
+            packers.append(min(rimBC, key=lambda n: (xyz[n][0] - x) ** 2 + (xyz[n][1] - y) ** 2))
+    B.service_packers = sorted(set(packers))
     return B, M, rimBC, piers, sv, led
 
 
 def main():
     model_dir, cfg_path, out_dir = sys.argv[1:4]
     cfg = json.load(open(cfg_path, encoding="utf-8"))
-    sv = cfg.get("service", {"floor_live_kPa": 3.0, "roof_live_kPa": 0.25})
-    snap = F.load_snapshot(os.path.join(model_dir, "framed.json")); proj = json.load(open(os.path.join(model_dir, "project.json"), encoding="utf-8"))
-    cfg = copy.deepcopy(cfg)
-    cfg["v_legs"] = [lg for lg in cfg.get("v_legs", []) if not lg.get("temporary")]   # the temporary lift straps are gone in service
-    B = F.build(snap, options=cfg.get("build_options"), additions={"members": RL.lift_additions(cfg, proj, snap)})
-    M = B.model
-    mm = MS.load_mass_model(os.path.join(os.path.dirname(model_dir.rstrip("/\\")), "mass_model.json"))
-    mm["rated_lift_mass_kg"] = None                                      # in service: the itemised mass as it is
-    led = MS.apply(B, mm, proj, case="G")
-    M.loads["Q"] = {}
-    live_load(B, "Q", "floor_truss", sv["floor_live_kPa"], [0, 12000])
-    live_load(B, "Q", "roof_truss", sv["roof_live_kPa"], [0, 12000])
+    B, M, rimBC, piers, sv, led = build(cfg, model_dir)             # the temporary lift straps (if any) are gone in service
     Wg = LC.total_vertical_load(M, "G"); Wq = LC.total_vertical_load(M, "Q")
     print(f"G = {Wg / 1e3:.1f} kN ({led['itemised_kg']:.0f} kg), Q = {Wq / 1e3:.1f} kN (floor {sv['floor_live_kPa']} kPa, roof {sv['roof_live_kPa']} kPa)")
-    M.loads["ULS1"] = {k: 1.2 * M.loads["G"].get(k, 0.0) + 1.5 * M.loads["Q"].get(k, 0.0) for k in set(M.loads["G"]) | set(M.loads["Q"])}
-    M.loads["ULS2"] = {k: 1.35 * v for k, v in M.loads["G"].items()}
-    M.loads["SLS"] = {k: M.loads["G"].get(k, 0.0) + 0.7 * M.loads["Q"].get(k, 0.0) for k in set(M.loads["G"]) | set(M.loads["Q"])}
-    rimBC = sorted({nd for m in B.members.values() if m["kind"] == "rim_truss" and m["type"] == "BOTTOM CHORD" for _, nd in (m.get("nodes") or [])})
-    xyz = np.array(M.xyz)
-    piers = []
-    for y in cfg["rim_y"].values():
-        for x in sorted(set(list(cfg["lift_lines_x"]) + [30.0, 11970.0] + list(sv.get("extra_pier_x", [2700.0, 6000.0, 9300.0])))):
-            piers.append(min(rimBC, key=lambda n: (xyz[n][0] - x) ** 2 + (xyz[n][1] - y) ** 2))
     steel = getattr(C, cfg.get("steel", "G450"))
-    extra = RL.extra_fasteners(B, cfg)
-    out = {"G_kN": Wg / 1e3, "Q_kN": Wq / 1e3, "itemised_kg": led["itemised_kg"], "layouts": {}}
-    for layout, nodes in (("piers", piers), ("bearer", rimBC)):
-        M.fixed.clear(); M.nspring = []
-        for nd in nodes: M.fix(nd, [2])
-        M.fix(nodes[0], [0, 1]); M.fix(nodes[-1], [1])
-        if hasattr(M, "K"): del M.K
-        res = M.solve(["ULS1", "ULS2", "SLS"])
-        row = {}
+    extra = RL.set_notch_rules(B, cfg)
+    print(f"gusseted joints (lip notches there checked as the plated section): {len(LC.NOTCH['gussets'])}; edge credit {LC.NOTCH['credit']}")
+    out = {"G_kN": Wg / 1e3, "Q_kN": Wq / 1e3, "itemised_kg": led["itemised_kg"], "gusseted_joints": len(LC.NOTCH["gussets"]), "layouts": {}}
+    for layout in ("piers", "bearer", "packers", "packers_heavy"):
+        res = solve_layout(M, layout_nodes(B, rimBC, piers, layout), LAYOUT_GMUL[layout])
+        chk = check_layout(B, res, cfg, sv, steel, extra)
+        row = {"dead_load_multiplier": LAYOUT_GMUL[layout]}
         for c in ("ULS1", "ULS2"):
-            rs = dict(cfg.get("restraint_lines") or {}); rs.update(sv.get("restraint_lines", {"floor_truss|TOP CHORD": 300.0}))   # flooring screwed at 300 mm
-            mc = LC.check_members(B, res[c], steel, lining=False, restraint=rs)
-            jc = LC.check_joints(B, res[c], C.CONN_LOW, extra_fasteners=extra)
-            lk = LC.check_links(B, res[c], C.CONN_LOW, screws_by_rule=cfg.get("link_screws"))
+            mc, jc, lk = chk[c]
             wm = sorted(mc.items(), key=lambda kv: -kv[1]["util"])[:6]; wj = sorted(jc.items(), key=lambda kv: -kv[1]["util"])[:6]
             row[c] = dict(members_over=sum(1 for v in mc.values() if v["util"] > 1), joints_over=sum(1 for v in jc.values() if v["util"] > 1),
                           links_over_shear=sum(1 for v in lk if v["util_shear"] > 1), max_member=max(v["util"] for v in mc.values()),

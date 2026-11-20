@@ -48,17 +48,18 @@ def box_xz(x0, x1, z0, z1, y0, t):           # rectangle in the x-z plane, extru
 
 defs = []
 # lifting head: saddle over the roof edge truss - two 3 mm cheeks on the faces, top plate, M20 pin (shown square)
-defs.append({"id": "LIFT_HEAD", "name": "LH lifting head saddle - folded 3 mm G450 box over the roof edge truss, M20 8.8 pin + 40 mm sleeve, no fasteners, stop block along the module",
+defs.append({"id": "LIFT_HEAD", "name": "LH lifting head - closed box: two 3 mm G450 cheeks 120 x 480 over the roof edge truss (no fasteners, stop block along the module), two 3 mm end plates above the truss, open top; M20 8.8 pin + 40 mm sleeve",
              "category": "pod",
-             "parameters": [P("Material", "material", MAT), P("Mass kg", "number", 0, formula="(2*120*450*3 + 120*101*3) * 7.85e-6 + 0.35")],
-             "forms": [box_xz(-60, 60, 0, 450, -50.5, 3), box_xz(-60, 60, 0, 450, 47.5, 3),
-                       {"kind": "extrude", "plane": "xy", "profile": [[-60, -50.5], [60, -50.5], [60, 50.5], [-60, 50.5]], "from": 447, "depth": 3, "material": "Material"},
-                       box_xz(-10, 10, 380, 400, -60, 120)],
+             "parameters": [P("Material", "material", MAT), P("Mass kg", "number", 0, formula="(2*120*480*3 + 2*101*180*3) * 7.85e-6 + 0.35")],
+             "forms": [box_xz(-60, 60, 0, 480, -51.5, 3), box_xz(-60, 60, 0, 480, 48.5, 3),
+                       {"kind": "extrude", "plane": "yz", "profile": [[-48.5, 300], [48.5, 300], [48.5, 480], [-48.5, 480]], "from": -60, "depth": 3, "material": "Material"},
+                       {"kind": "extrude", "plane": "yz", "profile": [[-48.5, 300], [48.5, 300], [48.5, 480], [-48.5, 480]], "from": 57, "depth": 3, "material": "Material"},
+                       box_xz(-10, 10, 440, 460, -62, 124)],
              "boq": {"code": "LIFT-LH", "unit": "kg", "qty_formula": "Mass kg"}})
 # north hanger strap pair, one 50 x 1.5 strap on each face of the edge truss
-defs.append({"id": "LIFT_HS", "name": "HS hanger strap pair - 2 x 50 x 1.5 G450, one on each face, 2 x M12 8.8 each end", "category": "pod",
-             "parameters": [P("Length", "length", 3430, True), P("Material", "material", MAT), P("Mass kg", "number", 0, formula="2 * Length * 50 * 1.5 * 7.85e-6")],
-             "forms": [box_xz(-25, 25, 0, "Length", -46, 1.5), box_xz(-25, 25, 0, "Length", 44.5, 1.5)],
+defs.append({"id": "LIFT_HS", "name": "HS hanger strap pair - 2 x 50 x 2.5 G450, one on each face, match-drilled, 2 x M12 8.8 each end with washers; fixed nowhere between its ends", "category": "pod",
+             "parameters": [P("Length", "length", 3430, True), P("Material", "material", MAT), P("Mass kg", "number", 0, formula="2 * Length * 50 * 2.5 * 7.85e-6")],
+             "forms": [box_xz(-25, 25, 0, "Length", -52.0, 2.5), box_xz(-25, 25, 0, "Length", 49.5, 2.5)],
              "boq": {"code": "LIFT-HS", "unit": "kg", "qty_formula": "Mass kg"}})
 # south A-frame strap pair (parallelogram from the foot up to the head)
 prof = [[-25, 0], [25, 0], ["Run + 25", "Rise"], ["Run - 25", "Rise"]]
@@ -71,26 +72,30 @@ defs.append({"id": "LIFT_VS", "name": "VS A-frame strap pair (south) - 2 x 50 x 
 # cradle: two cheeks, two M16 bearing bolts with sleeves (shown square), two 3 x 40 x 89 packers; local origin = cradle start x,
 # truss centre line y, cheek bottom z (410 mm under the floor level, 113 mm under the edge truss)
 def bolt(sx):
-    return {"kind": "extrude", "plane": "xz", "profile": [[f"{sx} - 8", 89.5], [f"{sx} + 8", 89.5], [f"{sx} + 8", 105.5], [f"{sx} - 8", 105.5]],
-            "from": -55, "depth": 110, "material": "Material"}
+    return {"kind": "extrude", "plane": "xz", "profile": [[f"{sx} - 8", 129.5], [f"{sx} + 8", 129.5], [f"{sx} + 8", 145.5], [f"{sx} - 8", 145.5]],
+            "from": -58, "depth": 116, "material": "Material"}
 
 
-defs.append({"id": "LIFT_CR", "name": "CR cradle - two 3 mm G450 cheeks 120 x 160, 2 x M16 8.8 bearing bolts + sleeves under the truss joints, 3 x 40 x 89 packers; screwed at the first joint, bearing only at the second",
+defs.append({"id": "LIFT_CR", "name": "CR cradle - two 3 mm G450 cheeks 120 x 200 over the joint gusset plates, 2 x M16 8.8 bearing bolts + 92 mm sleeves under the truss joints, 3 x 40 x 89 packers, strap bolts below the bearing bolts; screwed at the first joint, bearing only at the second",
              "category": "pod",
              "parameters": [P("S1", "length", 40, True), P("S2", "length", 99, True), P("Material", "material", MAT),
-                            P("Mass kg", "number", 0, formula="2*120*160*3*7.85e-6 + 2*0.32 + 2*0.05 + 2*40*89*3*7.85e-6 + 4*0.06")],
-             "forms": [box_xz(0, 120, 0, 160, -47.5, 3), box_xz(0, 120, 0, 160, 44.5, 3), bolt("S1"), bolt("S2"),
-                       box_xz("S1 - 20", "S1 + 20", 110, 113, -44.5, 89), box_xz("S2 - 20", "S2 + 20", 110, 113, -44.5, 89)],
+                            P("Mass kg", "number", 0, formula="2*120*200*3*7.85e-6 + 2*0.34 + 2*0.05 + 2*40*89*3*7.85e-6 + 4*0.06")],
+             "forms": [box_xz(0, 120, 0, 200, -49.0, 3), box_xz(0, 120, 0, 200, 46.0, 3), bolt("S1"), bolt("S2"),
+                       box_xz("S1 - 20", "S1 + 20", 150, 153, -44.5, 89), box_xz("S2 - 20", "S2 + 20", 150, 153, -44.5, 89)],
              "boq": {"code": "LIFT-CR", "unit": "kg", "qty_formula": "Mass kg"}})
-# joint gusset: a 1.5 mm plate on each face of the panel, 100 x 100, 3 + 3 screws per face
-defs.append({"id": "LIFT_GU", "name": "GU joint gusset pair - 1.5 mm G450 100 x 100 plate each face, 3 + 3 screws per face", "category": "pod",
-             "parameters": [P("Material", "material", MAT), P("Mass kg", "number", 0, formula="2 * 100 * 100 * 1.5 * 7.85e-6")],
-             "forms": [box_xz(-50, 50, -50, 50, -46, 1.5), box_xz(-50, 50, -50, 50, 44.5, 1.5)],
-             "boq": {"code": "LIFT-GU", "unit": "kg", "qty_formula": "Mass kg"}})
+# joint gusset pair: one 1.5 mm plate on each face, Length along the member, 100 high, flush with the chord's outer face
+for did, label, code in (("LIFT_GU", "GU joint gusset pair (lift) - 1.5 mm G450 plate each face, 100 high, 3 + 3 screws per face per joint, flush with the chord face", "LIFT-GU"),
+                         ("FLOOR_GU", "FG floor-truss joint gusset pair (floor structure for the 3 kPa classroom load, needed whether or not the module is lifted) - 1.5 mm G450, 3 + 3 screws per face", "FLOOR-GU")):
+    defs.append({"id": did, "name": label, "category": "pod",
+                 "parameters": [P("Length", "length", 100, True), P("Material", "material", MAT), P("Mass kg", "number", 0, formula="2 * Length * 100 * 1.5 * 7.85e-6")],
+                 "forms": [box_xz("0 - Length / 2", "Length / 2", 0, 100, -46, 1.5), box_xz("0 - Length / 2", "Length / 2", 0, 100, 44.5, 1.5)],
+                 "boq": {"code": code, "unit": "kg", "qty_formula": "Mass kg"}})
 # truss-end cleat pair: a folded 1.5 mm angle each side of the truss end (drawn as the two legs on the edge truss face)
-defs.append({"id": "LIFT_CL", "name": "CL truss-end cleat pair - folded 1.5 mm G450 50 x 50 angle each side of the truss end, 5 + 5 screws", "category": "pod",
-             "parameters": [P("Material", "material", MAT), P("Mass kg", "number", 0, formula="2 * 100 * 200 * 1.5 * 7.85e-6")],
-             "forms": [box_xz(-96.5, -46.5, -100, 100, 0, 1.5), box_xz(46.5, 96.5, -100, 100, 0, 1.5)],
+defs.append({"id": "LIFT_CL", "name": "CL truss-end cleat pair - folded 1.5 mm G450 50 x 50 angle, full depth 280 mm, each side of the truss end; 5 screws into the end vertical, 5 into the edge-truss chords (3 bottom, 2 top)", "category": "pod",
+             "parameters": [P("Material", "material", MAT), P("Mass kg", "number", 0, formula="2 * 100 * 280 * 1.5 * 7.85e-6")],
+             "forms": [box_xz(-96.5, -46.5, -140, 140, 0, 1.5), box_xz(46.5, 96.5, -140, 140, 0, 1.5),
+                       {"kind": "extrude", "plane": "yz", "profile": [[0, -140], [50, -140], [50, 140], [0, 140]], "from": -48.0, "depth": 1.5, "material": "Material"},
+                       {"kind": "extrude", "plane": "yz", "profile": [[0, -140], [50, -140], [50, 140], [0, 140]], "from": 46.5, "depth": 1.5, "material": "Material"}],
              "boq": {"code": "LIFT-CL", "unit": "kg", "qty_formula": "Mass kg"}})
 # plane bracing strap (in plan), 30 x 1.0 G300
 defs.append({"id": "LIFT_PB", "name": "PB floor / roof plane bracing strap - 30 x 1.0 G300 with tensioner", "category": "pod",
@@ -104,9 +109,9 @@ defs.append({"id": "LIFT_BR", "name": "BR truss bridging - C89 0.95 nogging at m
              "forms": [{"kind": "extrude", "plane": "yz", "profile": [[-44.5, -38], [44.5, -38], [44.5, 0], [-44.5, 0]], "from": "0 - Length / 2", "depth": "Length", "material": "Material"}],
              "boq": {"code": "LIFT-BR", "unit": "kg", "qty_formula": "Mass kg"}})
 # tie plate
-defs.append({"id": "LIFT_TIE", "name": "T2-T3 tie plate - 30-40 x 0.8-1.0 G300 strap across a joint, 4 + 4 / 2 + 2 screws", "category": "pod",
+defs.append({"id": "LIFT_TIE", "name": "T2-T3 tie plate - 40 x 1.0 / 30 x 0.8 G300 strap on the side face across a joint, 4 + 4 / 2 + 2 screws", "category": "pod",
              "parameters": [P("Material", "material", MAT), P("Mass kg", "number", 0, formula="40 * 150 * 1.0 * 7.85e-6")],
-             "forms": [{"kind": "extrude", "plane": "xy", "profile": [[-75, -20], [75, -20], [75, 20], [-75, 20]], "from": 0, "depth": 1.0, "material": "Material"}],
+             "forms": [box_xz(-20, 20, -75, 75, 44.5, 1.0)],
              "boq": {"code": "LIFT-TIE", "unit": "kg", "qty_formula": "Mass kg"}})
 for d in defs:
     component_defs.validate_def(d)
@@ -135,20 +140,42 @@ for m in D["members"]:
 for f in D["foot_layout"]:
     x0 = f["cradle"][0]; y = CFG["rim_y"][f["side"]]
     s = sorted(f["joints"] if len(f["joints"]) >= 2 else f["seats"] * 2)
-    place("LIFT_CR", x0, y, -410.0, values={"S1": round(s[0] - x0, 1), "S2": round(s[-1] - x0, 1)})
-for g in D["gussets"]:
-    rot = 0.0 if abs(g["nrm"][1]) > 0.5 else 90.0          # panels in the x-z plane (edge trusses, long walls) or the y-z plane
-    place("LIFT_GU", g["xyz"][0], g["xyz"][1], g["xyz"][2], rot=rot)
+    place("LIFT_CR", x0, y, -450.0, values={"S1": round(s[0] - x0, 1), "S2": round(s[-1] - x0, 1)})
+SCHED = json.load(open(R("results/joint_schedule.json"), encoding="utf-8"))
+src_at = {tuple(round(c) for c in v["xyz"]): v["source"] for v in SCHED["joints"].values()}
+groups = []                                              # joints of one panel within 80 mm of each other share one plate
+for g in sorted(D["gussets"], key=lambda q: (q["panel"], q["xyz"][0], q["xyz"][1], q["xyz"][2])):
+    for grp in groups:
+        if grp[0]["panel"] == g["panel"] and any(math.dist(g["xyz"], q["xyz"]) < 80.0 for q in grp):
+            grp.append(g); break
+    else:
+        groups.append([g])
+zf = (CFG["floor_rim_z"][0] + CFG["floor_rim_z"][1]) / 2.0
+for grp in groups:
+    pts_ = [q["xyz"] for q in grp]
+    c = [sum(v[i] for v in pts_) / len(pts_) for i in range(3)]
+    along_y = abs(grp[0]["nrm"][0]) > 0.5                  # floor / roof trusses and end walls lie in the y-z plane
+    span = (max(v[1] for v in pts_) - min(v[1] for v in pts_)) if along_y else (max(v[0] for v in pts_) - min(v[0] for v in pts_))
+    zc = c[2]
+    kind_floor = abs(zc - zf) < 200.0; kind_roof = zc > 2600.0
+    if kind_floor or kind_roof:                           # truss joint: flush with the chord's outer face
+        zmid = zf if kind_floor else 2850.0
+        z0 = zc - 17.5 if zc < zmid else zc + 17.5 - 100.0
+    else:
+        z0 = zc - 50.0
+    srcs = {src_at.get(tuple(round(v) for v in q["xyz"]), "lift") for q in grp}
+    place("FLOOR_GU" if srcs == {"service"} else "LIFT_GU", c[0], c[1], z0, rot=(90.0 if along_y else 0.0), values={"Length": round(span + 100.0, 1)})
 # truss-end cleats at both ends of every floor and roof truss (on the inside face of the edge truss)
 for kind, zc in (("floor_truss", (CFG["floor_rim_z"][0] + zt) / 2), ("roof_truss", None)):
     tops = [m for m in D["members"] if m["kind"] == kind and m["type"] == "TOP CHORD"]
     for x in sorted({round((m["a"][0] + m["b"][0]) / 2, 1) for m in tops}):
         z = zc if zc is not None else max(m["a"][2] for m in tops) - 150.0
         place("LIFT_CL", x, CFG["rim_y"]["S"] + 44.5, z)
-        place("LIFT_CL", x, CFG["rim_y"]["N"] - 44.5 - 1.5, z)
-for l in D["links"]:
-    if l["tie"]:
-        place("LIFT_TIE", (l["a"][0] + l["b"][0]) / 2, (l["a"][1] + l["b"][1]) / 2, (l["a"][2] + l["b"][2]) / 2)
+        place("LIFT_CL", x, CFG["rim_y"]["N"] - 44.5 - 1.5, z, rot=180.0)
+for l in D["links"]:                                     # T2 / T3 only: the truss chord ends (T1) are carried by the cleats
+    if l["tie"] and "truss chord end" not in l["rule"]:
+        rot = 0.0 if abs(l["a"][1] - l["b"][1]) < 1.0 and abs(l["a"][0] - l["b"][0]) >= abs(l["a"][1] - l["b"][1]) else 90.0
+        place("LIFT_TIE", (l["a"][0] + l["b"][0]) / 2, (l["a"][1] + l["b"][1]) / 2, (l["a"][2] + l["b"][2]) / 2, rot=rot)
 
 p = copy.deepcopy(project)
 p["component_defs"] = defs; p["components"] = comps

@@ -69,12 +69,15 @@ def main():
         row(g, "M12 8.8 bolt shear, single plane, threads included", T1 / 2, K.bolt_shear(12), "0.8 x 0.62 x 800 x Ac")
     hang = env_of(lambda k, v: v["type"] == "STRAP", "N_max")
     inner = set(cfg.get("inner_face_sides", []))
+    split = cfg.get("strap_split", 0.65)                           # fit-up: the two straps of a pair share at worst 65 / 35
+    ts = cfg.get("hanger_strap_t", 2.5)
     if hang and "N" not in inner:
-        T1h = hang / 2
-        g = "Hanger strap pair (2 x 50 x 1.5 G450, one on each face of the edge truss and wall)"
-        row(g, "strap tension per strap (gross yield / net section at a 14 mm hole)", T1h, K.strap_tension(50.0, 1.5, K.G450, hole=14.0)[0], "0.90 Ag fy ; 0.65 An fu")
-        row(g, "2 x M12 each end, bearing on the 1.5 mm strap", T1h, 2 * K.bolt_bearing(12, 1.5, 480.0), "AISI J3.3.2 deformation-limited, phi 0.65")
-        row(g, "tear-out: end bolt e = 30 mm, inner bolt clear distance 40 - 7 = 33 mm", T1h, K.bolt_tearout(30.0, 1.5, 480.0) + K.bolt_tearout(33.0, 1.5, 480.0), "0.60 t e fu")
+        T1h = split * hang
+        g = f"Hanger strap pair (2 x 50 x {ts:g} G450, one on each face, match-drilled; checked at a {split * 100:.0f} / {100 - split * 100:.0f} split)"
+        row(g, "strap tension, the more loaded strap (gross yield / bolted thin-sheet net section at a 14 mm hole)", T1h,
+            K.strap_tension_bolted(50.0, ts, K.G450, 12.0, 14.0)[0], "0.90 Ag fy ; 0.55 (0.1 + 3d/s) An fu (AS/NZS 4600 5.3.3 form, single shear, washers)")
+        row(g, "2 x M12 each end, bearing on the strap", T1h, 2 * K.bolt_bearing(12, ts, 480.0), "AISI J3.3.2 deformation-limited, phi 0.65")
+        row(g, "tear-out: end bolt e = 30 mm, inner bolt clear distance 40 - 7 = 33 mm", T1h, K.bolt_tearout(30.0, ts, 480.0) + K.bolt_tearout(33.0, ts, 480.0), "0.60 t e fu")
         row(g, "M12 8.8 bolt shear, single plane, threads included", T1h / 2, K.bolt_shear(12), "0.8 x 0.62 x 800 x Ac")
     elif hang:
         g = "Hanger strap, north, inside face only (1 x 50 x 3.0 G450)"
@@ -108,13 +111,13 @@ def main():
                     seat_log.append(dict(cradle=cid, seat=sid, x=round(M.xyz[nd][0], 1), case=case["id"], up_kN=round(up / kN, 2), down_kN=round(down / kN, 2),
                                          along_kN=round(float(v[0]) / kN, 2), across_kN=round(float(v[1]) / kN, 2)))
     if groups:
-        g = "Cradle (two 3 mm G450 cheek plates joined under the chord by 2 x M16 8.8 bearing bolts with sleeves, one under each truss joint of the pair; screwed at the first joint, bearing only at the second)"
+        g = "Cradle (two 3 mm G450 cheeks 120 x 200 over the joint gusset plates, joined under the chord by 2 x M16 8.8 bearing bolts with 92 mm sleeves, one under each truss joint; screwed at the first joint, bearing only at the second)"
         Pc = worst["c"][0]
         cu = worst["cu"]
         row(g, f"bearing under one truss joint on a 3 x 40 x 89 packer: crippling of the chord's two flanges ({cu[4]:.2f} mm chord; worst: {cu[1]})", cu[2],
             cu[3], "AS/NZS 4600 3.3.6 form (AISI G5 C, interior one-flange, unfastened), phi 0.90",
-            "conservative: the nested truss diagonals stiffen the chord flanges at the joint")
-        span = cfg.get("cradle_inside", 95.0)
+            "formula outside its test basis here (the chord's own flanges are the crippling webs): UNVERIFIED until the seat test of hold point H4")
+        span = cfg.get("cradle_inside", 92.0)
         Mb = Pc * span / 4.0                                             # packer load taken as a point load at mid-span (conservative)
         row(g, f"M16 8.8 bearing bolt bending between the cheeks ({span:.0f} mm span), packer load as a point load at mid-span", Mb / 1e3,
             0.90 * 640.0 * 16.0 ** 3 / 6.0 / 1e3, "plain shank in the bending zone, phi 0.90 fy Zp (fy 640 MPa)", unit="N.m")
@@ -123,30 +126,36 @@ def main():
         row(g, "tear-out of the cheek below the bearing bolt, e = 25 mm", Pc / 2, K.bolt_tearout(25.0, 3.0, 480.0), "0.60 t e fu")
         row(g, f"cheek screws at the screwed seat, 2 per cheek: along-truss shear with any uplift (worst: {worst['scr'][1]})", worst["scr"][0],
             K.screw_shear(3.0, 0.95, 480.0, K.FRAME_CONN_FU, n=4)[0], "AS/NZS 4600 5.4.2.4, taken in a 0.95 mm chord at 412.5 MPa (the edge trusses are 1.15), group 0.90")
-        Ts = max(south_pair / 2, hang / 2 if "N" not in inner else hang)
-        row(g, "strap bolts: 2 x M12 per strap, bearing on the 3 mm cheek", Ts, 2 * K.bolt_bearing(12, 3.0, 480.0), "AISI J3.3.2, phi 0.65")
+        Ts = max(south_pair / 2, split * hang if "N" not in inner else hang)
+        row(g, "strap bolts below the bearing bolts: 2 x M12 per strap, bearing on the 3 mm cheek", Ts, 2 * K.bolt_bearing(12, 3.0, 480.0), "AISI J3.3.2, phi 0.65")
+        row(g, "tear-out of the cheek below the lower strap bolt, e = 30 mm", Ts, K.bolt_tearout(30.0, 3.0, 480.0), "0.60 t e fu")
         row(g, f"sideways force at one seat, carried by a cheek bearing on the chord flange over the 120 mm cheek (worst: {worst['y'][1]})", worst["y"][0],
             0.90 * 450.0 * 0.95 * 120.0 * 0.5, "half the flange yield in bearing over the cheek length (local), phi 0.90",
             "information: small once both faces carry straps")
-    # ---------------------------------------------------------------- 3 lifting heads
+    # ---------------------------------------------------------------- 3 lifting heads: closed box (two cheeks + two end plates), open top
     head_max = 0.0
     for case in design:
         for k, v in case["_info"]["reactions"].items(): head_max = max(head_max, abs(v))
     P = head_max * f
-    side = 0.105 * P
+    lean = cfg.get("lean_fraction", 0.035)
+    side = lean * P
     Pres = math.hypot(P, side)
-    g = "Lifting head (saddle: folded 3 mm G450 box over the roof edge truss, M20 pin, 40 mm sleeve)"
+    g = "Lifting head (closed box: two 3 mm G450 cheeks 120 x 480 joined by two 3 mm end plates, open top; M20 8.8 pin with a 40 mm sleeve)"
     row(g, "M20 8.8 lifting pin, double shear", Pres, K.bolt_shear(20, planes=2), "0.8 x 0.62 x 800 x Ac, 2 planes")
+    span_pin = 98.0
+    row(g, f"M20 pin bending between the cheeks ({span_pin:.0f} mm), sling on the sleeve taken as a point load at mid-span", Pres * span_pin / 4.0,
+        0.90 * 640.0 * 20.0 ** 3 / 6.0, "plain shank, phi 0.90 fy Zp (fy 640 MPa)", unit="N.m")
     row(g, "pin bearing on the two 3 mm cheeks (the straps bolt to the cheeks separately)", Pres, 2 * K.bolt_bearing(20, 3.0, 480.0), "AISI J3.3.2, phi 0.65")
     row(g, "tear-out above the pin, e = 45 mm, 2 cheeks of 3 mm", Pres, 2 * K.bolt_tearout(45.0, 3.0, 480.0), "0.60 t e fu")
-    row(g, "strap bolts at the head: 2 x M12 per strap, bearing on the 3 mm cheek", max(south_pair / 2, hang / 2 if "N" not in inner else hang), 2 * K.bolt_bearing(12, 3.0, 480.0), "AISI J3.3.2, phi 0.65")
+    row(g, "strap bolts at the head: 2 x M12 per strap, bearing on the 3 mm cheek", max(south_pair / 2, split * hang if "N" not in inner else hang), 2 * K.bolt_bearing(12, 3.0, 480.0), "AISI J3.3.2, phi 0.65")
     gv = env_of(lambda k, v: v["type"] == "GUIDE", "V")
     gl = max([max(abs(v["N_max"]), abs(v["N_min"]), v["V"]) for v in env.values() if v["type"] == "GUIDE LINK"] or [0.0])
-    bear = max(gv, gl)
-    row(g, "head bearing on the roof edge truss face (no fasteners; every head keyed along the module by a stop block): web crippling over a 40 mm pad", bear,
+    bear = 1.6 * max(gv, gl)
+    row(g, "head bearing on the roof edge truss top chord (no fasteners; stop block along the module): 1.6 x the guide force (lever to the bottom chord), web crippling over a 40 mm pad", bear,
         web_crippling_c(0.95, 450.0, 87.0, 2.0, 40.0, webs=1), "AS/NZS 4600 3.3.6 form, one web")
-    row(g, "sideways load at the lug (10.5 % of the sling force, 6 deg drop tolerance), box cantilever 170 mm", side * 170.0 / 1e3,
-        0.90 * 450.0 * 2 * (89.0 * 3.0 ** 2 / 6 + 3.0 * 89.0 ** 2 / 6) / 1e3, "box of two 3 mm cheeks, phi 0.90 fy Z", unit="N.m")
+    Zbox = (2 * (120.0 * 3.0) * 50.5 ** 2 + 2 * (3.0 * 101.0 ** 3 / 12.0)) / 52.0
+    row(g, f"sideways load at the pin ({lean * 100:.1f} % of the sling force, the 2 deg drop limit), closed box as a cantilever 170 mm above the truss", side * 170.0 / 1e3,
+        0.90 * 450.0 * Zbox / 1e3, "box of two cheeks and two end plates, phi 0.90 fy Z", unit="N.m")
     # ---------------------------------------------------------------- 4 cleats, ties, gussets, chord plates
     tie_max = defaultdict(float)
     for i, v in r["env_l"].items():
@@ -155,7 +164,7 @@ def main():
     cleat = K.screw_shear(1.5, 0.95, 480.0, K.FRAME_CONN_FU, n=ncl)[0]
     t1 = max([tie_max.get(k, 0.0) for k in ("floor truss chord end to floor rim chord", "roof truss chord end to roof rim chord")] + [0.0])
     ter = max([v["util_shear"] * ncl * one_09 * K.GROUP for v in r["env_l"].values() if v["rule"].startswith("truss end vertical")] or [0.0])
-    g = f"Truss-end cleat (folded 1.5 mm G450 angle each side of every truss end, {ncl} + {ncl} screws)"
+    g = f"Truss-end cleat (folded 1.5 mm G450 angle, full depth 280 mm, each side of every truss end; {ncl} screws into the end vertical, {ncl} into the edge-truss chords: 3 bottom, 2 top)"
     row(g, "chord pull at the truss end, through the cleat leg screws in shear", t1, cleat, f"{ncl} screws per leg in shear, group 0.90")
     row(g, "end reaction through the end vertical (per tie of the model)", ter, cleat, f"{ncl} screws per leg in shear, group 0.90")
     t2 = max([tie_max.get(k, 0.0) for k in ("wall top track under roof rim / end roof truss", "wall bottom track on floor rim / end floor truss")] + [0.0])
@@ -195,8 +204,9 @@ def main():
     static = head_max * cfg["factors"]["weight"] * cfg["factors"]["cog"]
     rig = dict(max_static_drop_kN=round(static / kN, 2), max_static_drop_t=round(static / 9.80665 / 1000, 2),
                note="largest drop force in the design cases x weight 1.03 x CoG 1.05 (no dynamic factor): drop gear WLL at least this. "
-                    "Interface: round sling eye directly over the free-turning 40 mm sleeve on the M20 pin inside the head; shackles only at the "
-                    "beam ends, sling in the bow. The rig (beams, slings, shackles) is lifting equipment: designed, proof tested and rated.")
+                    "Interface: round sling eye down through the open top of the head box onto the free-turning 40 mm sleeve on the M20 pin, "
+                    "cheek tops fitted with edge protectors; shackles only at the beam ends. The rig (beams, slings, shackles) is lifting "
+                    "equipment: designed, certified to AS 4991, proof tested and rated; drops within 2 deg of vertical.")
     out = dict(config=cfg.get("name"), factor=f, rows=rows, rigging=rig, seats=seat_log if groups else [])
     os.makedirs(out_dir, exist_ok=True)
     json.dump(out, open(os.path.join(out_dir, "connectors.json"), "w"), indent=1)

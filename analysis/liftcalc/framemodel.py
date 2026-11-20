@@ -295,6 +295,20 @@ def _finish(B, mem, byid, stations, opt, additions, link_rules):
                 s0, s1 = max(0.0, ta[0]), min(ma["L"], ta[1])
                 if s1 - s0 < 20.0:
                     link_specs.append((ma, s * ma["L"], mb, t * mb["L"], rule, d)); continue
+                trk = ma if (ma["kind"] == "wall" and "TRACK" in ma["type"]) else (mb if (mb["kind"] == "wall" and "TRACK" in mb["type"]) else None)
+                if opt.get("track_links_at_studs") and trk is not None and rule.startswith("wall ") and " track " in rule:
+                    # the track bears on the edge truss chord under every stud: one link at each stud joint of the track
+                    pts_ = []
+                    for p_, _ in trk["joints"]:
+                        sa = float((trk["a"] + trk["dir"] * p_ - ma["a"]).dot(ma["dir"]))
+                        if s0 - 1.0 <= sa <= s1 + 1.0: pts_.append(sa)
+                    pts_ = sorted(set(round(v, 1) for v in pts_))
+                    if len(pts_) >= 2:
+                        for sa in pts_:
+                            Pa = ma["a"] + ma["dir"] * sa
+                            sb = float(np.clip((Pa - mb["a"]).dot(mb["dir"]), 0.0, mb["L"]))
+                            link_specs.append((ma, sa, mb, sb, rule, d))
+                        continue
                 n = max(2, int(math.ceil((s1 - s0) / opt["link_spacing"])) + 1)
                 for k in range(n):
                     sa = s0 + (s1 - s0) * (k + 0.5) / n if n > 2 else (s0 + 25.0 if k == 0 else s1 - 25.0)

@@ -11,6 +11,7 @@ import math
 from collections import defaultdict
 import numpy as np
 from . import as4600 as C
+from . import notch as NT
 from .fea3d import Model
 
 BEARING_TYPES = {"STUD", "KING STUD", "JAMB", "CRIPPLE", "POST"}
@@ -80,6 +81,9 @@ def _capacity_cache():
 
 
 TWIST = {"mode": "joint"}       # 'joint': twist restrained at every joint (screws through both flanges); 'out': at L_out; 'cap': old 1200 mm cap
+NOTCH = {"check": "dsm",        # 'dsm': notched section (no lips) for axial, bending and tension at element ends on a notch; 'old': axial only
+         "credit": True,        # True: flange edges held by the nested member (and gusset plates where the joint has a gusset); False: no credit
+         "gussets": set()}      # joint ids with a gusset pair (set by run_lift before the checks)
 SERVICE_HOLE_D = 32.0           # mm, Framer service hole in the web (taken as a round 32 mm hole)
 
 
@@ -125,6 +129,7 @@ def check_members(B, res, steel=C.G450, lining=False, restraint=None):
         phiNc, det = sec.compression_design(L_out, L_in, L_tw)       # lex = major-axis (out-of-plane) length, ley = in-plane
         phiNc *= n * kh
         phiNn = n * kh * sec.notched_compression_design(det["fn"]) if "LIP NOTCH" in ops else None
+        zones = NT.notch_zones(m) if ("LIP NOTCH" in ops and NOTCH["check"] == "dsm") else []
         phiVmaj = n * sec.shear_design_major(); phiVmin = n * sec.shear_design_minor()
         phiNs = n * C.PHI["compression"] * sec.compression_section_nominal()
         phiMx, _ = sec.moment_major_design(lb=L_in); phiMx *= n      # out-of-plane bending is about the major axis
@@ -142,9 +147,30 @@ def check_members(B, res, steel=C.G450, lining=False, restraint=None):
                     u = C.combined_tension_bending(N, Mout, Min, phiNt, phiMx, phiMy, phiMx, phiMy); mode = "tension + bending"
                 else:
                     u = C.combined_compression_bending(-N, Mout, Min, phiNc, phiNs, phiMx, phiMy, Nex, Ney); mode = "compression + bending (" + det["governs"] + ", " + det["global_mode"] + ")"
-                    if phiNn:                                        # the section at a lip notch (truss panel points)
+                    if phiNn and not zones:                          # the section at a lip notch (truss panel points), axial only (old rule)
                         un = -N / phiNn + Mout / phiMx + Min / phiMy
                         if un > u: u, mode = un, "lip-notch section, compression + bending"
+                if zones:                                            # at a notch: the lipless section for every term, in compression and tension
+                    el = B.elements[e]; s_end = el["s1"] if end else el["s0"]
+                    for z0, z1, a_n in zones:
+                        if z0 - 10.0 <= s_end <= z1 + 10.0:
+                            fn_ = round(min(det["fn"], sec.steel.fy), 1)
+                            gus = NOTCH["credit"] and any(z0 - 10.0 <= p_ <= z1 + 10.0 and j_ in NOTCH["gussets"] for p_, j_ in (m.get("joints") or []))
+                            if gus:                                  # the gusset plates cover this section: it is the composite section, not the bare chord
+                                cp = NT.gusseted_capacities(round(m["t"], 3), sec.steel.fy, fn_); tag_ = "gusseted lip-notch section"
+                                u = 0.0
+                            else:
+                                cp = NT.notched_capacities(round(m["t"], 3), sec.steel.fy, round(a_n, 0), fn_, bool(NOTCH["credit"]))
+                                tag_ = "lip-notch section" + ("" if NOTCH["credit"] else " (no edge credit)")
+                                cp = dict(cp, phiNc=min(cp["phiNc"], phiNc / max(n * kh, 1e-9), sec.notched_compression_design(det["fn"])),
+                                          phiMx=min(cp["phiMx"], phiMx / n), phiMy=min(cp["phiMy"], phiMy / n), phiNt=min(cp["phiNt"], phiNt / n))
+                            k_ = n * kh
+                            if N < 0:
+                                un = -N / (k_ * cp["phiNc"]) + Mout / (k_ * cp["phiMx"]) + Min / (k_ * cp["phiMy"])
+                            else:
+                                un = N / (k_ * cp["phiNt"]) + Mout / (k_ * cp["phiMx"]) + Min / (k_ * cp["phiMy"])
+                            if un > u: u, mode = un, f"{tag_} (a {a_n:.0f} mm), {'compression' if N < 0 else 'tension'} + bending"
+                            break
                 Vmaj = abs(f[1 + 6 * end]); Vmin = abs(f[2 + 6 * end])     # shear, and bending with shear (clause 3.3.5)
                 uv = max(math.hypot(Mout / phiMx, Vmaj / phiVmaj), math.hypot(Min / phiMy, Vmin / phiVmin))
                 if uv > u: u, mode = uv, "bending + shear"
